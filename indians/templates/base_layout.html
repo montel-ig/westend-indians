@@ -1,0 +1,20 @@
+{% load compress %}
+{% load staticfiles %}
+<head>
+
+  {% compress css %}
+    <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/main.scss' %}"/>
+  {% endcompress %}
+</head>
+
+<body>
+
+  {% block main %}
+    you forgot the main block!
+  {% endblock %}
+
+  <footer>foo</footer>
+  {% compress js %}
+    <script type="module" src="{% static 'js/index.es6' %}"></script>
+  {% endcompress %}
+</body>

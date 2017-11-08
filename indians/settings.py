@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'wagtail.wagtailadmin',
     'wagtail.wagtailcore',
 
+    'compressor',
+    'compressor_toolkit',
     'modelcluster',
     'taggit',
     'indians',
@@ -149,3 +151,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 WAGTAIL_SITE_NAME = 'Westend Indians'
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder'
+)
+
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'compressor_toolkit.precompilers.SCSSCompiler'),
+    ('module', 'compressor_toolkit.precompilers.ES6Compiler'),
+)
+COMPRESS_OFFLINE = True
+COMPRESS_OFFLINE_CONTEXT = {}

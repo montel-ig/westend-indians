@@ -1,0 +1,30 @@
+{
+  "name": "westend-indians",
+  "version": "1.0.0",
+  "description": "The home of the Indians, vol 2",
+  "main": "index.js",
+  "dependencies": {
+    "autoprefixer": "^7.1.6",
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^8.0.0",
+    "browserify": "^14.5.0",
+    "fsevents": "^1.1.2",
+    "node-sass": "^4.6.0",
+    "postcss-cli": "^4.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/montel-ig/westend-indians.git"
+  },
+  "author": "montel-ig",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/montel-ig/westend-indians/issues"
+  },
+  "homepage": "https://github.com/montel-ig/westend-indians#readme"
+}
