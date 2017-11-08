@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>Joukkueet</title>
+    </head>
+    <body>
+        <h2>Joukkueet</h2>
+        <p><a href="/edustusjoukkue">Edustus</a></p>
+
+        {% for team in teams %}
+            <p><a href="/joukkueet/{{ team.slug }}/">{{ team.name|linebreaks }}</a></p>
+        {% endfor %}
+    </body>
+</html>
