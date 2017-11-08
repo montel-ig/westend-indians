@@ -2,6 +2,11 @@
 
 <h1>{{page.title}}</h1>
 <p><h1>{{page.description}}</h1></p>
+!!!
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
     aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+{% for team in page.teams %}
+    {{team.name}}
+{% endfor %}
+
 
