@@ -14,7 +14,7 @@
     aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
 
   {% for team in page.teams %}
-  {{team.name}}
+    <p><a href="/joukkueet/{{ team.slug }}/">{{ team.name|linebreaks }}</a></p>
   {% endfor %}
 
 {% endblock %}

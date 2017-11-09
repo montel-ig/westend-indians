@@ -1,6 +1,16 @@
 {% load compress %}
 {% load staticfiles %}
+
+{% load wagtailcore_tags %}
+
+
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }}</title>
+  <meta name="description" content={{page.description}}>
+
 
   {% compress css %}
     <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/main.scss' %}"/>
@@ -8,13 +18,29 @@
 </head>
 
 <body>
-
-  {% block main %}
-    you forgot the main block!
-  {% endblock %}
-
-  <footer>foo</footer>
-  {% compress js %}
-    <script type="module" src="{% static 'js/index.es6' %}"></script>
-  {% endcompress %}
+  <div class="container">
+    <div class="item item-1">
+      <p>first row</p>
+      <nav class="nav-index">
+        <ul>
+          {% for menuitem in request.site.root_page.get_children.live %}
+              <li><a href="{{ menuitem }}">{{ menuitem.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+    <div class="item item-2">
+      <p>second row</p>
+      {% block main %}
+        you forgot the main block!
+      {% endblock %}
+    </div>
+    <div class="item item-3">
+      <p>third row</p>
+      <footer>footer</footer>
+    </div>
+  </div>
 </body>
+{% compress js %}
+  <script type="module" src="{% static 'js/index.es6' %}"></script>
+{% endcompress %}
