@@ -160,7 +160,9 @@ STATICFILES_FINDERS = (
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', 'compressor_toolkit.precompilers.SCSSCompiler'),
     ('module', 'compressor_toolkit.precompilers.ES6Compiler'),
-    ('text/jsx', 'third_party.react_compressor.ReactFilter'),
+    # ('text/jsx', 'third_party.react_compressor.ReactFilter'),
+    ('text/jsx', 'node_modules/.bin/babel {infile} > {outfile}'),
+
 )
 COMPRESS_OFFLINE = True
 COMPRESS_OFFLINE_CONTEXT = {}

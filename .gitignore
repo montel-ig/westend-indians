@@ -102,5 +102,4 @@ ENV/
 
 .idea
 node_modules
-static
 .DS_Store
