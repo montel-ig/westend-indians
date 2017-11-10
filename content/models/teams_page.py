@@ -4,12 +4,17 @@ from __future__ import unicode_literals
 from django.db import models
 
 from wagtail.wagtailcore.models import Page
-from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailadmin.edit_handlers import FieldPanel
 
-class Index(Page):
-    description = models.CharField(max_length=255, blank=True,)
+from teams.models import Team
 
+
+class TeamsPage(Page):
+    description = models.CharField(max_length=255, blank=True,)
     content_panels = Page.content_panels + [
         FieldPanel('description', classname="full")
     ]
+
+    @property
+    def teams(self):
+        return Team.objects.all()

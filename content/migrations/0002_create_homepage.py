@@ -27,7 +27,7 @@ def create_homepage(apps, schema_editor):
         content_type=homepage_content_type,
         path='00010001',
         depth=2,
-        numchild=0,
+        numchild=3,
         url_path='/home/',
     )
 
@@ -52,7 +52,7 @@ def remove_homepage(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('content', '0004_initial'),
+        ('content', '0001_initial'),
     ]
 
     operations = [

@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Edustusjoukkue',
+            name='TeamsPage',
             fields=[
                 ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.Page')),
                 ('description', models.CharField(blank=True, max_length=255)),
@@ -26,8 +26,9 @@ class Migration(migrations.Migration):
             },
             bases=('wagtailcore.page',),
         ),
+
         migrations.CreateModel(
-            name='Index',
+            name='NewsPage',
             fields=[
                 ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.Page')),
                 ('description', models.CharField(blank=True, max_length=255)),
@@ -37,8 +38,9 @@ class Migration(migrations.Migration):
             },
             bases=('wagtailcore.page',),
         ),
+
         migrations.CreateModel(
-            name='Joukkueet',
+            name='EventsPage',
             fields=[
                 ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.Page')),
                 ('description', models.CharField(blank=True, max_length=255)),
@@ -48,11 +50,11 @@ class Migration(migrations.Migration):
             },
             bases=('wagtailcore.page',),
         ),
+
         migrations.CreateModel(
-            name='TeamIndex',
+            name='HomePage',
             fields=[
-                ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.Page')),
-                ('description', models.CharField(blank=True, max_length=255)),
+                ('page_ptr', models.OneToOneField(on_delete=models.CASCADE, parent_link=True, auto_created=True, primary_key=True, serialize=False, to='wagtailcore.Page')),
             ],
             options={
                 'abstract': False,

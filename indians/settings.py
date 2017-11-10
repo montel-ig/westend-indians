@@ -54,8 +54,11 @@ INSTALLED_APPS = [
     'compressor_toolkit',
     'modelcluster',
     'taggit',
+
     'indians',
     'teams',
+    'events',
+    'news',
     'content',
 
 ]

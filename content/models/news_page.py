@@ -6,15 +6,15 @@ from django.db import models
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailadmin.edit_handlers import FieldPanel
 
-from teams.models import Team
+from news.models import NewsItem
 
 
-class TeamIndex(Page):
-    description = models.CharField(max_length=255, blank=True,)
+class NewsPage(Page):
+    description = models.CharField(max_length=255, blank=True)
     content_panels = Page.content_panels + [
         FieldPanel('description', classname="full")
     ]
 
     @property
-    def teams(self):
-        return Team.objects.all()
+    def news(self):
+        return NewsItem.objects.all()
