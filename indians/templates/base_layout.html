@@ -40,7 +40,15 @@
       <footer>footer</footer>
     </div>
   </div>
+
+  <div id="reactroottest"></div>
 </body>
+<script src="../static/js/vendor/react-0.14.3.js"></script>
+<script src="../static/js/vendor/react-dom-0.14.3.js"></script>
+<!--
+<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+-->
 {% compress js %}
-  <script type="module" src="{% static 'js/index.es6' %}"></script>
+  <script type="text/jsx" src="{% static 'js/index.jsx' %}"></script>
 {% endcompress %}
