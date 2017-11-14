@@ -19,7 +19,7 @@
 
 <body>
   <div class="container">
-    <div class="item item-1">
+    <div class="main-grid-header">
       <nav class="nav-index">
         <ul>
           {% for menuitem in request.site.root_page.get_children.live %}
@@ -28,14 +28,13 @@
         </ul>
       </nav>
     </div>
-    <div class="item item-2">
-      <p>second row</p>
+    <div class="main-grid-body">
       {% block main %}
         you forgot the main block!
       {% endblock %}
       <div id="players"></div>
     </div>
-    <div class="item item-3">
+    <div class="main-grid-footer">
       <footer>footer</footer>
     </div>
   </div>
@@ -51,4 +50,7 @@
 -->
 {% compress js %}
   <script type="text/jsx" src="{% static 'js/index.jsx' %}"></script>
+  <script type="text/jsx" src="{% static 'js/components/player.jsx' %}"></script>
+  <script type="text/jsx" src="{% static 'js/components/player_browser.jsx' %}"></script>
+
 {% endcompress %}

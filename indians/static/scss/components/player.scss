@@ -1,0 +1,39 @@
+.player-browser-root .player-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.player-container .player-img {
+  height: 100%;
+  width: 100%;
+
+}
+
+.player-container:hover > .player-img-wrapper {
+  transform: scale(1.2);
+  transition: all .1s ease-in-out;
+}
+
+.player-desc {
+  background:rgba(0,0,0,0.2);
+  width: 100%;
+  display: flex;
+  list-style: none;
+  position: absolute;
+  flex-direction: row;
+  justify-content: space-around;
+
+  bottom: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.player-desc p {
+  margin: 5px;
+  text-align: center;
+}
+
+#player-number {
+  font-size: xx-large;
+}
+
