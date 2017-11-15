@@ -1,8 +1,10 @@
 @import "variables";
 @import "components/navbar";
 @import "components/main-grid";
-@import "components/playerBrowser";
+@import "components/player-browser";
 @import "components/player";
+@import "components/player-modal";
+
 
 html,
 body {
@@ -18,4 +20,8 @@ body {
   ul {
     list-style-type: none;
   }
+}
+
+.main-grid-body > h1 {
+  text-align: center;
 }

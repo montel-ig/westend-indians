@@ -38,8 +38,6 @@
       <footer>footer</footer>
     </div>
   </div>
-
-  <div id="reactroottest"></div>
 </body>
 
 <script src="{% static 'js/vendor/react-0.14.3.js' %}"></script>
@@ -50,6 +48,7 @@
 -->
 {% compress js %}
   <script type="text/jsx" src="{% static 'js/index.jsx' %}"></script>
+  <script type="text/jsx" src="{% static 'js/components/player_modal.jsx' %}"></script>
   <script type="text/jsx" src="{% static 'js/components/player.jsx' %}"></script>
   <script type="text/jsx" src="{% static 'js/components/player_browser.jsx' %}"></script>
 

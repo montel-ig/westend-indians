@@ -1,6 +1,7 @@
 const Player = (props) => {
+
   return (
-    <div className="player-container">
+    <div className="player-container" onClick={props.handlePlayerClick}>
       <div className="player-img-wrapper">
         <img className="player-img" src="http://via.placeholder.com/500x750" />
       </div>
