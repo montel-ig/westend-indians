@@ -25,3 +25,7 @@ body {
 .main-grid-body > h1 {
   text-align: center;
 }
+
+.blurred {
+  filter: $blur;
+}

@@ -1,55 +1,52 @@
 {% load compress %}
 {% load staticfiles %}
 
-{% load wagtailcore_tags %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }}</title>
+    <meta name="description" content={{page.description}}>
 
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ page.title }}</title>
-  <meta name="description" content={{page.description}}>
+    {% compress css %}
+      <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/main.scss' %}"/>
+    {% endcompress %}
+  </head>
 
-
-  {% compress css %}
-    <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/main.scss' %}"/>
-  {% endcompress %}
-</head>
-
-<body>
-  <div class="container">
-    <div class="main-grid-header">
-      <nav class="nav-index">
-        <ul>
-          {% for menuitem in request.site.root_page.get_children.live %}
-              <li><a href="{{ menuitem }}">{{ menuitem.title }}</a></li>
-          {% endfor %}
-        </ul>
-      </nav>
+  <body>
+    <div class="container">
+      <div class="main-grid-header">
+        <nav class="nav-index">
+          <ul>
+            {% for menuitem in request.site.root_page.get_children.live %}
+                <li><a href="{{ menuitem }}">{{ menuitem.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+      <div class="main-grid-body">
+        {% block main %}
+          you forgot the main block!
+        {% endblock %}
+      </div>
+      <div class="main-grid-footer">
+        <footer>footer</footer>
+      </div>
     </div>
-    <div class="main-grid-body">
-      {% block main %}
-        you forgot the main block!
-      {% endblock %}
-      <div id="players"></div>
-    </div>
-    <div class="main-grid-footer">
-      <footer>footer</footer>
-    </div>
-  </div>
-</body>
+    <script src="{% static 'js/vendor/react-0.14.3.js' %}"></script>
+    <script src="{% static 'js/vendor/react-dom-0.14.3.js' %}"></script>
+    <!--
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    -->
+    {% compress js %}
+    <script type="text/jsx" src="{% static 'js/index.jsx' %}"></script>
+    <script type="text/jsx" src="{% static 'js/components/player_modal.jsx' %}"></script>
+    <script type="text/jsx" src="{% static 'js/components/player.jsx' %}"></script>
+    <script type="text/jsx" src="{% static 'js/components/player_browser.jsx' %}"></script>
+    {% endcompress %}
+  </body>
+</html>
 
-<script src="{% static 'js/vendor/react-0.14.3.js' %}"></script>
-<script src="{% static 'js/vendor/react-dom-0.14.3.js' %}"></script>
-<!--
-<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
--->
-{% compress js %}
-  <script type="text/jsx" src="{% static 'js/index.jsx' %}"></script>
-  <script type="text/jsx" src="{% static 'js/components/player_modal.jsx' %}"></script>
-  <script type="text/jsx" src="{% static 'js/components/player.jsx' %}"></script>
-  <script type="text/jsx" src="{% static 'js/components/player_browser.jsx' %}"></script>
-
-{% endcompress %}

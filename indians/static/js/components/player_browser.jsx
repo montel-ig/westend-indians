@@ -1,47 +1,34 @@
 
 class PlayerBrowser extends React.Component {
   constructor(props) {
+
     super(props);
     this.state = {
-      playerModalVisible: false
+      selectedPlayer: null
     }
-    this.handlePlayerClick = this.handlePlayerClick.bind(this);
-    this.handleOutsideClick = this.handleOutsideClick.bind(this);
-
+    this.handleModalClose =this.handleModalClose.bind(this);
   }
 
-  handlePlayerClick() {
-    // attach/remove event handler
-    if (!this.state.playerModalVisible) {
-      document.addEventListener('click', this.handleOutsideClick, false);
-    } else {
-      document.removeEventListener('click', this.handleOutsideClick, false);
-    }
-    this.setState(prevState => ({
-      playerModalVisible: !prevState.playerModalVisible
-    }));
+  handlePlayerClick(player) {
+    this.setState({
+      selectedPlayer: this.props.players[player]
+    });
   }
-  
-  handleOutsideClick(e) {
-    // ignore clicks on the component itself, buggy
-    
-    /*
-    if (this.node.contains(e.target)) {
-      return;
-    }
-    */
-    this.handlePlayerClick();
+
+  handleModalClose() {
+    this.setState({selectedPlayer:null})
   }
+
 
   render() {
     return (
-      <div className="player-wrapper" ref={node => { this.node = node; }}>
-        {this.state.playerModalVisible && <PlayerModal  />}
-        <div className={this.state.playerModalVisible ? "player-browser-root blurred" : "player-browser-root"}>
-          {[...Array(15)].map((_, i) =>
+      <div className="player-wrapper">
+        {this.state.selectedPlayer && <PlayerModal playerNumber={this.state.selectedPlayer} handleModalClose={this.handleModalClose} />}
+        <div className={this.state.selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
+          {this.props.players.map((_, i) =>
           <Player
-            number={i+1}
-            handlePlayerClick={this.handlePlayerClick}
+            number={i}
+            handlePlayerClick={()=>{this.handlePlayerClick(i)}}
             key={i}
           />)}
         </div>
@@ -50,7 +37,13 @@ class PlayerBrowser extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <PlayerBrowser />,
-  document.getElementById('players')
-);
+PlayerBrowser.defaultProps = {
+  players: Array.from(Array(15).keys())
+}
+
+function createPlayerBrowser(id) {
+  ReactDOM.render(
+    <PlayerBrowser />,
+    document.getElementById(id)
+  );
+}
