@@ -36,6 +36,7 @@
         }
       }
     }
+
     .modal-desc {
       background: black;
       display: flex;
@@ -63,6 +64,7 @@
 
       }
     }
+
     .material-icons {
       user-select: none;
       position: absolute;
@@ -70,8 +72,10 @@
       transform: translateY(-50%);
       color: white;
       opacity:.4;
-      // TODO: Change!
-      font-size: 124px !important;
+
+      &.size-125 {
+        font-size: 124px !important;
+      }
 
       &.left {
         right: 100%;

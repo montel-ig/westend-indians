@@ -1,18 +1,18 @@
 class PlayerModal extends React.Component {
   constructor(props) {
     super()
-    this.state = {visibility:"not-visible"}
+    this.state = {visibilityClass:"not-visible"}
   }
 
   componentDidMount() {
     setTimeout(function () {
-      this.setState({visibility: "visible"});
+      this.setState({visibilityClass: "visible"});
     }.bind(this), 100);
   }
 
   render() {
     return (
-      <div className={`modal-backdrop ${this.state.visibility}`} >
+      <div className={`modal-backdrop ${this.state.visibilityClass}`} >
         <div className="modal-container">
           <ul className="modal-statics">
             <li>
@@ -38,10 +38,10 @@ class PlayerModal extends React.Component {
             </li>
           </ul>
           <div onClick={()=>{this.props.handlePlayerChange("next")}}>
-            <i className="material-icons right" >navigate_next</i>
+            <i className="material-icons right size-125" >navigate_next</i>
           </div>
           <div onClick={()=>{this.props.handlePlayerChange()}}>
-            <i className="material-icons left" >navigate_before</i>
+            <i className="material-icons left size-125" >navigate_before</i>
           </div>
         </div>
       </div>
