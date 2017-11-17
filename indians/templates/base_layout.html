@@ -1,6 +1,7 @@
 {% load compress %}
 {% load staticfiles %}
 
+<doctype html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -9,10 +10,11 @@
     <title>{{ page.title }}</title>
     <meta name="description" content={{page.description}}>
 
-
     {% compress css %}
       <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/main.scss' %}"/>
     {% endcompress %}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
   </head>
 
   <body>
@@ -49,4 +51,4 @@
     {% endcompress %}
   </body>
 </html>
-
+</doctype>

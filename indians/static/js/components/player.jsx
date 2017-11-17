@@ -1,5 +1,4 @@
 const Player = (props) => {
-
   return (
     <div className="player-container" onClick={props.handlePlayerClick}>
       <div className="player-img-wrapper">
@@ -10,8 +9,7 @@ const Player = (props) => {
           <p id="player-number"># {props.number}</p>
         </li>
         <li>
-          <p>lorem ipsum</p>
-          <p>Quisque lobortis lacus sed eros sollicitudin placerat</p>
+          <p>Pasi Pelaaja</p>
         </li>
       </ul>
     </div>

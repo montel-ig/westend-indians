@@ -6,7 +6,6 @@
   min-height: 100vh;
   background: rgba(0,0,0,0.8);
   z-index: 9999;
-
   transition: all .4s ease-in-out;
 
   .modal-container {
@@ -16,10 +15,9 @@
     position: absolute;
     z-index: 9999;
     padding: 0;
-    border: solid burlywood 1px;
+    border: solid #3E3C3B 1px;
     width: 50%;
     background: black;
-
     transition: opacity .4s ease-in-out .4s, transform .2s ease-in-out .4s;
 
     .modal-statics {
@@ -34,6 +32,7 @@
 
         > p {
           color: white;
+          text-align: left;
         }
       }
     }
@@ -64,6 +63,30 @@
 
       }
     }
+    .material-icons {
+      user-select: none;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      opacity:.4;
+      // TODO: Change!
+      font-size: 124px !important;
+
+      &.left {
+        right: 100%;
+      }
+
+      &.right {
+        left: 100%;
+      }
+
+      &.material-icons:hover {
+        opacity: .9;
+        cursor: pointer;
+      }
+    }
+
   }
 
   &.not-visible {

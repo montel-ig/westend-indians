@@ -1,29 +1,46 @@
 
 class PlayerBrowser extends React.Component {
   constructor(props) {
-
     super(props);
     this.state = {
       selectedPlayer: null
     }
-    this.handleModalClose =this.handleModalClose.bind(this);
+    this.handleModalClose = this.handleModalClose.bind(this);
+    this.handlePlayerClick = this.handlePlayerClick.bind(this);
+    this.handlePlayerChange = this.handlePlayerChange.bind(this);
   }
 
   handlePlayerClick(player) {
-    this.setState({
-      selectedPlayer: this.props.players[player]
-    });
+    this.setState({selectedPlayer: this.props.players[player]});
   }
 
-  handleModalClose() {
-    this.setState({selectedPlayer:null})
+  handlePlayerChange(player) {
+    if (player) {
+      this.setState(prevState => ({
+        selectedPlayer: this.props.players[prevState.selectedPlayer + 1]
+      }));
+      return;
+    }
+    this.setState(prevState => ({
+      selectedPlayer: this.props.players[prevState.selectedPlayer - 1]
+    }));
   }
 
+  handleModalClose(e) {
+    if (this.state.selectedPlayer && e.target.className == "modal-backdrop visible") {
+      this.setState({selectedPlayer:null});
+      return;
+    }
+  }
 
   render() {
     return (
-      <div className="player-wrapper">
-        {this.state.selectedPlayer && <PlayerModal playerNumber={this.state.selectedPlayer} handleModalClose={this.handleModalClose} />}
+      <div className="player-wrapper" onClick={this.handleModalClose}>
+        {this.state.selectedPlayer && <PlayerModal
+          players = {this.props.players}
+          selectedPlayer={this.state.selectedPlayer}
+          handlePlayerChange={this.handlePlayerChange}
+        />}
         <div className={this.state.selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
           {this.props.players.map((_, i) =>
           <Player
