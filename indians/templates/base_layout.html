@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title }}</title>
     <meta name="description" content="{{page.description}}">
-    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
     {% compress css %}
       <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/main.scss' %}"/>
     {% endcompress %}
@@ -20,10 +20,14 @@
   <body>
     <div class="container">
       <div class="main-grid-header">
+        <h1 class="main-header-text header">Westend Indians</h1>
+        <h2 class="main-header-text slogan">Once a member - always a part of the tribe</h2>
+        <img src="http://i67.tinypic.com/67ts41.jpg">
         <nav class="nav-index">
           <ul>
+            <li><img src="http://i67.tinypic.com/30kralk.png" /></li>
             {% for menuitem in request.site.root_page.get_children.live %}
-                <li><a href="{{ menuitem }}">{{ menuitem.title }}</a></li>
+                <li><a href="{{ menuitem }}">{{ menuitem.title.upper }}</a></li>
             {% endfor %}
           </ul>
         </nav>
