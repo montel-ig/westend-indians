@@ -1,9 +1,14 @@
+@import "concretecss/concrete";
 @import "variables";
+
 @import "components/navbar";
 @import "components/main-grid";
 @import "components/player-browser";
 @import "components/player";
 @import "components/player-modal";
+@import "components/team-browser";
+@import "components/team-filter";
+
 
 
 html,
