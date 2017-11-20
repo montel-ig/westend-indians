@@ -13,4 +13,11 @@
     <p><a href="/joukkueet/{{ team.slug }}/">{{ team.name|linebreaks }}</a></p>
   {% endfor %}
 
+  <div id="teams"></div>
+
+  <script type="application/javascript">
+    window.onload = function() {
+      createTeamBrowser("teams");
+    }
+  </script>
 {% endblock %}

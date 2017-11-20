@@ -2,12 +2,14 @@
 class PlayerBrowser extends React.Component {
   constructor(props) {
     super(props);
+    ['handleModalClose',
+     'handlePlayerClick',
+     'handlePlayerChange'
+    ].forEach((fn) => this[fn] = this[fn].bind(this));
+
     this.state = {
       selectedPlayer: null
     }
-    this.handleModalClose = this.handleModalClose.bind(this);
-    this.handlePlayerClick = this.handlePlayerClick.bind(this);
-    this.handlePlayerChange = this.handlePlayerChange.bind(this);
   }
 
   handlePlayerClick(player) {

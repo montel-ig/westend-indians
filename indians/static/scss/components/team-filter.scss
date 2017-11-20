@@ -1,0 +1,16 @@
+.team-filter {
+  margin:10%;
+  display: flex;
+  justify-content: center;
+  
+  label,select {
+    display: block;
+    margin:30px;
+    width: 100px;
+  }
+  .select-age {
+
+    > select {
+    }
+  }
+}
