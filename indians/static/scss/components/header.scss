@@ -1,0 +1,56 @@
+.main-grid-header {
+  text-align: center;
+  font-size: 0;
+
+  #main-img {
+    margin-top: 10%;
+  }
+
+  .main-header-text {
+    position: absolute;
+    z-index: 9999;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #FBEF36;
+
+    &.header {
+      top: 80%;
+      font-family: $black-ops;
+      font-size: 48px;
+      line-height: 60px;
+      letter-spacing: $letter-spacing-large;
+      text-transform: uppercase;
+    }
+
+    &.slogan {
+      top: 88%;
+      font-family: $titillium-web;
+      font-size: 24px;
+      letter-spacing: $letter-spacing-medium;
+    }
+  }
+
+  .nav-index {
+    position: relative;
+    padding: 10px;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around ;
+    align-items: center;
+
+    font-family: $titillium-web;
+    letter-spacing: 2px;
+    background-color: black;
+
+    > li a {
+      color: white;
+      display: block;
+      font-size: 20px;
+    }
+
+    > li img {
+    }
+  }
+}

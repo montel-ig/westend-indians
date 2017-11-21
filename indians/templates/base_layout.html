@@ -17,20 +17,18 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Encode+Sans|Titillium+Web" rel="stylesheet">
   </head>
-  <body>
+  <body class="">
     <div class="container">
       <div class="main-grid-header">
-        <h1 class="main-header-text header">Westend Indians</h1>
+        <h1 class="main-header-text header">westend indians</h1>
         <h2 class="main-header-text slogan">Once a member - always a part of the tribe</h2>
-        <img src="http://i67.tinypic.com/67ts41.jpg">
-        <nav class="nav-index">
-          <ul>
-            <li><img src="http://i67.tinypic.com/30kralk.png" /></li>
+        <img id="main-img" src="http://i67.tinypic.com/67ts41.jpg">
+          <ul class="nav-index">
+            <li><img id="nav-logo" src="http://i67.tinypic.com/30kralk.png" /></li>
             {% for menuitem in request.site.root_page.get_children.live %}
                 <li><a href="{{ menuitem }}">{{ menuitem.title.upper }}</a></li>
             {% endfor %}
           </ul>
-        </nav>
       </div>
       <div class="main-grid-body">
         {% block main %}

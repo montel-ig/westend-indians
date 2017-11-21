@@ -1,8 +1,9 @@
 @import "concretecss/concrete";
 @import "variables";
 
-@import "components/navbar";
+@import "components/header";
 @import "components/main-grid";
+@import "components/home-page";
 @import "components/player-browser";
 @import "components/player";
 @import "components/player-modal";
@@ -15,7 +16,8 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-image: url("http://i68.tinypic.com/2duc8lz.png");
+
 
   a {
     text-decoration: none;
@@ -26,6 +28,10 @@ body {
   ul {
     list-style-type: none;
   }
+}
+
+.main-grid-header {
+  background-color: black;
 }
 
 .main-grid-body > h1 {
