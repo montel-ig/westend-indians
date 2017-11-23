@@ -3,10 +3,11 @@ section {
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
   align-items: center;
+  max-width: 1280px;
   background-image: url("http://i68.tinypic.com/2duc8lz.png");
-  margin: 100px 0 100px 0;
+  margin: 100px auto 100px auto;
   width: 100vw;
-  min-height: 700px;
+  min-height: 600px;
 
   h1 {
     font-family: $black-ops;
@@ -15,9 +16,9 @@ section {
     text-transform: uppercase;
   }
 
-  .section-cta {
+  .content {
 
-    > .cta-text {
+    > .description {
       font-family: $encode-sans;
       font-size: 18px;
       margin: 30px 0 30px 0;
@@ -51,6 +52,8 @@ section {
       }
     }
 
+
+
     &.team {
       grid-column-start: 7;
       grid-column-end: 11;
@@ -61,24 +64,78 @@ section {
       grid-column-end: 8;
     }
 
+    &.shop {
+      grid-column-start: 8;
+      grid-column-end: 12;
+      > h1, p, a {
+        color: white;
+      }
+    }
+  }
+
+  .shop-products {
+    grid-column: 1 / span 7;
+    margin: 50px;
+    display: grid;
+    grid-gap: 50px;
+    grid-template-columns: 220px 220px;
+    grid-template-rows: 180px 180px;
+
+    > div {
+      background-color: white;
+      display: flex;
+      margin-left: 0;
+      margin-right: 0;
+      overflow: hidden;
+
+      > a {
+        margin: 0 auto;
+        > img {
+          max-width: 100%;
+          max-height: 100%;
+
+          &:hover {
+            transform: scale(1.2);
+            transition: all .3s ease-in-out;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+
+  .team-img {
+    position: absolute;
+    display: block;
+    transform: translateX(-40% );
+    opacity: .4;
+  }
+
+
+
+  .tribe-img {
+    position: absolute;
+    display: block;
+    right:0;
+    height: 600px;
+    max-width: 600px;
+    opacity: .4;
+  }
+
+  &.lift {
+    display: flex;
+    justify-content:center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
 
   }
 
-  .team-cta-img {
-      position: absolute;
-      display: block;
-      transform: translateX(-50%);
-      opacity: .4;
-    }
-
-  .tribe-cta-img {
-    position: absolute;
-    display: block;
-    height: 700px;
-    width: 700px;
-    right: 0;
-    transform: translateX(20%);
-    opacity: .4;
+  &.shop {
+    margin-top: 0;
+    background-color: black;
+    background-image: none;
   }
 }
 

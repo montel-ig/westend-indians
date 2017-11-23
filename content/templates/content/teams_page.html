@@ -3,12 +3,6 @@
 
 {% block main %}
 
-  <h1>
-    {{page.title}}
-  </h1>
-
-  <p>{{page.description}}</p>
-
   {% for team in page.teams %}
     <p><a href="/joukkueet/{{ team.slug }}/">{{ team.name|linebreaks }}</a></p>
   {% endfor %}

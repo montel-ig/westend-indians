@@ -1,8 +1,6 @@
-@import "concretecss/concrete";
 @import "variables";
 
 @import "components/header";
-@import "components/main-grid";
 @import "components/home-page";
 @import "components/player-browser";
 @import "components/player";
@@ -32,13 +30,10 @@ body {
   background-color: black;
 }
 
-.main-grid-body > h1 {
-  text-align: center;
+.main-grid-body  {
 }
 
-.blurred {
-  filter: $blur;
-}
+
 
 
 
