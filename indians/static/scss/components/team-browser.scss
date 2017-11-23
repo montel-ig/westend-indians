@@ -1,0 +1,7 @@
+.team-browser-root {
+  margin:10%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 450px);
+  grid-template-rows: repeat(2, 350px);
+
+}

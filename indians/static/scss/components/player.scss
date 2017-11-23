@@ -1,0 +1,51 @@
+.player-browser-root {
+
+  .player-container {
+    position: relative;
+    overflow: hidden;
+    background: black;
+
+    .player-img-wrapper {
+      display: flex;
+      justify-content:center;
+
+      .player-img {
+        height: 20em;
+      }
+    }
+
+    .player-desc {
+      background:rgba(0,0,0,0.2);
+      width: 100%;
+      display: flex;
+      list-style: none;
+      position: absolute;
+      flex-direction: row;
+      justify-content: center;
+      bottom: 0;
+      padding: 0;
+      margin: 0;
+
+      > li > p {
+        font-size: x-large;
+        margin: 5px;
+        text-align: center;
+      }
+    }
+
+  }
+
+  .player-container:hover > .player-img-wrapper {
+    transform: scale(1.2);
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+  }
+
+}
+
+#player-number {
+  color: #f5ed29;
+  font-size: xx-large;
+  text-align: center;
+}
+

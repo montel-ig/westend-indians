@@ -5,6 +5,7 @@ from django.utils.text import slugify
 
 class Team(models.Model):
     name = models.CharField(max_length=255)
+    #description = models.CharField(max_length=255, blank=True, editable=True)
     slug = models.SlugField(max_length=255, unique=True, blank=True, editable=False)
 
     created_at = models.DateTimeField(auto_now_add=True)

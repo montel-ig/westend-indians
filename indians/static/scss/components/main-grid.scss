@@ -1,0 +1,8 @@
+.container {
+  display: grid;
+  grid-template-rows: 10% auto 10%;
+}
+
+.container > div {
+  justify-items: center;
+}
