@@ -1,3 +1,3 @@
 from .team import *
-from .player import *
+from .member import *
 from .school import *
