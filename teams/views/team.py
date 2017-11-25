@@ -12,7 +12,8 @@ def teams(request):
 
 def by_slug(request, slug):
     team = get_object_or_404(Team, slug=slug)
-    return render(request, 'teams/team.html', {'team': team})
+    members = members_to_json(team)
+    return render(request, 'teams/team.html', locals())
 
 
 def members_to_json(team: Team) -> str:

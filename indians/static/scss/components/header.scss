@@ -1,6 +1,7 @@
 .main-grid-header {
   text-align: center;
   font-size: 0;
+  max-width: 1280px;
 
   #main-img {
     margin-top: 10%;
@@ -15,7 +16,7 @@
     color: #FBEF36;
 
     &.header {
-      top: 85%;
+      top: 60%;
       font-family: $black-ops;
       font-size: 48px;
       line-height: 60px;
@@ -24,7 +25,7 @@
     }
 
     &.slogan {
-      top: 93%;
+      top: 67%;
       font-family: $titillium-web;
       font-size: 24px;
       letter-spacing: $letter-spacing-medium;

@@ -1,0 +1,128 @@
+.footer {
+  display: block;
+  background-color: black;
+  color: $indians-grey;
+  background-image: none;
+  align-items: flex-start;
+  margin: 300px auto;
+  padding-bottom: 100px;
+
+  h1 {
+    text-transform: uppercase;
+    font-family: $black-ops;
+    font-size: 48px;
+    letter-spacing: $letter-spacing-medium;
+    grid-column-start: 2;
+    margin: 0;
+  }
+
+  h2 {
+    margin-top: 50px;
+    font-family: $black-ops;
+    font-size: 24px;
+    letter-spacing: $letter-spacing-large;
+    text-transform: uppercase;
+    grid-column-start: 2;
+  }
+
+  > div {
+    margin:0 100px;
+  }
+
+  .indians-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > div {
+      margin: 50px 80px 0 0;
+
+
+
+      p {
+        font-family: $encode-sans;
+        font-size: 18px;
+        margin: 0;
+        padding-top: 5px;
+      }
+
+      &.indians-social {
+        margin-right: 0;
+        i {
+          padding:5px;
+
+        }
+      }
+    }
+  }
+
+  .row {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-rows: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    > div {
+      background-image: url(http://i64.tinypic.com/4sxy79.png);
+
+      border: solid 1px;
+    }
+  }
+
+  .partners {
+    grid-column-start: 2;
+    grid-column-end: 11;
+    margin-top: 20px;
+
+    > p {
+      color: $indians-dark;
+      font-size: 18px;
+      font-family: $titillium-web;
+      margin:0;
+      letter-spacing: $letter-spacing-medium;
+    }
+
+    .row {
+      grid-template-columns: repeat(6, 1fr);
+
+      > div {
+        width: 150px;
+        height: 100px;
+      }
+
+    }
+  }
+
+  .co-op {
+
+    .row {
+      grid-template-columns: repeat(9, 1fr);
+
+      > div {
+        width: 100px;
+        height: 75px;
+      }
+    }
+
+
+  }
+
+  .featuring {
+
+    .row {
+      grid-template-columns: repeat(11, 1fr);
+      > div {
+        width: 70px;
+        height: 40px;
+      }
+    }
+
+
+  }
+  hr {
+    border-color: $indians-dark;
+  }
+
+}
+

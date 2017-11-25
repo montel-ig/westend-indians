@@ -1,6 +1,7 @@
 @import "variables";
 
 @import "components/header";
+@import "components/footer";
 @import "components/home-page";
 @import "components/player-browser";
 @import "components/player";
@@ -15,6 +16,15 @@ body {
   margin: 0;
   padding: 0;
 
+  .container {
+    .main-grid-header {
+      margin: 0 auto;
+      background-color: black;
+    }
+
+    .main-grid-body  {
+    }
+  }
 
   a {
     text-decoration: none;
@@ -26,14 +36,19 @@ body {
   }
 }
 
-.main-grid-header {
-  background-color: black;
+
+
+
+
+
+section {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  align-items: center;
+  max-width: 1280px;
+  background-image: url("http://i68.tinypic.com/2duc8lz.png");
+  margin: 100px auto 100px auto;
+  width: 100vw;
+  min-height: 600px;
 }
-
-.main-grid-body  {
-}
-
-
-
-
-
