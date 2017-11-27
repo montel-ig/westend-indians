@@ -1,57 +1,64 @@
 .main-grid-header {
-  text-align: center;
-  font-size: 0;
-  max-width: 1280px;
+  width: 100vw;
+  background-color: black;
 
-  #main-img {
-    margin-top: 10%;
-  }
-
-  .main-header-text {
-    position: absolute;
-    z-index: 9999;
-    left: 50%;
-    transform: translateX(-50%);
+  .header {
+    margin: 0 auto;
     text-align: center;
-    color: #FBEF36;
-
-    &.header {
-      top: 60%;
-      font-family: $black-ops;
-      font-size: 48px;
-      line-height: 60px;
-      letter-spacing: $letter-spacing-large;
-      text-transform: uppercase;
+    font-size: 0;
+    max-width: 1280px;
+    background-image: none;
+    #main-img {
+      margin-top: 10%;
     }
 
-    &.slogan {
-      top: 67%;
+    .main-header-text {
+      position: absolute;
+      z-index: 9999;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: #FBEF36;
+
+      &.header {
+        padding-top: 800px;
+        font-family: $black-ops;
+        font-size: 48px;
+        line-height: 60px;
+        letter-spacing: $letter-spacing-large;
+        text-transform: uppercase;
+      }
+
+      &.slogan {
+        padding-top: 900px;
+        font-family: $titillium-web;
+        font-size: 24px;
+        letter-spacing: $letter-spacing-medium;
+      }
+    }
+
+    .nav-index {
+      position: relative;
+      padding: 10px;
+      margin: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around ;
+      align-items: center;
+
       font-family: $titillium-web;
-      font-size: 24px;
-      letter-spacing: $letter-spacing-medium;
+      letter-spacing: 2px;
+      background-color: black;
+
+      > li a {
+        color: white;
+        display: block;
+        font-size: 20px;
+      }
+
+      > li img {
+      }
     }
   }
 
-  .nav-index {
-    position: relative;
-    padding: 10px;
-    margin: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around ;
-    align-items: center;
-
-    font-family: $titillium-web;
-    letter-spacing: 2px;
-    background-color: black;
-
-    > li a {
-      color: white;
-      display: block;
-      font-size: 20px;
-    }
-
-    > li img {
-    }
-  }
 }

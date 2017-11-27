@@ -23,15 +23,17 @@
   <body>
     <div class="container">
       <div class="main-grid-header">
-        <h1 class="main-header-text header">westend indians</h1>
-        <h2 class="main-header-text slogan">Once a member - always a part of the tribe</h2>
-        <img id="main-img" src="http://i67.tinypic.com/67ts41.jpg">
+        <section class="header">
+          <h1 class="main-header-text header">westend indians</h1>
+          <h2 class="main-header-text slogan">Once a member - always a part of the tribe</h2>
+          <img id="main-img" src="http://i67.tinypic.com/67ts41.jpg">
           <ul class="nav-index">
             <li><a href="{%slugurl 'home'%}"><img id="nav-logo" src="http://i67.tinypic.com/30kralk.png" /></a></li>
             {% for menuitem in request.site.root_page.get_children.live %}
-                <li><a href="{{ menuitem }}">{{ menuitem.title.upper }}</a></li>
+            <li><a href="{{ menuitem }}">{{ menuitem.title.upper }}</a></li>
             {% endfor %}
           </ul>
+        </section>
       </div>
       <div class="main-grid-body">
         {% block main %}
@@ -39,98 +41,99 @@
         {% endblock %}
       </div>
       <div class="main-grid-footer">
-        <section class="footer">
-          <div class="indians-info">
-            <div>
-              <h1>Westend<br/>Indians</h1>
+        <section>
+          <div class="footer">
+            <div class="indians-info">
+              <div>
+                <h1>Westend<br/>Indians</h1>
+              </div>
+              <div class="indians-address">
+                <p>puhelin: 050-3363366</p>
+                <p>sähköposti:</p>
+                <p>toimisto@westendindians.fi:</p>
+                <p>Westend Indians ry,</p>
+                <p>Otahalli/Otaranta 6, 02150 Espoo</p>
+              </div>
+              <div class="indians-social">
+                <i class="fa fa-facebook-square fa-4x" aria-hidden="true"></i>
+                <i class="fa fa-twitter-square fa-4x" aria-hidden="true"></i>
+                <i class="fa fa-instagram fa-4x" aria-hidden="true"></i>
+              </div>
             </div>
-            <div class="indians-address">
-              <p>puhelin: 050-3363366</p>
-              <p>sähköposti:</p>
-              <p>toimisto@westendindians.fi:</p>
-              <p>Westend Indians ry,</p>
-              <p>Otahalli/Otaranta 6, 02150 Espoo</p>
+            <div class="partners">
+              <p>Once a member - always a part of the tribe</p>
+              <hr>
+              <h2>pääyhteistyökumppanit</h2>
+              <div class="row">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+              </div>
             </div>
-            <div class="indians-social">
-              <i class="fa fa-facebook-square fa-4x" aria-hidden="true"></i>
-              <i class="fa fa-twitter-square fa-4x" aria-hidden="true"></i>
-              <i class="fa fa-instagram fa-4x" aria-hidden="true"></i>
+            <div class="co-op">
+              <h2>yhteistyössä</h2>
+              <div class="row">
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+              </div>
             </div>
+            <div class="featuring">
+              <h2>kentällä mukana</h2>
+              <div class="row">
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+                <div>1</div>
+              </div>
           </div>
-          <div class="partners">
-            <p>Once a member - always a part of the tribe</p>
-            <hr>
-            <h2>pääyhteistyökumppanit</h2>
-            <div class="row">
-              <div>1</div>
-              <div>2</div>
-              <div>3</div>
-              <div>4</div>
-              <div>5</div>
-              <div>6</div>
-            </div>
-          </div>
-          <div class="co-op">
-            <h2>yhteistyössä</h2>
-            <div class="row">
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-            </div>
-          </div>
-          <div class="featuring">
-            <h2>kentällä mukana</h2>
-            <div class="row">
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-              <div>1</div>
-
-            </div>
         </section>
       </div>
     </div>
