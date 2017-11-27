@@ -61,6 +61,9 @@ class Member(models.Model):
             num += 1
         return unique_slug
 
+    def __str__(self):
+        return self.first_name + ' ' + self.last_name
+
 
 class TeamMembership(models.Model):
     member = models.ForeignKey(Member, related_name='memberships')
