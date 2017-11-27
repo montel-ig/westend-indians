@@ -1,0 +1,11 @@
+---
+
+#hosts:
+#  - webserver:
+#    ansible_host: "80.69.173.67"
+
+
+- hosts: all
+  roles:
+    - montel.nginx-front
+#    - montel.docker

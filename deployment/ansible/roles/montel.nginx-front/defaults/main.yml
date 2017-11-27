@@ -1,0 +1,15 @@
+nginx_front_site_name: my_site
+
+# used in nginx.conf.j2
+nginx_front_domain_name: 80.69.173.67
+nginx_front_upstream_server: http://localhost:8080
+
+# enable ssl (WIP)
+nginx_front_ssl_enabled: no
+
+# enable basic auth (use htpasswd.j2 manually)
+nginx_front_basic_auth: intiaani:$apr1$5pDK3ZJI$EXsK5y4W/1R4yQvXbbygo1
+
+# probably more or less static:
+nginx_front_keyserver: keyserver.ubuntu.com
+nginx_front_key_id: ABF5BD827BD9BF62
