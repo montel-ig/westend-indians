@@ -1,13 +1,5 @@
-section {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto;
-  align-items: center;
-  max-width: 1280px;
-  background-image: url("http://i68.tinypic.com/2duc8lz.png");
-  margin: 100px auto 100px auto;
-  width: 100vw;
-  min-height: 600px;
+.team, .tribe, .lift, .shop {
+
 
   h1 {
     font-family: $black-ops;
@@ -49,6 +41,9 @@ section {
       a::after {
         content: " | ";
         padding: 5px;
+      }
+      a:last-child:after {
+        content: "";
       }
     }
 
