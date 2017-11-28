@@ -26,8 +26,8 @@ body {
   }
 
   section {
+
     width: 100vw;
-    background-image: url("http://i64.tinypic.com/2akq38.png");
     background-repeat: repeat;
     > div {
       display: grid;
@@ -41,6 +41,49 @@ body {
       &.full-black {
         background-color: black;
       }
+    }
+
+    .lift-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .triangle {
+      position: relative;
+      width: 100%;
+      display: block;
+
+      &.flip-y {
+        transform: scaleY(-1);
+      }
+      &.flip-x {
+        transform: scale(-1, -1);
+      }
+      &.justify-bottom {
+        bottom:1px;
+      }
+      &.justify-top {
+        top:1px;
+      }
+    }
+
+
+
+    &.team {
+      background-image: url("http://i64.tinypic.com/2akq38.png");
+    }
+
+    &.shop, &.games {
+      background-color: black;
+    }
+
+    &.lift {
+      justify-content:center;
+      margin:  0 auto;
+    }
+
+    &.footer {
+      background-color: $indians-bg-grey;
     }
   }
 }

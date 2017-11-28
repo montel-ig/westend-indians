@@ -26,11 +26,11 @@
         <section class="header">
           <h1 class="main-header-text header">westend indians</h1>
           <h2 class="main-header-text slogan">Once a member - always a part of the tribe</h2>
-          <img id="main-img" src="http://i67.tinypic.com/67ts41.jpg">
+          <img class="main-img" src="http://i67.tinypic.com/67ts41.jpg">
           <ul class="nav-index">
             <li><a href="{%slugurl 'home'%}"><img id="nav-logo" src="http://i67.tinypic.com/30kralk.png" /></a></li>
             {% for menuitem in request.site.root_page.get_children.live %}
-            <li><a href="{{ menuitem }}">{{ menuitem.title.upper }}</a></li>
+            <li><a href="{{  menuitem.title.lower }}">{{ menuitem.title.upper }}</a></li>
             {% endfor %}
           </ul>
         </section>
@@ -40,9 +40,12 @@
           you forgot the main block!
         {% endblock %}
       </div>
+
       <div class="main-grid-footer">
-        <section>
-          <div class="footer">
+        <section class="footer">
+
+          <div class="footer-container">
+
             <div class="indians-info">
               <div>
                 <h1>Westend<br/>Indians</h1>

@@ -1,6 +1,6 @@
-.footer {
+.footer-container {
   display: block;
-  background-color: black;
+  background-color: $indians-bg-grey;
   color: $indians-grey;
   background-image: none;
   align-items: flex-start;
@@ -120,9 +120,19 @@
 
 
   }
+
+  .img-flipped {
+    width: 100%;
+    transform: scaleY(-1);
+  }
+
   hr {
     border-color: $indians-dark;
   }
 
+
+
 }
+
+
 
