@@ -9,8 +9,9 @@ docker_package_prerequisites:
   #  state: absent
   - name: docker-engine
     state: absent
-  - name: device-mapper-persistent-data
-    state: present
+    # not available on ubuntu
+#  - name: device-mapper-persistent-data
+#    state: present
   - name: lvm2
     state: present
 

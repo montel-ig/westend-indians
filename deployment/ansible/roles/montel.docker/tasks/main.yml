@@ -9,6 +9,7 @@
   when: ansible_os_family == 'Debian'
 
 - name: 'Start Docker and make it start when system boots'
+  become: yes
   service:
     name: docker
     state: started
@@ -22,6 +23,7 @@
   when: docker_install_compose is defined and docker_install_compose|bool
 
 - name: Delete existing docker-compose version if it's different.
+  become: yes
   file:
     path: "{{ docker_compose_path }}"
     state: absent
@@ -30,6 +32,7 @@
     and docker_compose_version not in docker_compose_current_version.stdout
 
 - name: Install Docker Compose.
+  become: yes
   get_url:
     url: https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-Linux-x86_64
     dest: "{{ docker_compose_path }}"
