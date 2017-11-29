@@ -9,7 +9,7 @@ const Player = (props) => {
           <p id="player-number"># {props.number}</p>
         </li>
         <li>
-          <p>Pasi Pelaaja</p>
+          <p>{props.name}</p>
         </li>
       </ul>
     </div>

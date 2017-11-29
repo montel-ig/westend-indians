@@ -5,8 +5,11 @@
 <div id="players"></div>
 
 <script type="application/javascript">
+  var team_members = {{ members|safe }};
+
   window.onload = function() {
-      createPlayerBrowser("players");
+
+    createPlayerBrowser("players");
   }
 </script>
 
