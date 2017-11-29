@@ -37,7 +37,7 @@
 
         &.active {
           opacity:1;
-          transition: opacity .4s ease-in-out .5s, transform .2s ease-in-out .5s;
+          transition: opacity .8s ease-in-out .5s, transform .4s ease-in-out .5s;
           transform: translate(-50%, 0px);
 
         }
@@ -50,7 +50,7 @@
         letter-spacing: $letter-spacing-medium;
         &.active {
           opacity:1;
-          transition: opacity .4s ease-in-out .7s, transform .2s ease-in-out .7s;
+          transition: opacity 1.8s ease-in-out .5s, transform .2s ease-in-out 1.2s;
           transform: translate(-50%, 0px);
         }
       }

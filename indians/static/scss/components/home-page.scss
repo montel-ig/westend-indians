@@ -159,3 +159,63 @@
   }
 }
 
+//Mediaquerys
+
+@media (max-width: 640px) {
+  .main-grid-body > .team {
+    background: none;
+
+    .team-container {
+      display: block;
+
+      .team-img {
+        opacity: .2;
+      }
+
+      .team {
+        padding: 100px 30px;
+
+        .description {
+          padding-bottom: 50px;
+        }
+      }
+    }
+  }
+
+  .main-grid-body > .tribe {
+    background: none;
+
+    .tribe-container {
+      display: block;
+
+      .tribe-img {
+        opacity: .2;
+      }
+
+      .tribe {
+        padding: 100px 30px;
+
+        .description {
+          padding-bottom: 50px;
+        }
+      }
+    }
+  }
+
+  .main-grid-body > .shop {
+    display: flex;
+    .shop-container {
+      display: flex;
+      .shop-products {
+        display: none;
+      }
+      .shop {
+        padding: 100px 30px;
+
+        .cta-text {
+          padding-bottom: 50px;
+        }
+      }
+    }
+  }
+}
