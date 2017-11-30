@@ -2,3 +2,8 @@ from .teams_page import *
 from .home_page import *
 from .events_page import *
 from .news_page import *
+from .statistics_page import *
+from .representative_team_page import *
+from .info_page import *
+from .club_page import *
+from .tribe_page import *

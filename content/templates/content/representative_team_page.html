@@ -4,20 +4,16 @@
 {% block main %}
 
   <h1>
-    {{page.title}}
+    {{ page.title }}
   </h1>
-
-  <div class="events-body">
+  <div class="repr-body">
     {{ page.body|richtext }}
   </div>
-  <div class="events-partners">
+  <div class="repr-lift">
+    {{ page.main_lift|richtext }}
+  </div>
+  <div class="repr-partners">
     {{ page.partners|richtext }}
   </div>
-
-  {% for event in page.events %}
-    <p>
-      {{ event.name|linebreaks }}
-    </p>
-  {% endfor %}
 
 {% endblock %}

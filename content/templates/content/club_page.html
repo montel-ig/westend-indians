@@ -1,0 +1,28 @@
+{% extends "base_layout.html" %}
+{% load wagtailcore_tags %}
+
+{% block main %}
+
+  <h1>
+    {{page.title}}
+  </h1>
+  <div class="club-body">
+    {{ page.body|richtext }}
+  </div>
+  <div class="club-introduction">
+    {{ page.introduction|richtext }}
+  </div>
+  <div class="club-values">
+    {{ page.values|richtext }}
+  </div>
+  <div class="club-contact">
+    {{ page.contact|richtext }}
+  </div>
+  <div class="club-personnel">
+    {{ page.personnel|richtext }}
+  </div>
+  <div class="club-partners">
+    {{ page.partners|richtext }}
+  </div>
+
+{% endblock %}

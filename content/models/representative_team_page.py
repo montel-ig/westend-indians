@@ -7,18 +7,14 @@ from wagtail.wagtailcore.models import Page
 from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailadmin.edit_handlers import FieldPanel
 
-from events.models import Event
 
-
-class EventsPage(Page):
+class RepresentativeTeamPage(Page):
     body = RichTextField(blank=True)
-    partners = models.CharField(max_length=255, blank=True)
+    main_lift = RichTextField(blank=True)
+    partners = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
         FieldPanel('body', classname="full"),
-        FieldPanel('partners', classname="full")
+        FieldPanel('main_lift', classname="full"),
+        FieldPanel('partners', classname="full"),
     ]
-
-    @property
-    def events(self):
-        return Event.objects.all()
