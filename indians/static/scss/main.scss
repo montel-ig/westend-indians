@@ -16,6 +16,14 @@ html,
 body {
   margin: 0;
   padding: 0;
+
+  h1 {
+    font-family: $black-ops;
+    font-size: 24px;
+    letter-spacing:$letter-spacing-large;
+    text-transform: uppercase;
+  }
+
   a {
     text-decoration: none;
     display: block;
@@ -46,12 +54,6 @@ body {
       }
     }
 
-    .lift-container {
-      display: flex;
-      justify-content: center;
-      max-width: 1280px;
-    }
-
     .triangle {
       position: relative;
       width: 100%;
@@ -76,13 +78,10 @@ body {
       padding-top: 100px;
     }
 
-    &.shop, &.games {
+    &.shop, &.games, &.lift {
+      grid-column-start: 1;
+      grid-column-end: 12;
       background-color: black;
-    }
-
-    &.lift {
-      justify-content:center;
-      margin:  0 auto;
     }
 
     &.footer {

@@ -33,11 +33,14 @@
         </ul>
       </div>
     </div>
+
   </section>
   <section class="lift" style="background-color:{{ page.lift_bgcolor }};">
-
+    <img class="triangle   justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
     <div class="lift-container ignore-height">
-      {% image page.lift_image width-1280 %}
+      <div class="lift-img">
+        {% image page.lift_image width-1280 %}
+      </div>
     </div>
     <img class="triangle flip-x justify-top" src="{% static "images/tilted-bg-black-top.svg" %}">
   </section>
@@ -83,8 +86,52 @@
     <img class="triangle flip-y  justify-top" src="{% static "images/tilted-bg-white-top.svg" %}">
   </section>
   <section class="news">
-    <div class="news-container">
-      
+    <div class="news-container ignore-height">
+      <div class="row-head">
+        <h1>uutiset</h1>
+        <a href="#">katso kaikki uutiset >></a>
+      </div>
+      <div class="row-news">
+        <div class="news-item">
+          <a href="#">
+            <div class="news-image">
+              <img src="http://i64.tinypic.com/4sxy79.png">
+            </div>
+          </a>
+          <h2 class="news-item-header">otsikko</h2>
+          <p class="news-item-text">
+            Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
+            amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
+            fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
+          </p>
+        </div>
+        <div class="news-item">
+          <a href="#">
+            <div class="news-image">
+              <img src="http://i64.tinypic.com/4sxy79.png">
+            </div>
+          </a>
+          <h2 class="news-item-header">otsikko</h2>
+          <p class="news-item-text">
+            Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
+            amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
+            fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
+          </p>
+        </div>
+        <div class="news-item">
+          <a href="#">
+            <div class="news-image">
+              <img src="http://i64.tinypic.com/4sxy79.png">
+            </div>
+          </a>
+          <h2 class="news-item-header">otsikko</h2>
+          <p class="news-item-text">
+            Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
+            amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
+            fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
+          </p>
+        </div>
+      </div>
     </div>
     <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
   </section>
