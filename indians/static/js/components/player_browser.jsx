@@ -14,7 +14,6 @@ class PlayerBrowser extends React.Component {
   }
 
   mapPlayers(players) {
-    console.log(players);
     return Object.keys(players).map(playerIndex => {
       let player = players[playerIndex];
       return <Player
@@ -26,7 +25,7 @@ class PlayerBrowser extends React.Component {
         handedness={player.handedness}
         height={player.height}
         weight={player.weight}
-        //years_combined
+        //todo: years_combined
         school={player.school}
         some_facebook={player.some_facebook}
         some_instagram={player.some_instagram}
@@ -45,6 +44,8 @@ class PlayerBrowser extends React.Component {
 
   handlePlayerChange(player) {
     if (player) {
+      let keys = Object.keys(this.props.players);
+      let index = keys.indexOf(player);
       this.setState(prevState => ({
         selectedPlayer: this.props.players[prevState.selectedPlayer + 1]
       }));

@@ -1,0 +1,35 @@
+section.team {
+  .team-container {
+    .repr-body {
+      grid-column-start: 1;
+      grid-column-end: 12;
+
+      .rich-text > p > img {
+        opacity: .4;
+      }
+    }
+
+    .info-links {
+      grid-column-start: 1;
+      grid-column-end: 6;
+      padding: 0;
+
+      a {
+        font-family: $titillium-web;
+        display: inline;
+        color: black;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 14px;
+        letter-spacing: $letter-spacing-medium;
+      }
+      a::after {
+        content: " | ";
+        padding: 5px;
+      }
+      a:last-child:after {
+        content: "";
+      }
+    }
+  }
+}

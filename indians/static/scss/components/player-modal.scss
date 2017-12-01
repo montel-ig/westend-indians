@@ -20,7 +20,7 @@
     background: black;
     transition: opacity .4s ease-in-out .4s, transform .2s ease-in-out .4s;
 
-    .modal-statics {
+    .statistics-container {
       display: flex;
       justify-content:flex-start;
       padding:0;
@@ -37,8 +37,13 @@
 
     .modal-desc {
       background: black;
+      > a
+      { color: $indians-grey;
+        padding: 10px;
+      }
+
       display: flex;
-      justify-content: space-around;
+      justify-content: flex-end;
       margin: 0;
 
       > li > p {

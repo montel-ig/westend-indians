@@ -1,14 +1,41 @@
 {% extends "base_layout.html" %}
 {% load wagtailcore_tags %}
+{% load staticfiles %}
+{% load wagtailimages_tags %}
 
 {% block main %}
-
-  <h1>
-    {{ page.title }}
-  </h1>
-  <div class="repr-body">
-    {{ page.body|richtext }}
-  </div>
+  <section class="team">
+    <div class="team-container"}>
+        <div class="repr-body">
+          <h1>{{ page.title}}</h1>
+          {{ page.body|richtext }}
+        </div>
+        <ul class="info-links">
+          <a href="#">pelaajat</a>
+          <a href="#">otteluohjelma</a>
+          <a href="#">sarjataulukko</a>
+        </ul>
+    </div>
+    <img class="triangle  flip-y justify-top" src="{% static "images/tilted-bg-black-top.svg" %}">
+  </section>
+  <section class="games">
+    <div class="games-container full-black">
+      <div class="row">
+        <div class="home">
+          <img src="http://i67.tinypic.com/30kralk.png">
+        </div>
+        <div class="games-date">
+          <h1>seuraava edustusjoukkueen kotiottelu</h1>
+          <p>Ti 16.12,  klo 16:30</p>
+          <div class="games-cta">tule katsomaan</div>
+        </div>
+        <div class="away">
+          <img src="http://i67.tinypic.com/30kralk.png">
+        </div>
+      </div>
+    </div>
+    <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-white-top.svg" %}">
+  </section>
   <div class="repr-lift">
     {{ page.main_lift|richtext }}
   </div>
