@@ -35,7 +35,6 @@
     </div>
   </section>
   <section class="lift" style="background-color:{{ page.lift_bgcolor }};">
-    <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
 
     <div class="lift-container ignore-height">
       {% image page.lift_image width-1280 %}
@@ -81,12 +80,13 @@
         </div>
       </div>
     </div>
-    <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
+    <img class="triangle flip-y  justify-top" src="{% static "images/tilted-bg-white-top.svg" %}">
   </section>
   <section class="news">
     <div class="news-container">
       
     </div>
+    <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
   </section>
 {% endblock %}
 
