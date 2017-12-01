@@ -4,86 +4,89 @@
 {% load wagtailimages_tags %}
 
 {% block main %}
-<section class="team">
-  <div class="team-container"}>
-    <img class="team-img" src="http://i68.tinypic.com/2rwx8x5.png">
-    <div class="content team">
-      <h1>{{ page.team_title}}</h1>
-      <p class="description">{{ page.team_description }}</p>
-      <a class="cta-link" href="#">{{page.team_cta}} >></a>
-      <ul class="info-links">
-        <a href="#">pelaajat</a>
-        <a href="#">otteluohjelma</a>
-        <a href="#">sarjataulukko</a>
-      </ul>
+  <section class="team">
+    <div class="team-container"}>
+      <img class="team-img" src="http://i68.tinypic.com/2rwx8x5.png">
+      <div class="content team">
+        <h1>{{ page.team_title}}</h1>
+        <p class="description">{{ page.team_description }}</p>
+        <a class="cta-link" href="#">{{page.team_cta}} >></a>
+        <ul class="info-links">
+          <a href="#">pelaajat</a>
+          <a href="#">otteluohjelma</a>
+          <a href="#">sarjataulukko</a>
+        </ul>
+      </div>
     </div>
-  </div>
-</section>
-<section class="tribe">
-  <div class="tribe-container">
-    <img class="tribe-img" src="http://i64.tinypic.com/4sxy79.png">
-    <div class="content tribe">
-      <h1>{{ page.tribe_title}}</h1>
-      <p class="description">{{ page.tribe_description}}</p>
-      <a class="cta-link" href="#">{{page.tribe_cta}} >></a>
-      <ul class="info-links">
-        <a href="#">liity mukaan</a>
-        <a href="#">junioritoiminta</a>
-        <a href="#">seurat</a>
-      </ul>
+  </section>
+  <section class="tribe">
+    <div class="tribe-container">
+      <img class="tribe-img" src="http://i64.tinypic.com/4sxy79.png">
+      <div class="content tribe">
+        <h1>{{ page.tribe_title}}</h1>
+        <p class="description">{{ page.tribe_description}}</p>
+        <a class="cta-link" href="#">{{page.tribe_cta}} >></a>
+        <ul class="info-links">
+          <a href="#">liity mukaan</a>
+          <a href="#">junioritoiminta</a>
+          <a href="#">seurat</a>
+        </ul>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+  <section class="lift" style="background-color:{{ page.lift_bgcolor }};">
 
-<section class="lift" style="background-color:{{ page.lift_bgcolor }};">
-  <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
-
-  <div class="lift-container ignore-height">
-    {% image page.lift_image width-1280 %}
-  </div>
-  <img class="triangle flip-x justify-top" src="{% static "images/tilted-bg-black-top.svg" %}">
-</section>
-<section class="shop">
-  <div class="shop-container">
-    <div class="shop-products">
-      <div>
-        <a href="#"><img src="https://images-na.ssl-images-amazon.com/images/I/61rAgYQ95jL._UL1500_.jpg"></a>
+    <div class="lift-container ignore-height">
+      {% image page.lift_image width-1280 %}
+    </div>
+    <img class="triangle flip-x justify-top" src="{% static "images/tilted-bg-black-top.svg" %}">
+  </section>
+  <section class="shop">
+    <div class="shop-container">
+      <div class="shop-products">
+        <div>
+          <a href="#"><img src="https://images-na.ssl-images-amazon.com/images/I/61rAgYQ95jL._UL1500_.jpg"></a>
+        </div>
+        <div>
+          <a href="#"><img src="https://images-na.ssl-images-amazon.com/images/I/61Okl-Cmb-L._UY679_.jpg"></a>
+        </div>
+        <div>
+          <a href="#"><img src="https://images-na.ssl-images-amazon.com/images/I/51eH5i7kqDL._UY679_.jpg"></a>
+        </div>
+        <div>
+          <a href="#"><img src="https://images-na.ssl-images-amazon.com/images/I/81kY-e0G68L._UX522_.jpg"></a>
+        </div>
       </div>
-      <div>
-        <a href="#"><img src="https://images-na.ssl-images-amazon.com/images/I/61Okl-Cmb-L._UY679_.jpg"></a>
-      </div>
-      <div>
-        <a href="#"><img src="https://images-na.ssl-images-amazon.com/images/I/51eH5i7kqDL._UY679_.jpg"></a>
-      </div>
-      <div>
-        <a href="#"><img src="https://images-na.ssl-images-amazon.com/images/I/81kY-e0G68L._UX522_.jpg"></a>
+      <div class="content shop">
+        <h1>{{ page.shop_title}}</h1>
+        <p class="cta-text">{{ page.shop_description }}</p>
+        <a class="cta-link" href="#">{{page.shop_cta}} >></a>
       </div>
     </div>
-    <div class="content shop">
-      <h1>{{ page.shop_title}}</h1>
-      <p class="cta-text">{{ page.shop_description }}</p>
-      <a class="cta-link" href="#">{{page.shop_cta}} >></a>
-    </div>
-  </div>
-</section>
-<section class="games">
-  <div class="games-container full-black">
-    <div class="row">
-      <div class="home">
-        <img src="http://i67.tinypic.com/30kralk.png">
-      </div>
-      <div class="games-date">
-        <h1>seuraava edustusjoukkueen kotiottelu</h1>
-        <p>Ti 16.12,  klo 16:30</p>
-        <div class="games-cta">tule katsomaan</div>
-      </div>
-      <div class="away">
-        <img src="http://i67.tinypic.com/30kralk.png">
+  </section>
+  <section class="games">
+    <div class="games-container full-black">
+      <div class="row">
+        <div class="home">
+          <img src="http://i67.tinypic.com/30kralk.png">
+        </div>
+        <div class="games-date">
+          <h1>seuraava edustusjoukkueen kotiottelu</h1>
+          <p>Ti 16.12,  klo 16:30</p>
+          <div class="games-cta">tule katsomaan</div>
+        </div>
+        <div class="away">
+          <img src="http://i67.tinypic.com/30kralk.png">
+        </div>
       </div>
     </div>
-  </div>
-  <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
-
-</section>
+    <img class="triangle flip-y  justify-top" src="{% static "images/tilted-bg-white-top.svg" %}">
+  </section>
+  <section class="news">
+    <div class="news-container">
+      
+    </div>
+    <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
+  </section>
 {% endblock %}
 

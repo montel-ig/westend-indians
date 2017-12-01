@@ -2,13 +2,17 @@
 {% load wagtailcore_tags %}
 
 {% block main %}
-  (events)
+
   <h1>
     {{page.title}}
   </h1>
 
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+  <div class="events-body">
+    {{ page.body|richtext }}
+  </div>
+  <div class="events-partners">
+    {{ page.partners|richtext }}
+  </div>
 
   {% for event in page.events %}
     <p>

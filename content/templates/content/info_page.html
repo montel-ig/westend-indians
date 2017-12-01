@@ -1,0 +1,25 @@
+{% extends "base_layout.html" %}
+{% load wagtailcore_tags %}
+
+{% block main %}
+
+  <h1>
+    {{ page.title }}
+  </h1>
+  <div class="info-body">
+    {{ page.body|richtext }}
+  </div>
+  <div class="info-lift">
+    {{ page.tickets|richtext }}
+  </div>
+  <div class="info-information">
+    {{ page.information|richtext }}
+  </div>
+  <div class="info-contact">
+    {{ page.contact|richtext }}
+  </div>
+  <div class="info-partners">
+    {{ page.partners|richtext }}
+  </div>
+
+{% endblock %}
