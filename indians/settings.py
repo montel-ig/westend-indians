@@ -23,7 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'u0lbf!87p)i03a0%k)mp%&!y4ee7xhs3_n3qy@nri*%@#ep67!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+env_debug = os.environ.get('DEBUG')
+if env_debug and env_debug in ('False', 'false', '0', 'no'):
+    DEBUG = False
+else:
+    DEBUG = True
 
 ALLOWED_HOSTS = ['80.69.173.67',"localhost"]
 
@@ -172,28 +176,28 @@ COMPRESS_PRECOMPILERS = (
 COMPRESS_OFFLINE = True
 COMPRESS_OFFLINE_CONTEXT = {}
 
-# import sys
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False,
-#     'formatters': {
-#         'verbose': {
-#             'format': '[django] %(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
-#         }
-#     },
-#     'handlers': {
-#         'console': {
-#             'level': 'DEBUG',
-#             'class': 'logging.StreamHandler',
-#             'stream': sys.stdout,
-#             'formatter': 'verbose'
-#         },
-#     },
-#     'loggers': {
-#         'django': {
-#             'handlers': ['console'],
-#             'level': 'DEBUG',
-#             'propagate': True,
-#         },
-#     },
-# }
+import sys
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '[DJANGO] %(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        }
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'stream': sys.stdout,
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
