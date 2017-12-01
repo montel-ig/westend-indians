@@ -41,6 +41,9 @@ body {
       &.full-black {
         background-color: black;
       }
+      &.ignore-height {
+        min-height: 0;
+      }
     }
 
     .lift-container {
@@ -66,8 +69,6 @@ body {
         top:1px;
       }
     }
-
-
 
     &.team {
       background-image: url("http://i64.tinypic.com/2akq38.png");

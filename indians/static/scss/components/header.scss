@@ -14,7 +14,7 @@
 
       &.active {
         opacity:1;
-        transition: opacity .4s ease-in-out .5s
+        transition: opacity 2.5s ease-in-out
       }
     }
 
@@ -23,7 +23,7 @@
       position: absolute;
       z-index: 9999;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, -100px);
       text-align: center;
       color: #FBEF36;
 
@@ -34,9 +34,12 @@
         line-height: 60px;
         letter-spacing: $letter-spacing-large;
         text-transform: uppercase;
+
         &.active {
           opacity:1;
-          transition: opacity .4s ease-in-out .5s
+          transition: opacity .8s ease-in-out .5s, transform .4s ease-in-out .5s;
+          transform: translate(-50%, 0px);
+
         }
       }
 
@@ -47,7 +50,8 @@
         letter-spacing: $letter-spacing-medium;
         &.active {
           opacity:1;
-          transition: opacity .4s ease-in-out .8s
+          transition: opacity 1.8s ease-in-out .5s, transform .2s ease-in-out 1.2s;
+          transform: translate(-50%, 0px);
         }
       }
     }
