@@ -28,5 +28,6 @@ EXPOSE 80
 
 ADD . ${work_dir}
 RUN python manage.py collectstatic --noinput
+RUN DEBUG=no python manage.py compress
 
 CMD ["/app/deployment/docker/entry.sh"]
