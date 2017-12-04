@@ -36,11 +36,115 @@
     </div>
     <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-white-top.svg" %}">
   </section>
-  <div class="repr-lift">
+  <section class="repr-lift">
     {{ page.main_lift|richtext }}
-  </div>
-  <div class="repr-partners">
-    {{ page.partners|richtext }}
-  </div>
+  </section>
+  <section class="schedule">
+    <img class="triangle flip-y  justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
 
+    <table class="schedule-container">
+      <tr>
+      </tr>
+      <tr>
+        <th class="schedule-head">otteluohjelma</th>
+        <th>Ajankohta</th>
+        <th>Vastassa</th>
+        <th>Pelipaikka</th>
+      </tr>
+        <td></td>
+        <td>ke 12.12, klo 18:00</td>
+        <td>Espoon Oilers</td>
+        <td>Espoon Otaniemi</td>
+      </tr>
+      </tr>
+      <td></td>
+      <td>ke 12.12, klo 18:00</td>
+      <td>Espoon Oilers</td>
+      <td>Espoon Otaniemi</td>
+      </tr>
+      </tr>
+      <td></td>
+      <td>ke 12.12, klo 18:00</td>
+      <td>Espoon Oilers</td>
+      <td>Espoon Otaniemi</td>
+      </tr>
+      </tr>
+      <td></td>
+      <td>ke 12.12, klo 18:00</td>
+      <td>Espoon Oilers</td>
+      <td>Espoon Otaniemi</td>
+      </tr>
+      </tr>
+      <td></td>
+      <td>ke 12.12, klo 18:00</td>
+      <td>Espoon Oilers</td>
+      <td>Espoon Otaniemi</td>
+      </tr>
+    </table>
+    <img class="triangle flip-x justify-top" src="{% static "images/tilted-bg-black-top.svg" %}">
+  </section>
+  <section class="players">
+    <div class="players-container">
+      <h1>pelaajat</h1>
+    </div>
+    <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+  </section>
+  <section class="statistics">
+    <img class="triangle flip-y  justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+
+    <table class="statistics-container">
+      <tr>
+      </tr>
+      <tr>
+        <th class="statistics-head">sarjataulukko</th>
+        <th>Joukkue</th>
+        <th>Voittoja</th>
+        <th>Tappioita</th>
+      </tr>
+      <td></td>
+      <td>Espoon Oilers</td>
+      <td>10</td>
+      <td>10</td>
+      </tr>
+      </tr>
+      <td></td>
+      <td>Espoon Oilers</td>
+      <td>10</td>
+      <td>10</td>
+      </tr>
+      </tr>
+      <td></td>
+      <td>Espoon Oilers</td>
+      <td>10</td>
+      <td>10</td>
+      </tr>
+      </tr>
+      <td></td>
+      <td>Espoon Oilers</td>
+      <td>10</td>
+      <td>10</td>
+      </tr>
+      </tr>
+      <td></td>
+      <td>Espoon Oilers</td>
+      <td>10</td>
+      <td>10</td>
+      </tr>
+    </table>
+    <img class="triangle flip-x  justify-top" src="{% static "images/tilted-bg-white-top.svg" %}">
+
+  </section>
+  <section class="repr-partners">
+    {{ page.partners|richtext }}
+    <img class="triangle flip-x  justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
+  </section>
 {% endblock %}
+
+<script type="application/javascript">
+  var team_members = {{ members|safe }};
+
+  window.onload = function() {
+
+    createPlayerBrowser("players-container");
+  }
+</script>
