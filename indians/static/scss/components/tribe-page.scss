@@ -1,0 +1,28 @@
+section#lift {
+  .tribe-main-lift {
+    margin: 0 auto;
+
+
+    .rich-text {
+      grid-column-start: 2;
+      grid-column-end: 13;
+      > p {margin: 0;}
+
+      .responsive-object {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 0!important;
+      }
+    }
+  }
+}
+section.tribe-some {
+  .some-container {
+    //background-color: $indians-grey;
+    grid-column-start: 1;
+    grid-column-end: 13;
+    display: flex;
+    justify-content: space-around;
+  }
+}

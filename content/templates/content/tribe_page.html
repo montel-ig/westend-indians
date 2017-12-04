@@ -1,0 +1,89 @@
+{% extends "base_layout.html" %}
+{% load wagtailcore_tags %}
+{% load staticfiles %}
+{% load wagtailimages_tags %}
+
+{% block main %}
+
+<h1>
+  {{page.title}}
+</h1>
+<div class="tribe-body">
+  {{ page.body|richtext }}
+</div>
+<section id="lift">
+  <div class="tribe-main-lift ignore-height">
+    {{ page.main_lift|richtext }}
+  </div>
+</section>
+<section class="tribe-news">
+  <img class="triangle flip-y  justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
+  <div class="news-container ignore-height">
+    <div class="row-head">
+      <h1>uutiset</h1>
+      <a href="#">katso kaikki uutiset >></a>
+    </div>
+    <div class="row-news">
+      <div class="news-item">
+        <a href="#">
+          <div class="news-image">
+            <img src="http://i64.tinypic.com/4sxy79.png">
+          </div>
+        </a>
+        <h2 class="news-item-header">otsikko</h2>
+        <p class="news-item-text">
+          Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
+          amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
+          fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
+        </p>
+      </div>
+      <div class="news-item">
+        <a href="#">
+          <div class="news-image">
+            <img src="http://i64.tinypic.com/4sxy79.png">
+          </div>
+        </a>
+        <h2 class="news-item-header">otsikko</h2>
+        <p class="news-item-text">
+          Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
+          amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
+          fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
+        </p>
+      </div>
+      <div class="news-item">
+        <a href="#">
+          <div class="news-image">
+            <img src="http://i64.tinypic.com/4sxy79.png">
+          </div>
+        </a>
+        <h2 class="news-item-header">otsikko</h2>
+        <p class="news-item-text">
+          Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
+          amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
+          fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
+        </p>
+      </div>
+    </div>
+  </div>
+  <img class="triangle flip-y  justify-top" src="{% static "images/tilted-bg-white-top.svg" %}">
+</section>
+<section class="tribe-some">
+  <div class="some-container">
+    <div class="tribe-face">
+      <i class="fa fa-facebook-square fa-4x" aria-hidden="true"></i>
+    </div>
+    <div class="tribe-insta">
+      <i class="fa fa-instagram fa-4x" aria-hidden="true"></i>
+    </div>
+    <div class="tribe-twitter">
+      <i class="fa fa-twitter-square fa-4x" aria-hidden="true"></i>
+    </div>
+  </div>
+</section>
+<section class="partners">
+  <div class="tribe-partners">
+    {{ page.partners|richtext }}
+  </div>
+  <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
+</section>
+{% endblock %}
