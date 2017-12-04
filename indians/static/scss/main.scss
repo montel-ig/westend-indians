@@ -9,6 +9,7 @@
 @import "components/team-browser";
 @import "components/team-filter";
 @import "components/representative-team";
+@import "components/tribe-page";
 
 
 
@@ -50,8 +51,8 @@ body {
       }
       &.ignore-height {
         min-height: 0;
-        padding: 50px 0;
       }
+
     }
 
     .triangle {
@@ -73,9 +74,8 @@ body {
       }
     }
 
-    &.team {
+    &.team, &.tribe-news {
       background-image: url("http://i64.tinypic.com/2akq38.png");
-      padding-top: 100px;
     }
 
     &.shop, &.games, &.lift {
@@ -84,9 +84,16 @@ body {
       background-color: black;
     }
 
+    #tribe-lift {
+      background-color: white;
+    }
+
     &.footer {
       background-color: $indians-bg-grey;
     }
+  }
+  .add-space {
+    padding: 100px 0;
   }
 }
 

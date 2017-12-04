@@ -48,7 +48,7 @@ section.schedule, section.statistics {
     min-height: 600px;
     margin: 0 auto;
 
-    td, th:not(.statistics-head) {
+    td, th:not(.statistics-head):not(.schedule-head) {
       font-family: $encode-sans;
       font-size: 18px;
     }
