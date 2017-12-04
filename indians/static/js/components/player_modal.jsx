@@ -34,8 +34,8 @@ class PlayerModal extends React.Component {
               <p id="player-name">{`${this.props.selectedPlayer.first_name} ${this.props.selectedPlayer.last_name}`}</p>
               <p>Kotoisin: {this.props.selectedPlayer.origin}</p>
               <p>Pelinumero: {this.props.selectedPlayer.number}</p>
-              <p>Pelipaikka: {this.state.locales[this.props.selectedPlayer.position] ?  this.state.locales[this.props.selectedPlayer.position] : this.props.selectedPlayer.position}</p>
-              <p>Kätisyys: {this.state.locales[this.props.selectedPlayer.handedness] ?  this.state.locales[this.props.selectedPlayer.handedness] : this.props.selectedPlayer.handedness}</p>
+              <p>Pelipaikka: {t('player_modal',this.props.selectedPlayer.position)}</p>
+              <p>Kätisyys: {t('player_modal',this.props.selectedPlayer.handedness)}</p>
               <p>Syntymävuosi: {this.props.selectedPlayer.born}</p>
               <p>Pituus (cm): {this.props.selectedPlayer.height}</p>
               <p>Paino (kg): {this.props.selectedPlayer.weight}</p>
