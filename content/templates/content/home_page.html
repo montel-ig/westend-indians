@@ -4,7 +4,7 @@
 {% load wagtailimages_tags %}
 
 {% block main %}
-  <section class="team">
+  <section class="team add-space">
     <div class="team-container"}>
       <img class="team-img" src="http://i68.tinypic.com/2rwx8x5.png">
       <div class="content team">
@@ -36,8 +36,8 @@
 
   </section>
   <section class="lift" style="background-color:{{ page.lift_bgcolor }};">
-    <img class="triangle   justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
-    <div class="lift-container ignore-height">
+    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
+    <div class="lift-container add-space ignore-height">
       <div class="lift-img">
         {% image page.lift_image width-1280 %}
       </div>
@@ -83,10 +83,11 @@
         </div>
       </div>
     </div>
-    <img class="triangle flip-y  justify-top" src="{% static "images/tilted-bg-white-top.svg" %}">
+
   </section>
-  <section class="news">
-    <div class="news-container ignore-height">
+  <section class="home-news">
+    <img class="triangle flip-y  justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+    <div class="news-container ignore-height add-space">
       <div class="row-head">
         <h1>uutiset</h1>
         <a href="#">katso kaikki uutiset >></a>
