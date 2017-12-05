@@ -80,3 +80,22 @@
     }
   }
 }
+
+//mediaquerys
+
+@media (max-width: 640px) {
+  body .container
+
+  > .main-grid-header {
+
+    > .header {
+      h1.main-header-text {
+        padding-top: 600px;
+      }
+      h2.slogan {
+        padding-top: 750px;
+      }
+    }
+  }
+}
+

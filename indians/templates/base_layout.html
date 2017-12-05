@@ -29,7 +29,7 @@
           <img class="main-img" src="http://i67.tinypic.com/67ts41.jpg">
           <ul class="nav-index">
             <li><a href="{%slugurl 'home'%}"><img id="nav-logo" src="http://i67.tinypic.com/30kralk.png" /></a></li>
-            {% for menuitem in request.site.root_page.get_children.live %}
+            {% for menuitem in  page.get_children.live.in_menu %}
             <li><a href="{{ menuitem.slug }}">{{ menuitem.title.upper }}</a></li>
             {% endfor %}
           </ul>
