@@ -3,7 +3,7 @@ class PlayerBrowser extends React.Component {
   constructor(props) {
     super(props);
     ['mapPlayers',
-      'handleModalClose',
+     'handleModalClose',
      'handlePlayerClick',
      'handlePlayerChange'
     ].forEach((fn) => this[fn] = this[fn].bind(this));
@@ -14,8 +14,7 @@ class PlayerBrowser extends React.Component {
   }
 
   mapPlayers(players) {
-    return Object.keys(players).map(playerIndex => {
-      let player = players[playerIndex];
+    return players.map(player => {
       return <Player
         name={`${player.first_name} ${player.last_name}`}
         origin={player.origin}
@@ -44,16 +43,18 @@ class PlayerBrowser extends React.Component {
 
   handlePlayerChange(player) {
     if (player) {
-      let keys = Object.keys(this.props.players);
-      let index = keys.indexOf(player);
-      this.setState(prevState => ({
-        selectedPlayer: this.props.players[prevState.selectedPlayer + 1]
-      }));
-      return;
+      this.setState(function(prevState) {
+        return {
+          selectedPlayer: this.props.players[this.props.players.indexOf(this.state.selectedPlayer)+1]
+        };
+      });
+    } else {
+      this.setState(function(prevState) {
+        return {
+          selectedPlayer: this.props.players[this.props.players.indexOf(this.state.selectedPlayer)-1]
+        };
+      });
     }
-    this.setState(prevState => ({
-      selectedPlayer: this.props.players[prevState.selectedPlayer - 1]
-    }));
   }
 
   handleModalClose(e) {
@@ -73,15 +74,22 @@ class PlayerBrowser extends React.Component {
         <div className={this.state.selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
           {this.mapPlayers(this.props.players)}
         </div>
-
       </div>
     );
   }
 }
 
+function membersToArray(members) {
+  let arrayOfObjects = Object.keys(members).map(key => {
+    let array = members[key]
+    array.key = key
+    return array
+  });
+  return arrayOfObjects;
+}
+
 PlayerBrowser.defaultProps = {
-  players: team_members
-  //players: Array.from(Array(15).keys())
+  players: membersToArray(team_members)
 }
 
 function createPlayerBrowser(id) {
