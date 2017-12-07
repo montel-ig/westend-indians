@@ -28,7 +28,11 @@
           <h2 class="main-header-text slogan">Once a member - always a part of the tribe</h2>
           <img class="main-img" src="http://i67.tinypic.com/67ts41.jpg">
           <ul class="nav-index">
-            <li><a href="{%slugurl 'home'%}"><img id="nav-logo" src="http://i67.tinypic.com/30kralk.png" /></a></li>
+            <li class="nav-logo"}><a href="{%slugurl 'home'%}"><img id="nav-logo" src="http://i67.tinypic.com/30kralk.png" /></a></li>
+            {# TODO: find a better solution for home-link #}
+            {% if page.title != 'etusivu' and  page.get_parent%}
+              <li class="root-page"}><a href="{%pageurl page.get_parent%}">{{ page.get_parent.title.upper }}</a></li>
+            {% endif %}
             {% for menuitem in  page.get_children.live.in_menu %}
             <li><a href="{{ menuitem.slug }}">{{ menuitem.title.upper }}</a></li>
             {% endfor %}
@@ -45,7 +49,7 @@
           <div class="footer-container">
             <div class="indians-info">
               <div>
-                <h1>Westend<br/>Indians</h1>
+                <a href="{% slugurl 'home' %}"><h1>Westend<br/>Indians</h1></a>
               </div>
               <div class="indians-address">
                 <p>puhelin: 050-3363366</p>
@@ -56,22 +60,19 @@
               </div>
               <div class="indians-social">
                 <a href="https://www.facebook.com/westendindians/"><i class="fa fa-facebook-square fa-4x" aria-hidden="true"></i></a>
-                <a href="https://twitter.com/WestendIndians"><i class="fa fa-twitter-square fa-4x" aria-hidden="true"></i></a>
+                <a href="https://www.twitter.com/westendindians/"><i class="fa fa-twitter-square fa-4x" aria-hidden="true"></i></a>
                 <a href="https://www.instagram.com/westendindians/"><i class="fa fa-instagram fa-4x" aria-hidden="true"></i></a>
               </div>
             </div>
             <div class="partners">
               <p>Once a member - always a part of the tribe</p>
               <hr>
-              <h2>pääyhteistyökumppanit</h2>
+              <h2>yhteistyökumppanit</h2>
+              <div>{{ page.partners|safe }}</div>
+
               <div class="row">
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
-                <div>5</div>
-                <div>6</div>
               </div>
+              <!--
             </div>
             <div class="co-op">
               <h2>yhteistyössä</h2>
@@ -135,6 +136,7 @@
               </div>
             </div>
           </div>
+          -->
         </section>
       </div>
     </div>

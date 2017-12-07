@@ -11,9 +11,9 @@
           {{ page.body|richtext }}
         </div>
         <ul class="info-links">
-          <a href="#">pelaajat</a>
-          <a href="#">otteluohjelma</a>
-          <a href="#">sarjataulukko</a>
+          <a href="#players">pelaajat</a>
+          <a href="#schedule">otteluohjelma</a>
+          <a href="#statistics">sarjataulukko</a>
         </ul>
     </div>
     <img class="triangle  flip-y justify-top" src="{% static "images/tilted-bg-black-top.svg" %}">
@@ -41,7 +41,7 @@
       {{ page.main_lift|richtext }}
     </div>
   </section>
-  <section class="schedule">
+  <section class="schedule" id="schedule"}>
     <img class="triangle flip-y  justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
 
     <table class="schedule-container">
@@ -85,15 +85,14 @@
     </table>
     <img class="triangle flip-x justify-top" src="{% static "images/tilted-bg-black-top.svg" %}">
   </section>
-  <section class="players">
+  <section class="players" id="players">
     <div class="players-container">
       <h1>pelaajat</h1>
     </div>
     <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-black-bottom.svg" %}">
   </section>
-  <section class="statistics">
+  <section class="statistics" id="statistics">
     <img class="triangle flip-y  justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
-
     <table class="statistics-container">
       <tr>
       </tr>
@@ -134,7 +133,6 @@
       </tr>
     </table>
     <img class="triangle flip-x  justify-top" src="{% static "images/tilted-bg-white-top.svg" %}">
-
   </section>
   <section class="repr-partners">
     {{ page.partners|richtext }}

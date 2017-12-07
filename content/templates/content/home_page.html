@@ -10,7 +10,7 @@
       <div class="content team">
         <h1>{{ page.team_title}}</h1>
         <p class="description">{{ page.team_description }}</p>
-        <a class="cta-link" href="#">{{page.team_cta}} >></a>
+        <a class="cta-link" href="{% slugurl 'representative_team'%}">{{page.team_cta}} >></a>
         <ul class="info-links">
           <a href="#">pelaajat</a>
           <a href="#">otteluohjelma</a>
@@ -23,9 +23,9 @@
     <div class="tribe-container">
       <img class="tribe-img" src="http://i64.tinypic.com/4sxy79.png">
       <div class="content tribe">
-        <h1>{{ page.tribe_title}}</h1>
-        <p class="description">{{ page.tribe_description}}</p>
-        <a class="cta-link" href="#">{{page.tribe_cta}} >></a>
+        <h1>{{ page.tribe_title }}</h1>
+        <p class="description">{{ page.tribe_description }}</p>
+        <a class="cta-link" href="{% slugurl 'tribe' %}">{{ page.tribe_cta }} >></a>
         <ul class="info-links">
           <a href="#">liity mukaan</a>
           <a href="#">junioritoiminta</a>
@@ -33,7 +33,6 @@
         </ul>
       </div>
     </div>
-
   </section>
   <section class="lift" style="background-color:{{ page.lift_bgcolor }};">
     <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
@@ -63,7 +62,7 @@
       <div class="content shop">
         <h1>{{ page.shop_title}}</h1>
         <p class="cta-text">{{ page.shop_description }}</p>
-        <a class="cta-link" href="#">{{page.shop_cta}} >></a>
+        <a class="cta-link" href="{% slugurl 'shop' %}">kauppaan >></a>
       </div>
     </div>
   </section>
@@ -83,14 +82,13 @@
         </div>
       </div>
     </div>
-
   </section>
   <section class="home-news">
     <img class="triangle flip-y  justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
     <div class="news-container ignore-height add-space">
       <div class="row-head">
         <h1>uutiset</h1>
-        <a href="#">katso kaikki uutiset >></a>
+        <a href="{% slugurl 'news' %}">katso kaikki uutiset >></a>
       </div>
       <div class="row-news">
         <div class="news-item">
