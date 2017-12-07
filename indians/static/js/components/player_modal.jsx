@@ -3,14 +3,6 @@ class PlayerModal extends React.Component {
     super()
     this.state = {
       visibilityClass:"not-visible",
-      locales: {
-        "both": "molemmat",
-        "left": "vasen",
-        "right": "oikea",
-        "fwd": "hyökkääjä",
-        "goal": "maalivahti",
-        "def": "puolustaja"
-      }
     }
   }
 

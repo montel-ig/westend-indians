@@ -41,7 +41,7 @@
 
     &.team {
       grid-column-start: 8;
-      grid-column-end: 11;
+      grid-column-end: 12;
     }
 
     &.tribe {
@@ -183,7 +183,6 @@
     justify-content: space-between;
 
     .news-item {
-      padding: 0 20px;
       width: 325px;
 
       > a > div.news-image {
@@ -213,6 +212,7 @@
 //Mediaquerys
 
 @media (max-width: 640px) {
+
   .main-grid-body {
 
     > .team {
@@ -272,7 +272,7 @@
       }
     }
 
-    > .news {
+    > .home-news {
       display: block;
 
       .news-container {

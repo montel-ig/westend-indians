@@ -7,9 +7,10 @@
   margin: 0 auto;
   padding-bottom: 100px;
 
-  h1 {
+  a > h1 {
     text-transform: uppercase;
     font-family: $black-ops;
+    color: $indians-grey;
     font-size: 48px;
     letter-spacing: $letter-spacing-medium;
     grid-column-start: 2;
@@ -35,8 +36,6 @@
     align-items: center;
     > div {
       margin: 50px 100px 0 0;
-
-
 
       p {
         font-family: $encode-sans;
@@ -107,8 +106,6 @@
         height: 75px;
       }
     }
-
-
   }
 
   .featuring {

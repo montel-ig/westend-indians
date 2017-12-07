@@ -44,15 +44,29 @@ class PlayerBrowser extends React.Component {
   handlePlayerChange(player) {
     if (player) {
       this.setState(function(prevState) {
-        return {
-          selectedPlayer: this.props.players[this.props.players.indexOf(this.state.selectedPlayer)+1]
-        };
+        if (this.props.players.indexOf(this.state.selectedPlayer)+1 === this.props.players.length) {
+          return {
+            selectedPlayer: this.props.players[0]
+          };
+        } else {
+          return {
+            selectedPlayer: this.props.players[this.props.players.indexOf(this.state.selectedPlayer)+1]
+          };
+        }
+
       });
     } else {
       this.setState(function(prevState) {
-        return {
-          selectedPlayer: this.props.players[this.props.players.indexOf(this.state.selectedPlayer)-1]
-        };
+        if (this.props.players.indexOf(this.state.selectedPlayer) === 0) {
+          return {
+            selectedPlayer: this.props.players[this.props.players.length-1]
+          };
+        } else {
+          return {
+            selectedPlayer: this.props.players[this.props.players.indexOf(this.state.selectedPlayer)-1]
+          };
+        }
+
       });
     }
   }

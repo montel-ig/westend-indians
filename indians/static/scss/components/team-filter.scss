@@ -1,16 +1,18 @@
 .team-filter {
-  margin:10%;
   display: flex;
   justify-content: center;
-  
-  label,select {
-    display: block;
-    margin:30px;
-    width: 100px;
-  }
-  .select-age {
+  background-color: $indians-grey;
+  flex-direction: row;
 
-    > select {
-    }
+  > div > * {
+    margin: 0;
+    padding: 20px;
+    display: flex;
+
   }
+
+  .select-path {
+    flex-direction: column;
+  }
+
 }
