@@ -3,11 +3,26 @@ from django.db import models
 from django.utils.text import slugify
 
 
+SPORT_TYPES = (
+    ('floorball', 'Floorball'),
+    ('futsal', 'Futsal'),
+    ('soccer', 'Soccer'),
+)
+
 class Team(models.Model):
     name = models.CharField(max_length=255)
-    #description = models.CharField(max_length=255, blank=True, editable=True)
     slug = models.SlugField(max_length=255, unique=True, blank=True, editable=False)
-    # memberships = models.ManyToManyField(to='TeamMembership')
+
+    description = models.TextField(null=True, blank=True)
+    contact_email = models.EmailField(blank=True, null=True)
+    contact_phone = models.CharField(max_length=64, blank=True, null=True)
+    image = models.ImageField(blank=True, null=True)
+
+    sport = models.CharField(blank=True, null=True, max_length=12, choices=SPORT_TYPES)
+
+    player_age_start = models.SmallIntegerField(null=True, blank=True)
+    player_age_end = models.SmallIntegerField(null=True, blank=True)
+    max_players = models.SmallIntegerField(null=True, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

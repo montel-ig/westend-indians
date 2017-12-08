@@ -14,6 +14,5 @@ class Sponsor(models.Model):
     visible_for_tribe = models.BooleanField(default=True)
     visible_for_frontpage = models.BooleanField(default=True)
 
-
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
