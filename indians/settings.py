@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     'news',
     'content',
     'products',
+    'sponsors',
 
 ]
 
