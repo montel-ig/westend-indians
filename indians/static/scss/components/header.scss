@@ -11,6 +11,7 @@
     .main-img {
       opacity:0;
       margin-top: 10%;
+      width: 100%;
 
       &.active {
         opacity:1;
@@ -29,11 +30,21 @@
 
       &.header {
         padding-top: 800px;
+        width: 100%;
         font-family: $black-ops;
         font-size: 48px;
         line-height: 60px;
         letter-spacing: $letter-spacing-large;
         text-transform: uppercase;
+
+        @media screen and (min-width : 176px) and  (max-width : 640px) {
+          padding-top: 350px;
+          font-size: 24px;
+        }
+
+        @media screen and (min-width : 641px) and  (max-width : 1024px) {
+          padding-top: 580px;
+        }
 
         &.active {
           opacity:1;
@@ -45,9 +56,19 @@
 
       &.slogan {
         padding-top: 900px;
+        width: 100%;
         font-family: $titillium-web;
         font-size: 24px;
         letter-spacing: $letter-spacing-medium;
+
+        @media screen and (min-width : 176px) and  (max-width : 640px) {
+          font-size: 13px;
+          padding-top: 400px;
+        }
+
+        @media screen and (min-width : 641px) and  (max-width : 1024px) {
+          padding-top: 650px;
+        }
         &.active {
           opacity:1;
           transition: opacity 1.8s ease-in-out .5s, transform .2s ease-in-out 1.2s;
@@ -89,18 +110,6 @@
 //mediaquerys
 
 @media (max-width: 640px) {
-  body .container
 
-  > .main-grid-header {
-
-    > .header {
-      h1.main-header-text {
-        padding-top: 600px;
-      }
-      h2.slogan {
-        padding-top: 750px;
-      }
-    }
-  }
 }
 

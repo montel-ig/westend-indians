@@ -47,6 +47,8 @@
     &.tribe {
       grid-column-start: 2;
       grid-column-end: 6;
+
+
     }
 
     &.shop {
@@ -277,6 +279,9 @@
 
       .news-container {
 
+        .row-head {
+          padding: 50px;
+        }
         .row-news {
           display: flex;
           flex-direction: column;
