@@ -12,6 +12,35 @@ SPORT_TYPES = (
     ('soccer', 'Soccer'),
 )
 
+GENDER_TYPES = (
+    ('male', 'Male'),
+    ('female', 'Female'),
+    ('mixed', 'Mixed'),
+)
+
+PATH_TYPES = (
+    ('urheilijan', 'Urheilijan polku (3+)'),
+    ('kilpailijan', 'Kilpailijan polku (3-2)'),
+    ('harrastajan', 'Harrastajan polku (1)'),
+    ('salibandy_koulut', 'Salibandy koulut (1, 2 tai 3)'),
+    ('koulujen_iltapaivatoiminta', 'Koulujen iltapäivätoiminta (1 tai 2)'),
+    ('erityisryhmat', 'Erityisryhmät'),
+)
+
+AGE_LEVEL_TYPES = (
+    ('adult', '+20-vuotiaat (Aikuiset)'),
+    ('a', '20-17-vuotiaat (A-juniorit)'),
+    ('b', '17-15-vuotiaat (B-juniorit)'),
+    ('c', '15-13-vuotiaat (C-juniorit)'),
+    ('d', '13-11-vuotiaat (D-juniorit)'),
+    ('e', '11-9-vuotiaat (E-juniorit)'),
+    ('f', '9-7-vuotiaat (F-juniorit)'),
+    ('g', '7-5-vuotiaat (G-juniorit)'),
+    ('h', '5-3-vuotiaat (H-juniorit)'),
+    ('i', '3-1 vuotiaat (I-juniorit)')
+)
+
+
 class Team(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True, blank=True, editable=False)
@@ -25,12 +54,15 @@ class Team(models.Model):
     some_facebook = models.CharField(max_length=255, blank=True, null=True)
     some_snapchat = models.CharField(max_length=255, blank=True, null=True)
 
-    sport = models.CharField(blank=True, null=True, max_length=12, choices=SPORT_TYPES)
-    area = models.ForeignKey(Area, null=True, blank=True)
+    # player_age_start = models.SmallIntegerField(null=True, blank=True)
+    # player_age_end = models.SmallIntegerField(null=True, blank=True)
+    # max_players = models.SmallIntegerField(null=True, blank=True)
 
-    player_age_start = models.SmallIntegerField(null=True, blank=True)
-    player_age_end = models.SmallIntegerField(null=True, blank=True)
-    max_players = models.SmallIntegerField(null=True, blank=True)
+    gender = models.CharField(max_length=12, null=True, blank=True, choices=GENDER_TYPES)
+    path = models.CharField(max_length=32, null=True, blank=True, choices=PATH_TYPES)
+    sport = models.CharField(blank=True, null=True, max_length=12, choices=SPORT_TYPES)
+    age_level = models.CharField(blank=True, null=True, max_length=12, choices=AGE_LEVEL_TYPES)
+    area = models.ForeignKey(Area, null=True, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
