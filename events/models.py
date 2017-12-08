@@ -10,8 +10,8 @@ class Event(models.Model):
 
     street_address = models.CharField(max_length=255)
     city = models.CharField(max_length=255)
-    lat = models.DecimalField(max_digits=19, decimal_places=16, null=True, default=None)
-    lng = models.DecimalField(max_digits=19, decimal_places=16, null=True, default=None)
+    lat = models.DecimalField(max_digits=19, decimal_places=16, null=True, default=None, blank=True)
+    lng = models.DecimalField(max_digits=19, decimal_places=16, null=True, default=None, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
