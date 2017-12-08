@@ -1,25 +1,29 @@
 {% extends "base_layout.html" %}
 {% load wagtailcore_tags %}
+{% load staticfiles %}
+{% load wagtailimages_tags %}
 
 {% block main %}
-
-  <h1>
-    {{ page.title }}
-  </h1>
-  <div class="info-body">
-    {{ page.body|richtext }}
-  </div>
-  <div class="info-lift">
-    {{ page.tickets|richtext }}
-  </div>
-  <div class="info-information">
-    {{ page.information|richtext }}
-  </div>
-  <div class="info-contact">
-    {{ page.contact|richtext }}
-  </div>
-  <div class="info-partners">
-    {{ page.partners|richtext }}
-  </div>
-
+  <section class="team-info">
+    <div class="team-info-container">
+      <div class="team-info-content">
+        <h1>
+          {{ page.title }}
+        </h1>
+        <div class="info-body">
+          {{ page.body|richtext }}
+        </div>
+        <div class="info-lift">
+          {{ page.tickets|richtext }}
+        </div>
+        <div class="info-information">
+          {{ page.information|richtext }}
+        </div>
+        <div class="info-contact">
+          {{ page.contact|richtext }}
+        </div>
+      </div>
+    </div>
+    <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
+  </section>
 {% endblock %}
