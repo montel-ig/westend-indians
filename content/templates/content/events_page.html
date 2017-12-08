@@ -1,23 +1,37 @@
 {% extends "base_layout.html" %}
 {% load wagtailcore_tags %}
+{% load staticfiles %}
+{% load wagtailimages_tags %}
 
 {% block main %}
-
-  <h1>
-    {{page.title}}
-  </h1>
-
-  <div class="events-body">
-    {{ page.body|richtext }}
-  </div>
-  <div class="events-partners">
-    {{ page.partners|richtext }}
-  </div>
-
-  {% for event in page.events %}
-    <p>
-      {{ event.name|linebreaks }}
-    </p>
-  {% endfor %}
-
+  <section class="events-body event ">
+    <div class="events-body-container ignore-height">
+      {{ page.body|richtext }}
+    </div>
+  </section>
+  <section class="events">
+    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
+    <div class="event-container">
+      {% for event in page.events %}
+        <div class="event">
+          <h1>
+            {{ event.name|linebreaks }}
+          </h1>
+          <p>
+            {{ event.description }}
+          </p>
+          <p>
+            {{ event.start_time }} - {{ event.end_time }}
+          </p>
+          <p>
+            {{ event.street_address }} {{ event.city }}
+          </p>
+          <p>
+            {{ event.lat }}, {{ event.lng }}
+          </p>
+        </div>
+      {% endfor %}
+    </div>
+    <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
+  </section>
 {% endblock %}
