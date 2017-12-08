@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'events',
     'news',
     'content',
+    'products',
 
 ]
 
@@ -187,7 +188,7 @@ LOGGING = {
     },
     'handlers': {
         'console': {
-            'level': 'DEBUG',
+            'level': 'INFO',  # DEBUG
             'class': 'logging.StreamHandler',
             'stream': sys.stdout,
             'formatter': 'verbose'
@@ -196,7 +197,7 @@ LOGGING = {
     'loggers': {
         'django': {
             'handlers': ['console'],
-            'level': 'DEBUG',
+            'level': 'INFO',  # DEBUG
             'propagate': True,
         },
     },

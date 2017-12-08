@@ -34,6 +34,9 @@ class Member(models.Model):
     some_facebook = models.CharField(max_length=255, blank=True, null=True)
     some_snapchat = models.CharField(max_length=255, blank=True, null=True)
 
+    image = models.ImageField(null=True, blank=True)
+    video_url = models.CharField(max_length=255, null=True, blank=True)
+
     game_years_junior = models.CharField(max_length=24, help_text="Given in the format YYYY-YYYY, e.g. 1983-1987",
                                          blank=True, null=True)
     game_years_pro_tribe = models.CharField(max_length=24, help_text="Given in the format YYYY-YYYY, e.g. 1983-1987",
@@ -68,5 +71,5 @@ class Member(models.Model):
 class TeamMembership(models.Model):
     member = models.ForeignKey(Member, related_name='memberships')
     team = models.ForeignKey(Team, related_name='memberships')
-    number = models.IntegerField()
+    number = models.IntegerField(null=True, blank=True)
     position = models.CharField(choices=POSITION_TYPES, max_length=10, null=True, blank=True)
