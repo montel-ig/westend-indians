@@ -8,8 +8,8 @@
   var team_members = {{ members|safe }};
 
   window.onload = function() {
-
-    createPlayerBrowser("players");
+    if (team_members)
+      createPlayerBrowser("players");
   }
 </script>
 
