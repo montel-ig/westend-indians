@@ -46,8 +46,16 @@ class Team(models.Model):
     slug = models.SlugField(max_length=255, unique=True, blank=True, editable=False)
 
     description = models.TextField(null=True, blank=True)
+
+    contact_name = models.CharField(blank=True, null=True, max_length=255)
     contact_email = models.EmailField(blank=True, null=True)
     contact_phone = models.CharField(max_length=64, blank=True, null=True)
+
+    leader_name = models.CharField(blank=True, null=True, max_length=255)
+    leader_email = models.EmailField(blank=True, null=True)
+    leader_phone = models.CharField(max_length=64, blank=True, null=True)
+
+    brochure = models.FileField(blank=True, null=True)
     image = models.ImageField(blank=True, null=True)
     some_instagram = models.CharField(max_length=255, blank=True, null=True)
     some_twitter = models.CharField(max_length=255, blank=True, null=True)
@@ -56,7 +64,9 @@ class Team(models.Model):
 
     # player_age_start = models.SmallIntegerField(null=True, blank=True)
     # player_age_end = models.SmallIntegerField(null=True, blank=True)
-    # max_players = models.SmallIntegerField(null=True, blank=True)
+
+    current_player_count = models.SmallIntegerField(null=True, blank=True)
+    max_player_count = models.SmallIntegerField(null=True, blank=True)
 
     gender = models.CharField(max_length=12, null=True, blank=True, choices=GENDER_TYPES)
     path = models.CharField(max_length=32, null=True, blank=True, choices=PATH_TYPES)
