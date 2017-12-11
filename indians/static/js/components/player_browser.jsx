@@ -43,6 +43,7 @@ class PlayerBrowser extends React.Component {
 
   handlePlayerChange(player) {
     if (player) {
+      console.log(this.props.players.indexOf(this.state.selectedPlayer), this.props.players.length)
       this.setState(function(prevState) {
         if (this.props.players.indexOf(this.state.selectedPlayer)+1 === this.props.players.length) {
           return {
@@ -93,14 +94,7 @@ class PlayerBrowser extends React.Component {
   }
 }
 
-function membersToArray(members) {
-  let arrayOfObjects = Object.keys(members).map(key => {
-    let array = members[key]
-    array.key = key
-    return array
-  });
-  return arrayOfObjects;
-}
+
 
 PlayerBrowser.defaultProps = {
   players: membersToArray(team_members)
