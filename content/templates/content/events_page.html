@@ -27,7 +27,7 @@
             {{ event.street_address }} {{ event.city }}
           </p>
           <p>
-            {{ event.lat }}, {{ event.lng }}
+            {{ event.lat|default_if_none:"&nbsp;" }}, {{ event.lng|default_if_none:"&nbsp;" }}
           </p>
         </div>
       {% endfor %}

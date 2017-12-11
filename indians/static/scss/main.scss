@@ -13,6 +13,7 @@
 @import "components/tribe-page";
 @import "components/events_page";
 @import "components/info_page";
+@import "components/club_page";
 
 
 html,
@@ -30,6 +31,8 @@ body {
   a {
     text-decoration: none;
     display: block;
+    color: black;
+
   }
 
   ul {
@@ -100,6 +103,12 @@ body {
 
   .richtext-image {
     width: 100%;
+  }
+
+  .rich-text {
+    ul {
+      list-style: circle;
+    }
   }
 }
 
