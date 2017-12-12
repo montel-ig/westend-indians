@@ -40,11 +40,24 @@ class TeamBrowser extends React.Component {
   }
 
   mapTeams(teams) {
-    return membersToArray(teams).map(team => {
-      return <Team
-        name={team.name}
-      />
+    return jsonToArray(teams).map(team => {
+      if (this.teamInChecked(team)) {
+        return <Team
+          name={team.name}
+          key={team.key}
+        />
+      }
     });
+  }
+
+  teamInChecked(team) {
+    let teamInCheckedTerms = false
+    Object.values(team).filter((property) => {
+      if (this.state.hasOwnProperty(property) && this.state[property]) {
+        teamInCheckedTerms = true
+      }
+    });
+    return teamInCheckedTerms;
   }
 
   handleInputChange(event) {
@@ -65,16 +78,36 @@ class TeamBrowser extends React.Component {
           {this.mapTeams(this.props.teams)}
         </div>
       </div>
-
     );
   }
 }
 
 TeamBrowser.defaultProps = {
   teams: {
-    0: {name: "testTeam"},
-    1: {name: "team Test"},
-    2: {name: "testTest"}
+    0: {
+      name: "testTeam",
+      ages: "ages8to10",
+      activity: "activityLvlOne",
+      path: "amateurPath",
+      area: "leppavaara",
+      sport: "floorball"
+    },
+    1: {
+      name: "team Test",
+      ages: "ages10to12",
+      activity: "activityLvlTwo",
+      path: "competitorPath",
+      area: "tapiola",
+      sport: "floorball"
+    },
+    2: {
+      name: "Test Test",
+      ages: "ages12to15",
+      activity: "activityLvlTwo",
+      path: "athletePath",
+      area: "tapiola",
+      sport: "floorball"
+    },
   }
 }
 
