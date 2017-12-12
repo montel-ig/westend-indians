@@ -27,7 +27,7 @@
         <div class="games-date">
           <h1>seuraava edustusjoukkueen kotiottelu</h1>
           <p>Ti 16.12,  klo 16:30</p>
-          <div class="games-cta">tule katsomaan</div>
+          <a href="{% slugurl 'info' %}" class="games-cta">tule katsomaan</a>
         </div>
         <div class="away">
           <img src="http://i67.tinypic.com/30kralk.png">
@@ -132,10 +132,6 @@
       <td>10</td>
       </tr>
     </table>
-    <img class="triangle flip-x  justify-top" src="{% static "images/tilted-bg-white-top.svg" %}">
-  </section>
-  <section class="repr-partners">
-    {{ page.partners|richtext }}
     <img class="triangle flip-x  justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
   </section>
 {% endblock %}

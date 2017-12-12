@@ -1,0 +1,39 @@
+div#teams {
+  max-width: 1280px;
+  margin: 0 auto;
+  .team-filter {
+    display: flex;
+    justify-content: center;
+    background-color: $indians-grey;
+    flex-direction: row;
+
+    > div {
+      flex-direction: column;
+      letter-spacing: $letter-spacing-medium;
+
+      > p {
+        font-weight: bold;
+        font-family: $titillium-web;
+        text-transform: uppercase;
+        letter-spacing: $letter-spacing-large;
+      }
+
+      label {
+        font-family: $encode-sans;
+        input {
+          margin: 10px;
+        }
+      }
+    } > * {
+        margin: 0;
+        padding: 20px;
+        display: flex;
+
+      }
+
+    .select-path {
+    }
+
+  }
+}
+

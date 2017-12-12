@@ -81,7 +81,7 @@ class Team(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        if (not self.slug) or (self.slug != self.__get_unique_slug()):
+        if (not self.slug) or (slugify(self.name) not in self.slug):
             self.slug = self.__get_unique_slug()
         super().save()
 

@@ -2,7 +2,7 @@
 
   .content {
 
-    > .description {
+    > p {
       font-family: $encode-sans;
       font-size: 18px;
       margin: 30px 0 30px 0;
@@ -47,6 +47,8 @@
     &.tribe {
       grid-column-start: 2;
       grid-column-end: 6;
+
+
     }
 
     &.shop {
@@ -55,6 +57,10 @@
       > h1, p, a {
         color: white;
       }
+    }
+
+    ul {
+      list-style: circle;
     }
   }
 
@@ -277,6 +283,9 @@
 
       .news-container {
 
+        .row-head {
+          padding: 50px;
+        }
         .row-news {
           display: flex;
           flex-direction: column;

@@ -5,14 +5,22 @@
 
 {% block main %}
 
-<h1>
-  {{page.title}}
-</h1>
-<div class="tribe-body">
-  {{ page.body|richtext }}
-</div>
+<section class="tribe">
+  <div class="tribe-container">
+    <img class="tribe-img" src="http://i64.tinypic.com/4sxy79.png">
+    <div class="content tribe">
+      <h1>{{ page.title }}</h1>
+      <p class="description">{{ page.body|safe }}</p>
+      <ul class="info-links">
+        <a href="http://indians.fi/ilmoittautuminen">liity mukaan</a>
+        <a href="#">junioritoiminta</a>
+        <a href="{% slugurl 'teams' %}">seurat</a>
+      </ul>
+    </div>
+  </div>
+</section>
 <section id="lift">
-  <div class="tribe-main-lift ignore-height">
+  <div class="tribe-main-lift ignore-height add-space">
     {{ page.main_lift|richtext }}
   </div>
 </section>
@@ -78,11 +86,6 @@
     <div class="tribe-twitter">
       <i class="fa fa-twitter-square fa-4x" aria-hidden="true"></i>
     </div>
-  </div>
-</section>
-<section class="partners">
-  <div class="tribe-partners">
-    {{ page.partners|richtext }}
   </div>
   <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
 </section>

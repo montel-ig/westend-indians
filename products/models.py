@@ -24,6 +24,11 @@ class Product(models.Model):
             num += 1
         return unique_slug
 
+    def save(self, *args, **kwargs):
+        if (not self.slug) or (slugify(self.name) not in self.slug):
+            self.slug = self.__get_unique_slug()
+        super().save()
+
     def __str__(self):
         return f"{self.name}"
 
@@ -41,8 +46,14 @@ class ProductCategory(models.Model):
             num += 1
         return unique_slug
 
+    def save(self, *args, **kwargs):
+        if (not self.slug) or (slugify(self.name) not in self.slug):
+            self.slug = self.__get_unique_slug()
+        super().save()
+
     def __str__(self):
         return f"{self.name}"
+
 
     class Meta:
         verbose_name_plural = 'Product categories'

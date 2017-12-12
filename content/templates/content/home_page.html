@@ -12,9 +12,9 @@
         <p class="description">{{ page.team_description }}</p>
         <a class="cta-link" href="{% slugurl 'representative_team'%}">{{page.team_cta}} >></a>
         <ul class="info-links">
-          <a href="#">pelaajat</a>
-          <a href="#">otteluohjelma</a>
-          <a href="#">sarjataulukko</a>
+          <a href="{% slugurl 'representative_team'%}/#players">pelaajat</a>
+          <a href="{% slugurl 'representative_team'%}/#schedule">otteluohjelma</a>
+          <a href="{% slugurl 'representative_team'%}/#statistics">sarjataulukko</a>
         </ul>
       </div>
     </div>
@@ -29,7 +29,7 @@
         <ul class="info-links">
           <a href="#">liity mukaan</a>
           <a href="#">junioritoiminta</a>
-          <a href="#">seurat</a>
+          <a href="{% slugurl 'teams' %}">seurat</a>
         </ul>
       </div>
     </div>
@@ -75,7 +75,7 @@
         <div class="games-date">
           <h1>seuraava edustusjoukkueen kotiottelu</h1>
           <p>Ti 16.12,  klo 16:30</p>
-          <div class="games-cta">tule katsomaan</div>
+          <a href="{% slugurl 'info' %}" class="games-cta">tule katsomaan</a>
         </div>
         <div class="away">
           <img src="http://i67.tinypic.com/30kralk.png">

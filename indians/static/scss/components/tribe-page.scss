@@ -1,18 +1,48 @@
-section#lift {
+.tribe-body, #lift {
+  display: flex;
+  justify-content: center;
+}
+
+#lift {
+
   .tribe-main-lift {
     margin: 0 auto;
-
+    display: flex;
+    justify-content: center;
 
     .rich-text {
-      grid-column-start: 1;
-      grid-column-end: 13;
+
       > p {margin: 0;}
 
       .responsive-object {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
         padding: 0!important;
+      }
+    }
+  }
+}
+section.tribe-news {
+  @media screen and (min-width : 176px) and  (max-width : 640px) {
+    display: block;
+
+    .news-container {
+      .row-head {
+        padding: 50px;
+      }
+      .row-news {
+        display: flex;
+        flex-direction: column;
+        .news-item {
+          padding-bottom: 100px;
+          width: 325px;
+          > a > div.news-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+            width: 325px;
+            border: solid 1px;
+          }
+        }
       }
     }
   }
