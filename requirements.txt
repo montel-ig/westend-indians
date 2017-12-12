@@ -27,6 +27,6 @@ Unidecode==0.4.21
 urllib3==1.22
 virtualenv==15.1.0
 virtualenv-clone==0.2.6
-wagtail==1.13
+wagtail==1.13.1
 webencodings==0.5.1
 Willow==1.0
