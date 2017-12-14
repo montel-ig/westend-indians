@@ -8,7 +8,6 @@ class Product(models.Model):
 
     description = models.TextField()
     price = models.DecimalField(max_digits=9, decimal_places=2)
-    image = models.ImageField(blank=True, null=True)
     visible = models.BooleanField(default=False)
 
     categories = models.ManyToManyField('ProductCategory', related_name='products')
@@ -58,3 +57,10 @@ class ProductCategory(models.Model):
 
     class Meta:
         verbose_name_plural = 'Product categories'
+
+
+class ProductImage(models.Model):
+    title = models.CharField(max_length=255)
+    image = models.ImageField()
+    order = models.SmallIntegerField(default=1)
+    product = models.ForeignKey(Product, related_name="images")
