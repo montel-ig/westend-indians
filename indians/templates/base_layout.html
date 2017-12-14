@@ -29,11 +29,8 @@
           <img class="main-img" src="http://i67.tinypic.com/67ts41.jpg">
           <ul class="nav-index">
             <li class="nav-logo"}><a href="{%slugurl 'home'%}"><img id="nav-logo" src="http://i67.tinypic.com/30kralk.png" /></a></li>
-            {# TODO: find a better solution for home-link #}
-            {% if page.title != 'etusivu' and  page.get_parent%}
-              <li class="root-page"}><a href="{%pageurl page.get_parent%}">{{ page.get_parent.title.upper }}</a></li>
-            {% endif %}
-            {% for menuitem in  page.get_children.live.in_menu %}
+
+            {% for menuitem in request.site.root_page.get_children.live.in_menu %}
             <li><a href="{{ menuitem.slug }}">{{ menuitem.title.upper }}</a></li>
             {% endfor %}
           </ul>

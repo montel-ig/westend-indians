@@ -4,31 +4,32 @@
 {% load wagtailimages_tags %}
 
 {% block main %}
-  <section class="team add-space">
+  <section class="team">
     <div class="team-container"}>
       <img class="team-img" src="http://i68.tinypic.com/2rwx8x5.png">
       <div class="content team">
         <h1>{{ page.team_title}}</h1>
         <p class="description">{{ page.team_description }}</p>
-        <a class="cta-link" href="{% slugurl 'representative_team'%}">{{page.team_cta}} >></a>
+        <a class="cta-link" href="{% slugurl 'edustus'%}">{{page.team_cta}} >></a>
         <ul class="info-links">
-          <a href="{% slugurl 'representative_team'%}/#players">pelaajat</a>
-          <a href="{% slugurl 'representative_team'%}/#schedule">otteluohjelma</a>
-          <a href="{% slugurl 'representative_team'%}/#statistics">sarjataulukko</a>
+          <a href="{% slugurl 'edustus'%}#players">pelaajat</a>
+          <a href="{% slugurl 'edustus'%}#schedule">otteluohjelma</a>
+          <a href="{% slugurl 'edustus'%}#statistics">sarjataulukko</a>
         </ul>
       </div>
     </div>
+    <img class="triangle" src="{% static "images/tilted-bg-white-bottom.svg" %}">
   </section>
   <section class="tribe">
     <div class="tribe-container">
-      <img class="tribe-img" src="http://i64.tinypic.com/4sxy79.png">
+      <img class="tribe-img" src="http://i64.tinypic.com/2ewnus8.jpg">
       <div class="content tribe">
         <h1>{{ page.tribe_title }}</h1>
         <p class="description">{{ page.tribe_description }}</p>
-        <a class="cta-link" href="{% slugurl 'tribe' %}">{{ page.tribe_cta }} >></a>
+        <a class="cta-link" href="{% slugurl 'heimo' %}">{{ page.tribe_cta }} >></a>
         <ul class="info-links">
-          <a href="#">liity mukaan</a>
-          <a href="#">junioritoiminta</a>
+          <a href="http://indians.fi/ilmoittautuminen">liity mukaan</a>
+          <a href="{% slugurl 'teams' %}">seurat</a>
           <a href="{% slugurl 'teams' %}">seurat</a>
         </ul>
       </div>
@@ -36,7 +37,7 @@
   </section>
   <section class="lift" style="background-color:{{ page.lift_bgcolor }};">
     <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
-    <div class="lift-container add-space ignore-height">
+    <div class="lift-container add-space">
       <div class="lift-img">
         {% image page.lift_image width-1280 %}
       </div>
@@ -47,16 +48,28 @@
     <div class="shop-container">
       <div class="shop-products">
         <div>
-          <a href="#"><img src="https://images-na.ssl-images-amazon.com/images/I/61rAgYQ95jL._UL1500_.jpg"></a>
+          <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Floorball_ball_cropped.jpg/230px-Floorball_ball_cropped.jpg"></a>
+          <div class="shop-item-description">
+            <p>Pallo</p>
+          </div>
         </div>
         <div>
-          <a href="#"><img src="https://images-na.ssl-images-amazon.com/images/I/61Okl-Cmb-L._UY679_.jpg"></a>
+          <a href="#"><img src="https://www.kiekkobussi.com/WebRoot/Kiekkobussi/Shops/Kiekkobussi/599C/42F7/E70B/4E1B/3228/0A28/104C/4304/58176_82459.jpg"></a>
+          <div class="shop-item-description">
+            <p>Maski</p>
+          </div>
         </div>
         <div>
-          <a href="#"><img src="https://images-na.ssl-images-amazon.com/images/I/51eH5i7kqDL._UY679_.jpg"></a>
+          <a href="#"><img src="http://7gear.fi/media/catalog/product/cache/1/image/1200x1200/9df78eab33525d08d6e5fb8d27136e95/v/i/virallinensalibandymaali.jpg"></a>
+          <div class="shop-item-description">
+            <p>Maali</p>
+          </div>
         </div>
         <div>
-          <a href="#"><img src="https://images-na.ssl-images-amazon.com/images/I/81kY-e0G68L._UX522_.jpg"></a>
+          <a href="#"><img src="http://www.teamstore.fi/tuotekuvat/1500x1500/Oxdog%20hyper%2028%20101cm%20salibandymaila%20floorball%20stick.png"></a>
+          <div class="shop-item-description">
+            <p>Maila</p>
+          </div>
         </div>
       </div>
       <div class="content shop">
@@ -85,7 +98,7 @@
   </section>
   <section class="home-news">
     <img class="triangle flip-y  justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
-    <div class="news-container ignore-height add-space">
+    <div class="news-container  add-space">
       <div class="row-head">
         <h1>uutiset</h1>
         <a href="{% slugurl 'news' %}">katso kaikki uutiset >></a>
@@ -97,12 +110,14 @@
               <img src="http://i64.tinypic.com/4sxy79.png">
             </div>
           </a>
-          <h2 class="news-item-header">otsikko</h2>
-          <p class="news-item-text">
-            Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
-            amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
-            fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
-          </p>
+          <div class="item-text-container">
+            <h2 class="news-item-header">orem ipsum dolor sit amet, imperdiet mauris mauris</h2>
+            <p class="news-item-text">
+              Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
+              amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
+              fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
+            </p>
+          </div>
         </div>
         <div class="news-item">
           <a href="#">
@@ -110,12 +125,14 @@
               <img src="http://i64.tinypic.com/4sxy79.png">
             </div>
           </a>
-          <h2 class="news-item-header">otsikko</h2>
-          <p class="news-item-text">
-            Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
-            amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
-            fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
-          </p>
+          <div class="item-text-container">
+            <h2 class="news-item-header">otsikko</h2>
+            <p class="news-item-text">
+              Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
+              amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
+              fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
+            </p>
+          </div>
         </div>
         <div class="news-item">
           <a href="#">
@@ -123,12 +140,14 @@
               <img src="http://i64.tinypic.com/4sxy79.png">
             </div>
           </a>
-          <h2 class="news-item-header">otsikko</h2>
-          <p class="news-item-text">
-            Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
-            amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
-            fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
-          </p>
+          <div class="item-text-container">
+            <h2 class="news-item-header">otsikko</h2>
+            <p class="news-item-text">
+              Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
+              amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
+              fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
+            </p>
+          </div>
         </div>
       </div>
     </div>

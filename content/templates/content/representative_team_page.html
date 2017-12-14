@@ -4,6 +4,7 @@
 {% load wagtailimages_tags %}
 
 {% block main %}
+
   <section class="team">
     <div class="team-container"}>
         <div class="repr-body">
@@ -134,13 +135,13 @@
     </table>
     <img class="triangle flip-x  justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
   </section>
-{% endblock %}
 
 <script type="application/javascript">
-  var team_members = {{ members|safe }};
-
+  var team_members = {{ page.get_players|safe }};
   window.onload = function() {
 
-    createPlayerBrowser("players-container");
+    createPlayerBrowser("players");
   }
 </script>
+
+{% endblock %}

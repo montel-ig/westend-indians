@@ -13,8 +13,13 @@
     color: $indians-grey;
     font-size: 48px;
     letter-spacing: $letter-spacing-medium;
+    line-height: normal;
     grid-column-start: 2;
     margin: 0;
+
+    @media screen and (max-width : 450px) {
+      font-size: 32px;
+    }
   }
 
   h2 {
@@ -24,10 +29,18 @@
     letter-spacing: $letter-spacing-large;
     text-transform: uppercase;
     grid-column-start: 2;
+
+    @media screen and (max-width : 450px) {
+      font-size: 18px;
+    }
   }
 
   > div {
     margin:0 100px;
+
+    @media screen and (max-width : 450px) {
+      margin: 0 auto;
+    }
   }
 
   .indians-info {
@@ -39,9 +52,16 @@
 
       p {
         font-family: $encode-sans;
-        font-size: 18px;
         margin: 0;
         padding-top: 5px;
+      }
+
+      @media screen and (min-width : 640px) and  (max-width : 1020px) {
+        margin: 50px 25px 0 0;
+
+        a > h1 {
+          font-size: 42px;
+        }
       }
 
       &.indians-social {
@@ -51,15 +71,36 @@
         justify-content: space-around;
         a {
           color: $indians-grey;
+          padding: 10px;
+        }
 
+        @media screen and (min-width : 640px) and  (max-width : 1020px) {
+          display: flex;
+          flex-direction: column;
+          margin: 50px 50px 0 0;
+
+          a {
+            padding-bottom: 10px;
+          }
+        }
+
+        @media screen and (max-width : 640px) {
+          i {
+            font-size: 52px;
+          }
         }
       }
       &.indians-address {
         width: 100%;
+        @media screen and (max-width : 450px) {
+          margin: 0 auto;
+        }
       }
     }
 
-    @media screen and (min-width : 176px) and  (max-width : 640px) {
+
+
+    @media screen and (min-width : 176px) and  (max-width : 680px) {
       flex-direction: column;
       justify-content: center;
       > div {
@@ -67,7 +108,17 @@
       }
       > div.indians-address {
         width: auto;
-        margin: auto;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media screen and (min-width : 640px) and (max-width : 870px) {
+      > div.indians-address {
+        width: auto;
+        margin-right: 20px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -97,10 +148,13 @@
 
     > p {
       color: $indians-dark;
-      font-size: 18px;
       font-family: $titillium-web;
       margin:0;
       letter-spacing: $letter-spacing-medium;
+
+      @media screen and (max-width : 450px) {
+        padding: 20px;
+      }
     }
 
     .row {
@@ -110,6 +164,11 @@
         width: 150px;
         height: 100px;
       }
+    }
+
+    @media screen and (max-width : 450px) {
+      text-align: center;
+      margin: 0 auto;
     }
   }
 
