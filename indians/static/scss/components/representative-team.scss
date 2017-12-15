@@ -1,4 +1,7 @@
 section.team {
+
+
+
   .team-container {
     .repr-body {
       grid-column-start: 1;
@@ -47,6 +50,7 @@ section.schedule, section.statistics {
     width: 100%;
     min-height: 600px;
     margin: 0 auto;
+    margin-left: 50px;
 
     td, th:not(.statistics-head):not(.schedule-head) {
       font-family: $encode-sans;
@@ -57,12 +61,23 @@ section.schedule, section.statistics {
     }
   }
 }
+
 section.players {
   background: black;
   color: white;
 
-  .players-container {
-    align-items: flex-start;
+  .player-wrapper {
+    display: block;
 
+    h1 {
+      margin: 0;
+      padding: 100px 0 100px 50px;
+    }
+  }
+}
+
+.repr > * {
+  @media screen and (min-width: 176px) and (max-width: 1330px) {
+    //margin-left: 50px;
   }
 }

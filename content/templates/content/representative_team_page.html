@@ -6,7 +6,7 @@
 {% block main %}
 
   <section class="team">
-    <div class="team-container"}>
+    <div class="team-container repr"}>
         <div class="repr-body">
           <h1>{{ page.title}}</h1>
           {{ page.body|richtext }}
@@ -38,14 +38,13 @@
     <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-white-top.svg" %}">
   </section>
   <section class="repr-lift ">
-    <div class="ignore-height">
+    <div class="ignore-height repr">
       {{ page.main_lift|richtext }}
     </div>
   </section>
   <section class="schedule" id="schedule"}>
     <img class="triangle flip-y  justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
-
-    <table class="schedule-container">
+    <table class="schedule-container repr">
       <tr>
       </tr>
       <tr>
@@ -87,14 +86,14 @@
     <img class="triangle flip-x justify-top" src="{% static "images/tilted-bg-black-top.svg" %}">
   </section>
   <section class="players" id="players">
+
     <div class="players-container">
-      <h1>pelaajat</h1>
     </div>
     <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-black-bottom.svg" %}">
   </section>
   <section class="statistics" id="statistics">
     <img class="triangle flip-y  justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
-    <table class="statistics-container">
+    <table class="statistics-container repr">
       <tr>
       </tr>
       <tr>
