@@ -1,7 +1,5 @@
 section.team {
 
-
-
   .team-container {
     .repr-body {
       grid-column-start: 1;
@@ -37,30 +35,73 @@ section.team {
   }
 }
 section.schedule, section.statistics {
-  background-image: url("http://i64.tinypic.com/2akq38.png");
 
   .schedule-head, .statistics-head {
     font-family: $black-ops;
     font-size: 24px;
     letter-spacing:$letter-spacing-large;
     text-transform: uppercase;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      width:100%;
+    }
   }
   .schedule-container, .statistics-container {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-evenly;
     max-width: 1280px;
-    width: 100%;
-    min-height: 600px;
     margin: 0 auto;
-    margin-left: 50px;
+    padding: 100px 0;
 
-    td, th:not(.statistics-head):not(.schedule-head) {
-      font-family: $encode-sans;
-      font-size: 18px;
+    @media screen and (min-width: 176px) and (max-width: 1130px) {
+      flex-direction: column;
+      padding-left: 50px;
     }
-    >tbody>tr>th {
-      text-align: left;
+
+    @media screen and (min-width: 176px) and (max-width: 1130px) {
+      margin-left: 0;
+    }
+
+    h1 {
+      padding: 0 50px 0 0 ;
+      margin:  0;
+    }
+
+    .row-content {
+      display: flex;
+      padding-top: 5px;
+      > div {
+        display: flex;
+        flex-direction: column;
+        font-family: "Encode Sans", sans-serif;
+        font-size: 18px;
+        letter-spacing: 1px;
+        line-height: 21px;
+
+
+        @media screen and (min-width: 176px) and (max-width: 640px) {
+          justify-content: space-between;
+
+          &#draws {
+            display: none;
+          }
+        }
+      }
+
+        > * {
+          padding: 25px 100px 0 0;
+          margin: 0;
+
+          @media screen and (min-width: 176px) and (max-width: 640px) {
+            padding: 25px 25px 0 0;
+          }
+        }
+      }
     }
   }
-}
 
 section.players {
   background: black;
