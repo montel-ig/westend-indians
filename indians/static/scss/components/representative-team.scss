@@ -76,8 +76,12 @@ section.players {
   }
 }
 
-.repr > * {
-  @media screen and (min-width: 176px) and (max-width: 1330px) {
-    //margin-left: 50px;
+section.team {
+  .team-container {
+    &.repr {
+      @media screen and (min-width: 176px) and (max-width: 1330px) {
+        margin-left: 50px;
+      }
+    }
   }
 }

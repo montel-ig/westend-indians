@@ -5,30 +5,86 @@ const TeamFilter = (props) => {
         <p>Ikä</p>
         <label>
           <input
-            name="ages8to10"
+            name="i"
             type="checkbox"
-            checked={props.ages8to10}
+            checked={props.i}
             onChange={props.handleInputChange} />
-          8-10
-        </label>
-        <label>
-
-          <input
-            name="ages10to12"
-            type="checkbox"
-            checked={props.ages10to12}
-            onChange={props.handleInputChange} />
-          10-12
+          1-3
         </label>
         <label>
           <input
-            name="ages12to15"
+            name="h"
             type="checkbox"
-            checked={props.ages12to15}
+            checked={props.h}
             onChange={props.handleInputChange} />
-          12-15
+          3-5
         </label>
+        <label>
+          <input
+            name="g"
+            type="checkbox"
+            checked={props.g}
+            onChange={props.handleInputChange} />
+          5-7
+        </label>
+        <label>
+          <input
+            name="f"
+            type="checkbox"
+            checked={props.f}
+            onChange={props.handleInputChange} />
+          7-9
+        </label>
+        <label>
+          <input
+            name="e"
+            type="checkbox"
+            checked={props.e}
+            onChange={props.handleInputChange} />
+          9-11
+        </label>
+        <label>
+          <input
+            name="d"
+            type="checkbox"
+            checked={props.d}
+            onChange={props.handleInputChange} />
+          11-13
+        </label>
+        <label>
+          <input
+            name="c"
+            type="checkbox"
+            checked={props.c}
+            onChange={props.handleInputChange} />
+          13-15
+        </label>
+        <label>
+        <input
+          name="b"
+          type="checkbox"
+          checked={props.b}
+          onChange={props.handleInputChange} />
+        15-17
+      </label>
+      <label>
+        <input
+          name="a"
+          type="checkbox"
+          checked={props.a}
+          onChange={props.handleInputChange} />
+        17-20
+      </label>
+      <label>
+        <input
+          name="adult"
+          type="checkbox"
+          checked={props.adult}
+          onChange={props.handleInputChange} />
+        +20-vuotiaat
+      </label>
       </div>
+      {/*
       <div className='select-activity-lvl'>
         <p>Kerrat viikossa</p>
         <label>
@@ -64,53 +120,55 @@ const TeamFilter = (props) => {
           > 3
         </label>
       </div>
+      */
+      }
       <div className='select-path'>
         <p>Polku</p>
         <label>
           <input
-            name="athletePath"
+            name="urheilijan"
             type="checkbox"
-            checked={props.athletePath}
+            checked={props.urheilijan}
             onChange={props.handleInputChange} />
           Urheilijan polku (+3 tapahtumaa)
         </label>
         <label>
           <input
-            name="competitorPath"
+            name="kilpailijan"
             type="checkbox"
-            checked={props.competitorPath}
+            checked={props.kilpailijan}
             onChange={props.handleInputChange} />
           Kilpailijan polku (3-2 tapahtumaa)
         </label>
         <label>
           <input
-            name="amateurPath"
+            name="harrastajan"
             type="checkbox"
-            checked={props.amateurPath}
+            checked={props.harrastajan}
             onChange={props.handleInputChange} />
           Harrastajan polku (1 tapahtuma)
         </label>
         <label>
           <input
-            name="floorballSchools"
+            name="salibandy_koulut"
             type="checkbox"
-            checked={props.floorballSchools}
+            checked={props.salibandy_koulut}
             onChange={props.handleInputChange} />
           Salibandykoulut (1, 2 tai 3 tapahtumaa)
         </label>
         <label>
           <input
-            name="afternoonActivities"
+            name="koulujen_iltapaivatoiminta"
             type="checkbox"
-            checked={props.afternoonActivities}
+            checked={props.koulujen_iltapaivatoiminta}
             onChange={props.handleInputChange} />
           Koulujen iltapäivätoiminta (1 tai 2 tapahtumaa)
         </label>
         <label>
           <input
-            name="specialGroups"
+            name="erityisryhmat"
             type="checkbox"
-            checked={props.specialGroups}
+            checked={props.erityisryhmat}
             onChange={props.handleInputChange} />
           Erityisryhmät
         </label>
@@ -186,9 +244,9 @@ const TeamFilter = (props) => {
         </label>
         <label>
           <input
-            name="multisportGroups"
+            name="multiple"
             type="checkbox"
-            checked={props.multisportGroups}
+            checked={props.multiple}
             onChange={props.handleInputChange} />
           Monilajiryhmät
         </label>
@@ -202,9 +260,9 @@ const TeamFilter = (props) => {
         </label>
         <label>
           <input
-            name="runningCourses"
+            name="running"
             type="checkbox"
-            checked={props.runningCourses}
+            checked={props.running}
             onChange={props.handleInputChange} />
           Juoksukurssit
         </label>
