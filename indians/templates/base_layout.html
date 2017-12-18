@@ -31,7 +31,7 @@
             <li class="nav-logo"}><a href="{%slugurl 'home'%}"><img id="nav-logo" src="http://i67.tinypic.com/30kralk.png" /></a></li>
 
             {% for menuitem in request.site.root_page.get_children.live.in_menu %}
-            <li><a href="{{ menuitem.slug }}">{{ menuitem.title.upper }}</a></li>
+            <li><a href="/{{ menuitem.slug }}">{{ menuitem.title.upper }}</a></li>
             {% endfor %}
           </ul>
         </section>

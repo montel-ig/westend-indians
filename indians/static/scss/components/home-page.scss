@@ -203,9 +203,14 @@
     a {
       color: black;
       font-family:$titillium-web;
+      font-size: 14px;
       font-weight: bold;
       letter-spacing: $letter-spacing-medium;
       text-transform: uppercase;
+
+      @media screen and (min-width: 365px) and (max-width: 1335px) {
+        padding-right: 20px;
+      }
 
       @media screen and (max-width: 365px) {
         padding-left: 50px;
@@ -240,6 +245,7 @@
       @media screen and (min-width: 176px) and (max-width: 1024px) {
         width: 100%!important;
         display: flex;
+        height: auto;
       }
 
       @media screen and (max-width: 640px) {
@@ -408,7 +414,7 @@
       }
     }
 
-    > .home-news {
+    > .news {
       display: block;
 
       .news-container {
@@ -432,10 +438,14 @@
               height: 150px;
               width: 300px;
               border: solid 1px;
+
+              @media screen and (max-width: 480px) {
+                height: 125px;
+                width: 275px;
+              }
             }
           }
         }
-
       }
     }
   > .lift {
