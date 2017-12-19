@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from content.models.indians_base_page import IndiansBasePage as Parent
 
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailcore.fields import RichTextField
@@ -11,7 +12,7 @@ from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from colorful.fields import RGBColorField
 
 
-class HomePage(Page):
+class HomePage(Parent):
     description = models.CharField(max_length=255, blank=True)
 
     team_title = models.CharField(max_length=255, blank=True)

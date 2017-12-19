@@ -1,3 +1,4 @@
+from .indians_base_page import *
 from .teams_page import *
 from .home_page import *
 from .events_page import *

@@ -11,7 +11,6 @@
 @import "components/teams";
 @import "components/representative-team";
 @import "components/tribe-page";
-@import "components/tribe-page";
 @import "components/events_page";
 @import "components/info_page";
 @import "components/club_page";
@@ -29,6 +28,7 @@ html {
 
     h1 {
       font-family: $black-ops;
+      font-weight: normal;
       font-size: 24px;
       letter-spacing:$letter-spacing-large;
       text-transform: uppercase;
@@ -40,6 +40,7 @@ html {
 
     h2 {
       font-family: $black-ops;
+      font-weight: normal;
       font-size: 20px;
       letter-spacing: $letter-spacing-large;
       text-transform: uppercase;

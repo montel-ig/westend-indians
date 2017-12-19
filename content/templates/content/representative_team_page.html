@@ -132,3 +132,32 @@
 </script>
 
 {% endblock %}
+{% block sponsors %}
+<div class="top-level row">
+  {% for sponsor in page.team_sponsors %}
+  {% if sponsor.level == 'top' %}
+  <div>
+    <a href="{{ sponsor.url }}"><img src="{{ sponsor.image.url }}"></a>
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>
+<div class="second-level row">
+  {% for sponsor in page.team_sponsors %}
+  {% if sponsor.level == 'second' %}
+  <div>
+    <a href="{{ sponsor.url }}"><img src="{{ sponsor.image.url }}"></a>
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>
+<div class="third-level row">
+  {% for sponsor in page.team_sponsors %}
+  {% if sponsor.level == 'third' %}
+  <div>
+    <a href="{{ sponsor.url }}"><img src="{{ sponsor.image.url }}"></a>
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>
+{% endblock %}

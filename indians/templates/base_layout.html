@@ -64,73 +64,35 @@
               <p>Once a member - always part of the tribe</p>
               <hr>
               <h2>yhteistyökumppanit</h2>
-              <div class="partners"></div>
-              <div class="row">
-              </div>
-              <!--
-            </div>
-            <div class="co-op">
-              <h2>yhteistyössä</h2>
-              <div class="row">
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-              </div>
-            </div>
-            <div class="featuring">
-              <h2>kentällä mukana</h2>
-              <div class="row">
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-                <div>1</div>
-              </div>
-            </div>
-            -->
+                {% block sponsors %}
+                  <div class="top-level row">
+                    {% for sponsor in page.all_sponsors %}
+                      {% if sponsor.level == 'top' %}
+                      <div>
+                        <a href="{{ sponsor.url }}"><img src="{{ sponsor.image.url }}"></a>
+                      </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                  <div class="second-level row">
+                    {% for sponsor in page.all_sponsors %}
+                    {% if sponsor.level == 'second' %}
+                    <div>
+                      <a href="{{ sponsor.url }}"><img src="{{ sponsor.image.url }}"></a>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                  </div>
+                  <div class="third-level row">
+                    {% for sponsor in page.all_sponsors %}
+                    {% if sponsor.level == 'third' %}
+                    <div>
+                      <a href="{{ sponsor.url }}"><img src="{{ sponsor.image.url }}"></a>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                  </div>
+              {% endblock %}
             </div>
           </div>
         </section>

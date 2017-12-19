@@ -105,6 +105,8 @@
     display: block;
     transform: translateX(-30% );
     opacity: .4;
+
+
   }
 
   .tribe-img {
@@ -116,6 +118,20 @@
     height: 600px;
     max-width: 600px;
     opacity: .4;
+
+    @media screen and (max-width: 1160px) {
+      transform: none;
+      height: auto;
+    }
+
+    @media screen and (min-width: 176px) and (max-width: 1020px) {
+      opacity: .2;
+      left: 0;
+    }
+
+    @media screen and (min-width: 1023px) and (max-width: 1140px) {
+      left: 40%;
+    }
   }
 
   .lift-img {
@@ -307,6 +323,10 @@
   }
  }
 
+.lift-container {
+  display: flex;
+}
+
 
 
 //Mediaquerys
@@ -348,20 +368,6 @@
 
         .tribe-img {
           width: 100%;
-
-          @media screen and (max-width: 1160px) {
-            transform: none;
-            height: auto;
-          }
-
-          @media screen and (min-width: 176px) and (max-width: 1020px) {
-            opacity: .2;
-            left: 0;
-          }
-
-          @media screen and (min-width: 1023px) and (max-width: 1200px) {
-            left: 40%;
-          }
         }
 
         .tribe {
