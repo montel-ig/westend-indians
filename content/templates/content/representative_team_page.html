@@ -4,8 +4,9 @@
 {% load wagtailimages_tags %}
 
 {% block main %}
+
   <section class="team">
-    <div class="team-container"}>
+    <div class="team-container repr ignore-height"}>
         <div class="repr-body">
           <h1>{{ page.title}}</h1>
           {{ page.body|richtext }}
@@ -37,110 +38,97 @@
     <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-white-top.svg" %}">
   </section>
   <section class="repr-lift ">
-    <div class="ignore-height">
+    <div class="ignore-height repr">
       {{ page.main_lift|richtext }}
     </div>
   </section>
   <section class="schedule" id="schedule"}>
     <img class="triangle flip-y  justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
-
-    <table class="schedule-container">
-      <tr>
-      </tr>
-      <tr>
-        <th class="schedule-head">otteluohjelma</th>
-        <th>Ajankohta</th>
-        <th>Vastassa</th>
-        <th>Pelipaikka</th>
-      </tr>
-        <td></td>
-        <td>ke 12.12, klo 18:00</td>
-        <td>Espoon Oilers</td>
-        <td>Espoon Otaniemi</td>
-      </tr>
-      </tr>
-      <td></td>
-      <td>ke 12.12, klo 18:00</td>
-      <td>Espoon Oilers</td>
-      <td>Espoon Otaniemi</td>
-      </tr>
-      </tr>
-      <td></td>
-      <td>ke 12.12, klo 18:00</td>
-      <td>Espoon Oilers</td>
-      <td>Espoon Otaniemi</td>
-      </tr>
-      </tr>
-      <td></td>
-      <td>ke 12.12, klo 18:00</td>
-      <td>Espoon Oilers</td>
-      <td>Espoon Otaniemi</td>
-      </tr>
-      </tr>
-      <td></td>
-      <td>ke 12.12, klo 18:00</td>
-      <td>Espoon Oilers</td>
-      <td>Espoon Otaniemi</td>
-      </tr>
-    </table>
+    <div class="schedule-container repr ignore-height">
+      <h1 class="schedule-head">otteluohjelma</h1>
+      <div class="row-content">
+        <div>Ajankohta
+          <p>1.1.2018</p>
+          <p>1.1.2018</p>
+          <p>1.1.2018</p>
+          <p>1.1.2018</p>
+          <p>1.1.2018</p>
+          <p>1.1.2018</p>
+        </div>
+        <div>Vastassa
+          <p>Espoon Oilers</p>
+          <p>Espoon Oilers</p>
+          <p>Espoon Oilers</p>
+          <p>Espoon Oilers</p>
+          <p>Espoon Oilers</p>
+          <p>Espoon Oilers</p>
+        </div>
+        <div>Paikka
+          <p>Espoon Otaniemi</p>
+          <p>Espoon Otaniemi</p>
+          <p>Espoon Otaniemi</p>
+          <p>Espoon Otaniemi</p>
+          <p>Espoon Otaniemi</p>
+          <p>Espoon Otaniemi</p>
+        </div>
+      </div>
+    </div>
     <img class="triangle flip-x justify-top" src="{% static "images/tilted-bg-black-top.svg" %}">
   </section>
   <section class="players" id="players">
+
     <div class="players-container">
-      <h1>pelaajat</h1>
     </div>
     <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-black-bottom.svg" %}">
   </section>
   <section class="statistics" id="statistics">
     <img class="triangle flip-y  justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
-    <table class="statistics-container">
-      <tr>
-      </tr>
-      <tr>
-        <th class="statistics-head">sarjataulukko</th>
-        <th>Joukkue</th>
-        <th>Voittoja</th>
-        <th>Tappioita</th>
-      </tr>
-      <td></td>
-      <td>Espoon Oilers</td>
-      <td>10</td>
-      <td>10</td>
-      </tr>
-      </tr>
-      <td></td>
-      <td>Espoon Oilers</td>
-      <td>10</td>
-      <td>10</td>
-      </tr>
-      </tr>
-      <td></td>
-      <td>Espoon Oilers</td>
-      <td>10</td>
-      <td>10</td>
-      </tr>
-      </tr>
-      <td></td>
-      <td>Espoon Oilers</td>
-      <td>10</td>
-      <td>10</td>
-      </tr>
-      </tr>
-      <td></td>
-      <td>Espoon Oilers</td>
-      <td>10</td>
-      <td>10</td>
-      </tr>
-    </table>
+    <div class="statistics-container repr ignore-height">
+      <h1 class="schedule-head">sarjataulukko</h1>
+      <div class="row-content">
+        <div>Joukkue
+          <p>Westend Indians</p>
+          <p>Westend Indians</p>
+          <p>Westend Indians</p>
+          <p>Westend Indians</p>
+          <p>Westend Indians</p>
+          <p>Westend Indians</p>
+        </div>
+        <div>Voittoja
+          <p>10</p>
+          <p>10</p>
+          <p>10</p>
+          <p>10</p>
+          <p>10</p>
+          <p>10</p>
+        </div>
+        <div>Tappioita
+          <p>5</p>
+          <p>5</p>
+          <p>5</p>
+          <p>5</p>
+          <p>5</p>
+          <p>5</p>
+        </div>
+        <div id="draws"}>Tasapelejä
+          <p>2</p>
+          <p>2</p>
+          <p>2</p>
+          <p>2</p>
+          <p>2</p>
+          <p>2</p>
+        </div>
+      </div>
+    </div>
     <img class="triangle flip-x  justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
   </section>
-{% endblock %}
 
 <script type="application/javascript">
-  var team_members = {{ members|safe }};
-
+  var team_members = {{ page.get_players|safe }};
   window.onload = function() {
 
-    createPlayerBrowser("players-container");
+    createPlayerBrowser("players");
   }
 </script>
+
+{% endblock %}

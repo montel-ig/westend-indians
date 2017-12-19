@@ -19,17 +19,31 @@
     </div>
   </div>
 </section>
+<section class="subpages">
+  <div class="subpages-container">
+    <div class="subpage">
+      <p>info</p>
+    </div>
+    <div class="subpage">
+      <p>seura</p>
+    </div>
+    <div class="subpage">
+      <p>joukkueet & harrasteryhmät</p>
+    </div>
+  </div>
+  </div>
+</section>
 <section id="lift">
   <div class="tribe-main-lift ignore-height add-space">
     {{ page.main_lift|richtext }}
   </div>
 </section>
-<section class="tribe-news">
+<section class="news">
   <img class="triangle flip-y  justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
-  <div class="news-container ignore-height">
+  <div class="news-container add-space">
     <div class="row-head">
       <h1>uutiset</h1>
-      <a href="#">katso kaikki uutiset >></a>
+      <a href="{% slugurl 'news' %}">katso kaikki uutiset >></a>
     </div>
     <div class="row-news">
       <div class="news-item">
@@ -38,12 +52,14 @@
             <img src="http://i64.tinypic.com/4sxy79.png">
           </div>
         </a>
-        <h2 class="news-item-header">otsikko</h2>
-        <p class="news-item-text">
-          Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
-          amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
-          fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
-        </p>
+        <div class="item-text-container">
+          <h2 class="news-item-header">orem ipsum dolor sit amet, imperdiet mauris mauris</h2>
+          <p class="news-item-text">
+            Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
+            amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
+            fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
+          </p>
+        </div>
       </div>
       <div class="news-item">
         <a href="#">
@@ -51,12 +67,14 @@
             <img src="http://i64.tinypic.com/4sxy79.png">
           </div>
         </a>
-        <h2 class="news-item-header">otsikko</h2>
-        <p class="news-item-text">
-          Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
-          amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
-          fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
-        </p>
+        <div class="item-text-container">
+          <h2 class="news-item-header">otsikko</h2>
+          <p class="news-item-text">
+            Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
+            amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
+            fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
+          </p>
+        </div>
       </div>
       <div class="news-item">
         <a href="#">
@@ -64,12 +82,71 @@
             <img src="http://i64.tinypic.com/4sxy79.png">
           </div>
         </a>
-        <h2 class="news-item-header">otsikko</h2>
-        <p class="news-item-text">
-          Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
-          amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
-          fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
-        </p>
+        <div class="item-text-container">
+          <h2 class="news-item-header">otsikko</h2>
+          <p class="news-item-text">
+            Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
+            amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
+            fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <img class="triangle flip-y  justify-top" src="{% static "images/tilted-bg-white-top.svg" %}">
+</section>
+<section class="events">
+  <img class="triangle flip-y  justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
+  <div class="events-container add-space">
+    <div class="row-head">
+      <h1>tapahtumat</h1>
+      <a href="{% slugurl 'events' %}">katso kaikki tapahtumat >></a>
+    </div>
+    <div class="row-events">
+      <div class="event-item">
+        <a href="#">
+          <div class="event-image">
+            <img src="http://i64.tinypic.com/4sxy79.png">
+          </div>
+        </a>
+        <div class="item-text-container">
+          <h2 class="events-item-header">tempus est commodo tellus suspendisse vel primis</h2>
+          <p class="event-item-text">
+            Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
+            amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
+            fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
+          </p>
+        </div>
+      </div>
+      <div class="event-item">
+        <a href="#">
+          <div class="event-image">
+            <img src="http://i64.tinypic.com/4sxy79.png">
+          </div>
+        </a>
+        <div class="item-text-container">
+          <h2 class="event-item-header">fusce urna nisl, ut per cras integer ipsum</h2>
+          <p class="event-item-text">
+            Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
+            amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
+            fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
+          </p>
+        </div>
+      </div>
+      <div class="event-item">
+        <a href="#">
+          <div class="event-image">
+            <img src="http://i64.tinypic.com/4sxy79.png">
+          </div>
+        </a>
+        <div class="item-text-container">
+          <h2 class="event-item-header">Dolorem ac aliquet vehicula feugiat praesent</h2>
+          <p class="event-item-text">
+            Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
+            amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
+            fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
+          </p>
+        </div>
       </div>
     </div>
   </div>

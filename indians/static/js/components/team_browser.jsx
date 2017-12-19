@@ -1,9 +1,11 @@
 const Team = (props) => {
   return (
-    <div className="team-container" onClick={null}>
-      <img src="http://indiansproduction.s3.amazonaws.com/assets/logo-6cfd4cd67c604e09322045e30fad2986.jpg"/>
-      <p>{props.name}</p>
-    </div>
+    <a href={`/joukkueet/${props.slug}`}>
+      <div className="team-container">
+        <img src="http://indiansproduction.s3.amazonaws.com/assets/logo-6cfd4cd67c604e09322045e30fad2986.jpg"/>
+        <p>{props.name}</p>
+      </div>
+    </a>
   )
 };
 
@@ -11,47 +13,68 @@ class TeamBrowser extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      ages8to10: false,
-      ages10to12: false,
-      ages12to15: false,
-      activityLvlOne: false,
-      activityLvlTwo: false,
-      activityLvlThree: false,
-      activityLvlOverThree: false,
-      athletePath: false,
-      competitorPath: false,
-      amateurPath: false,
-      floorballSchools: false,
-      afternoonActivities: false,
-      specialGroups: false,
-      tapiola: false,
-      leppavaara: false,
-      matinkylaOlari: false,
-      espoonKeskus: false,
-      espoonlahti: false,
-      kauklahti: false,
-      pohjoisEspoo: false,
-      floorball: false,
-      multisportGroups: false,
-      football: false,
-      runningCourses: false
-    }
+        teams: [],
+        male: false,
+        female: false,
+        fixed: false,
+        i: false,
+        h: false,
+        g: false,
+        f: false,
+        e: false,
+        d: false,
+        c: false,
+        b: false,
+        a:false,
+        adult: false,
+        activityLvlOne: false,
+        activityLvlTwo: false,
+        activityLvlThree: false,
+        activityLvlOverThree: false,
+        urheilijan: false,
+        kilpailijan: false,
+        harrastajan: false,
+        salibandy_koulut: false,
+        koulujen_iltapaivatoiminta: false,
+        erityisryhmat: false,
+        tapiola: false,
+        leppavaara: false,
+        matinkylaOlari: false,
+        espoonKeskus: false,
+        espoonlahti: false,
+        kauklahti: false,
+        pohjoisEspoo: false,
+        floorball: false,
+        multiple: false,
+        football: false,
+        running: false
+    };
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
+  componentDidMount() {
+    let that = this;
+    fetch('/teamsjson').then((response) => {
+      return response.json();
+    }).then(function(json) {
+      that.setState({teams: json})
+    });
+  }
+
   mapTeams(teams) {
-    return jsonToArray(teams).map(team => {
+    return objectToArray(teams).map(team => {
       if (this.teamInChecked(team)) {
         return <Team
           name={team.name}
           key={team.key}
+          slug={team.slug}
         />
       }
     });
   }
 
   teamInChecked(team) {
-    let teamInCheckedTerms = false
+    let teamInCheckedTerms = false;
     Object.values(team).filter((property) => {
       if (this.state.hasOwnProperty(property) && this.state[property]) {
         teamInCheckedTerms = true
@@ -73,41 +96,12 @@ class TeamBrowser extends React.Component {
   render() {
     return (
       <div>
-        <TeamFilter {...this.state} handleInputChange={this.handleInputChange} />
+        { TeamFilter && <TeamFilter {...this.state} handleInputChange={this.handleInputChange} /> }
         <div className="team-browser-root">
-          {this.mapTeams(this.props.teams)}
+          {this.mapTeams(this.state.teams)}
         </div>
       </div>
     );
-  }
-}
-
-TeamBrowser.defaultProps = {
-  teams: {
-    0: {
-      name: "testTeam",
-      ages: "ages8to10",
-      activity: "activityLvlOne",
-      path: "amateurPath",
-      area: "leppavaara",
-      sport: "floorball"
-    },
-    1: {
-      name: "team Test",
-      ages: "ages10to12",
-      activity: "activityLvlTwo",
-      path: "competitorPath",
-      area: "tapiola",
-      sport: "floorball"
-    },
-    2: {
-      name: "Test Test",
-      ages: "ages12to15",
-      activity: "activityLvlTwo",
-      path: "athletePath",
-      area: "tapiola",
-      sport: "floorball"
-    },
   }
 }
 

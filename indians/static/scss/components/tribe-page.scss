@@ -1,58 +1,80 @@
-.tribe-body, #lift {
-  display: flex;
-  justify-content: center;
-}
+.main-grid-body {
+  section.subpages {
+    .subpages-container {
+      grid-column-start: 1;
+      grid-column-end: 13;
+      display: flex;
+      justify-content: space-around;
 
-#lift {
-
-  .tribe-main-lift {
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-
-    .rich-text {
-
-      > p {margin: 0;}
-
-      .responsive-object {
-        padding: 0!important;
+      .subpage {
+        border: 1px solid black;
+        width: 250px;
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        text-align: center;
       }
     }
   }
-}
-section.tribe-news {
-  @media screen and (min-width : 176px) and  (max-width : 640px) {
-    display: block;
 
-    .news-container {
-      .row-head {
-        padding: 50px;
+  .tribe-body, #lift {
+    display: flex;
+    justify-content: center;
+  }
+
+  #lift {
+
+    .tribe-main-lift {
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+
+      .rich-text {
+
+        > p {margin: 0;}
+
+        .responsive-object {
+          padding: 0!important;
+        }
       }
-      .row-news {
-        display: flex;
-        flex-direction: column;
-        .news-item {
-          padding-bottom: 100px;
-          width: 325px;
-          > a > div.news-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 150px;
+    }
+  }
+  section.tribe-news {
+    @media screen and (min-width : 176px) and  (max-width : 640px) {
+      display: block;
+
+      .news-container {
+        .row-head {
+          padding: 50px;
+        }
+        .row-news {
+          display: flex;
+          flex-direction: column;
+          .news-item {
+            padding-bottom: 100px;
             width: 325px;
-            border: solid 1px;
+            > a > div.news-image {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 150px;
+              width: 325px;
+              border: solid 1px;
+            }
           }
         }
       }
     }
   }
-}
-section.tribe-some {
-  .some-container {
-    //background-color: $indians-grey;
-    grid-column-start: 1;
-    grid-column-end: 13;
-    display: flex;
-    justify-content: space-around;
+  section.tribe-some {
+    .some-container {
+      //background-color: $indians-grey;
+      grid-column-start: 1;
+      grid-column-end: 13;
+      display: flex;
+      justify-content: space-around;
+    }
   }
 }

@@ -2,16 +2,17 @@
 
 {% block main %}
 
-<div id="players"></div>
+  <div id="players"></div>
 
-<script type="application/javascript">
-  var team_members = {{ members|safe }};
+  <script type="application/javascript">
+    var team_members = {{ members|safe }};
 
-  window.onload = function() {
-    if (team_members)
-      createPlayerBrowser("players");
-  }
-</script>
+    window.onload = function() {
+      if(document.getElementById("players")!=null && team_members){
+        createPlayerBrowser("players");
+      }
+    }
+  </script>
 
 {% endblock %}
 

@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^cms/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
     url(r'joukkueet/(?P<slug>[\w-]+)', team.by_slug),
+    url(r'^teamsjson/', team.teams_json),
     url('', include(wagtail_urls)),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

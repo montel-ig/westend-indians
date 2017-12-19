@@ -1,14 +1,14 @@
 .player-browser-root {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 450px);
-  grid-template-rows: repeat(6, 350px);
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-template-rows: repeat(4, 350px);
   justify-content: center;
-  margin-top: 10%;
 
-  > div {
-    color: white;
-    border: solid black 1px;
-  }
+
+
+
+ .players-container {
+ }
 }
 
 .blurred {

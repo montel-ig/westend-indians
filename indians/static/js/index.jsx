@@ -4,9 +4,9 @@ setTimeout(function(){
   document.querySelector(".slogan").classList.add("active");
 }, 500);
 
-function jsonToArray(members) {
-  let arrayOfObjects = Object.keys(members).map(key => {
-    let array = members[key]
+function objectToArray(obj) {
+  let arrayOfObjects = Object.keys(obj).map(key => {
+    let array = obj[key]
     array.key = key
     return array
   });
