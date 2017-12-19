@@ -25,11 +25,10 @@
       <div class="main-grid-header">
         <section class="header">
           <h1 class="main-header-text header">westend indians</h1>
-          <h2 class="main-header-text slogan">Once a member - always part of the tribe</h2>
+          <a href="{% slugurl 'home' %}"><h2 class="main-header-text slogan">Once a member - always part of the tribe</h2></a>
           <img class="main-img" src="http://i67.tinypic.com/67ts41.jpg">
           <ul class="nav-index">
             <li class="nav-logo"}><a href="{%slugurl 'home'%}"><img id="nav-logo" src="http://i67.tinypic.com/30kralk.png" /></a></li>
-
             {% for menuitem in request.site.root_page.get_children.live.in_menu %}
             <li><a href="/{{ menuitem.slug }}">{{ menuitem.title.upper }}</a></li>
             {% endfor %}
@@ -131,8 +130,9 @@
                 <div>1</div>
               </div>
             </div>
+            -->
+            </div>
           </div>
-          -->
         </section>
       </div>
     </div>
@@ -143,13 +143,13 @@
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
     -->
     {% compress js %}
-    <script type="text/jsx" src="{% static 'js/i18n.js' %}"></script>
-    <script type="text/jsx" src="{% static 'js/index.jsx' %}"></script>
-    <script type="text/jsx" src="{% static 'js/components/player_modal.jsx' %}"></script>
-    <script type="text/jsx" src="{% static 'js/components/player.jsx' %}"></script>
-    <script type="text/jsx" src="{% static 'js/components/player_browser.jsx' %}"></script>
-    <script type="text/jsx" src="{% static 'js/components/team_browser.jsx' %}"></script>
-    <script type="text/jsx" src="{% static 'js/components/team_filter.jsx' %}"></script>
+      <script type="text/jsx" src="{% static 'js/i18n.js' %}"></script>
+      <script type="text/jsx" src="{% static 'js/index.jsx' %}"></script>
+      <script type="text/jsx" src="{% static 'js/components/player_modal.jsx' %}"></script>
+      <script type="text/jsx" src="{% static 'js/components/player.jsx' %}"></script>
+      <script type="text/jsx" src="{% static 'js/components/player_browser.jsx' %}"></script>
+      <script type="text/jsx" src="{% static 'js/components/team_filter.jsx' %}"></script>
+      <script type="text/jsx" src="{% static 'js/components/team_browser.jsx' %}"></script>
     {% endcompress %}
   </body>
 </html>

@@ -63,7 +63,6 @@ class TeamBrowser extends React.Component {
 
   mapTeams(teams) {
     return objectToArray(teams).map(team => {
-      console.log(team);
       if (this.teamInChecked(team)) {
         return <Team
           name={team.name}
@@ -97,7 +96,7 @@ class TeamBrowser extends React.Component {
   render() {
     return (
       <div>
-        <TeamFilter {...this.state} handleInputChange={this.handleInputChange} />
+        { TeamFilter && <TeamFilter {...this.state} handleInputChange={this.handleInputChange} /> }
         <div className="team-browser-root">
           {this.mapTeams(this.state.teams)}
         </div>

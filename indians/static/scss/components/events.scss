@@ -18,14 +18,8 @@ section.events {
         font-weight: bold;
         letter-spacing: $letter-spacing-medium;
         text-transform: uppercase;
+        padding-left: 50px;
 
-        @media screen and (min-width: 365px) and (max-width: 1335px) {
-          padding-right: 20px;
-        }
-
-          @media screen and (max-width: 365px) {
-          padding-left: 50px;
-        }
       }
     }
 

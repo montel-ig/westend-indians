@@ -5,7 +5,9 @@
   <div id="teams"></div>
   <script type="application/javascript">
     window.onload = function() {
-      createTeamBrowser("teams");
+      if(document.getElementById("teams")!=null){
+        createTeamBrowser("teams");
+      }
     }
   </script>
 {% endblock %}

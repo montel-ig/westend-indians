@@ -9,6 +9,7 @@ class PlayerBrowser extends React.Component {
     ].forEach((fn) => this[fn] = this[fn].bind(this));
 
     this.state = {
+      players: objectToArray(team_members),
       selectedPlayer: null,
     }
   }
@@ -83,12 +84,12 @@ class PlayerBrowser extends React.Component {
       <div className="player-wrapper" onClick={this.handleModalClose}>
         <h1>pelaajat</h1>
         {this.state.selectedPlayer && <PlayerModal
-          players = {this.props.players}
+          players = {this.state.players}
           selectedPlayer={this.state.selectedPlayer}
           handlePlayerChange={this.handlePlayerChange}
         />}
         <div className={this.state.selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
-          {this.mapPlayers(this.props.players)}
+          {this.mapPlayers(this.state.players)}
         </div>
       </div>
     );
@@ -97,9 +98,7 @@ class PlayerBrowser extends React.Component {
 
 
 
-PlayerBrowser.defaultProps = {
-  players: objectToArray(team_members)
-}
+
 
 function createPlayerBrowser(id) {
 
