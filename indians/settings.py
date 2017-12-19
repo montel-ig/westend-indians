@@ -35,6 +35,14 @@ ALLOWED_HOSTS = ['80.69.173.67',"localhost"]
 # Application definition
 
 INSTALLED_APPS = [
+    'indians',
+    'teams',
+    'events',
+    'news',
+    'content',
+    'products',
+    'sponsors',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -60,13 +68,6 @@ INSTALLED_APPS = [
     'taggit',
     'colorful',
 
-    'indians',
-    'teams',
-    'events',
-    'news',
-    'content',
-    'products',
-    'sponsors',
 
 ]
 
@@ -189,12 +190,12 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
-            'format': '[DJANGO] %(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+            'format': '[IND-DJANGO] %(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
         }
     },
     'handlers': {
         'console': {
-            'level': 'DEBUG',  # DEBUG
+            'level': 'INFO',  # DEBUG
             'class': 'logging.StreamHandler',
             'stream': sys.stdout,
             'formatter': 'verbose'
@@ -203,7 +204,7 @@ LOGGING = {
     'loggers': {
         'django': {
             'handlers': ['console'],
-            'level': 'DEBUG',  # DEBUG
+            'level': 'INFO',  # DEBUG
             'propagate': True,
         },
     },
