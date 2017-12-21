@@ -3,6 +3,9 @@
 {% load staticfiles %}
 {% load wagtailimages_tags %}
 
+
+{% block title %}westend indians{% endblock %}
+{% block slogan %}Once a member - always part of the tribe{% endblock %}
 {% block main %}
   <section class="team">
     <div class="team-container"}>
@@ -29,7 +32,7 @@
         <a class="cta-link" href="{% slugurl 'heimo' %}">{{ page.tribe_cta }} >></a>
         <ul class="info-links">
           <a href="http://indians.fi/ilmoittautuminen">liity mukaan</a>
-          <a href="{% slugurl 'teams' %}">seurat</a>
+          <a href="{% slugurl 'news' %}">uutiset</a>
           <a href="{% slugurl 'teams' %}">seurat</a>
         </ul>
       </div>

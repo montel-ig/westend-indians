@@ -3,8 +3,9 @@
 {% load staticfiles %}
 {% load wagtailimages_tags %}
 
-{% block main %}
 
+{% block title %} {{page.title}} {% endblock %}
+{% block main %}
   <section class="team">
     <div class="team-container repr ignore-height"}>
         <div class="repr-body">
