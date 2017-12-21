@@ -218,7 +218,7 @@
   {% for sponsor in page.front_page_sponsors %}
     {% if sponsor.level == 'top' %}
       <div>
-        <a href="{{ sponsor.url }}"><img src="{{ sponsor.image.url }}"></a>
+        <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
       </div>
    {% endif %}
   {% endfor %}
@@ -227,7 +227,7 @@
     {% for sponsor in page.front_page_sponsors %}
       {% if sponsor.level == 'second' %}
         <div>
-          <a href="{{ sponsor.url }}"><img src="{{ sponsor.image.url }}"></a>
+          <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
        </div>
       {% endif %}
     {% endfor %}
@@ -236,7 +236,7 @@
     {% for sponsor in page.front_page_sponsors %}
       {% if sponsor.level == 'third' %}
         <div>
-          <a href="{{ sponsor.url }}"><img src="{{ sponsor.image.url }}"></a>
+          <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
         </div>
       {% endif %}
     {% endfor %}
