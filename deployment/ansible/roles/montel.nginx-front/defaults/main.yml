@@ -1,7 +1,7 @@
-nginx_front_site_name: my_site
+nginx_front_site_name: staging
 
 # used in nginx.conf.j2
-nginx_front_domain_name: 80.69.173.67
+nginx_front_domain_name: beta.westendindians.fi staging.westendindians.fi
 nginx_front_upstream_server: http://localhost:8080
 
 # enable ssl (WIP)

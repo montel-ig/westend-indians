@@ -20,7 +20,6 @@
     update_cache: yes
 
 - name: SSL config
-  when: nginx_front_ssl_enabled
   become: yes
   copy:
     src: files/ssl.conf

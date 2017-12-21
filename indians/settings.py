@@ -29,7 +29,7 @@ if env_debug and env_debug in ('False', 'false', '0', 'no'):
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ['80.69.173.67',"localhost"]
+ALLOWED_HOSTS = ['80.69.173.67', 'localhost', 'staging.westendindians.fi', 'beta.westendindians.fi']
 
 
 # Application definition
