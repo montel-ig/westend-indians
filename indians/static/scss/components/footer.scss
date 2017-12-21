@@ -113,6 +113,11 @@
         flex-direction: column;
         justify-content: center;
       }
+
+      > div.indians-social {
+        flex-direction: row;
+        margin: 50px 0 0 0;
+      }
     }
 
     @media screen and (min-width : 640px) and (max-width : 870px) {
