@@ -7,5 +7,5 @@
 
 - hosts: all
   roles:
-#    - montel.nginx-front
+    - montel.nginx-front
     - montel.docker
