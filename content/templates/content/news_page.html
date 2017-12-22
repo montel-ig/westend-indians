@@ -1,17 +1,32 @@
 {% extends "base_layout.html" %}
 {% load wagtailcore_tags %}
+{% load staticfiles %}
+{% load wagtailimages_tags %}
 
 {% block title %} {{page.title}} {% endblock %}
 {% block main %}
-  <h1>{{ page.title }}</h1>
-  <p>{{ page.description }}</p>
-
-  {% for news in page.news %}
-    <p>
-      {{ news.title|linebreaks }}
-      {{ news.ingress|linebreaks }}
-      {{ news.body|linebreaks }}
-    </p>
-  {% endfor %}
-
+<section class="news-description">
+  <div class="news-body-container ignore-height">
+    <p>{{ page.description }}</p>
+  </div>
+</section>
+<section class="news">
+  <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
+  <div class="news-item-container">
+    {% for news_item in page.news %}
+      <div class="news-item">
+        <h1>
+          {{ news_item.title }}
+        </h1>
+        <p id="lead-paragraph">
+          {{ news_item.ingress }}
+        </p>
+        <p>
+          {{ news_item.body }}
+        </p>
+      </div>
+    {% endfor %}
+  </div>
+  <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
+</section>
 {% endblock %}
