@@ -55,6 +55,10 @@ class Member(models.Model):
             self.slug = self.__get_unique_slug()
         super().save()
 
+    @property
+    def full_name(self):
+        return f"{self.first_name} {self.last_name}"
+
     def __get_unique_slug(self):
         slug = slugify(f"{self.first_name} {self.last_name}")
         unique_slug = slug
@@ -65,7 +69,7 @@ class Member(models.Model):
         return unique_slug
 
     def __str__(self):
-        return self.first_name + ' ' + self.last_name
+        return self.full_name
 
 
 class TeamMembership(models.Model):
