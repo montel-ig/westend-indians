@@ -2,7 +2,7 @@
   section.news-description {
     .news-body-container {
 
-        margin: 50px 0;
+        margin: 50px auto;
         > p {
           font-family: "Encode Sans", sans-serif;
           font-size: 14px;
@@ -13,7 +13,7 @@
     }
   }
 
-  section.news {
+  section.news-items {
     background-color: black;
 
     div.news-item-container {
