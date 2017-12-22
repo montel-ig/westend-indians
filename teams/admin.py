@@ -11,6 +11,16 @@ class MembershipInline(admin.TabularInline):
 class MemberAdmin(admin.ModelAdmin):
     model = Member
     inlines = (MembershipInline,)
+    list_display = ('name', 'team_memberships')
+    list_filter = ('teams__name',)
+
+    def team_memberships(self, obj):
+        return ','.join(map(lambda t: t.name, obj.teams.all()))
+
+    def name(self, obj):
+        return obj.full_name
+    name.admin_order_field = 'first_name'
+
 
 
 class TeamAdmin(admin.ModelAdmin):
