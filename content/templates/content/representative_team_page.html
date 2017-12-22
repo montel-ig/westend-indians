@@ -3,8 +3,9 @@
 {% load staticfiles %}
 {% load wagtailimages_tags %}
 
-{% block main %}
 
+{% block title %} {{page.title}} {% endblock %}
+{% block main %}
   <section class="team">
     <div class="team-container repr ignore-height"}>
         <div class="repr-body">
@@ -137,7 +138,7 @@
   {% for sponsor in page.team_sponsors %}
   {% if sponsor.level == 'top' %}
   <div>
-    <a href="{{ sponsor.url }}"><img src="{{ sponsor.image.url }}"></a>
+    <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
   </div>
   {% endif %}
   {% endfor %}
@@ -146,7 +147,7 @@
   {% for sponsor in page.team_sponsors %}
   {% if sponsor.level == 'second' %}
   <div>
-    <a href="{{ sponsor.url }}"><img src="{{ sponsor.image.url }}"></a>
+    <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
   </div>
   {% endif %}
   {% endfor %}
@@ -155,7 +156,7 @@
   {% for sponsor in page.team_sponsors %}
   {% if sponsor.level == 'third' %}
   <div>
-    <a href="{{ sponsor.url }}"><img src="{{ sponsor.image.url }}"></a>
+    <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
   </div>
   {% endif %}
   {% endfor %}

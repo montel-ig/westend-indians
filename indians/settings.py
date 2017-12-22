@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'modelcluster',
     'taggit',
     'colorful',
+    'imagekit',
 
 
 ]

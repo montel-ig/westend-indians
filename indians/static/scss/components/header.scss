@@ -25,40 +25,44 @@
       opacity: 0;
       z-index: 9999;
       left: 50%;
-      transform: translate(-50%, -100px);
       text-align: center;
       color: #FBEF36;
 
       &.header {
-        bottom: 30%;
+        bottom: 25%;
         width: 100%;
         font-family: $black-ops;
-        font-size: 48px;
+        transform: translate(-50%, -100px);
+        font-size: 7vw;
         line-height: 60px;
-        text-shadow: 0px 9px 1px #ffffff55;
         letter-spacing: $letter-spacing-x-large;
         text-transform: uppercase;
 
         @media screen and (min-width : 176px) and  (max-width : 640px) {
-          font-size: 24px;
+          //font-size: 24px;
         }
 
         @media screen and (min-width : 641px) and  (max-width : 1024px) {
-          font-size: 38px;
+          //font-size: 38px;
         }
 
-        &.active {
+        &.active-transform {
           opacity:1;
-          transition: opacity .8s ease-in-out .5s, transform .4s ease-in-out .5s;
+          transition: opacity 1.2s ease-in-out .5s, transform .4s ease-in-out .5s;
           transform: translate(-50%, 0px);
+        }
 
+        &.shadows {
+          text-shadow: 0px 9px 1px #ffffff55;
+          transition: text-shadow 2s ease;
         }
       }
 
       &.slogan {
-        bottom: 20%;
+        bottom: 15%;
         width: 100%;
         font-family: $titillium-web;
+        transform: translate(-50%);
         font-size: 24px;
         letter-spacing: $letter-spacing-medium;
 
@@ -71,10 +75,9 @@
           font-size: 20px;
           padding-top: 650px;
         }
-        &.active {
+        &.active-fadein {
           opacity:1;
-          transition: opacity 1.8s ease-in-out .5s, transform .2s ease-in-out 1.2s;
-          transform: translate(-50%, 0px);
+          transition: opacity 1.2s ease-in-out .5s;
         }
       }
     }

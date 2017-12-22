@@ -3,6 +3,9 @@
 {% load staticfiles %}
 {% load wagtailimages_tags %}
 
+
+{% block title %}westend indians{% endblock %}
+{% block slogan %}Once a member - always part of the tribe{% endblock %}
 {% block main %}
   <section class="team">
     <div class="team-container"}>
@@ -29,7 +32,7 @@
         <a class="cta-link" href="{% slugurl 'heimo' %}">{{ page.tribe_cta }} >></a>
         <ul class="info-links">
           <a href="http://indians.fi/ilmoittautuminen">liity mukaan</a>
-          <a href="{% slugurl 'teams' %}">seurat</a>
+          <a href="{% slugurl 'news' %}">uutiset</a>
           <a href="{% slugurl 'teams' %}">seurat</a>
         </ul>
       </div>
@@ -101,54 +104,26 @@
     <div class="news-container  add-space">
       <div class="row-head">
         <h1>uutiset</h1>
-        <a href="{% slugurl 'news' %}">katso kaikki uutiset >></a>
+        <a href="{% slugurl 'news' %}">katso kaikki uutiset >> </a>
       </div>
       <div class="row-news">
-        <div class="news-item">
-          <a href="#">
-            <div class="news-image">
-              <img src="http://i64.tinypic.com/4sxy79.png">
+        {% for newsitem in page.front_page_news %}
+          {% if newsitem %}
+            <div class="news-item">
+              <a href="{% slugurl 'news' %}">
+                <div class="news-image">
+                  <img src="http://i64.tinypic.com/4sxy79.png">
+                </div>
+              </a>
+              <div class="item-text-container">
+                <a href="{% slugurl 'news' %}"><h2 class="news-item-header">{{ newsitem.title }}</h2></a>
+                <p class="news-item-text">
+                  {{ newsitem.ingress }}
+                </p>
+              </div>
             </div>
-          </a>
-          <div class="item-text-container">
-            <h2 class="news-item-header">orem ipsum dolor sit amet, imperdiet mauris mauris</h2>
-            <p class="news-item-text">
-              Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
-              amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
-              fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
-            </p>
-          </div>
-        </div>
-        <div class="news-item">
-          <a href="#">
-            <div class="news-image">
-              <img src="http://i64.tinypic.com/4sxy79.png">
-            </div>
-          </a>
-          <div class="item-text-container">
-            <h2 class="news-item-header">otsikko</h2>
-            <p class="news-item-text">
-              Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
-              amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
-              fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
-            </p>
-          </div>
-        </div>
-        <div class="news-item">
-          <a href="#">
-            <div class="news-image">
-              <img src="http://i64.tinypic.com/4sxy79.png">
-            </div>
-          </a>
-          <div class="item-text-container">
-            <h2 class="news-item-header">otsikko</h2>
-            <p class="news-item-text">
-              Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
-              amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
-              fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
-            </p>
-          </div>
-        </div>
+          {% endif %}
+        {% endfor %}
       </div>
     </div>
   </section>
@@ -215,7 +190,7 @@
   {% for sponsor in page.front_page_sponsors %}
     {% if sponsor.level == 'top' %}
       <div>
-        <a href="{{ sponsor.url }}"><img src="{{ sponsor.image.url }}"></a>
+        <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
       </div>
    {% endif %}
   {% endfor %}
@@ -224,7 +199,7 @@
     {% for sponsor in page.front_page_sponsors %}
       {% if sponsor.level == 'second' %}
         <div>
-          <a href="{{ sponsor.url }}"><img src="{{ sponsor.image.url }}"></a>
+          <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
        </div>
       {% endif %}
     {% endfor %}
@@ -233,7 +208,7 @@
     {% for sponsor in page.front_page_sponsors %}
       {% if sponsor.level == 'third' %}
         <div>
-          <a href="{{ sponsor.url }}"><img src="{{ sponsor.image.url }}"></a>
+          <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
         </div>
       {% endif %}
     {% endfor %}
