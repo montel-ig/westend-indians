@@ -75,9 +75,15 @@ section.events {
         > div.item-text-container {
           padding: 20px;
 
-          .event-item-text-item-text {
+          .event-item-date > #event-middle {
+            padding-left: 40px;
+            margin: 0;
+          }
+
+          .event-item-text {
             font-size: 14px;
             line-height: 16px;
+            margin-bottom: 50px;
           }
 
           @media screen and (max-width: 1024px) {
@@ -88,7 +94,10 @@ section.events {
             padding: 20px;
           }
 
-          > h2 { margin:  0; }
+          > a > h2 {
+            margin:  0;
+            color: white;
+          }
 
         }
 
@@ -96,14 +105,11 @@ section.events {
           align-items: center;
           height: auto;
 
-          h2 { margin-left: 20px; }
+          a > h2 { margin-left: 20px; }
           .event-item-text {
             display: none;
           }
         }
-
-
-
       }
     }
   }
@@ -159,7 +165,7 @@ section.events {
             }
 
             .item-text-container {
-              align-self: flex-start;
+              align-self: center;
               padding: 25px 0 100px 0;
             }
           }
