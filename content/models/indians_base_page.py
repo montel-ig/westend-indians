@@ -5,11 +5,13 @@ from wagtail.wagtailcore.models import Page
 
 from sponsors.models import Sponsor
 from news.models import NewsItem
+from events.models import Event
 
 
 class IndiansBasePage(Page):
 
-    #sponsors
+    # Sponsors
+
     @property
     def all_sponsors(self):
         return Sponsor.objects.all()
@@ -26,10 +28,17 @@ class IndiansBasePage(Page):
     def front_page_sponsors(self):
         return Sponsor.objects.filter(visible_for_frontpage=True)
 
-    #news
+    # News
+
     @property
     def front_page_news(self):
         return NewsItem.objects.order_by("-created_at")[:3]
-    
+
+    # Events
+
+    @property
+    def front_page_events(self):
+        return Event.objects.order_by("-created_at")[:3]
+
     class Meta:
         abstract = True

@@ -135,51 +135,26 @@
         <a href="{% slugurl 'events' %}">katso kaikki tapahtumat >></a>
       </div>
       <div class="row-events">
-        <div class="event-item">
-          <a href="#">
-            <div class="event-image">
-              <img src="http://i64.tinypic.com/4sxy79.png">
+        {% for event in page.front_page_events %}
+          {% if event %}
+            <div class="event-item">
+              <a href="#">
+                <div class="event-image">
+                  <img src="http://i64.tinypic.com/4sxy79.png">
+                </div>
+              </a>
+              <div class="item-text-container">
+                <a href="{% slugurl 'events' %}"><h2 class="events-item-header">{{event.name}}</h2></a>
+                <div class="event-item-date">
+                  <p style="margin-bottom: 5px;">{{event.start_time}}</p>
+                  <p id="event-middle"> - </p>
+                  <p style="margin-top: 5px;">{{event.end_time}}</p>
+                </div>
+                <p class="event-item-text">{{event.description}}</p>
+              </div>
             </div>
-          </a>
-          <div class="item-text-container">
-            <h2 class="events-item-header">tempus est commodo tellus suspendisse vel primis</h2>
-            <p class="event-item-text">
-              Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
-              amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
-              fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
-            </p>
-          </div>
-        </div>
-        <div class="event-item">
-          <a href="#">
-            <div class="event-image">
-              <img src="http://i64.tinypic.com/4sxy79.png">
-            </div>
-          </a>
-          <div class="item-text-container">
-            <h2 class="event-item-header">fusce urna nisl, ut per cras integer ipsum</h2>
-            <p class="event-item-text">
-              Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
-              amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
-              fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
-            </p>
-          </div>
-        </div>
-        <div class="event-item">
-          <a href="#">
-            <div class="event-image">
-              <img src="http://i64.tinypic.com/4sxy79.png">
-            </div>
-          </a>
-          <div class="item-text-container">
-            <h2 class="event-item-header">Dolorem ac aliquet vehicula feugiat praesent</h2>
-            <p class="event-item-text">
-              Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
-              amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
-              fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
-            </p>
-          </div>
-        </div>
+          {% endif %}
+        {% endfor %}
       </div>
     </div>
     <img class="triangle flip-y  justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
