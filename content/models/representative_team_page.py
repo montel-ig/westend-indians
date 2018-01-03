@@ -23,6 +23,6 @@ class RepresentativeTeamPage(Parent):
     ]
 
     def get_players(self):
-        players = members_to_json(Team.objects.first())
+        players = members_to_json(Team.objects.get(pk=2))
         return players
 
