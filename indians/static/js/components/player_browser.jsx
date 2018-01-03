@@ -15,12 +15,14 @@ class PlayerBrowser extends React.Component {
   }
 
   mapPlayers(players) {
+    console.log(players);
     return players.map(player => {
       return <Player
         name={`${player.first_name} ${player.last_name}`}
         origin={player.origin}
         number={player.number}
         position={player.position}
+        image={player.image}
         born={player.born}
         handedness={player.handedness}
         height={player.height}
