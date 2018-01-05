@@ -13,7 +13,7 @@
       <div class="content team">
         <h1>{{ page.team_title}}</h1>
         <p class="description">{{ page.team_description }}</p>
-        <a class="cta-link" href="{% slugurl 'edustus'%}">{{page.team_cta}} >></a>
+        <a class="cta-link" href="{% slugurl 'edustus'%}">{{page.team_cta}} »</a>
         <ul class="info-links">
           <a href="{% slugurl 'edustus'%}#players">pelaajat</a>
           <a href="{% slugurl 'edustus'%}#schedule">otteluohjelma</a>
@@ -29,7 +29,7 @@
       <div class="content tribe">
         <h1>{{ page.tribe_title }}</h1>
         <p class="description">{{ page.tribe_description }}</p>
-        <a class="cta-link" href="{% slugurl 'heimo' %}">{{ page.tribe_cta }} >></a>
+        <a class="cta-link" href="{% slugurl 'heimo' %}">{{ page.tribe_cta }} »</a>
         <ul class="info-links">
           <a href="http://indians.fi/ilmoittautuminen">liity mukaan</a>
           <a href="{% slugurl 'news' %}">uutiset</a>
@@ -78,7 +78,7 @@
       <div class="content shop">
         <h1>{{ page.shop_title}}</h1>
         <p class="cta-text">{{ page.shop_description }}</p>
-        <a class="cta-link" href="{% slugurl 'shop' %}">kauppaan >></a>
+        <a class="cta-link" href="{% slugurl 'shop' %}">kauppaan »</a>
       </div>
     </div>
   </section>
@@ -104,7 +104,7 @@
     <div class="news-container  add-space">
       <div class="row-head">
         <h1>uutiset</h1>
-        <a href="{% slugurl 'news' %}">katso kaikki uutiset >> </a>
+        <a href="{% slugurl 'news' %}">katso kaikki uutiset »</a>
       </div>
       <div class="row-news">
         {% for newsitem in page.front_page_news %}
@@ -132,7 +132,7 @@
     <div class="events-container add-space">
       <div class="row-head">
         <h1>tapahtumat</h1>
-        <a href="{% slugurl 'events' %}">katso kaikki tapahtumat >></a>
+        <a href="{% slugurl 'events' %}">katso kaikki tapahtumat »</a>
       </div>
       <div class="row-events">
         {% for event in page.front_page_events %}

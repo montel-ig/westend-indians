@@ -1,9 +1,11 @@
 const Team = (props) => {
   return (
     <a href={`/joukkueet/${props.slug}`}>
-      <div className="team-container">
-        <img src="http://indiansproduction.s3.amazonaws.com/assets/logo-6cfd4cd67c604e09322045e30fad2986.jpg"/>
-        <p>{props.name}</p>
+      <div className="teams-team-container">
+        <div className="img-container">
+          <img src={props.image}/>
+        </div>
+        <h3>{props.name}</h3>
       </div>
     </a>
   )
@@ -57,6 +59,7 @@ class TeamBrowser extends React.Component {
     fetch('/teamsjson').then((response) => {
       return response.json();
     }).then(function(json) {
+      console.log("res",json);
       that.setState({teams: json})
     });
   }
@@ -66,6 +69,7 @@ class TeamBrowser extends React.Component {
       if (this.teamInChecked(team)) {
         return <Team
           name={team.name}
+          image={team.image}
           key={team.key}
           slug={team.slug}
         />

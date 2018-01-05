@@ -21,6 +21,7 @@ class PlayerBrowser extends React.Component {
         origin={player.origin}
         number={player.number}
         position={player.position}
+        image={player.image}
         born={player.born}
         handedness={player.handedness}
         height={player.height}
