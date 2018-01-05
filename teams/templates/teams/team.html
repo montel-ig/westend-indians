@@ -1,12 +1,11 @@
 {% extends "base_layout.html" %}
 
 {% block main %}
-
+  <h1>{{properties.name}}</h1>
   <div id="players"></div>
 
   <script type="application/javascript">
     var team_members = {{ members|safe }};
-
     window.onload = function() {
       if(document.getElementById("players")!=null && team_members){
         createPlayerBrowser("players");

@@ -6,7 +6,7 @@ div#teams {
     justify-content: center;
     background-color: $indians-grey;
     flex-direction: row;
-
+    margin-top: 50px;
     > div {
       flex-direction: column;
       letter-spacing: $letter-spacing-medium;
@@ -24,16 +24,50 @@ div#teams {
           margin: 10px;
         }
       }
-    } > * {
+    }
+
+    > * {
         margin: 0;
         padding: 20px;
         display: flex;
+    }
+  }
+  .team-browser-root {
+    a {
+      line-height: normal;
 
+      > div.teams-team-container {
+        background-color: $indians-dark;
+
+        .img-container {
+          height: 220px;
+          width: 220px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          > img {
+            min-height: 50%;
+            min-width: 50%;
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: cover;
+          }
+        }
+
+        h3 {
+          font-family: $titillium-web;
+          background-color: $indians-bg-grey;
+          color: white;
+          text-align: center;
+          margin: 0;
+          padding: 10px 0;
+        }
       }
-
-    .select-path {
     }
 
   }
+
+
 }
 
