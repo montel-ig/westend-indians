@@ -2,7 +2,6 @@ import json
 
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.http import HttpResponse
-from django.core import serializers
 
 
 from teams.models import Team
@@ -54,7 +53,7 @@ def team_properties(team: Team) -> str:
     for attr in take_from_team:
         team_dict[attr] = getattr(team, attr)
     for attr in take_from_area:
-        team_dict["area_"+attr] = getattr(team.area, attr)
+        team_dict["area_"+attr] = getattr(team.area, attr) if hasattr(team.area, attr) else None
     team_dict["image"] = team.image.url if team.image else None
 
     return team_dict
