@@ -1,8 +1,14 @@
 {% extends "base_layout.html" %}
+{% load staticfiles %}
+
 
 {% block main %}
-
-  <div id="players"></div>
+  <h1>{{properties.name}}</h1>
+  <section class="players" id="players">
+    <div class="players-container">
+    </div>
+    <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+  </section>
 
   <script type="application/javascript">
     var team_members = {{ members|safe }};

@@ -1,0 +1,13 @@
+section.players {
+  background: black;
+  color: white;
+
+  .player-wrapper {
+    display: block;
+
+    h1 {
+      margin: 0;
+      padding: 100px 0 100px 50px;
+    }
+  }
+}
