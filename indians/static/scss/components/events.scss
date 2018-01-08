@@ -10,6 +10,7 @@ section.events {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding-top: 120px;
 
       @media screen and (max-width : 640px) {
         display: block;
@@ -52,6 +53,7 @@ section.events {
           width: 100%!important;
           display: flex;
           height: auto;
+
         }
 
         @media screen and (max-width: 640px) {
@@ -104,6 +106,8 @@ section.events {
         @media screen and  (max-width : 820px) {
           align-items: center;
           height: auto;
+          padding-bottom: 10px;
+
 
           a > h2 { margin-left: 20px; }
           .event-item-text {
@@ -131,7 +135,7 @@ section.events {
         padding: 50px;
 
         @media screen and (max-width : 640px) {
-          padding: 10px 10px 30px 10px;
+          padding: 50px 10px 30px 10px;
 
           > a { font-size: 12px; }
         }

@@ -97,7 +97,7 @@
       > a {
         margin: auto;
         width: 75%;
-        height: 70%;
+        height: 60%;
 
         > img {
           width: 100%;
@@ -219,6 +219,7 @@
   .row-head {
     grid-column-start: 2;
     grid-column-end: 13;
+    padding-top: 120px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -441,7 +442,7 @@
           padding: 50px;
 
           @media screen and (max-width : 640px) {
-            padding: 10px 10px 30px 10px;
+            padding: 50px 10px 30px 10px;
 
            > a { font-size: 12px; }
           }
@@ -455,6 +456,8 @@
             .news-item {
               width: 300px;
               height: auto;
+              padding-bottom: 10px;
+
               > a {
                 //width: 300px;
 
