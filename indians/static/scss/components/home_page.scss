@@ -66,7 +66,7 @@
     display: grid;
     grid-gap: 50px;
     grid-template-columns: 200px 200px;
-    grid-template-rows: 230px 180px;
+    grid-template-rows: 230px 230px;
 
     > div {
       background-color: white;
@@ -78,12 +78,19 @@
       overflow: hidden;
 
       .shop-item-description {
-        height: 50px;
+        height: 70px;
 
         > p {
           margin: 0;
           letter-spacing: $letter-spacing-large;
           font-weight: bold;
+          padding: 10px 10px 0 10px;
+
+          &#product-price {
+            //color: $indians-yellow;
+            text-align: center;
+            font-size: 120%;
+          }
         }
       }
 

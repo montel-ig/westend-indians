@@ -6,6 +6,7 @@ from wagtail.wagtailcore.models import Page
 from sponsors.models import Sponsor
 from news.models import NewsItem
 from events.models import Event
+from products.models import ProductImage
 
 
 class IndiansBasePage(Page):
@@ -39,6 +40,12 @@ class IndiansBasePage(Page):
     @property
     def front_page_events(self):
         return Event.objects.order_by("-created_at")[:3]
+
+    # Products
+
+    @property
+    def front_page_product_images(self):
+        return ProductImage.objects.order_by('-id')[:4]
 
     class Meta:
         abstract = True

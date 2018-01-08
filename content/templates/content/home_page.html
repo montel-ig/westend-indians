@@ -50,32 +50,17 @@
   <section class="shop">
     <div class="shop-container">
       <div class="shop-products">
-        <div>
-          <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Floorball_ball_cropped.jpg/230px-Floorball_ball_cropped.jpg"></a>
-          <div class="shop-item-description">
-            <p>Pallo</p>
+        {% for product in page.front_page_product_images %}
+          <div>
+            <a href="#"><img src={{ product.image.url}}></a>
+            <div class="shop-item-description">
+              <p>{{ product.product.name }}</p>
+              <p id="product-price"}>{{ product.product.price }}</p>
+            </div>
           </div>
-        </div>
-        <div>
-          <a href="#"><img src="https://www.kiekkobussi.com/WebRoot/Kiekkobussi/Shops/Kiekkobussi/599C/42F7/E70B/4E1B/3228/0A28/104C/4304/58176_82459.jpg"></a>
-          <div class="shop-item-description">
-            <p>Maski</p>
-          </div>
-        </div>
-        <div>
-          <a href="#"><img src="http://7gear.fi/media/catalog/product/cache/1/image/1200x1200/9df78eab33525d08d6e5fb8d27136e95/v/i/virallinensalibandymaali.jpg"></a>
-          <div class="shop-item-description">
-            <p>Maali</p>
-          </div>
-        </div>
-        <div>
-          <a href="#"><img src="http://www.teamstore.fi/tuotekuvat/1500x1500/Oxdog%20hyper%2028%20101cm%20salibandymaila%20floorball%20stick.png"></a>
-          <div class="shop-item-description">
-            <p>Maila</p>
-          </div>
-        </div>
+        {% endfor %}
       </div>
-      <div class="content shop">
+        <div class="content shop">
         <h1>{{ page.shop_title}}</h1>
         <p class="cta-text">{{ page.shop_description }}</p>
         <a class="cta-link" href="{% slugurl 'shop' %}">kauppaan »</a>
