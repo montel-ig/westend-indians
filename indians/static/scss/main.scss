@@ -99,12 +99,13 @@ html {
         position: relative;
         width: 100%;
         display: block;
+        transform:scalex(1.1);
 
         &.flip-y {
-          transform: scaleY(-1);
+          transform: scale(1.1, -1);
         }
         &.flip-x {
-          transform: scale(-1, -1);
+          transform: scale(-1.1, -1);
         }
         &.justify-bottom {
           bottom:1px;
