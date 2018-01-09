@@ -72,6 +72,12 @@
         a {
           color: $indians-grey;
           padding: 10px;
+
+          i:hover {
+            color: $indians-yellow;
+            filter: brightness(140%);
+            transition: color 300ms linear, filter 300ms;
+          }
         }
 
         @media screen and (min-width : 640px) and  (max-width : 1020px) {
