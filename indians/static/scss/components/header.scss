@@ -33,17 +33,17 @@
         width: 100%;
         font-family: $black-ops;
         transform: translate(-50%, -100px);
-        font-size: 7vw;
+        font-size: 6vw;
         line-height: 60px;
         letter-spacing: $letter-spacing-x-large;
         text-transform: uppercase;
 
-        @media screen and (min-width : 176px) and  (max-width : 640px) {
-          //font-size: 24px;
+        @media screen and (min-width : 2050px) and  (max-width : 2450px) {
+          font-size: 5vw;
         }
 
-        @media screen and (min-width : 641px) and  (max-width : 1024px) {
-          //font-size: 38px;
+        @media screen and (min-width : 2450px) {
+          font-size: 4vw;
         }
 
         &.active-transform {
