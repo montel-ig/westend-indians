@@ -21,9 +21,7 @@
         <p id="lead-paragraph">
           {{ news_item.ingress }}
         </p>
-        <p>
-          {{ news_item.body }}
-        </p>
+        {{ news_item.body|safe }}
       </div>
     {% endfor %}
   </div>

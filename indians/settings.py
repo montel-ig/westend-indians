@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     'taggit',
     'colorful',
     'imagekit',
+    'ckeditor',
 
 
 ]

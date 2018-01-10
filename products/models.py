@@ -1,12 +1,13 @@
 from django.db import models
 from django.utils.text import slugify
+from ckeditor.fields import RichTextField
 
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True, blank=True, editable=False)
 
-    description = models.TextField()
+    description = RichTextField()
     price = models.DecimalField(max_digits=9, decimal_places=2)
     visible = models.BooleanField(default=False)
 
