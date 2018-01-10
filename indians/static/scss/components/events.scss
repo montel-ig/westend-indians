@@ -25,6 +25,11 @@ section.events {
         text-transform: uppercase;
         padding-left: 50px;
 
+        span {
+          position: relative;
+          bottom:2px;
+        }
+
         @media screen and (max-width : 640px) {
           padding-left: 0;
           font-size: 12px;
