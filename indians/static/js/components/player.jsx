@@ -2,7 +2,7 @@ const Player = (props) => {
   return (
     <div className="player-container" onClick={props.handlePlayerClick}>
       <div className="player-img-wrapper">
-        <img className="player-img" src={props.image} />
+        <img className="player-img" src={props.image||props.default_image} />
       </div>
       <ul className="player-desc">
         <li>

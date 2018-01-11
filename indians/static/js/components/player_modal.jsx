@@ -3,7 +3,22 @@ class PlayerModal extends React.Component {
     super()
     this.state = {
       visibilityClass:"not-visible",
+      selectedPlayer:null
     }
+  }
+
+  getYoutubeId(url){
+    let ID = '';
+    url = url.replace(/(>|<)/gi,'').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
+
+    if(url[2] !== undefined) {
+      ID = url[2].split(/[^0-9a-z_\-]/i);
+      ID = ID[0];
+    }
+    else {
+      ID = url;
+    }
+    return ID;
   }
 
   componentDidMount() {
@@ -18,9 +33,11 @@ class PlayerModal extends React.Component {
         <div className="modal-container">
           <div className="statistics-container">
             <div className="upper">
-              <div className="modal-img-wrapper">
-                <img className="modal-img" src={this.props.selectedPlayer.image}/>
-              </div>
+              <Player_introducing
+                video_url={this.props.selectedPlayer.video_url && this.getYoutubeId(this.props.selectedPlayer.video_url)}
+                image={this.props.selectedPlayer.image}
+                default_image={'/static/images/indians_logo_345x345.jpg'}
+              />
               <div className="statistics">
                 <p id="player-name">{`${this.props.selectedPlayer.first_name} ${this.props.selectedPlayer.last_name}`}</p>
                 <p>Kotoisin: {this.props.selectedPlayer.origin}</p>
@@ -33,6 +50,7 @@ class PlayerModal extends React.Component {
                 <p>Koulu: {this.props.selectedPlayer.school}</p>
               </div>
             </div>
+            <hr />
             <div className="lower">
               <p>{this.props.selectedPlayer.description}</p>
             </div>

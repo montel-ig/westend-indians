@@ -22,6 +22,7 @@ class PlayerBrowser extends React.Component {
         number={player.number}
         position={player.position}
         image={player.image}
+        default_image='/static/images/indians_logo_345x345.jpg'
         born={player.born}
         handedness={player.handedness}
         height={player.height}
@@ -32,6 +33,7 @@ class PlayerBrowser extends React.Component {
         some_instagram={player.some_instagram}
         some_snapchat={player.some_snapchat}
         some_twitter={player.some_twitter}
+        video_url={player.video_url}
         handlePlayerClick={()=>{this.handlePlayerClick(player)}}
         key={player.key}
       />
