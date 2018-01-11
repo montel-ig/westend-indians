@@ -1,0 +1,33 @@
+{% extends "admin/base_site.html" %}
+{% load staticfiles %}
+{% load static i18n %}
+
+{# Setup favicon #}
+{% block extrahead %}<link rel="shortcut icon" type="image/png" href="{% static "images/g12.max-165x165.png" %}"/>{% endblock %}
+
+{# Setup browser tab label #}
+{% block title %}{{ title }} |  {% trans "Westend Indians" %}{% endblock %}
+
+{% block extrastyle %}
+<style>
+  #admin-title {padding-left: 20px;}
+  #header, div.breadcrumbs { background-color: #000; color:#FBEF36;}
+  a:link, a:visited, #content h1 {color: #000;}
+  #branding h1{ color: #fff; }
+  caption { background-color: #000!important; }
+  .module h2, .module caption, .inline-group h2 { color: #000; }
+  a.section:link, a.section:visited { color: #FBEF36; }
+</style>
+{% endblock %}
+
+{# Setup branding #}
+{% block branding %}
+<h1 id="site-name">
+  <a href="{% url 'admin:index' %}" style="color:#FBEF36;">
+    <img style="position: relative; bottom:5px; height:50px; width:50px; padding-right:30px" src="{% static "images/g12.max-165x165.png" alt="Westend Indians" %}" />
+    </span id="admin-title" > {% trans "WESTEND INDIANS" %}
+  </a>
+</h1>
+{% endblock %}
+
+
