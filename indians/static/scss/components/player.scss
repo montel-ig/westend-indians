@@ -27,6 +27,10 @@
 
       .player-img {
         height: 20em;
+
+        &.player-default {
+          transform: scale(.7);
+        }
       }
     }
 

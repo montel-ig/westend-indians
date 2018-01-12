@@ -9,9 +9,9 @@ const Player_introducing = (props) => {
                          frameborder="0" allow="autoplay; encrypted-media">
           </iframe>;
         } else if (props.image) {
-          return <img className="modal-img" src={props.image}/>;
+          return <img className="modal-img player-custom" src={props.image}/>;
         }
-        return <img className="modal-img" src={props.default_image}/>;
+        return <img className="modal-img player-default" src={props.default_image}/>;
       })()}
     </div>
   )
