@@ -1,0 +1,51 @@
+section.some {
+  background-color: black;
+
+  h1 {
+    padding: 0 0 50px 50px;
+    color: white;
+
+
+  }
+  .some-container {
+    align-items: flex-start;
+    display: block;
+    justify-content: space-evenly;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 100px 0;
+
+    .some-row {
+      display: flex;
+      justify-content: space-evenly;
+
+      @media screen and (max-width: 880px) {
+        flex-direction: column;
+
+        > div {
+          margin: 0 auto;
+          padding-bottom: 20px;
+          @media screen and (max-width: 620px) {
+            > iframe, #twitter-widget-0 {
+              max-height: 500px;
+            }
+          }
+        }
+      }
+
+      > div {
+        max-height: 820px;
+        overflow: hidden;
+      }
+
+    }
+  }
+
+  @media screen and (max-width: 880px) {
+    padding: 0;
+  }
+  @media screen and (max-width: 430px) {
+    display: none;
+  }
+
+}
