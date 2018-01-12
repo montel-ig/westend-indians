@@ -47,51 +47,21 @@
         <a href="{% slugurl 'news' %}">katso kaikki uutiset »</a>
       </div>
       <div class="row-news">
+        {% for newsitem in page.front_page_news %}
         <div class="news-item">
-          <a href="#">
+          <a href="{% slugurl 'news' %}">
             <div class="news-image">
               <img src="http://i64.tinypic.com/4sxy79.png">
             </div>
           </a>
           <div class="item-text-container">
-            <h2 class="news-item-header">orem ipsum dolor sit amet, imperdiet mauris mauris</h2>
+            <a href="{% slugurl 'news' %}"><h2 class="news-item-header">{{ newsitem.title }}</h2></a>
             <p class="news-item-text">
-              Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
-              amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
-              fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
+              {{ newsitem.ingress }}
             </p>
           </div>
         </div>
-        <div class="news-item">
-          <a href="#">
-            <div class="news-image">
-              <img src="http://i64.tinypic.com/4sxy79.png">
-            </div>
-          </a>
-          <div class="item-text-container">
-            <h2 class="news-item-header">otsikko</h2>
-            <p class="news-item-text">
-              Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
-              amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
-              fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
-            </p>
-          </div>
-        </div>
-        <div class="news-item">
-          <a href="#">
-            <div class="news-image">
-              <img src="http://i64.tinypic.com/4sxy79.png">
-            </div>
-          </a>
-          <div class="item-text-container">
-            <h2 class="news-item-header">otsikko</h2>
-            <p class="news-item-text">
-              Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
-              amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
-              fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
-            </p>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
     <img class="triangle flip-y  justify-top" src="{% static "images/tilted-bg-white-top.svg" %}">
@@ -104,6 +74,7 @@
         <a href="{% slugurl 'events' %}">katso kaikki tapahtumat »</a>
       </div>
       <div class="row-events">
+        {% for event in page.front_page_events %}
         <div class="event-item">
           <a href="#">
             <div class="event-image">
@@ -111,62 +82,37 @@
             </div>
           </a>
           <div class="item-text-container">
-            <h2 class="events-item-header">tempus est commodo tellus suspendisse vel primis</h2>
-            <p class="event-item-text">
-              Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
-              amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
-              fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
-            </p>
-          </div>
-        </div>
-        <div class="event-item">
-          <a href="#">
-            <div class="event-image">
-              <img src="http://i64.tinypic.com/4sxy79.png">
+            <a href="{% slugurl 'tapahtumat' %}"><h2 class="events-item-header">{{event.name}}</h2></a>
+            <div class="event-item-date">
+              <p style="margin-bottom: 5px;">{{event.start_time}}</p>
+              <p id="event-middle"> - </p>
+              <p style="margin-top: 5px;">{{event.end_time}}</p>
             </div>
-          </a>
-          <div class="item-text-container">
-            <h2 class="event-item-header">fusce urna nisl, ut per cras integer ipsum</h2>
-            <p class="event-item-text">
-              Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
-              amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
-              fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
-            </p>
+            <p class="event-item-text">{{event.description}}</p>
           </div>
         </div>
-        <div class="event-item">
-          <a href="#">
-            <div class="event-image">
-              <img src="http://i64.tinypic.com/4sxy79.png">
-            </div>
-          </a>
-          <div class="item-text-container">
-            <h2 class="event-item-header">Dolorem ac aliquet vehicula feugiat praesent</h2>
-            <p class="event-item-text">
-              Lorem ipsum dolor sit amet, imperdiet mauris mauris. Dolorem ac aliquet vehicula feugiat praesent,
-              amet fusce a platea dictumst ante. Ligula pretium et aenean rhoncus non, tortor erat. Odio molestie nec
-              fusce urna nisl, ut per cras integer ipsum, tempus est commodo tellus suspendisse vel primis.
-            </p>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
-    <img class="triangle flip-y  justify-top" src="{% static "images/tilted-bg-white-top.svg" %}">
   </section>
-  <section class="tribe-some">
-    <div class="some-container">
-      <div class="tribe-face">
-        <i class="fa fa-facebook-square fa-4x" aria-hidden="true"></i>
+<section class="some">
+  <div class="some-container">
+    <h1>some</h1>
+    <div class="some-row">
+      <div class="team-face">
+        {% include "facebook_widget.html" %}
       </div>
-      <div class="tribe-insta">
-        <i class="fa fa-instagram fa-4x" aria-hidden="true"></i>
+      <div id="instafeed" class="team-insta">
+        {% include "instagram_widget.html" %}
       </div>
-      <div class="tribe-twitter">
-        <i class="fa fa-twitter-square fa-4x" aria-hidden="true"></i>
+      <div class="team-twitter">
+        {% include "twitter_widget.html" %}
       </div>
     </div>
-    <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
-  </section>
+  </div>
+  <img class="triangle flip-y  justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
+
+</section>
 {% endblock %}
 {% block sponsors %}
   <div class="top-level row">
