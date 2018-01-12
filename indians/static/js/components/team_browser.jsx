@@ -56,11 +56,20 @@ class TeamBrowser extends React.Component {
 
   componentDidMount() {
     let that = this;
-    fetch('/api/v1/teams.json').then((response) => {
-      return response.json();
-    }).then(function(json) {
-      console.log("res",json);
-      that.setState({teams: json})
+    let url = '/api/v1/teams.json';
+    let opts = {
+      method: "GET",
+      credentials: 'same-origin'
+    }
+    fetch(url,opts).then((response) => {
+      if (response.status >= 200 && response.status < 300) {
+        return response.json();
+      }
+      else {
+        return response.statusText;
+      }
+    }).then(function(teams) {
+      that.setState({teams})
     });
   }
 
