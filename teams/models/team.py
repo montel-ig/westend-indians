@@ -1,8 +1,10 @@
 from django.db import models
-
 from django.utils.text import slugify
 
 from teams.models.area import Area
+
+from ckeditor.fields import RichTextField
+
 
 SPORT_TYPES = (
     ('floorball', 'Floorball'),
@@ -45,7 +47,7 @@ class Team(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True, blank=True, editable=False)
 
-    description = models.TextField(null=True, blank=True)
+    description = RichTextField(null=True, blank=True)
 
     contact_name = models.CharField(blank=True, null=True, max_length=255)
     contact_email = models.EmailField(blank=True, null=True)
