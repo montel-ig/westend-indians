@@ -56,7 +56,7 @@ class TeamBrowser extends React.Component {
 
   componentDidMount() {
     let that = this;
-    fetch('/teamsjson').then((response) => {
+    fetch('/api/v1/teams.json').then((response) => {
       return response.json();
     }).then(function(json) {
       console.log("res",json);

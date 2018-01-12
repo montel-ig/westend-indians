@@ -31,7 +31,7 @@ urlpatterns = [
       url(r'^search/', include(wagtailsearch_urls)),
       url(r'^documents/', include(wagtaildocs_urls)),
       url(r'joukkueet/(?P<slug>[\w-]+)', team.by_slug),
-      url(r'^teamsjson/', team.teams_json),
+      url(r'^api/v1/teams.json', team.teams_json),
       url(r'', include(wagtail_urls)),
 
   ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
