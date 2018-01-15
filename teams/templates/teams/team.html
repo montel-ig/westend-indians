@@ -1,15 +1,46 @@
 {% extends "base_layout.html" %}
+{% load wagtailcore_tags %}
 {% load staticfiles %}
+{% load wagtailimages_tags %}
 
 
 {% block main %}
-  <h1>{{properties.name}}</h1>
+  <section class="team" style="background-color: white;">
+
+    <div class="teams-team-container"}>
+      <h1>{{ properties.name }}</h1>
+      <img class="teams-team-img" src="{{ properties.image }}">
+      <div class="content team">
+        <div class="team-contact">
+          <h2>Urheiluvastaava</h2>
+          <p>{{ properties.contact_name }}</p>
+          <p>{{ properties.contact_email }}</p>
+          <p>{{ properties.contact_phone }}</p>
+        </div>
+        <div class="team-leader">
+          <h2>Joukkueenjohtaja</h2>
+          <p>{{ properties.leader_name }}</p>
+          <p>{{ properties.leader_email }}</p>
+          <p>{{ properties.leader_phone }}</p>
+        </div>
+        <div class="team-info">
+          <p>Nykyinen pelaajamäärä: {{ properties.current_player_count }}</p>
+          <p>Maksimi pelaajamäärä: {{ properties.max_player_count }}</p>
+        </div>
+      </div>
+      <div class="team-description">
+        <p>{{ properties.description }}</p>
+      </div>
+    </div>
+    <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-black-top.svg" %}">
+  </section>
   <section class="players" id="players">
     <div class="players-container">
     </div>
-    <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-black-bottom.svg" %}">
   </section>
-
+  <section style="background-color: black;">
+    <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
+  </section>
   <script type="application/javascript">
     var team_members = {{ members|safe }};
     window.onload = function() {
