@@ -30,16 +30,16 @@
           <ul class="nav-index">
             <li class="nav-logo"}><a href="{%slugurl 'home'%}"><img id="nav-logo" src="http://i67.tinypic.com/30kralk.png" /></a></li>
             {% for menuitem in request.site.root_page.get_children.live.in_menu %}
-            <li><a href="/{{ menuitem.slug }}">{{ menuitem.title.upper }}</a></li>
+              <li><a href="/{{ menuitem.slug }}">{{ menuitem.title.upper }}</a></li>
             {% endfor %}
           </ul>
           {% if self.url != '/' and self.get_children%}
-          <hr />
-          <ul class="nav-index">
-            {% for sub_menuitem in self.get_children.live %}
-            <li><a href="/{{ menuitem.slug }}">{{ sub_menuitem.title.upper }}</a></li>
-            {% endfor %}
-          </ul>
+            <hr />
+            <ul class="nav-index">
+              {% for sub_menuitem in self.get_children.live %}
+                <li><a href="{{ sub_menuitem.slug }}">{{ sub_menuitem.title.upper }}</a></li>
+              {% endfor %}
+            </ul>
           {% endif %}
         </section>
       </div>
