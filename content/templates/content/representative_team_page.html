@@ -21,7 +21,7 @@
     <img class="triangle  flip-y justify-top" src="{% static "images/tilted-bg-black-top.svg" %}">
   </section>
   <section class="games">
-    <div class="games-container full-black">
+    <div class="games-container full-black ignore-height">
       <div class="row">
         <div class="home">
           <img src="http://i67.tinypic.com/30kralk.png">
@@ -76,8 +76,23 @@
     </div>
     <img class="triangle flip-x justify-top" src="{% static "images/tilted-bg-black-top.svg" %}">
   </section>
+  <section class="some">
+    <div class="some-container">
+      <h1>some</h1>
+      <div class="some-row">
+        <div class="team-face">
+          {% include "facebook_widget.html" %}
+        </div>
+        <div id="instafeed" class="team-insta">
+          {% include "instagram_widget.html" %}
+        </div>
+        <div class="team-twitter">
+          {% include "twitter_widget.html" %}
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="players" id="players">
-
     <div class="players-container">
     </div>
     <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-black-bottom.svg" %}">
