@@ -34,6 +34,11 @@
       grid-column-end: 12;
       padding:100px 0;
     }
+    .team-info {
+      p:empty {
+        display: none;
+      }
+    }
   }
 }
 

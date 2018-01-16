@@ -4,32 +4,52 @@
 {% load wagtailimages_tags %}
 
 
+{% block title %} {{ properties.name }} {% endblock %}
 {% block main %}
   <section class="team" style="background-color: white;">
-
     <div class="teams-team-container"}>
       <h1>{{ properties.name }}</h1>
-      <img class="teams-team-img" src="{{ properties.image }}">
+      {% if properties.image %}
+        <img class="teams-team-img" src="{{ properties.image }}">
+      {% else %}
+        <img src="{% static "images/indians_logo_345x345.jpg" %}">
+      {% endif %}
       <div class="content team">
         <div class="team-contact">
-          <h2>Urheiluvastaava</h2>
-          <p>{{ properties.contact_name }}</p>
-          <p>{{ properties.contact_email }}</p>
-          <p>{{ properties.contact_phone }}</p>
+          {% if properties.contact_name %}
+            <h2>Urheiluvastaava</h2>
+            <p>{{ properties.contact_name }}</p>
+          {% endif %}
+          {% if properties.contact_email %}
+            <p>{{ properties.contact_email }}</p>
+          {% endif %}
+          {% if properties.contact_phone %}
+            <p>{{ properties.contact_phone }}</p>
+          {% endif %}
         </div>
         <div class="team-leader">
-          <h2>Joukkueenjohtaja</h2>
-          <p>{{ properties.leader_name }}</p>
-          <p>{{ properties.leader_email }}</p>
-          <p>{{ properties.leader_phone }}</p>
+          {% if properties.leader_name %}
+            <h2>Joukkueenjohtaja</h2>
+            <p>{{ properties.leader_name }}</p>
+          {% endif %}
+          {% if properties.leader_email %}
+            <p>{{ properties.leader_email }}</p>
+          {% endif %}
+          {% if properties.leader_phone %}
+            <p>{{ properties.leader_phone }}</p>
+          {% endif %}
         </div>
         <div class="team-info">
-          <p>Nykyinen pelaajamäärä: {{ properties.current_player_count }}</p>
-          <p>Maksimi pelaajamäärä: {{ properties.max_player_count }}</p>
+          {% if properties.current_player_count %}
+            <p>Nykyinen pelaajamäärä: {{ properties.current_player_count }}</p>
+          {% endif %}
+          {% if properties.max_player_count %}
+            <p>Maksimi pelaajamäärä: {{ properties.max_player_count }}</p>
+          {% endif %}
         </div>
       </div>
       <div class="team-description">
-        <p>{{ properties.description }}</p>
+        <p>{{ properties.description|safe }}</p>
       </div>
     </div>
     <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-black-top.svg" %}">
@@ -49,7 +69,35 @@
       }
     }
   </script>
-
+{% endblock %}
+{% block sponsors %}
+<div class="top-level row">
+  {% for sponsor in sponsors %}
+  {% if sponsor.level == 'top' %}
+  <div>
+    <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>
+<div class="second-level row">
+  {% for sponsor in sponsors %}
+  {% if sponsor.level == 'second' %}
+  <div>
+    <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>
+<div class="third-level row">
+  {% for sponsor in sponsors %}
+  {% if sponsor.level == 'third' %}
+  <div>
+    <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
+  </div>
+  {% endif %}
+  {% endfor %}
+</div>
 {% endblock %}
 
 
