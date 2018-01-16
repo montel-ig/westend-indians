@@ -1,28 +1,40 @@
 .main-grid-body {
 
   .club-body, .club-introduction, .club-values, .club-contact, .club-personnel {
-    background-image: url("http://i64.tinypic.com/2akq38.png");
     .content {
       .rich-text {
         grid-column-start: 2;
         grid-column-end: 12;
-        padding: 50px;
+        padding: 100px 50px 50px 50px;
         h2 {
           font-family: $black-ops;
           font-size: 24px;
-          letter-spacing:$letter-spacing-large;
+          letter-spacing: $letter-spacing-large;
           text-transform: uppercase;
           background-color: black;
           color: white;
           padding: 5px 20px;
           width: 50%;
         }
-        p {
+        p, ul li, ol li {
           font-family: "Encode Sans", sans-serif;
           font-size: 18px;
           letter-spacing: 1px;
         }
+
+        &:empty {
+          display: none;
+        }
       }
     }
+  }
+
+  .club-body {
+    background-image: url("http://i64.tinypic.com/2akq38.png");
+  }
+
+  .club-values, .club-contact {
+    background-color: black;
+    color: white;
   }
 }

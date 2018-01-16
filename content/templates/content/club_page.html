@@ -6,37 +6,36 @@
 {% block title %} {{page.title}} {% endblock %}
 {% block main %}
 
-  <section class="club-body">
-    <div class="content ignore-height"
+<section class="club-body">
+  <div class="content ignore-height">
     {{ page.body|richtext }}
-  </section>
-  <section class="club-introduction">
-    <img class="triangle flip-y justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
-    <div class="content ignore-height">
-      {{ page.introduction|richtext }}
-    </div>
-    <img class="triangle flip-y justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
-  </section>
-  <section class="club-values">
-    <img class="triangle flip-y justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
-    <div class="content ignore-height">
-      {{ page.values|richtext }}
-    </div>
-    <img class="triangle flip-y justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
-  </section>
-  <section class="club-contact">
-    <img class="triangle flip-y justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
-    <div class="content ignore-height">
-      {{ page.contact|richtext }}
-    </div>
-    <img class="triangle flip-y justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
-  </section>
-  <section class="club-personnel">
-    <img class="triangle flip-y justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
-    <div class="content ignore-height">
-      {{ page.personnel|richtext }}
-    </div>
-    <img class="triangle flip-y" src="{% static "images/tilted-bg-grey-top.svg" %}">
-  </section>
+  </div>
+</section>
+<section class="club-introduction">
+  <img class="triangle flip-y justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
+  <div class="content ignore-height">
+    {{ page.introduction|richtext }}
+  </div>
+  <img class="triangle flip-y justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
+</section>
+<section class="club-values">
+  <img class="triangle flip-y justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
+  <div class="content ignore-height">
+    {{ page.values|richtext }}
+  </div>
+</section>
+<section class="club-contact">
+  <div class="content ignore-height">
+    {{ page.contact|richtext }}
+  </div>
+  <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-white-top.svg" %}">
+</section>
+<section class="club-personnel">
+  <img class="triangle flip-y justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
+  <div class="content ignore-height">
+    {{ page.personnel|richtext }}
+  </div>
+  <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
+</section>
 
 {% endblock %}
