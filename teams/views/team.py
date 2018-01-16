@@ -1,18 +1,21 @@
 import json
 
 from django.shortcuts import render, get_object_or_404, get_list_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponsePermanentRedirect
 
 
 from teams.models import Team
-
+from sponsors.models import Sponsor
 
 def teams(request):
     teams = get_list_or_404(Team)
+
     return render(request, 'teams/teams_page.html', {'teams': teams})
+
 
 def teams_json(request):
     teams = json.dumps([team_properties(t) for t in Team.objects.all()])
+
     return HttpResponse(teams)
 
 
@@ -20,6 +23,8 @@ def by_slug(request, slug):
     team = get_object_or_404(Team, slug=slug)
     members = members_to_json(team)
     properties = team_properties(team)
+    sponsors = Sponsor.objects.filter(visible_for_team=True)
+
     return render(request, 'teams/team.html', locals())
 
 
@@ -57,3 +62,7 @@ def team_properties(team: Team) -> str:
     team_dict["image"] = team.image.url if team.image else None
 
     return team_dict
+
+
+def representative_team_url_redirect(request):
+    return HttpResponsePermanentRedirect("/edustus/")
