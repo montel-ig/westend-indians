@@ -10,7 +10,7 @@ from wagtail.wagtailadmin.edit_handlers import FieldPanel
 from teams.models import Team
 
 
-class TeamsPage(Page):
+class TeamsPage(Parent):
     description = models.CharField(max_length=255, blank=True,)
     content_panels = Page.content_panels + [
         FieldPanel('description', classname="full")

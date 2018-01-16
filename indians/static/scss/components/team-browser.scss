@@ -1,21 +1,23 @@
-.team-browser-root {
-  margin:50px 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 220px);
-  grid-template-rows: repeat(auto-fill,270px);
-  grid-gap: 10px;
-  justify-content: space-between;
-}
+section.teams-description {
+  .container {
+    padding: 120px 0;
+    > * {
+      grid-column-start: 2;
+      grid-column-end: 12;
+    }
+  }
 
-div#teams {
-  max-width: 1280px;
-  margin: 0 auto;
+
+}
+section#teams {
+
   .team-filter {
+    grid-column-start: 2;
+    grid-column-end: 12;
     display: flex;
     justify-content: center;
     background-color: $indians-grey;
     flex-direction: row;
-    margin-top: 50px;
     > div {
       flex-direction: column;
       letter-spacing: $letter-spacing-medium;
@@ -41,7 +43,18 @@ div#teams {
       display: flex;
     }
   }
+
   .team-browser-root {
+
+    display: grid;
+    grid-column-start: 2;
+    grid-column-end: 12;
+    grid-template-columns: repeat(auto-fit, 220px);
+    grid-template-rows: repeat(auto-fill,270px);
+    grid-gap: 10px;
+    justify-content: space-evenly;
+    padding: 50px 0;
+
     a {
       line-height: normal;
 
