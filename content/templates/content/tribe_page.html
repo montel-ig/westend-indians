@@ -19,21 +19,6 @@
       </div>
     </div>
   </section>
-<!--
-  <section class="subpages">
-    <div class="subpages-container">
-      <div class="subpage">
-        <p>info</p>
-      </div>
-      <div class="subpage">
-        <p>seura</p>
-      </div>
-      <div class="subpage">
-        <p>joukkueet & harrasteryhmät</p>
-      </div>
-    </div>
-  </section>
--->
   <section id="lift">
     <div class="tribe-main-lift ignore-height add-space">
       {{ page.main_lift|richtext }}
@@ -102,18 +87,18 @@
       <div class="team-face">
         {% include "facebook_widget.html" %}
       </div>
+      <div class="team-twitter">
+        {% include "twitter_widget.html" %}
+      </div>
       <!--
       <div id="instafeed" class="team-insta">
         {% include "instagram_widget.html" %}
       </div>
       -->
-      <div class="team-twitter">
-        {% include "twitter_widget.html" %}
-      </div>
     </div>
-  </div>
-  <img class="triangle flip-y  justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
+    <img class="triangle flip-y  justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
 
+  </div>
 </section>
 {% endblock %}
 {% block sponsors %}

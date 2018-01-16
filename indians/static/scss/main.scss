@@ -18,7 +18,7 @@
 @import "components/some";
 
 
-
+// General
 html {
 
   background-color: black;
@@ -99,9 +99,9 @@ html {
         &.ignore-height {
           min-height: 0;
         }
-
       }
 
+      // SVG
       .triangle {
         position: relative;
         width: 100%;
@@ -122,7 +122,8 @@ html {
           top:1px;
         }
       }
-
+      
+      // section backgrounds
       &.team, &.tribe-news {
         background-image: url("http://i64.tinypic.com/2akq38.png");
       }
@@ -142,6 +143,7 @@ html {
       }
     }
 
+    // Richtext properties
     .richtext-image {
       width: 100%;
     }
@@ -152,6 +154,16 @@ html {
       }
       a {
         font-weight: bold;
+      }
+
+      p, ul li, ol li {
+        font-family: $encode-sans;
+        font-size: 18px;
+        letter-spacing: £$letter-spacing-medium;
+      }
+
+      &:empty {
+        display: none;
       }
     }
   }

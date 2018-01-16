@@ -16,15 +16,7 @@
           padding: 5px 20px;
           width: 50%;
         }
-        p, ul li, ol li {
-          font-family: "Encode Sans", sans-serif;
-          font-size: 18px;
-          letter-spacing: 1px;
-        }
 
-        &:empty {
-          display: none;
-        }
       }
     }
   }
