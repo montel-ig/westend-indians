@@ -110,10 +110,10 @@ html {
         transform: translateX(2px);
 
         &.flip-y {
-          transform: scaleY(-1) translateX(-2px);
+          transform: scaleY(-1) translateX(-4px);
         }
         &.flip-x {
-          transform: scale(-1, -1) translateX(2px);
+          transform: scale(-1, -1) translateX(4px);
         }
         &.justify-bottom {
           bottom:1px;

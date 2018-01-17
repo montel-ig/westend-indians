@@ -19,12 +19,6 @@
         position: relative;
         bottom:2px;
       }
-      /*
-      &:hover {
-        color: $indians-yellow;
-        transition: color 300ms linear;
-      }
-      */
     }
 
     .info-links {
@@ -77,10 +71,11 @@
     display: grid;
     grid-gap: 50px;
     grid-template-columns: 200px 200px;
-    grid-template-rows: 230px 230px;
+    grid-template-rows: 250px 250px;
 
     > div {
       background-color: white;
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -89,10 +84,12 @@
       overflow: hidden;
 
       .shop-item-description {
-        height: 70px;
+        position: absolute;
+        bottom: 10px;
 
         > p {
           margin: 0;
+          font-size: 16px;
           letter-spacing: $letter-spacing-large;
           font-weight: bold;
           padding: 10px 10px 0 10px;
@@ -105,13 +102,15 @@
       }
 
       > a {
-        margin: auto;
+        margin: 0 auto;
         width: 75%;
         height: 60%;
+        padding-top: 10px;
 
         > img {
           width: 100%;
-          height: 100%;
+          max-height: 100%;
+          object-fit: scale-down;
         }
       }
     }
