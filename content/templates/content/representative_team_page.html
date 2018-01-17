@@ -24,7 +24,7 @@
     <div class="games-container full-black ignore-height">
       <div class="row">
         <div class="home">
-          <img src="http://i67.tinypic.com/30kralk.png">
+          <img src="{% static "images/indians_logo_345x345.jpg" %}">
         </div>
         <div class="games-date">
           <h1>seuraava edustusjoukkueen kotiottelu</h1>
@@ -32,13 +32,13 @@
           <a href="{% slugurl 'info' %}" class="games-cta">tule katsomaan</a>
         </div>
         <div class="away">
-          <img src="http://i67.tinypic.com/30kralk.png">
+          <img src="{% static "images/indians_logo_345x345.jpg" %}">
         </div>
       </div>
     </div>
-    <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-white-top.svg" %}">
   </section>
   <section class="repr-lift ">
+    <img class="triangle flip-y justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
     <div class="ignore-height repr">
       {{ page.main_lift|richtext }}
     </div>
