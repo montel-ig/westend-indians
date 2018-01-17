@@ -6,7 +6,7 @@ const Player = (props) => {
       </div>
       <ul className="player-desc">
         <li>
-          <p id="player-number"> {`#${props.number}`}</p>
+          {props.number && <p id="player-number"> {`#${props.number}`}</p>}
         </li>
         <li>
           <p>{props.name}</p>
