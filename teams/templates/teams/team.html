@@ -52,17 +52,24 @@
         <p>{{ properties.description|safe }}</p>
       </div>
     </div>
+  </section>
+  {% if members|length > 10  %}
     <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-black-top.svg" %}">
-  </section>
-  <section class="players" id="players">
-    <div class="players-container">
-    </div>
-  </section>
-  <section style="background-color: black;">
-    <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
-  </section>
+    <section class="players" id="players">
+      <div class="players-container">
+      </div>
+    </section>
+    <section style="background-color: black;">
+      <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
+    </section>
+  {% else %}
+    <section style="background-color: white;">
+      <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
+    </section>
+  {% endif %}
+
   <script type="application/javascript">
-    var team_members = {{ members|safe }};
+    var team_members = {{ members|safe }} ;
     window.onload = function() {
       if(document.getElementById("players")!=null && team_members){
         createPlayerBrowser("players");

@@ -101,27 +101,7 @@ html {
         }
       }
 
-      // SVG
-      .triangle {
-        position: relative;
-        width: 100%;
-        display: block;
-        overflow-x: hidden;
-        transform: translateX(2px);
 
-        &.flip-y {
-          transform: scaleY(-1) translateX(-4px);
-        }
-        &.flip-x {
-          transform: scale(-1, -1) translateX(4px);
-        }
-        &.justify-bottom {
-          bottom:1px;
-        }
-        &.justify-top {
-          top:1px;
-        }
-      }
       // section backgrounds
       &.team, &.tribe-news {
         background-image: url("http://i64.tinypic.com/2akq38.png");
@@ -139,6 +119,28 @@ html {
 
       &.footer {
         background-color: $indians-bg-grey;
+      }
+    }
+
+    // SVG
+    .triangle {
+      position: relative;
+      width: 100%;
+      display: block;
+      overflow-x: hidden;
+      transform: translateX(2px);
+
+      &.flip-y {
+        transform: scaleY(-1) translateX(-4px);
+      }
+      &.flip-x {
+        transform: scale(-1, -1) translateX(4px);
+      }
+      &.justify-bottom {
+        bottom:1px;
+      }
+      &.justify-top {
+        top:1px;
       }
     }
 

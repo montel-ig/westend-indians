@@ -43,7 +43,10 @@ def members_to_json(team: Team) -> str:
         members_dict[m.id]['image'] = m.image.url if m.image else None
         members_dict[m.id].update(dict([(v, getattr(ms, v)) for v in take_from_membership]))
 
-    return json.dumps(members_dict)
+    if members_dict:
+        return json.dumps(members_dict)
+    else:
+        return json.dumps(None)
 
 
 def team_properties(team: Team) -> str:
