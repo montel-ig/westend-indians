@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from teams.models import Team, Member, School, TeamMembership, Area
+from teams.models import Team, Member, School, TeamMembership, Area, Match
 
 
 class MembershipInline(admin.TabularInline):
@@ -31,3 +31,5 @@ admin.site.register(Team, TeamAdmin)
 admin.site.register(Member, MemberAdmin)
 admin.site.register(School)
 admin.site.register(Area)
+admin.site.register(Match)
+
