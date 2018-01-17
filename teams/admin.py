@@ -22,7 +22,6 @@ class MemberAdmin(admin.ModelAdmin):
     name.admin_order_field = 'first_name'
 
 
-
 class TeamAdmin(admin.ModelAdmin):
     model = Team
     inlines = (MembershipInline,)
