@@ -77,3 +77,4 @@ class TeamMembership(models.Model):
     team = models.ForeignKey(Team, related_name='memberships')
     number = models.IntegerField(null=True, blank=True)
     position = models.CharField(choices=POSITION_TYPES, max_length=10, null=True, blank=True)
+    role = models.CharField(max_length=255, null=True, blank=True)
