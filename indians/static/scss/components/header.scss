@@ -38,8 +38,16 @@
         letter-spacing: $letter-spacing-x-large;
         text-transform: uppercase;
 
-        @media screen and (min-width : 2050px) and  (max-width : 2450px) {
+        @media screen and (min-width : 176px) and  (max-width : 640px) {
+          bottom:20%;
+          line-height: 45px;
+        }
+
+        @media screen and (min-width : 1560px) and  (max-width : 2450px) {
           font-size: 5vw;
+          line-height: 100px;
+          bottom:18%;
+
         }
 
         @media screen and (min-width : 2450px) {
