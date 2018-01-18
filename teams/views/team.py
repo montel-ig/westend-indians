@@ -66,6 +66,3 @@ def team_properties(team: Team) -> str:
 
     return team_dict
 
-
-def representative_team_url_redirect(request):
-    return HttpResponsePermanentRedirect("/edustus/")
