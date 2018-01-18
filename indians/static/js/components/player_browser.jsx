@@ -16,11 +16,13 @@ class PlayerBrowser extends React.Component {
 
   mapPlayers(players) {
     return players.map(player => {
+      console.log(player);
       return <Player
         name={`${player.first_name} ${player.last_name}`}
         origin={player.origin}
         number={player.number}
         position={player.position}
+        role={player.role}
         image={player.image}
         default_image='/static/images/indians_logo_345x345.jpg'
         born={player.born}
