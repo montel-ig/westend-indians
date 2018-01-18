@@ -1,6 +1,7 @@
 from django.db import models
 
 from teams.models.team import Team
+from teams.models.area import Area
 
 
 class Match(models.Model):
@@ -8,6 +9,7 @@ class Match(models.Model):
     homegame = models.BooleanField(default=True)
     date = models.DateTimeField(null=False)
     team = models.ForeignKey(Team, null=False)
+    location = models.CharField(max_length=255, Null=True, Blank=True)
 
     @property
     def match_name(self):
