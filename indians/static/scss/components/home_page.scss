@@ -192,9 +192,8 @@
       justify-content: center;
       align-items: center;
 
-      p {
-        color: $indians-grey;
-      }
+      p { color: $indians-grey; }
+      h1 { margin: 0; }
 
       .games-cta {
         width: 400px;

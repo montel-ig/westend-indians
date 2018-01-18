@@ -13,11 +13,11 @@
       <div class="content team">
         <h1>{{ page.team_title}}</h1>
         <p class="description">{{ page.team_description }}</p>
-        <a class="cta-link" href="{% slugurl 'edustus'%}">{{page.team_cta}} <span>»</span></a>
+        <a class="cta-link" href="{% slugurl 'miehet-edustus'%}">{{page.team_cta}} <span>»</span></a>
         <ul class="info-links">
-          <a href="{% slugurl 'edustus'%}#players">pelaajat</a>
-          <a href="{% slugurl 'edustus'%}#schedule">otteluohjelma</a>
-          <a href="{% slugurl 'edustus'%}#statistics">sarjataulukko</a>
+          <a href="/joukkueet/miehet-edustus">pelaajat</a>
+          <a href="{% slugurl 'miehet-edustus'%}#schedule">otteluohjelma</a>
+          <a href="{% slugurl 'miehet-edustus'%}#statistics">sarjataulukko</a>
         </ul>
       </div>
     </div>
@@ -67,23 +67,26 @@
       </div>
     </div>
   </section>
-  <section class="games">
-    <div class="games-container full-black ignore-height">
-      <div class="row">
-        <div class="home">
-          <img src="{% static "images/indians_logo_345x345.jpg" %}">
-        </div>
-        <div class="games-date">
-          <h1>seuraava edustusjoukkueen kotiottelu</h1>
-          <p>Ti 16.12,  klo 16:30</p>
-          <a href="{% slugurl 'info' %}" class="games-cta">tule katsomaan</a>
-        </div>
-        <div class="away">
-          <img src="{% static "images/indians_logo_345x345.jpg" %}">
+  {% if page.upcoming_homegame.opponent %}
+    <section class="games">
+      <div class="games-container full-black ignore-height">
+        <div class="row">
+          <div class="home">
+            <img src="{% static "images/indians_logo_345x345.jpg" %}">
+          </div>
+          <div class="games-date">
+            <h1>seuraava edustusjoukkueen kotiottelu</h1>
+            <p>Vastassa: <span>{{ page.upcoming_homegame.opponent }}</span></p>
+            <p>{{ page.upcoming_homegame.date }}</p>
+            <a href="{% slugurl 'info' %}" class="games-cta">tule katsomaan</a>
+          </div>
+          <div class="away">
+            <img src="{% static "images/indians_logo_345x345.jpg" %}">
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  {% endif %}
   <section class="news">
     <img class="triangle flip-y  justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
     <div class="news-container  add-space">

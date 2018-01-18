@@ -3,6 +3,8 @@ from __future__ import unicode_literals
 
 from wagtail.wagtailcore.models import Page
 
+from django.db.models.functions import datetime
+
 from sponsors.models import Sponsor
 from news.models import NewsItem
 from events.models import Event
@@ -54,6 +56,12 @@ class IndiansBasePage(Page):
     def representative_team_page_matches(self):
         teamId = 2
         return Match.objects.filter(team__id=teamId)[:6]
+
+    @property
+    def upcoming_homegame(self):
+        teamId = 2
+        now = datetime.datetime.now()
+        return Match.objects.filter(date__gt=now, team__id=teamId).last()
 
     class Meta:
         abstract = True
