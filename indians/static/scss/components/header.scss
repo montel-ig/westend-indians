@@ -39,14 +39,13 @@
         text-transform: uppercase;
 
         @media screen and (min-width : 176px) and  (max-width : 640px) {
-          bottom:20%;
           line-height: 45px;
         }
 
         @media screen and (min-width : 1560px) and  (max-width : 2450px) {
           font-size: 5vw;
           line-height: 100px;
-          bottom:18%;
+          bottom:23%;
 
         }
 
@@ -74,7 +73,11 @@
         font-size: 24px;
         letter-spacing: $letter-spacing-medium;
 
-        @media screen and (min-width : 176px) and  (max-width : 640px) {
+        @media screen and (min-width : 176px) and (max-width : 360px) {
+          font-size: 10px;
+        }
+
+        @media screen and (min-width : 361px) and (max-width : 640px) {
           font-size: 13px;
           padding-top: 400px;
         }
@@ -117,7 +120,11 @@
         display: block;
         font-size: 20px;
 
-        @media screen and (max-width : 480px) {
+        @media screen and (max-width : 400px) {
+          font-size: 12px;
+        }
+
+        @media screen and (min-width : 401px) and (max-width : 480px) {
           font-size: 14px;
         }
       }
