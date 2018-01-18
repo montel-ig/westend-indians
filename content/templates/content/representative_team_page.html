@@ -48,33 +48,31 @@
     <div class="schedule-container repr ignore-height">
       <h1 class="schedule-head">otteluohjelma</h1>
       <div class="row-content">
-        <div>Ajankohta
-          <p>1.1.2018</p>
-          <p>1.1.2018</p>
-          <p>1.1.2018</p>
-          <p>1.1.2018</p>
-          <p>1.1.2018</p>
-          <p>1.1.2018</p>
+        <div>
+          <h3>Ajankohta</h3>
+          {% for match in page.representative_team_page_matches %}
+            <p>{{ match.date }}</p>
+          {% endfor %}
         </div>
-        <div>Vastassa
-          <p>Espoon Oilers</p>
-          <p>Espoon Oilers</p>
-          <p>Espoon Oilers</p>
-          <p>Espoon Oilers</p>
-          <p>Espoon Oilers</p>
-          <p>Espoon Oilers</p>
+        <div>
+          <h3>Vastassa</h3>
+          {% for match in page.representative_team_page_matches %}
+            <p>{{ match.opponent }}</p>
+          {% endfor %}
         </div>
-        <div>Paikka
-          <p>Espoon Otaniemi</p>
-          <p>Espoon Otaniemi</p>
-          <p>Espoon Otaniemi</p>
-          <p>Espoon Otaniemi</p>
-          <p>Espoon Otaniemi</p>
-          <p>Espoon Otaniemi</p>
+        <div>
+          <h3>Paikka</h3>
+          {% for match in page.representative_team_page_matches %}
+            {% if match.homegame %}
+              <p>Espoon Otaniemi</p>
+            {% else %}
+              <p>{{ match.location }}</p>
+            {% endif %}
+          {% endfor %}
         </div>
       </div>
     </div>
-    <img class="triangle flip-x justify-top" src="{% static "images/tilted-bg-black-top.svg" %}">
+    <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-black-top.svg" %}">
   </section>
   <section class="some">
     <div class="some-container">

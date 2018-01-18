@@ -7,6 +7,7 @@ from sponsors.models import Sponsor
 from news.models import NewsItem
 from events.models import Event
 from products.models import ProductImage
+from teams.models import Match
 
 
 class IndiansBasePage(Page):
@@ -46,6 +47,13 @@ class IndiansBasePage(Page):
     @property
     def front_page_product_images(self):
         return ProductImage.objects.order_by('-id')[:4]
+
+    # Matches
+
+    @property
+    def representative_team_page_matches(self):
+        teamId = 2
+        return Match.objects.filter(team__id=teamId)[:6]
 
     class Meta:
         abstract = True

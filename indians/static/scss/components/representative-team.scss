@@ -85,6 +85,7 @@ section.schedule, section.statistics {
         letter-spacing: 1px;
         line-height: 21px;
 
+        h3 {margin: 0;}
 
         @media screen and (min-width: 176px) and (max-width: 640px) {
           justify-content: space-between;

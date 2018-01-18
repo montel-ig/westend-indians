@@ -9,7 +9,7 @@ class Match(models.Model):
     homegame = models.BooleanField(default=True)
     date = models.DateTimeField(null=False)
     team = models.ForeignKey(Team, null=False)
-    location = models.CharField(max_length=255, Null=True, Blank=True)
+    location = models.CharField(max_length=255, null=True, blank=True)
 
     @property
     def match_name(self):
