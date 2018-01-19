@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from wagtail.wagtailcore.models import Page
 
 from django.db.models.functions import datetime
+from django.db.models import Min
 
 from sponsors.models import Sponsor
 from news.models import NewsItem
@@ -61,7 +62,8 @@ class IndiansBasePage(Page):
     def upcoming_homegame(self):
         teamId = 2
         now = datetime.datetime.now()
-        return Match.objects.filter(date__gt=now, team__id=teamId).last()
+        return Match.objects.filter(homegame=True, date__gt=now, team__id=teamId).order_by('-date').last()
+
 
     class Meta:
         abstract = True

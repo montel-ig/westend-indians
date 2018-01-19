@@ -30,7 +30,7 @@
           <div class="games-date">
             <h1>seuraava edustusjoukkueen kotiottelu</h1>
             <p>Vastassa: <span>{{ page.upcoming_homegame.opponent }}</span></p>
-            <p>{{ page.upcoming_homegame.date }}</p>
+            <p>{{ page.upcoming_homegame.date|date:"d.n.Y" }}  kello {{ page.upcoming_homegame.date.time }}</p>
             <a href="{% slugurl 'info' %}" class="games-cta">tule katsomaan</a>
           </div>
           <div class="away">
@@ -55,7 +55,7 @@
           <div>
             <h3>Ajankohta</h3>
             {% for match in page.representative_team_page_matches %}
-              <p>{{ match.date }}</p>
+              <p>{{ match.date.date|date:"d.n.Y" }}  kello {{ match.date.time }}</p>
             {% endfor %}
           </div>
           <div>
