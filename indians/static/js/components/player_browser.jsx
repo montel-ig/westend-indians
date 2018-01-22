@@ -9,35 +9,65 @@ class PlayerBrowser extends React.Component {
     ].forEach((fn) => this[fn] = this[fn].bind(this));
 
     this.state = {
-      players: objectToArray(team_members),
+      players: this.filterEmployeesFromPlayers(objectToArray(team_members)),
+      employees: this.filterEmployeesFromPlayers(objectToArray(team_members), true),
       selectedPlayer: null,
     }
   }
 
+  filterEmployeesFromPlayers(players, employees) {
+    return players.filter(person => employees ? person.role : !person.role);
+  }
+
   mapPlayers(players) {
     return players.map(player => {
-      console.log(player);
+      if (!player.role) {
+        return <Player
+          name={`${player.first_name} ${player.last_name}`}
+          origin={player.origin}
+          number={player.number}
+          position={player.position}
+          role={player.role}
+          image={player.image}
+          default_image='/static/images/indians_logo_345x345.jpg'
+          born={player.born}
+          handedness={player.handedness}
+          height={player.height}
+          weight={player.weight}
+          //todo: years_combined
+          school={player.school}
+          some_facebook={player.some_facebook}
+          some_instagram={player.some_instagram}
+          some_snapchat={player.some_snapchat}
+          some_twitter={player.some_twitter}
+          video_url={player.video_url}
+          handlePlayerClick={() => {
+            this.handlePlayerClick(player)
+          }}
+          key={player.key}
+        />
+      }
+    });
+  }
+
+  mapEmployees(employees) {
+    return employees.map(employee => {
       return <Player
-        name={`${player.first_name} ${player.last_name}`}
-        origin={player.origin}
-        number={player.number}
-        position={player.position}
-        role={player.role}
-        image={player.image}
+        name={`${employee.first_name} ${employee.last_name}`}
+        origin={employee.origin}
+        role={employee.role}
+        image={employee.image}
         default_image='/static/images/indians_logo_345x345.jpg'
-        born={player.born}
-        handedness={player.handedness}
-        height={player.height}
-        weight={player.weight}
-        //todo: years_combined
-        school={player.school}
-        some_facebook={player.some_facebook}
-        some_instagram={player.some_instagram}
-        some_snapchat={player.some_snapchat}
-        some_twitter={player.some_twitter}
-        video_url={player.video_url}
-        handlePlayerClick={()=>{this.handlePlayerClick(player)}}
-        key={player.key}
+        born={employee.born}
+        height={employee.height}
+        weight={employee.weight}
+        some_facebook={employee.some_facebook}
+        some_instagram={employee.some_instagram}
+        some_snapchat={employee.some_snapchat}
+        some_twitter={employee.some_twitter}
+        video_url={employee.video_url}
+        handlePlayerClick={()=>{this.handlePlayerClick(employee)}}
+        key={employee.key}
       />
     });
   }
@@ -47,38 +77,38 @@ class PlayerBrowser extends React.Component {
     this.setState({selectedPlayer: player});
   }
 
-  handlePlayerChange(player) {
-    if (player) {
+  handlePlayerChange(person, isEmployee) {
+    let indiansToIterate = isEmployee === true ? this.state.employees : this.state.players;
+    if (person) {
       this.setState(function(prevState) {
-        if (this.state.players.indexOf(this.state.selectedPlayer)+1 === this.state.players.length) {
+        if (indiansToIterate.indexOf(this.state.selectedPlayer)+1 === indiansToIterate.length) {
           return {
-            selectedPlayer: this.state.players[0]
+            selectedPlayer: indiansToIterate[0]
           };
         } else {
           return {
-            selectedPlayer: this.state.players[this.state.players.indexOf(this.state.selectedPlayer)+1]
+            selectedPlayer: indiansToIterate[indiansToIterate.indexOf(this.state.selectedPlayer)+1]
           };
         }
 
       });
     } else {
       this.setState(function(prevState) {
-        if (this.state.players.indexOf(this.state.selectedPlayer) === 0) {
+        if (indiansToIterate.indexOf(this.state.selectedPlayer) === 0) {
           return {
-            selectedPlayer: this.state.players[this.state.players.length-1]
+            selectedPlayer: indiansToIterate[indiansToIterate.length-1]
           };
         } else {
           return {
-            selectedPlayer: this.state.players[this.state.players.indexOf(this.state.selectedPlayer)-1]
+            selectedPlayer: indiansToIterate[indiansToIterate.indexOf(this.state.selectedPlayer)-1]
           };
         }
-
       });
     }
   }
 
   handleModalClose(e) {
-    if (this.state.selectedPlayer && e.target.className == "modal-backdrop visible") {
+    if (this.state.selectedPlayer && e.target.className === "modal-backdrop visible") {
       this.setState({selectedPlayer:null});
     }
   }
@@ -88,21 +118,22 @@ class PlayerBrowser extends React.Component {
       <div className="player-wrapper" onClick={this.handleModalClose}>
         <h1>pelaajat</h1>
         {this.state.selectedPlayer && <PlayerModal
-          players = {this.state.players}
+          players={this.state.players}
+          employees={this.state.employees}
           selectedPlayer={this.state.selectedPlayer}
           handlePlayerChange={this.handlePlayerChange}
         />}
         <div className={this.state.selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
           {this.mapPlayers(this.state.players)}
         </div>
+        <h1>Toimihenkilöt</h1>
+        <div className={this.state.selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
+          {this.mapEmployees(this.state.employees)}
+        </div>
       </div>
     );
   }
 }
-
-
-
-
 
 function createPlayerBrowser(id) {
 

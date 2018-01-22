@@ -3,7 +3,8 @@ class PlayerModal extends React.Component {
     super()
     this.state = {
       visibilityClass:"not-visible",
-      selectedPlayer:null
+      selectedPlayer:null,
+      isEmployee: typeof props.selectedPlayer.role === 'string'
     }
   }
 
@@ -28,31 +29,32 @@ class PlayerModal extends React.Component {
   }
 
   render() {
+    const { first_name, last_name, origin, number, position, handedness, born, height, weight, school, role, video_url, description } = this.props.selectedPlayer;
     return (
       <div className={`modal-backdrop ${this.state.visibilityClass}`} >
         <div className="modal-container">
           <div className="statistics-container">
             <div className="upper">
               <Player_introducing
-                video_url={this.props.selectedPlayer.video_url && this.getYoutubeId(this.props.selectedPlayer.video_url)}
+                video_url={video_url && this.getYoutubeId(video_url)}
                 image={this.props.selectedPlayer.image}
                 default_image={'/static/images/indians_logo_345x345.jpg'}
               />
               <div className="statistics">
-                <p id="player-name">{`${this.props.selectedPlayer.first_name} ${this.props.selectedPlayer.last_name}`}</p>
-                <p>Kotoisin: {this.props.selectedPlayer.origin}</p>
-                <p>Pelinumero: {this.props.selectedPlayer.number}</p>
-                <p>Pelipaikka: {t('player_modal',this.props.selectedPlayer.handedness)}</p>
-                <p>Kätisyys: {t('player_modal',this.props.selectedPlayer.handedness)}</p>
-                <p>Syntymävuosi: {this.props.selectedPlayer.born}</p>
-                <p>Pituus (cm): {this.props.selectedPlayer.height}</p>
-                <p>Paino (kg): {this.props.selectedPlayer.weight}</p>
-                <p>Koulu: {this.props.selectedPlayer.school}</p>
+                <p id="player-name">{`${first_name} ${last_name}`}</p>
+                { origin && <p>Kotoisin: {origin}</p> }
+                { number && <p>Pelinumero: {number}</p> }
+                { position && <p>Pelipaikka: {t('player_modal',position)}</p> }
+                <p>Kätisyys: {t('player_modal',handedness)}</p>
+                <p>Syntymävuosi: {born}</p>
+                <p>Pituus (cm): {height}</p>
+                <p>Paino (kg): {weight}</p>
+                <p>Koulu: {school}</p>
               </div>
             </div>
             <hr />
             <div className="lower">
-              <p>{this.props.selectedPlayer.description}</p>
+              <p>{description}</p>
             </div>
           </div>
 
@@ -66,10 +68,10 @@ class PlayerModal extends React.Component {
             {this.props.selectedPlayer.some_facebook &&
               <a href={`https://www.facebook.com/${this.props.selectedPlayer.some_facebook}`}><i className="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>}
           </ul>
-          <div onClick={()=>{this.props.handlePlayerChange("next")}}>
+          <div onClick={()=>{this.props.handlePlayerChange("next", this.state.isEmployee)}}>
             <i className="material-icons right size-125" >navigate_next</i>
           </div>
-          <div onClick={()=>{this.props.handlePlayerChange()}}>
+          <div onClick={()=>{this.props.handlePlayerChange(false, this.state.isEmployee)}}>
             <i className="material-icons left size-125" >navigate_before</i>
           </div>
         </div>
