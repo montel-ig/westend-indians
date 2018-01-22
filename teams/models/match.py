@@ -13,7 +13,10 @@ class Match(models.Model):
 
     @property
     def match_name(self):
-        return f"{self.team.name} - {self.opponent}"
+        if self.homegame:
+            return f"{self.team.name} - {self.opponent} {self.date.date().strftime('%d.%m.%Y')}"
+        else:
+            return f"{self.opponent} - {self.team.name} {self.date.date()}"
 
     def __str__(self):
         return self.match_name
