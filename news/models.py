@@ -1,8 +1,14 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 
+SUBJECT_TYPES = (
+    ('heimo', 'Heimo'),
+    ('miehet-edustus', 'Miehet-edustus'),
+)
+
 
 class NewsItem(models.Model):
+    subject = models.CharField(choices=SUBJECT_TYPES, null=True, max_length=20, default=SUBJECT_TYPES[0][0])
     title = models.CharField(max_length=255)
     ingress = models.TextField()
     body = RichTextField()
