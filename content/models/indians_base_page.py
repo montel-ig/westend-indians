@@ -39,6 +39,10 @@ class IndiansBasePage(Page):
     def front_page_news(self):
         return NewsItem.objects.order_by("-created_at")[:3]
 
+    @property
+    def representative_team_page_news(self):
+        return NewsItem.objects.filter(subject='miehet-edustus').order_by("-created_at")[:3]
+
     # Events
 
     @property

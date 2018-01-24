@@ -76,9 +76,35 @@
           </div>
         </div>
       </div>
-      <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-black-top.svg" %}">
     </section>
   {% endif %}
+  <section class="news">
+    <div class="news-container  add-space">
+      <div class="row-head">
+        <h1>uutiset</h1>
+        <a href="{% slugurl 'news' %}">katso kaikki uutiset <span>»</span></a>
+      </div>
+      <div class="row-news">
+        {% for newsitem in page.representative_team_page_news %}
+        {% if newsitem %}
+        <div class="news-item">
+          <a href="{% slugurl 'news' %}">
+            <div class="news-image">
+              <img src="http://i64.tinypic.com/4sxy79.png">
+            </div>
+          </a>
+          <div class="item-text-container">
+            <a href="{% slugurl 'news' %}"><h2 class="news-item-header">{{ newsitem.title }}</h2></a>
+            <p class="news-item-text">
+              {{ newsitem.ingress }}
+            </p>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
   <section class="some">
     <div class="some-container">
       <h1>some</h1>

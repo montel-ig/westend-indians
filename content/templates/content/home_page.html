@@ -87,93 +87,94 @@
       </div>
     </section>
   {% endif %}
-  <section class="news">
-    <img class="triangle flip-y  justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
-    <div class="news-container  add-space">
-      <div class="row-head">
-        <h1>uutiset</h1>
-        <a href="{% slugurl 'news' %}">katso kaikki uutiset <span>»</span></a>
+<!--
+<section class="news">
+<img class="triangle flip-y  justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+<div class="news-container  add-space">
+<div class="row-head">
+  <h1>uutiset</h1>
+  <a href="{% slugurl 'news' %}">katso kaikki uutiset <span>»</span></a>
+</div>
+<div class="row-news">
+  {% for newsitem in page.front_page_news %}
+    {% if newsitem %}
+      <div class="news-item">
+        <a href="{% slugurl 'news' %}">
+          <div class="news-image">
+            <img src="http://i64.tinypic.com/4sxy79.png">
+          </div>
+        </a>
+        <div class="item-text-container">
+          <a href="{% slugurl 'news' %}"><h2 class="news-item-header">{{ newsitem.title }}</h2></a>
+          <p class="news-item-text">
+            {{ newsitem.ingress }}
+          </p>
+        </div>
       </div>
-      <div class="row-news">
-        {% for newsitem in page.front_page_news %}
-          {% if newsitem %}
-            <div class="news-item">
-              <a href="{% slugurl 'news' %}">
-                <div class="news-image">
-                  <img src="http://i64.tinypic.com/4sxy79.png">
-                </div>
-              </a>
-              <div class="item-text-container">
-                <a href="{% slugurl 'news' %}"><h2 class="news-item-header">{{ newsitem.title }}</h2></a>
-                <p class="news-item-text">
-                  {{ newsitem.ingress }}
-                </p>
-              </div>
-            </div>
-          {% endif %}
-        {% endfor %}
+    {% endif %}
+  {% endfor %}
+</div>
+</div>
+</section>
+-->
+<section class="events">
+<div class="events-container add-space">
+<div class="row-head">
+  <h1>tapahtumat</h1>
+  <a href="{% slugurl 'tapahtumat' %}">katso kaikki tapahtumat <span>»</span></a>
+</div>
+<div class="row-events">
+  {% for event in page.front_page_events %}
+    {% if event %}
+      <div class="event-item">
+        <a href="#">
+          <div class="event-image">
+            <img src="http://i64.tinypic.com/4sxy79.png">
+          </div>
+        </a>
+        <div class="item-text-container">
+          <a href="{% slugurl 'tapahtumat' %}"><h2 class="events-item-header">{{event.name}}</h2></a>
+          <div class="event-item-date">
+            <p style="margin-bottom: 5px;">{{event.start_time}}</p>
+            <p id="event-middle"> - </p>
+            <p style="margin-top: 5px;">{{event.end_time}}</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-  <section class="events">
-    <img class="triangle flip-y  justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
-    <div class="events-container add-space">
-      <div class="row-head">
-        <h1>tapahtumat</h1>
-        <a href="{% slugurl 'tapahtumat' %}">katso kaikki tapahtumat <span>»</span></a>
-      </div>
-      <div class="row-events">
-        {% for event in page.front_page_events %}
-          {% if event %}
-            <div class="event-item">
-              <a href="#">
-                <div class="event-image">
-                  <img src="http://i64.tinypic.com/4sxy79.png">
-                </div>
-              </a>
-              <div class="item-text-container">
-                <a href="{% slugurl 'tapahtumat' %}"><h2 class="events-item-header">{{event.name}}</h2></a>
-                <div class="event-item-date">
-                  <p style="margin-bottom: 5px;">{{event.start_time}}</p>
-                  <p id="event-middle"> - </p>
-                  <p style="margin-top: 5px;">{{event.end_time}}</p>
-                </div>
-              </div>
-            </div>
-          {% endif %}
-        {% endfor %}
-      </div>
-    </div>
-    <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
-  </section>
+    {% endif %}
+  {% endfor %}
+</div>
+</div>
+<img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
+</section>
 {% endblock %}
 {% block sponsors %}
-  <div class="top-level row">
-  {% for sponsor in page.front_page_sponsors %}
-    {% if sponsor.level == 'top' %}
-      <div>
-        <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
-      </div>
-   {% endif %}
-  {% endfor %}
+<div class="top-level row">
+{% for sponsor in page.front_page_sponsors %}
+{% if sponsor.level == 'top' %}
+<div>
+  <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+<div class="second-level row">
+{% for sponsor in page.front_page_sponsors %}
+{% if sponsor.level == 'second' %}
+  <div>
+    <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
+ </div>
+{% endif %}
+{% endfor %}
+</div>
+<div class="third-level row">
+{% for sponsor in page.front_page_sponsors %}
+{% if sponsor.level == 'third' %}
+  <div>
+    <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
   </div>
-  <div class="second-level row">
-    {% for sponsor in page.front_page_sponsors %}
-      {% if sponsor.level == 'second' %}
-        <div>
-          <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
-       </div>
-      {% endif %}
-    {% endfor %}
-  </div>
-  <div class="third-level row">
-    {% for sponsor in page.front_page_sponsors %}
-      {% if sponsor.level == 'third' %}
-        <div>
-          <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
-        </div>
-      {% endif %}
-    {% endfor %}
-  </div>
+{% endif %}
+{% endfor %}
+</div>
 {% endblock %}
 
