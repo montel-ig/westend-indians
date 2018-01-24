@@ -13,6 +13,7 @@
 @import "components/tribe_page";
 @import "components/events_page";
 @import "components/info_page";
+@import "components/statistics_page";
 @import "components/club_page";
 @import "components/news_page";
 @import "components/some";
@@ -160,7 +161,7 @@ html {
       p, ul li, ol li {
         font-family: $encode-sans;
         font-size: 18px;
-        letter-spacing: £$letter-spacing-medium;
+        letter-spacing: $letter-spacing-medium;
       }
 
       &:empty {

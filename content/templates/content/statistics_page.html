@@ -4,24 +4,28 @@
 
 {% block title %} {{page.title}} {% endblock %}
 {% block main %}
-
-  <h1>
-    {{ page.title }}
-  </h1>
-  <div class="stat-body">
-    {{ page.body|richtext }}
-  </div>
-  <div class="stat-matches">
-    {{ page.matches|richtext }}
-  </div>
-  <div class="stat-status">
-    {{ page.series_status|richtext }}
-  </div>
-  <div class="stat-points">
-    {{ page.points|richtext }}
-  </div>
-  <div class="stat-partners">
-    {{ page.partners|richtext }}
-  </div>
-
+  <section class="team-statistics">
+    <div class="team-statistics-container">
+      <div class="team-statistics-content">
+        <h1>
+          {{ page.title }}
+        </h1>
+        <div class="stat-body">
+          {{ page.body|richtext }}
+        </div>
+        <div class="stat-matches">
+          {{ page.matches|richtext }}
+        </div>
+        <div class="stat-status">
+          {{ page.series_status|richtext }}
+        </div>
+        <div class="stat-points">
+          {{ page.points|richtext }}
+        </div>
+        <div class="stat-partners">
+          {{ page.partners|richtext }}
+        </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}
