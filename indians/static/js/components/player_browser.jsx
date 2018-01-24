@@ -20,7 +20,9 @@ class PlayerBrowser extends React.Component {
   }
 
   mapPlayers(players) {
-    return players.map(player => {
+    return players
+      .sort((a,b) => a.number - b.number)
+      .map(player => {
       if (!player.role) {
         return <Player
           name={`${player.first_name} ${player.last_name}`}
@@ -51,7 +53,8 @@ class PlayerBrowser extends React.Component {
   }
 
   mapEmployees(employees) {
-    return employees.map(employee => {
+    return employees
+      .map(employee => {
       return <Player
         name={`${employee.first_name} ${employee.last_name}`}
         origin={employee.origin}
