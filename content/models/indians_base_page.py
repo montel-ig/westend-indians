@@ -56,7 +56,8 @@ class IndiansBasePage(Page):
     @property
     def representative_team_page_matches(self):
         teamId = 2
-        return Match.objects.filter(team__id=teamId)[:6]
+        now = datetime.datetime.now()
+        return Match.objects.filter(date__gt=now, team__id=teamId).order_by('date')[:6]
 
     @property
     def upcoming_homegame(self):
