@@ -45,19 +45,19 @@ class PlayerModal extends React.Component {
                 { origin && <p>Kotoisin: {origin}</p> }
                 { number && <p>Pelinumero: {number}</p> }
                 { position && <p>Pelipaikka: {t('player_modal',position)}</p> }
-                <p>Kätisyys: {t('player_modal',handedness)}</p>
-                <p>Syntymävuosi: {born}</p>
-                <p>Pituus (cm): {height}</p>
-                <p>Paino (kg): {weight}</p>
-                <p>Koulu: {school}</p>
+                { handedness && <p>Kätisyys: {t('player_modal',handedness)}</p> }
+                { born && <p>Syntymävuosi: {born}</p> }
+                { height && <p>Pituus (cm): {height}</p> }
+                { weight && <p>Paino (kg): {weight}</p> }
+                { school && <p>Koulu: {school}</p> }
               </div>
             </div>
             <hr />
             <div className="lower">
+              { role && <p>{role}</p> }
               <p>{description}</p>
             </div>
           </div>
-
           <ul className="modal-desc">
             {this.props.selectedPlayer.some_instagram &&
               <a href={`https://www.instagram.com/${this.props.selectedPlayer.some_instagram}`}><i className="fa fa-instagram fa-2x" aria-hidden="true"></i></a>}

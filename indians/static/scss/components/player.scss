@@ -19,12 +19,24 @@
 
     .desc-container {
       position: absolute;
-      bottom: 0;
+      bottom: 10px;
       width: 100%;
 
       > p {
         color: $indians-yellow;
         margin: 0;
+
+        @media screen and (min-width: 176px) and (max-width: 1200px) {
+          font-size: 14px;
+        }
+
+        @media screen and (min-width: 176px) and (max-width: 600px) {
+          line-height: 14px;
+        }
+
+        @media screen and (min-width: 176px) and (max-width: 430px) {
+          font-size: 12px;
+        }
       }
 
       .player-desc {

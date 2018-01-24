@@ -42,6 +42,10 @@
         grid-column-start: 2;
         grid-column-end: 12;
         padding:100px 0;
+
+        @media screen and (min-width: 176px) and (max-width: 1200px) {
+          padding: 0 25px;
+        }
       }
       .team-info {
         p:empty {
