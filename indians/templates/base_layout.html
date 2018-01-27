@@ -55,26 +55,7 @@
       <div class="main-grid-footer">
         <section class="footer">
           <div class="footer-container">
-            <div class="indians-info">
-              <div>
-                <a href="{% slugurl 'home' %}"><h1>Westend<br/>Indians</h1></a>
-              </div>
-              <div class="indians-address">
-                <p>puhelin: 050-3363366</p>
-                <p>sähköposti:</p>
-                <p>toimisto@westendindians.fi:</p>
-                <p>Westend Indians ry,</p>
-                <p>Otahalli/Otaranta 6, 02150 Espoo</p>
-              </div>
-              <div class="indians-social">
-                <a href="https://www.facebook.com/westendindians/"><i class="fa fa-facebook-square fa-4x" aria-hidden="true"></i></a>
-                <a href="https://www.twitter.com/westendindians/"><i class="fa fa-twitter-square fa-4x" aria-hidden="true"></i></a>
-                <a href="https://www.instagram.com/westendindians/"><i class="fa fa-instagram fa-4x" aria-hidden="true"></i></a>
-              </div>
-            </div>
             <div class="partners">
-              <p>Once a member - always part of the tribe</p>
-              <hr>
               <h2>yhteistyökumppanit</h2>
                 {% block sponsors %}
                   <div class="top-level row">
@@ -105,6 +86,27 @@
                     {% endfor %}
                   </div>
               {% endblock %}
+            </div>
+            <div class="footer-slogan">
+              <p>Once a member - always part of the tribe</p>
+              <hr>
+            </div>
+            <div class="indians-info">
+              <div>
+                <a href="{% slugurl 'home' %}"><h1>Westend<br/>Indians</h1></a>
+              </div>
+              <div class="indians-address">
+                <p>puhelin: 050-3363366</p>
+                <p>sähköposti:</p>
+                <p>toimisto@westendindians.fi:</p>
+                <p>Westend Indians ry,</p>
+                <p>Otahalli/Otaranta 6, 02150 Espoo</p>
+              </div>
+              <div class="indians-social">
+                <a href="https://www.facebook.com/westendindians/"><i class="fa fa-facebook-square fa-4x" aria-hidden="true"></i></a>
+                <a href="https://www.twitter.com/westendindians/"><i class="fa fa-twitter-square fa-4x" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/westendindians/"><i class="fa fa-instagram fa-4x" aria-hidden="true"></i></a>
+              </div>
             </div>
           </div>
         </section>
