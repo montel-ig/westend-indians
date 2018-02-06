@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 # Quick-start development settings - unsuitable for production
@@ -194,29 +194,3 @@ COMPRESS_PRECOMPILERS = (
 )
 COMPRESS_OFFLINE = True
 COMPRESS_OFFLINE_CONTEXT = {}
-
-import sys
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '[IND-DJANGO] %(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
-        }
-    },
-    'handlers': {
-        'console': {
-            'level': 'INFO',  # DEBUG
-            'class': 'logging.StreamHandler',
-            'stream': sys.stdout,
-            'formatter': 'verbose'
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console'],
-            'level': 'INFO',  # DEBUG
-            'propagate': True,
-        },
-    },
-}
