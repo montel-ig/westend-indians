@@ -4,7 +4,7 @@
   grid-template-rows: repeat(auto-fill, minmax(350px, 1fr));
 
   justify-content: center;
-  padding-bottom: 100px;
+  padding-bottom: $base_padding;
 
   &:empty {
     display: none;

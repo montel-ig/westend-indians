@@ -41,7 +41,7 @@ class PlayerModal extends React.Component {
                 default_image={'/static/images/indians_logo_345x345.jpg'}
               />
               <div className="statistics">
-                <p id="player-name">{`${first_name} ${last_name}`}</p>
+                <p className="player-name">{`${first_name} ${last_name}`}</p>
                 { origin && <p>Kotoisin: {origin}</p> }
                 { number && <p>Pelinumero: {number}</p> }
                 { position && <p>Pelipaikka: {t('player_modal',position)}</p> }
