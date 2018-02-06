@@ -52,13 +52,17 @@
           you forgot the main block!
         {% endblock %}
       </div>
+
       <div class="main-grid-footer">
         <section class="footer">
+          <img class="triangle flip-x justify-top" src="{% static "images/tilted-bg-white-top.svg" %}">
+          <div class="whiteblock ignore-height"></div>
+          <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
           <div class="footer-container">
             <div class="partners">
               <h2>pääyhteistyökumppanit</h2>
                 {% block sponsors %}
-                  <div class="top-level row">
+              <div class="top-level row">
                     {% for sponsor in page.front_page_sponsors %}
                       {% if sponsor.level == 'top' %}
                       <div>
