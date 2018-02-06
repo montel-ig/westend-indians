@@ -1,7 +1,7 @@
 .footer-container {
   display: block;
-  background-color: $indians-bg-grey;
-  color: $indians-grey;
+  background-color: black;
+  color: white;
   background-image: none;
   align-items: flex-start;
   margin: 0 auto;
@@ -10,7 +10,7 @@
   a > h1 {
     text-transform: uppercase;
     font-family: $black-ops;
-    color: $indians-grey;
+    color: white;
     font-size: 48px;
     letter-spacing: $letter-spacing-medium;
     line-height: normal;
@@ -23,7 +23,8 @@
   }
 
   h2 {
-    margin: 50px 0;
+    margin:0;
+    padding:50px 0;
     font-family: $black-ops;
     font-size: 24px;
     letter-spacing: $letter-spacing-large;
@@ -33,6 +34,12 @@
     @media screen and (max-width : 450px) {
       font-size: 18px;
     }
+  }
+
+  .footer-slogan {
+    grid-column-start: 2;
+    grid-column-end: 11;
+    padding: 50px 0;
   }
 
   > div {
@@ -54,6 +61,13 @@
         font-family: $encode-sans;
         margin: 0;
         padding-top: 5px;
+      }
+
+      h1 {
+        &:hover {
+          color: $indians-yellow;
+          transition: color 300ms linear;
+        }
       }
 
       @media screen and (min-width : 640px) and  (max-width : 1060px) {
@@ -141,10 +155,9 @@
   .partners {
     grid-column-start: 2;
     grid-column-end: 11;
-    margin-top: 20px;
 
     > p {
-      color: $indians-dark;
+      color: white;
       font-family: $titillium-web;
       margin:0;
       letter-spacing: $letter-spacing-medium;
@@ -176,6 +189,12 @@
           > img {
             width: 100%;
             height: 100%;
+            filter: grayscale(1);
+            &:hover {
+              filter: none;
+              transition: filter 300ms linear;
+            }
+
           }
         }
 
