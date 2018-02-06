@@ -56,10 +56,10 @@
         <section class="footer">
           <div class="footer-container">
             <div class="partners">
-              <h2>yhteistyökumppanit</h2>
+              <h2>pääyhteistyökumppanit</h2>
                 {% block sponsors %}
                   <div class="top-level row">
-                    {% for sponsor in page.all_sponsors %}
+                    {% for sponsor in page.front_page_sponsors %}
                       {% if sponsor.level == 'top' %}
                       <div>
                         <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
@@ -67,22 +67,24 @@
                       {% endif %}
                     {% endfor %}
                   </div>
+                  <h2>yhteistyössä</h2>
                   <div class="second-level row">
-                    {% for sponsor in page.all_sponsors %}
-                    {% if sponsor.level == 'second' %}
-                    <div>
-                      <a href="{{ sponsor.url }}"><img src="{{ sponsor.image.url }}"></a>
-                    </div>
-                    {% endif %}
+                    {% for sponsor in page.front_page_sponsors %}
+                      {% if sponsor.level == 'second' %}
+                      <div>
+                        <a href="{{ sponsor.url }}"><img src="{{ sponsor.image.url }}"></a>
+                      </div>
+                      {% endif %}
                     {% endfor %}
                   </div>
+                  <h2>kentällä mukana</h2>
                   <div class="third-level row">
-                    {% for sponsor in page.all_sponsors %}
-                    {% if sponsor.level == 'third' %}
-                    <div>
-                      <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
-                    </div>
-                    {% endif %}
+                    {% for sponsor in page.front_page_sponsors %}
+                      {% if sponsor.level == 'third' %}
+                      <div>
+                        <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
+                      </div>
+                      {% endif %}
                     {% endfor %}
                   </div>
               {% endblock %}
@@ -103,9 +105,11 @@
                 <p>Otahalli/Otaranta 6, 02150 Espoo</p>
               </div>
               <div class="indians-social">
-                <a href="https://www.facebook.com/westendindians/"><i class="fa fa-facebook-square fa-4x" aria-hidden="true"></i></a>
-                <a href="https://www.twitter.com/westendindians/"><i class="fa fa-twitter-square fa-4x" aria-hidden="true"></i></a>
-                <a href="https://www.instagram.com/westendindians/"><i class="fa fa-instagram fa-4x" aria-hidden="true"></i></a>
+                <a href="https://www.facebook.com/westendindians/"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
+                <a href="https://www.twitter.com/westendindians/"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/westendindians/"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
+                <a href="https://www.flickr.com/photos/westendindians/"><i class="fa fa-flickr fa-3x" aria-hidden="true"></i></a>
+                <a href="https://www.youtube.com/user/WestendIndians"><i class="fa fa-youtube fa-3x" aria-hidden="true"></i></a>
               </div>
             </div>
           </div>
