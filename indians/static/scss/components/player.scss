@@ -20,7 +20,7 @@
     .desc-container {
       position: absolute;
       bottom: 10px;
-      width: 100%;
+      padding: 0 $base_padding / 2;
 
       > p {
         color: $indians-yellow;
@@ -71,9 +71,8 @@
             }
           }
 
-          #player-number {
-            text-align: start;
-            margin: 0;
+          .player-number {
+            margin: 0 10px 0 0;
           }
 
           &.employee {
@@ -83,7 +82,7 @@
           }
 
           &.player {
-            text-align: center;
+            text-align: left;
             width: 100%;
             p { margin: 0; }
           }
@@ -100,7 +99,9 @@
 
 }
 
-#player-name,#player-number {
+.player-name,
+.player-number,
+.player-browser-root .player-container .desc-container .player-desc > li > p.player-number {
   color: $indians-yellow;
   font-size: xx-large;
   text-align: center;

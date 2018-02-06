@@ -83,7 +83,7 @@ html {
     }
 
     section {
-      max-width: 100vw;
+      max-width: 100%;
       background-repeat: repeat;
       > div {
         display: grid;
@@ -92,6 +92,7 @@ html {
         align-items: center;
         max-width: 1280px;
         margin: 0 auto;
+        padding: 0 $base_padding;
         min-height: 600px;
 
         &.full-black {
@@ -132,10 +133,10 @@ html {
       transform: translateX(2px);
 
       &.flip-y {
-        transform: scaleY(-1) translateX(-4px);
+        transform: scaleY(-1);
       }
       &.flip-x {
-        transform: scale(-1, -1) translateX(4px);
+        transform: scale(-1, -1);
       }
       &.justify-bottom {
         bottom:1px;

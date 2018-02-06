@@ -12,14 +12,13 @@
 
       h1 {
         position: relative;
-        grid-column-start: 2;
-        grid-column-end: 6;
-        padding-bottom: 100px;
+        grid-column-start: 1;
+        grid-column-end: 13;
       }
 
       .teams-team-img {
         position: relative;
-        grid-column-start: 2;
+        grid-column-start: 1;
         grid-column-end: 6;
         max-width: 500px;
 
@@ -30,7 +29,7 @@
 
       div.content {
         grid-column-start: 7;
-        grid-column-end: 12;
+        grid-column-end: 13;
 
         > div {
           padding-left: 50px;
@@ -41,7 +40,7 @@
       .team-description {
         grid-column-start: 2;
         grid-column-end: 12;
-        padding:100px 0;
+        padding: $base_padding * 2 0;
 
         @media screen and (min-width: 176px) and (max-width: 1200px) {
           padding: 0 25px;
@@ -61,10 +60,10 @@
 
     .player-wrapper {
       display: block;
-
+      padding: $base_padding 0;
       h1 {
         margin: 0;
-        padding: 100px 0 100px 50px;
+        padding: $base_padding 0;
       }
     }
   }
