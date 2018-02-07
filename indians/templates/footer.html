@@ -1,0 +1,67 @@
+{% load staticfiles %}
+{% load wagtailcore_tags %}
+
+<section class="footer">
+  <img class="triangle flip-x justify-top" src="{% static "images/tilted-bg-white-top.svg" %}">
+  <div class="whiteblock ignore-height"></div>
+  <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
+  <div class="footer-container">
+    <div class="partners">
+      <h2>pääyhteistyökumppanit</h2>
+      {% block sponsors %}
+      <div class="top-level row">
+        {% for sponsor in page.front_page_sponsors %}
+        {% if sponsor.level == 'top' %}
+        <div>
+          <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+      <h2>yhteistyössä</h2>
+      <div class="second-level row">
+        {% for sponsor in page.front_page_sponsors %}
+        {% if sponsor.level == 'second' %}
+        <div>
+          <a href="{{ sponsor.url }}"><img src="{{ sponsor.image.url }}"></a>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+      <h2>kentällä mukana</h2>
+      <div class="third-level row">
+        {% for sponsor in page.front_page_sponsors %}
+        {% if sponsor.level == 'third' %}
+        <div>
+          <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+      {% endblock %}
+    </div>
+    <div class="footer-slogan">
+      <p>Once a member - always part of the tribe</p>
+      <hr>
+    </div>
+    <div class="indians-info">
+      <div>
+        <a href="{% slugurl 'home' %}"><h1>Westend<br/>Indians</h1></a>
+      </div>
+      <div class="indians-address">
+        <p>puhelin: 050-3363366</p>
+        <p>sähköposti:</p>
+        <p>toimisto@westendindians.fi:</p>
+        <p>Westend Indians ry,</p>
+        <p>Otahalli/Otaranta 6, 02150 Espoo</p>
+      </div>
+      <div class="indians-social">
+        <a href="https://www.facebook.com/westendindians/"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
+        <a href="https://www.twitter.com/westendindians/"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
+        <a href="https://www.instagram.com/westendindians/"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
+        <a href="https://www.flickr.com/photos/westendindians/"><i class="fa fa-flickr fa-3x" aria-hidden="true"></i></a>
+        <a href="https://www.youtube.com/user/WestendIndians"><i class="fa fa-youtube fa-3x" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
