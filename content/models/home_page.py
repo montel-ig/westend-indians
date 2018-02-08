@@ -34,6 +34,20 @@ class HomePage(Parent):
         on_delete=models.SET_NULL,
         related_name='+'
     )
+    lift_image2 = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    lift_image3 = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
 
     lift_bgcolor = RGBColorField(max_length=120,blank=True)
 
@@ -56,6 +70,8 @@ class HomePage(Parent):
 
         FieldPanel('lift_bgcolor', classname="full"),
         ImageChooserPanel('lift_image'),
+        ImageChooserPanel('lift_image2'),
+        ImageChooserPanel('lift_image3'),
     ]
 
 
