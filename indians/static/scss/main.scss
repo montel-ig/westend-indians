@@ -138,12 +138,12 @@ html {
       &.flip-x {
         transform: scale(-1, -1);
       }
-      &.justify-bottom {
-        bottom:1px;
-      }
-      &.justify-top {
-        top:1px;
-      }
+    }
+    .justify-top {
+      top:1px;
+    }
+    .justify-bottom {
+      bottom:1px;
     }
 
     // Richtext properties

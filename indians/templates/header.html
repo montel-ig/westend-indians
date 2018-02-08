@@ -2,25 +2,26 @@
 {% load wagtailcore_tags %}
 
 <section class="header">
-  <h1 class="main-header-text header">{% block title %}{% endblock %}</h1>
-  <h2 class="main-header-text slogan">{% block slogan %}{% endblock %}</h2>
+  <h1 class="main-header-text header">{{title}}</h1>
+    {% if self.url == '/' %}
+      <h2 class="main-header-text slogan">Once a member - always part of the tribe</h2>
+    {% endif %}
   <img class="main-img" src="{% static "images/header_main.jpg" %}">
   <ul class="nav-index">
     <li class="nav-logo"}><a href="{%slugurl 'home'%}"><img id="nav-logo" src="{% static "images/g12.max-165x165.png" %}" /></a></li>
     {% for menuitem in request.site.root_page.get_children.live.in_menu %}
-    <li><a href="/{{ menuitem.slug }}">{{ menuitem.title.upper }}</a></li>
+      <li><a href="/{{ menuitem.slug }}">{{ menuitem.title.upper }}</a></li>
     {% endfor %}
   </ul>
   {% if self.url != '/' and self.get_children%}
-  <hr />
-  <ul class="nav-index">
-    {% for sub_menuitem in self.get_children.live %}
-    <li><a href="{{ sub_menuitem.slug }}">{{ sub_menuitem.title.upper }}</a></li>
-    {% endfor %}
-    {% if self.url == '/miehet-edustus/' %}
-    <li><a href="/joukkueet/miehet-edustus">JOUKKUE</a></li>
-    {% endif %}
-
-  </ul>
+    <hr />
+    <ul class="nav-index">
+      {% for sub_menuitem in self.get_children.live %}
+        <li><a href="{{ sub_menuitem.slug }}">{{ sub_menuitem.title.upper }}</a></li>
+      {% endfor %}
+      {% if self.url == '/miehet-edustus/' %}
+        <li><a href="/joukkueet/miehet-edustus">JOUKKUE</a></li>
+      {% endif %}
+    </ul>
   {% endif %}
 </section>
