@@ -105,3 +105,4 @@ node_modules
 .DS_Store
 /static
 /media
+pg-dump-06-02-2018.sql
