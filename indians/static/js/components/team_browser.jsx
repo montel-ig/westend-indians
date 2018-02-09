@@ -1,3 +1,14 @@
+const replaceUmlauts = (string) => {
+  let value;
+  if (typeof string === 'string') {
+    value = string.toLowerCase();
+    value = value.replace(/ä/g, 'a');
+    value = value.replace(/ö/g, 'o');
+    value = value.replace(/[\s-.;,?%0-9]/, '');
+  }
+  return value;
+};
+
 const Team = (props) => {
   return (
     <a href={`/joukkueet/${props.slug}`}>
@@ -41,11 +52,11 @@ class TeamBrowser extends React.Component {
         erityisryhmat: false,
         tapiola: false,
         leppavaara: false,
-        matinkylaOlari: false,
-        espoonKeskus: false,
+        matinkylaolari: false,
+        espoonkeskus: false,
         espoonlahti: false,
         kauklahti: false,
-        pohjoisEspoo: false,
+        pohjoisespoo: false,
         floorball: false,
         multiple: false,
         football: false,
@@ -88,11 +99,13 @@ class TeamBrowser extends React.Component {
 
   teamInChecked(team) {
     let teamInCheckedTerms = false;
-    Object.values(team).filter((property) => {
-      if (this.state.hasOwnProperty(property) && this.state[property]) {
-        teamInCheckedTerms = true
-      }
-    });
+    if (team) {
+      Object.values(team).filter((property) => {
+        if (this.state.hasOwnProperty(replaceUmlauts(property)) && this.state[replaceUmlauts(property)]) {
+          teamInCheckedTerms = true
+        }
+      });
+    }
     return teamInCheckedTerms;
   }
 
@@ -102,7 +115,7 @@ class TeamBrowser extends React.Component {
     const name = target.name;
 
     this.setState({
-      [name]: value
+      [replaceUmlauts(name)]: value
     });
   }
 

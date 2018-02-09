@@ -195,7 +195,7 @@ const TeamFilter = (props) => {
           <input
             name="matinkylaOlari"
             type="checkbox"
-            checked={props.matinkylaOlari}
+            checked={props.matinkylaolari}
             onChange={props.handleInputChange} />
           Matinkylä-Olari
         </label>
@@ -203,7 +203,7 @@ const TeamFilter = (props) => {
           <input
             name="espoonKeskus"
             type="checkbox"
-            checked={props.espoonKeskus}
+            checked={props.espoonkeskus}
             onChange={props.handleInputChange} />
           Espoon keskus
         </label>
@@ -227,7 +227,7 @@ const TeamFilter = (props) => {
           <input
             name="pohjoisEspoo"
             type="checkbox"
-            checked={props.pohjoisEspoo}
+            checked={props.pohjoisespoo}
             onChange={props.handleInputChange} />
           Pohjois-Espoo
         </label>
@@ -269,4 +269,4 @@ const TeamFilter = (props) => {
       </div>
     </div>
   );
-}
+};
