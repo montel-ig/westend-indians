@@ -27,21 +27,21 @@ class HomePage(Parent):
     shop_description = models.CharField(max_length=255, blank=True)
     shop_cta = models.CharField(max_length=255, blank=True)
 
-    lift_image = models.ForeignKey(
+    pinnalla = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+'
     )
-    lift_image2 = models.ForeignKey(
+    pinnalla2 = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+'
     )
-    lift_image3 = models.ForeignKey(
+    pinnalla3 = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
         blank=True,
@@ -69,9 +69,9 @@ class HomePage(Parent):
         FieldPanel('shop_cta', classname="full"),
 
         FieldPanel('lift_bgcolor', classname="full"),
-        ImageChooserPanel('lift_image'),
-        ImageChooserPanel('lift_image2'),
-        ImageChooserPanel('lift_image3'),
+        ImageChooserPanel('pinnalla'),
+        ImageChooserPanel('pinnalla2'),
+        ImageChooserPanel('pinnalla3'),
     ]
 
 

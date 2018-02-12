@@ -7,6 +7,23 @@
 {% block title %}westend indians{% endblock %}
 {% block slogan %}Once a member - always part of the tribe{% endblock %}
 {% block main %}
+  {% if page.pinnalla or page.pinnalla2 or page.pinnalla3%}
+    <section class="lift" style="background-color:{{ page.lift_bgcolor }};">
+      <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
+      <div class="lift-container">
+        <div class="lift-img">
+          {% image page.pinnalla width-1280 %}
+        </div>
+        <div class="lift-img">
+          {% image page.pinnalla2 width-1280 %}
+        </div>
+        <div class="lift-img">
+          {% image page.pinnalla3 width-1280 %}
+        </div>
+      </div>
+      <img class="triangle justify-top" src="{% static "images/tilted-bg-white-bottom.svg" %}">
+    </section>
+  {% endif %}
   <section class="team">
     <div class="team-container"}>
       <img class="team-img" src="http://i68.tinypic.com/2rwx8x5.png">
@@ -38,23 +55,7 @@
       </div>
     </div>
   </section>
-  {% if page.lift_image or page.lift_image2 or page.lift_image3%}
-  <section class="lift" style="background-color:{{ page.lift_bgcolor }};">
-    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
-    <div class="lift-container">
-      <div class="lift-img">
-        {% image page.lift_image width-1280 %}
-      </div>
-      <div class="lift-img">
-        {% image page.lift_image2 width-1280 %}
-      </div>
-      <div class="lift-img">
-        {% image page.lift_image3 width-1280 %}
-      </div>
-    </div>
-    <img class="triangle flip-x justify-top" src="{% static "images/tilted-bg-black-top.svg" %}">
-  </section>
-  {% endif %}
+  <img class="triangle flip-x justify-top" src="{% static "images/tilted-bg-black-top.svg" %}">
   <section class="shop">
     <div class="shop-container">
       <div class="shop-products">
@@ -75,8 +76,7 @@
       </div>
     </div>
   </section>
-<img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
-
+  <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
 <!--
   {% if page.upcoming_homegame.opponent %}
     <section class="games">

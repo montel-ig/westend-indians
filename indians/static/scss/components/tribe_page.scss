@@ -1,23 +1,8 @@
-.main-grid-body {
-  section.subpages {
-    .subpages-container {
-      grid-column-start: 1;
-      grid-column-end: 13;
-      display: flex;
-      justify-content: space-around;
+.tribe {
+  padding: 120px 0;
+}
 
-      .subpage {
-        border: 1px solid black;
-        width: 250px;
-        height: 250px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-transform: uppercase;
-        text-align: center;
-      }
-    }
-  }
+.main-grid-body {
 
   .tribe-body, #lift {
     display: flex;

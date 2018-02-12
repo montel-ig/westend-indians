@@ -1,3 +1,7 @@
+.lift {
+  margin: 120px 0;
+}
+
 .team-container, .tribe-container, .lift-container, .shop-container, .games-container, .news-container {
 
   .content {
@@ -140,7 +144,6 @@
 
     @media screen and (min-width: 176px) and (max-width: 1020px) {
       opacity: .2;
-      left: 0;
     }
 
     @media screen and (min-width: 1023px) and (max-width: 1140px) {
@@ -151,7 +154,6 @@
   .lift-img {
     grid-column-start: 1;
     grid-column-end: 13;
-    margin: 0 auto;
 
   }
 
@@ -226,7 +228,7 @@
   }
 
   .row-head {
-    grid-column-start: 2;
+    grid-column-start: 1;
     grid-column-end: 12;
     padding-top: 120px;
     display: flex;
@@ -349,7 +351,7 @@
 
   @media screen and (max-width: 640px) {
     min-height: 0;
-    padding: 0;
+    padding: $base_padding;
   }
  }
 
@@ -358,6 +360,7 @@
   min-height: 0;
   padding: $base_padding 0;
   flex-wrap: wrap;
+  justify-content: center;
 
   .lift-img {
     padding: $base_padding 0;
@@ -394,9 +397,10 @@
 
         .team-img {
           opacity: .2;
-          width: 100%;
+          width: 80%;
 
           @media screen and (max-width: 640px) {
+            padding:0;
             transform: none;
             height: auto;
           }
@@ -414,12 +418,15 @@
 
     > .tribe {
       background: none;
+      padding: 0;
 
       .tribe-container {
         display: block;
 
         .tribe-img {
-          width: 100%;
+          width: 80%;
+          left:0;
+          padding: 0 $base_padding;
         }
 
         .tribe {
