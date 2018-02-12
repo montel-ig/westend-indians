@@ -12,10 +12,15 @@ class NewsItem(models.Model):
     title = models.CharField(max_length=255)
     ingress = models.TextField()
     body = RichTextField()
-    thumbnail_image = models.ImageField(null=True, blank=True)
+    thumbnail_image = models.ImageField(null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    @property
+    def image_url(self):
+        if self.thumbnail_image and hasattr(self.thumbnail_image, 'url'):
+            return self.thumbnail_image.url
 
     def __str__(self):
         return f"{self.title}"
