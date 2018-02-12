@@ -10,7 +10,6 @@
   }
 
   #lift {
-
     .tribe-main-lift {
       margin: 0 auto;
       display: flex;
@@ -27,12 +26,18 @@
     }
   }
   section.tribe-news {
+    .news-container {
+      .row-head {
+        grid-column-start: 1;
+        grid-column-end: 13;
+      }
+    }
     @media screen and (min-width : 176px) and  (max-width : 640px) {
       display: block;
 
       .news-container {
         .row-head {
-          padding: 50px;
+          padding: 0px;
         }
         .row-news {
           display: flex;
@@ -59,6 +64,16 @@
       grid-column-end: 13;
       display: flex;
       justify-content: space-around;
+    }
+  }
+  section.lift {
+    .lift-container {
+      .lift-img {
+        padding: 40px;
+        > img {
+          max-width: 100%;
+        }
+      }
     }
   }
 }
