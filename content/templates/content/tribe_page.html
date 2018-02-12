@@ -53,7 +53,7 @@
         <div class="news-item">
           <a href="{% slugurl 'news' %}">
             <div class="news-image">
-              <img src="http://i64.tinypic.com/4sxy79.png">
+              <img src="{{ newsitem.thumbnail_image.url }}" alt="{{ newsitem.title }}">
             </div>
           </a>
           <div class="item-text-container">
