@@ -26,43 +26,52 @@ class TeamBrowser extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        teams: [],
-        male: false,
-        female: false,
-        fixed: false,
-        i: false,
-        h: false,
-        g: false,
-        f: false,
-        e: false,
-        d: false,
-        c: false,
-        b: false,
-        a:false,
-        adult: false,
-        activityLvlOne: false,
-        activityLvlTwo: false,
-        activityLvlThree: false,
-        activityLvlOverThree: false,
-        urheilijan: false,
-        kilpailijan: false,
-        harrastajan: false,
-        salibandy_koulut: false,
-        koulujen_iltapaivatoiminta: false,
-        erityisryhmat: false,
-        tapiola: false,
-        leppavaara: false,
-        matinkylaolari: false,
-        espoonkeskus: false,
-        espoonlahti: false,
-        kauklahti: false,
-        pohjoisespoo: false,
-        floorball: false,
-        multiple: false,
-        football: false,
-        running: false
+      teams: [],
+      selectedProperties: {
+        selectedGender: null,
+        selectedAge: null,
+        selectedPath: null,
+        selectedArea: null,
+        selectedSport: null
+      },
+      male: false,
+      female: false,
+      fixed: false,
+      i: false,
+      h: false,
+      g: false,
+      f: false,
+      e: false,
+      d: false,
+      c: false,
+      b: false,
+      a:false,
+      adult: false,
+      activityLvlOne: false,
+      activityLvlTwo: false,
+      activityLvlThree: false,
+      activityLvlOverThree: false,
+      urheilijan: false,
+      kilpailijan: false,
+      harrastajan: false,
+      salibandy_koulut: false,
+      koulujen_iltapaivatoiminta: false,
+      erityisryhmat: false,
+      tapiola: false,
+      leppavaara: false,
+      matinkylaolari: false,
+      espoonkeskus: false,
+      espoonlahti: false,
+      kauklahti: false,
+      pohjoisespoo: false,
+      floorball: false,
+      multiple: false,
+      football: false,
+      running: false
     };
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleChangedState = this.handleChangedState.bind(this);
+    this.handleChangedGender = this.handleChangedGender.bind(this);
   }
 
   componentDidMount() {
@@ -71,7 +80,7 @@ class TeamBrowser extends React.Component {
     let opts = {
       method: "GET",
       credentials: 'same-origin'
-    }
+    };
     fetch(url,opts).then((response) => {
       if (response.status >= 200 && response.status < 300) {
         return response.json();
@@ -100,10 +109,12 @@ class TeamBrowser extends React.Component {
   teamInChecked(team) {
     let teamInCheckedTerms = false;
     if (team) {
-      Object.values(team).filter((property) => {
-        if (this.state.hasOwnProperty(replaceUmlauts(property)) && this.state[replaceUmlauts(property)]) {
-          teamInCheckedTerms = true
-        }
+      Object.values(this.state.selectedProperties).map((value) => {
+        Object.values(team).map((teamValue) => {
+          if (value !== null && replaceUmlauts(value) === replaceUmlauts(teamValue)) {
+            teamInCheckedTerms = true;
+          }
+        });
       });
     }
     return teamInCheckedTerms;
@@ -119,10 +130,31 @@ class TeamBrowser extends React.Component {
     });
   }
 
+  handleChangedState(selectedOption) {
+    //console.log([selectedOption]);
+    if (!selectedOption) {
+      this.setState({})
+    }
+    this.setState({selectedProperties: Object.assign({}, this.state.selectedProperties, {[selectedOption.property]: selectedOption.value})});
+  }
+
+  handleChangedGender(e) {
+    e.target.value==='all'
+      &&
+      this.setState({selectedProperties: Object.assign({}, this.state.selectedProperties, {selectedGender: null})});
+    this.setState({selectedProperties: Object.assign({}, this.state.selectedProperties, {selectedGender: e.target.value})});
+  }
+
   render() {
+    console.log(this.state.selectedProperties.selectedGender);
+
     return (
       <div>
-        { TeamFilter && <TeamFilter {...this.state} handleInputChange={this.handleInputChange} /> }
+        { TeamFilter && <TeamFilter {...this.state}
+          handleChangedState={this.handleChangedState}
+          handleInputChange={this.handleInputChange}
+          handleChangedGender={this.handleChangedGender}
+        /> }
         <div className="team-browser-root">
           {this.mapTeams(this.state.teams)}
         </div>

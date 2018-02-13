@@ -38,12 +38,22 @@
     <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
     -->
+    <script src="https://unpkg.com/prop-types@15.5.10/prop-types.js"></script>
+    <script src="https://unpkg.com/classnames@2.2.5/index.js"></script>
+    <script src="https://unpkg.com/react-input-autosize@2.0.0/dist/react-input-autosize.js"></script>
+    <script src="https://unpkg.com/react-select/dist/react-select.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/react-select/dist/react-select.css">
+
     {% compress js %}
       <script type="text/jsx" src="{% static 'js/i18n.js' %}"></script>
       <script type="text/jsx" src="{% static 'js/index.jsx' %}"></script>
+
       <script type="text/jsx" src="{% static 'js/components/player_modal.jsx' %}"></script>
       <script type="text/jsx" src="{% static 'js/components/player.jsx' %}"></script>
       <script type="text/jsx" src="{% static 'js/components/player_browser.jsx' %}"></script>
+
+
+
       <script type="text/jsx" src="{% static 'js/components/team_filter.jsx' %}"></script>
       <script type="text/jsx" src="{% static 'js/components/team_browser.jsx' %}"></script>
       <script type="text/jsx" src="{% static 'js/components/player_introducing.jsx' %}"></script>

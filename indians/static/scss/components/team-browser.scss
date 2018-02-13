@@ -2,48 +2,80 @@ section.teams-description {
   .container {
     padding: 120px 0;
     > * {
-      grid-column-start: 2;
-      grid-column-end: 12;
+      grid-column-start: 1;
+      grid-column-end: 13;
     }
   }
 
 
 }
-section#teams {
+section#teams > div {
+  .filter-container {
+    background-color: black;
+    color: white;
+    grid-column-start: 1;
+    grid-column-end: 13;
 
-  .team-filter {
-    grid-column-start: 2;
-    grid-column-end: 12;
-    display: flex;
-    justify-content: center;
-    background-color: $indians-grey;
-    flex-direction: row;
-    > div {
-      flex-direction: column;
-      letter-spacing: $letter-spacing-medium;
+    .filter-title {
+      display: inline-block;
 
-      > p {
-        font-weight: bold;
-        font-family: $titillium-web;
-        text-transform: uppercase;
-        letter-spacing: $letter-spacing-large;
+      h2 {
+        padding: $base_padding $base_padding 5px $base_padding;
+        margin: 0;
+        font-size: 24px;
       }
-
-      label {
-        font-family: $encode-sans;
+      .team-gender {
+        display: flex;
+        flex-direction: column;
+        padding: $base_padding 0 0 $base_padding;
         input {
           margin: 10px;
+          color: white;
         }
       }
     }
-
-    > * {
-      margin: 0;
-      padding: 20px;
+    .team-filter {
+      padding-top: $base_padding;
+      grid-column-start: 2;
+      grid-column-end: 12;
       display: flex;
+      justify-content: center;
+      flex-direction: row;
+      max-width: 1280px;
+      > div {
+        width: 300px;
+        flex-direction: column;
+        letter-spacing: $letter-spacing-medium;
+
+        > p {
+          font-weight: bold;
+          font-family: $titillium-web;
+          text-transform: uppercase;
+          letter-spacing: $letter-spacing-large;
+        }
+
+        label {
+          font-family: $encode-sans;
+          input {
+            margin: 10px;
+          }
+        }
+
+        &.select-path {
+          p > .events {
+            font-size: 12px;
+          }
+        }
+      }
+
+      > * {
+        margin: 0;
+        padding: $base_padding;
+        display: flex;
+        justify-content: space-between;
+      }
     }
   }
-
   .team-browser-root {
 
     display: grid;
@@ -89,7 +121,7 @@ section#teams {
     }
 
   }
-
-
 }
+
+
 

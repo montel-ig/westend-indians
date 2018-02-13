@@ -43,7 +43,7 @@ html {
     }
 
     h2 {
-      font-family: $encode-sans;
+      font-family: $titillium-web;
       font-weight: normal;
       font-size: 20px;
       letter-spacing: $letter-spacing-large;
@@ -80,6 +80,7 @@ html {
       width:100%;
       border-style: solid;
       border-color: $indians-yellow;
+      margin: 0;
     }
 
     section {

@@ -1,271 +1,127 @@
 const TeamFilter = (props) => {
   return (
-    <div className="team-filter">
-      <div className='select-age'>
-        <p>Ikä</p>
-        <label>
-          <input
-            name="i"
-            type="checkbox"
-            checked={props.i}
-            onChange={props.handleInputChange} />
-          1-3
-        </label>
-        <label>
-          <input
-            name="h"
-            type="checkbox"
-            checked={props.h}
-            onChange={props.handleInputChange} />
-          3-5
-        </label>
-        <label>
-          <input
-            name="g"
-            type="checkbox"
-            checked={props.g}
-            onChange={props.handleInputChange} />
-          5-7
-        </label>
-        <label>
-          <input
-            name="f"
-            type="checkbox"
-            checked={props.f}
-            onChange={props.handleInputChange} />
-          7-9
-        </label>
-        <label>
-          <input
-            name="e"
-            type="checkbox"
-            checked={props.e}
-            onChange={props.handleInputChange} />
-          9-11
-        </label>
-        <label>
-          <input
-            name="d"
-            type="checkbox"
-            checked={props.d}
-            onChange={props.handleInputChange} />
-          11-13
-        </label>
-        <label>
-          <input
-            name="c"
-            type="checkbox"
-            checked={props.c}
-            onChange={props.handleInputChange} />
-          13-15
-        </label>
-        <label>
-        <input
-          name="b"
-          type="checkbox"
-          checked={props.b}
-          onChange={props.handleInputChange} />
-        15-17
-      </label>
-      <label>
-        <input
-          name="a"
-          type="checkbox"
-          checked={props.a}
-          onChange={props.handleInputChange} />
-        17-20
-      </label>
-      <label>
-        <input
-          name="adult"
-          type="checkbox"
-          checked={props.adult}
-          onChange={props.handleInputChange} />
-        +20-vuotiaat
-      </label>
+    <div className="filter-container">
+      <div className="filter-title">
+        <h2>Löydä joukkueesi<hr /></h2>
+        <div className="team-gender">
+          <label>
+            <input
+              type="radio"
+              value="kaikki"
+              name="gender"
+              checked={props.selectedProperties.selectedGender===null}
+              onChange={props.handleChangedGender}
+            />
+            <span>Kaikki</span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="male"
+              name="gender"
+              checked={props.selectedProperties.selectedGender==="male"}
+              onChange={props.handleChangedGender}
+            />
+            <span>Miehet</span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="female"
+              name="gender"
+              checked={props.selectedProperties.selectedGender==="female"}
+              onChange={props.handleChangedGender}
+            />
+            <span>Naiset</span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="mixed"
+              name="gender"
+              checked={props.selectedProperties.selectedGender==="mixed"}
+              onChange={props.handleChangedGender}
+            />
+            <span>Seka</span>
+          </label>
+        </div>
       </div>
-      {/*
-      <div className='select-activity-lvl'>
-        <p>Kerrat viikossa</p>
-        <label>
-          <input
-            name="activityLvlOne"
-            type="checkbox"
-            checked={props.activityLvlOne}
-            onChange={props.handleInputChange} />
-          1
-        </label>
-        <label>
-          <input
-            name="activityLvlTwo"
-            type="checkbox"
-            checked={props.activityLvlTwo}
-            onChange={props.handleInputChange} />
-          2
-        </label>
-        <label>
-        <input
-          name="activityLvlThree"
-          type="checkbox"
-          checked={props.activityLvlThree}
-          onChange={props.handleInputChange} />
-          3
-        </label>
-        <label>
-          <input
-            name="activityLvlOverThree"
-            type="checkbox"
-            checked={props.activityLvlOverThree}
-            onChange={props.handleInputChange} />
-          > 3
-        </label>
-      </div>
-      */
-      }
-      <div className='select-path'>
-        <p>Polku</p>
-        <label>
-          <input
-            name="urheilijan"
-            type="checkbox"
-            checked={props.urheilijan}
-            onChange={props.handleInputChange} />
-          Urheilijan polku (+3 tapahtumaa)
-        </label>
-        <label>
-          <input
-            name="kilpailijan"
-            type="checkbox"
-            checked={props.kilpailijan}
-            onChange={props.handleInputChange} />
-          Kilpailijan polku (3-2 tapahtumaa)
-        </label>
-        <label>
-          <input
-            name="harrastajan"
-            type="checkbox"
-            checked={props.harrastajan}
-            onChange={props.handleInputChange} />
-          Harrastajan polku (1 tapahtuma)
-        </label>
-        <label>
-          <input
-            name="salibandy_koulut"
-            type="checkbox"
-            checked={props.salibandy_koulut}
-            onChange={props.handleInputChange} />
-          Salibandykoulut (1, 2 tai 3 tapahtumaa)
-        </label>
-        <label>
-          <input
-            name="koulujen_iltapaivatoiminta"
-            type="checkbox"
-            checked={props.koulujen_iltapaivatoiminta}
-            onChange={props.handleInputChange} />
-          Koulujen iltapäivätoiminta (1 tai 2 tapahtumaa)
-        </label>
-        <label>
-          <input
-            name="erityisryhmat"
-            type="checkbox"
-            checked={props.erityisryhmat}
-            onChange={props.handleInputChange} />
-          Erityisryhmät
-        </label>
-      </div>
-      <div className='select-area'>
-        <p>Alueet</p>
-        <label>
-          <input
-            name="tapiola"
-            type="checkbox"
-            checked={props.tapiola}
-            onChange={props.handleInputChange} />
-          Tapiola
-        </label>
-        <label>
-          <input
-            name="leppavaara"
-            type="checkbox"
-            checked={props.leppavaara}
-            onChange={props.handleInputChange} />
-          Leppävaara
-        </label>
-        <label>
-          <input
-            name="matinkylaOlari"
-            type="checkbox"
-            checked={props.matinkylaolari}
-            onChange={props.handleInputChange} />
-          Matinkylä-Olari
-        </label>
-        <label>
-          <input
-            name="espoonKeskus"
-            type="checkbox"
-            checked={props.espoonkeskus}
-            onChange={props.handleInputChange} />
-          Espoon keskus
-        </label>
-        <label>
-          <input
-            name="espoonlahti"
-            type="checkbox"
-            checked={props.espoonlahti}
-            onChange={props.handleInputChange} />
-          Espoonlahti
-        </label>
-        <label>
-          <input
-            name="kauklahti"
-            type="checkbox"
-            checked={props.kauklahti}
-            onChange={props.handleInputChange} />
-          Kauklahti
-        </label>
-        <label>
-          <input
-            name="pohjoisEspoo"
-            type="checkbox"
-            checked={props.pohjoisespoo}
-            onChange={props.handleInputChange} />
-          Pohjois-Espoo
-        </label>
-      </div>
-      <div className='select-sport'>
-        <p>Laji</p>
-        <label>
-          <input
-            name="floorball"
-            type="checkbox"
-            checked={props.floorball}
-            onChange={props.handleInputChange} />
-          Salibandy
-        </label>
-        <label>
-          <input
-            name="multiple"
-            type="checkbox"
-            checked={props.multiple}
-            onChange={props.handleInputChange} />
-          Monilajiryhmät
-        </label>
-        <label>
-          <input
-            name="football"
-            type="checkbox"
-            checked={props.football}
-            onChange={props.handleInputChange} />
-          Jalkapallo
-        </label>
-        <label>
-          <input
-            name="running"
-            type="checkbox"
-            checked={props.running}
-            onChange={props.handleInputChange} />
-          Juoksukurssit
-        </label>
+      <div className="team-filter">
+        <div className='select-age'>
+          <p>Ikä</p>
+          <Select
+            name="form-field-name"
+            placeholder={"Valitse ikä"}
+            value={props.selectedProperties.selectedAge}
+            onChange={props.handleChangedState}
+            clearable={false}
+            options={[
+              { value: 'i', label: '1-3', property: "selectedAge"},
+              { value: 'h', label: '3-5', property: "selectedAge"},
+              { value: 'g', label: '5-7', property: "selectedAge"},
+              { value: 'f', label: '7-9', property: "selectedAge"},
+              { value: 'e', label: '9-11', property: "selectedAge"},
+              { value: 'd', label: '11-13', property: "selectedAge"},
+              { value: 'c', label: '13-15', property: "selectedAge"},
+              { value: 'b', label: '15-17', property: "selectedAge"},
+              { value: 'a', label: '17-20', property: "selectedAge"},
+              { value: 'adult', label: '+20-vuotiaat', property: "selectedAge"}
+            ]}
+          />
+        </div>
+        <div className='select-path'>
+          <p>Polku <span className="events">(Tapahtumakerrat viikossa)</span></p>
+          <Select
+            name="form-field-name"
+            placeholder={"Valitse polku"}
+            value={props.selectedProperties.selectedPath}
+            onChange={props.handleChangedState}
+            clearable={false}
+            options={[
+              { value: 'urheilijan', label: 'Urheilijan polku (3+)', property: "selectedPath" },
+              { value: 'kilpailijan', label: 'Kilpailijan polku (3-2)', property: "selectedPath" },
+              { value: 'harrastajan', label: 'Harrastajan polku (1)', property: "selectedPath" },
+              { value: 'salibandy_koulut', label: 'Salibandy koulut (1, 2 tai 3)', property: "selectedPath" },
+              { value: 'koulujen_iltapaivatoiminta', label: 'Koulujen iltapäivätoiminta (1 tai 2)', property: "selectedPath" },
+              { value: 'erityisryhmat', label: 'Erityisryhmät', property: "selectedPath" },
+            ]}
+          />
+        </div>
+        <div className='select-area'>
+          <p>Alueet</p>
+          <Select
+            name="form-field-name"
+            placeholder={"Valitse alue"}
+            value={props.selectedProperties.selectedArea}
+            onChange={props.handleChangedState}
+            clearable={false}
+            options={[
+              { value: 'tapiola', label: 'Tapiola', property: "selectedArea" },
+              { value: 'leppavaara', label: 'Leppävaara', property: "selectedArea" },
+              { value: 'matinkylaOlari', label: 'Matinkylä-Olari', property: "selectedArea" },
+              { value: 'espoonKeskus', label: 'Espoon keskus', property: "selectedArea" },
+              { value: 'espoonlahti', label: 'Espoonlahti', property: "selectedArea" },
+              { value: 'kauklahti', label: 'Kauklahti', property: "selectedArea" },
+              { value: 'pohjoisEspoo', label: 'Pohjois-Espoo', property: "selectedArea" },
+            ]}
+          />
+        </div>
+        <div className='select-sport'>
+          <p>Laji</p>
+          <Select
+            name="form-field-name"
+            placeholder={"Valitse laji"}
+            value={props.selectedProperties.selectedSport}
+            onChange={props.handleChangedState}
+            clearable={false}
+            options={[
+              { value: 'floorball', label: 'Salibandy', property: "selectedSport" },
+              { value: 'multiple', label: 'Monilajiryhmät', property: "selectedSport" },
+              { value: 'football', label: 'Jalkapallo', property: "selectedSport" },
+              { value: 'running', label: 'Juoksukurssit', property: "selectedSport" },
+            ]}
+          />
+        </div>
       </div>
     </div>
   );
