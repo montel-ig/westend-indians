@@ -1,7 +1,11 @@
 .player-browser-root {
   display: grid;
+  /*
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-template-rows: repeat(auto-fill, minmax(350px, 1fr));
+*/
+  grid-template-columns: repeat(5, 250px);
+  grid-template-rows: repeat(5, 350px);
 
   justify-content: center;
   padding-bottom: $base_padding;
@@ -11,8 +15,8 @@
   }
 
   @media screen and (min-width: 176px) and (max-width: 1200px) {
-    grid-template-columns: repeat(auto-fill, 150px);
-    grid-template-rows: repeat(auto-fill, 200px);
+    grid-template-columns: repeat(auto-fit, 150px);
+    grid-template-rows: repeat(5, 200px);
     padding: 0 25px;
   }
 }
