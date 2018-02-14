@@ -14,9 +14,14 @@ const Team = (props) => {
     <a href={`/joukkueet/${props.slug}`}>
       <div className="teams-team-container">
         <div className="img-container">
-          <img src={props.image}/>
+          <img
+            className={props.image ? "team-image" : "default-image"}
+            src={props.image || '/static/images/indians_logo_345x345.jpg'}
+          />
         </div>
-        <h3>{props.name}</h3>
+        <div className="desc-container">
+          <h3>{props.name}</h3>
+        </div>
       </div>
     </a>
   )
@@ -34,43 +39,8 @@ class TeamBrowser extends React.Component {
         selectedArea: null,
         selectedSport: null
       },
-      male: false,
-      female: false,
-      fixed: false,
-      i: false,
-      h: false,
-      g: false,
-      f: false,
-      e: false,
-      d: false,
-      c: false,
-      b: false,
-      a:false,
-      adult: false,
-      activityLvlOne: false,
-      activityLvlTwo: false,
-      activityLvlThree: false,
-      activityLvlOverThree: false,
-      urheilijan: false,
-      kilpailijan: false,
-      harrastajan: false,
-      salibandy_koulut: false,
-      koulujen_iltapaivatoiminta: false,
-      erityisryhmat: false,
-      tapiola: false,
-      leppavaara: false,
-      matinkylaolari: false,
-      espoonkeskus: false,
-      espoonlahti: false,
-      kauklahti: false,
-      pohjoisespoo: false,
-      floorball: false,
-      multiple: false,
-      football: false,
-      running: false
     };
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleChangedState = this.handleChangedState.bind(this);
+    this.handleSelectChange = this.handleSelectChange.bind(this);
     this.handleChangedGender = this.handleChangedGender.bind(this);
   }
 
@@ -94,8 +64,14 @@ class TeamBrowser extends React.Component {
   }
 
   mapTeams(teams) {
-    return objectToArray(teams).map(team => {
-      if (this.teamInChecked(team)) {
+    return objectToArray(teams)
+      .sort((a,b) => {
+        if(a.name < b.name) return -1;
+        if(a.name > b.name) return 1;
+        return 0;
+      })
+      .map(team => {
+      if (this.teamInRange(team)) {
         return <Team
           name={team.name}
           image={team.image}
@@ -106,53 +82,49 @@ class TeamBrowser extends React.Component {
     });
   }
 
-  teamInChecked(team) {
-    let teamInCheckedTerms = false;
+  teamInRange(team) {
+    let teamInSelectedRange = true;
     if (team) {
       Object.values(this.state.selectedProperties).map((value) => {
-        Object.values(team).map((teamValue) => {
-          if (value !== null && replaceUmlauts(value) === replaceUmlauts(teamValue)) {
-            teamInCheckedTerms = true;
+        if (value) {
+          //console.log(this.state.selectedProperties);
+        }
+        /*
+        if (value && Object.values(team).indexOf(value) < 0) {
+          console.log(Object.values(team))
+          teamInSelectedRange = false;
+        }
+        */
+        if (value && Object.values(team).map((p) => (replaceUmlauts(p)))
+          .indexOf(value) < 0) {
+            teamInSelectedRange = false;
           }
-        });
       });
     }
-    return teamInCheckedTerms;
+    return teamInSelectedRange;
   }
 
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
-
-    this.setState({
-      [replaceUmlauts(name)]: value
-    });
-  }
-
-  handleChangedState(selectedOption) {
-    //console.log([selectedOption]);
-    if (!selectedOption) {
-      this.setState({})
+  handleSelectChange(selectedOption) {
+    if (selectedOption.value==='all') {
+      this.setState({selectedProperties: Object.assign({}, this.state.selectedProperties, {[selectedOption.property]: null})});
+    } else {
+      this.setState({selectedProperties: Object.assign({}, this.state.selectedProperties, {[selectedOption.property]: selectedOption.value})});
     }
-    this.setState({selectedProperties: Object.assign({}, this.state.selectedProperties, {[selectedOption.property]: selectedOption.value})});
   }
 
   handleChangedGender(e) {
-    e.target.value==='all'
-      &&
+    if (e.target.value==='all') {
       this.setState({selectedProperties: Object.assign({}, this.state.selectedProperties, {selectedGender: null})});
-    this.setState({selectedProperties: Object.assign({}, this.state.selectedProperties, {selectedGender: e.target.value})});
+    } else {
+      this.setState({selectedProperties: Object.assign({}, this.state.selectedProperties, {selectedGender: e.target.value})});
+    }
   }
 
   render() {
-    console.log(this.state.selectedProperties.selectedGender);
-
     return (
       <div>
         { TeamFilter && <TeamFilter {...this.state}
-          handleChangedState={this.handleChangedState}
-          handleInputChange={this.handleInputChange}
+          handleSelectChange={this.handleSelectChange}
           handleChangedGender={this.handleChangedGender}
         /> }
         <div className="team-browser-root">
