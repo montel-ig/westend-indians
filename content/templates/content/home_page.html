@@ -157,35 +157,7 @@
 </section>
 -->
 {% endblock %}
-{% block sponsors %}
-<div class="top-level row">
-  {% for sponsor in page.all_sponsors %}
-  {% if sponsor.level == 'top' %}
-  <div>
-    <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
-  </div>
-  {% endif %}
-  {% endfor %}
-</div>
-<h2>yhteistyössä</h2>
-<div class="second-level row">
-  {% for sponsor in page.all_sponsors %}
-  {% if sponsor.level == 'second' %}
-  <div>
-    <a href="{{ sponsor.url }}"><img src="{{ sponsor.image.url }}"></a>
-  </div>
-  {% endif %}
-  {% endfor %}
-</div>
-<h2>kentällä mukana</h2>
-<div class="third-level row">
-  {% for sponsor in page.all_sponsors %}
-  {% if sponsor.level == 'third' %}
-  <div>
-    <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
-  </div>
-  {% endif %}
-  {% endfor %}
-</div>
+{% block footer %}
+  {% include "footer.html" with sponsor_items=page.front_page_sponsors %}
 {% endblock %}
 

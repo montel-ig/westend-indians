@@ -25,3 +25,6 @@
     <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-grey-top.svg" %}">
   </section>
 {% endblock %}
+{% block footer %}
+  {% include "footer.html" with sponsor_items=page.front_page_sponsors %}
+{% endblock %}

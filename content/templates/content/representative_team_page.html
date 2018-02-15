@@ -172,32 +172,6 @@
     </div>
   </section>
 {% endblock %}
-{% block sponsors %}
-<div class="top-level row">
-  {% for sponsor in page.team_sponsors %}
-  {% if sponsor.level == 'top' %}
-  <div>
-    <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
-  </div>
-  {% endif %}
-  {% endfor %}
-</div>
-<div class="second-level row">
-  {% for sponsor in page.team_sponsors %}
-  {% if sponsor.level == 'second' %}
-  <div>
-    <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
-  </div>
-  {% endif %}
-  {% endfor %}
-</div>
-<div class="third-level row">
-  {% for sponsor in page.team_sponsors %}
-  {% if sponsor.level == 'third' %}
-  <div>
-    <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
-  </div>
-  {% endif %}
-  {% endfor %}
-</div>
+{% block footer %}
+  {% include "footer.html" with sponsor_items=page.team_sponsors %}
 {% endblock %}

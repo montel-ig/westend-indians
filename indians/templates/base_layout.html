@@ -16,7 +16,9 @@
     {% endcompress %}
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Encode+Sans|Titillium+Web" rel="stylesheet">
+    <!--
     <script src="https://use.fontawesome.com/b92969d192.js"></script>
+    -->
   </head>
   <body>
     <div class="container">
@@ -29,7 +31,9 @@
         {% endblock %}
       </div>
       <div class="main-grid-footer">
-        {% include "footer.html" %}
+        {% block footer %}
+          you forgot the footer block!
+        {% endblock %}
       </div>
     </div>
     <script src="{% static 'js/vendor/react-0.14.3.js' %}"></script>
