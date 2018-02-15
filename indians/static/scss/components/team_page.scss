@@ -2,16 +2,19 @@
 
   section.team {
     background-image: none;
+    max-width: 1280px;
+    margin:0 auto;
     .teams-team-container {
       padding-top: 120px;
 
-      @media screen and (max-width: 820px) {
+      @media screen and (max-width: 910px) {
         display: flex;
         flex-direction: column;
       }
 
       h1 {
         position: relative;
+        margin: $base_padding * 2 0;
         grid-column-start: 1;
         grid-column-end: 13;
       }
@@ -28,20 +31,22 @@
       }
 
       div.content {
-        grid-column-start: 7;
+        grid-column-start: auto;
         grid-column-end: 13;
 
         > div {
           padding-left: 50px;
         }
 
-        .team-contact { padding-bottom: 30px }
+        .team-contact {
+          padding-bottom: 30px;
+          p { word-wrap : break-word; }
+        }
       }
       .team-description {
-        grid-column-start: 2;
-        grid-column-end: 12;
-        padding: $base_padding * 2 0;
-
+        grid-column-start: 1;
+        grid-column-end: 13;
+        margin-top: $base_padding * 2;
         @media screen and (min-width: 176px) and (max-width: 1200px) {
           padding: 0 25px;
         }
@@ -57,6 +62,7 @@
   section.players {
     background: black;
     color: white;
+    padding:0 $base_padding;
 
     .player-wrapper {
       display: block;
