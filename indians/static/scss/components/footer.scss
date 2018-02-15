@@ -52,7 +52,7 @@ section.footer {
     }
 
     > div {
-      margin:0 100px;
+      //margin:0 100px;
 
       @media screen and (max-width : 450px) {
         margin: 0 auto;
@@ -181,6 +181,10 @@ section.footer {
         justify-content: space-evenly;
         flex-wrap: nowrap;
 
+        @media screen and (max-width : 460px) {
+          flex-wrap: wrap;
+        }
+
         > div {
           width: 120px;
           height: 120px;
@@ -189,7 +193,7 @@ section.footer {
           @media screen and (max-width : 640px) {
             width: 75px;
             height: 75px;
-            padding: 0 4px;
+            padding: 0 10px;
           }
 
           > a {
