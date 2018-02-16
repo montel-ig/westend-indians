@@ -63,6 +63,7 @@ def team_properties(team: Team) -> str:
     for attr in take_from_area:
         team_dict["area_"+attr] = getattr(team.area, attr) if hasattr(team.area, attr) else None
     team_dict["image"] = team.image.url if team.image else None
+    team_dict["brochure"] = team.brochure.url if team.brochure else None
 
     return team_dict
 
