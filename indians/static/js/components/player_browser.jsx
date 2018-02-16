@@ -111,7 +111,7 @@ class PlayerBrowser extends React.Component {
   }
 
   handleModalClose(e) {
-    if (this.state.selectedPlayer && e.target.className === "modal-backdrop visible") {
+    if (this.state.selectedPlayer && e.target.className === "player-modal-backdrop visible") {
       this.setState({selectedPlayer:null});
     }
   }

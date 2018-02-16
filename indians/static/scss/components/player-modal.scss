@@ -1,4 +1,4 @@
-.modal-backdrop {
+.player-modal-backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -8,7 +8,7 @@
   z-index: 9999;
   transition: all .4s ease-in-out;
 
-  .modal-container {
+  .player-modal-container {
     margin: 20vh 20vw;
     width: 60vw;
     height: 60vh;

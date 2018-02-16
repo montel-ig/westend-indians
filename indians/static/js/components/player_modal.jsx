@@ -31,8 +31,8 @@ class PlayerModal extends React.Component {
   render() {
     const { first_name, last_name, origin, number, position, handedness, born, height, weight, school, role, video_url, description } = this.props.selectedPlayer;
     return (
-      <div className={`modal-backdrop ${this.state.visibilityClass}`} >
-        <div className="modal-container">
+      <div className={`player-modal-backdrop ${this.state.visibilityClass}`} >
+        <div className="player-modal-container">
           <div className="statistics-container">
             <div className="upper">
               <Player_introducing
