@@ -1,49 +1,56 @@
 const TeamFilter = (props) => {
   return (
     <div className="filter-container">
-      <div className="filter-title">
-        <h2>Löydä joukkueesi<hr /></h2>
-        <div className="team-gender">
-          <label>
-            <input
-              type="radio"
-              value="all"
-              name="gender"
-              checked={props.selectedProperties.selectedGender===null}
-              onChange={props.handleChangedGender}
-            />
-            <span>Kaikki</span>
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="male"
-              name="gender"
-              checked={props.selectedProperties.selectedGender==="male"}
-              onChange={props.handleChangedGender}
-            />
-            <span>Miehet</span>
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="female"
-              name="gender"
-              checked={props.selectedProperties.selectedGender==="female"}
-              onChange={props.handleChangedGender}
-            />
-            <span>Naiset</span>
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="mixed"
-              name="gender"
-              checked={props.selectedProperties.selectedGender==="mixed"}
-              onChange={props.handleChangedGender}
-            />
-            <span>Seka</span>
-          </label>
+      <div className="filter-upper">
+        <div className="filter-title">
+          <h2>Löydä joukkueesi<hr /></h2>
+          <div className="team-gender">
+            <label>
+              <input
+                type="radio"
+                value="all"
+                name="gender"
+                checked={props.selectedProperties.selectedGender===null}
+                onChange={props.handleChangedGender}
+              />
+              <span>Kaikki</span>
+            </label>
+            <label>
+              <input
+                type="radio"
+                value="male"
+                name="gender"
+                checked={props.selectedProperties.selectedGender==="male"}
+                onChange={props.handleChangedGender}
+              />
+              <span>Miehet</span>
+            </label>
+            <label>
+              <input
+                type="radio"
+                value="female"
+                name="gender"
+                checked={props.selectedProperties.selectedGender==="female"}
+                onChange={props.handleChangedGender}
+              />
+              <span>Naiset</span>
+            </label>
+            <label>
+              <input
+                type="radio"
+                value="mixed"
+                name="gender"
+                checked={props.selectedProperties.selectedGender==="mixed"}
+                onChange={props.handleChangedGender}
+              />
+              <span>Seka</span>
+            </label>
+          </div>
+        </div>
+        <div className="path-info">
+          <p><span><i className="fa fa-square fa-2x" style={{color:"#ffffff",paddingRight:"10px"}}></i></span>Harrastajan polku</p>
+          <p><span><i className="fa fa-square fa-2x" style={{color:"#FBEF36",paddingRight:"10px"}}></i></span>Kilpailijan polku</p>
+          <p><span><i className="fa fa-square fa-2x" style={{color:"#990000",paddingRight:"10px"}}></i></span>Urheilijan polku</p>
         </div>
       </div>
       <div className="team-filter">

@@ -1,7 +1,7 @@
 section.teams-description {
   background-color: black;
   .container {
-    padding: 120px 0;
+    padding: 120px $base_padding;
     color: white;
     > * {
       grid-column-start: 1;
@@ -10,7 +10,6 @@ section.teams-description {
   }
 }
 section#teams {
-
   padding-top: 120px;
   > div {
     .filter-container {
@@ -19,24 +18,43 @@ section#teams {
       grid-column-start: 1;
       grid-column-end: 13;
 
-      .filter-title {
-        display: inline-block;
+      .filter-upper {
+        display: flex;
+        justify-content: space-between;
+        .filter-title {
+          display: inline-block;
 
-        h2 {
-          padding: $base_padding $base_padding 5px $base_padding;
-          margin: 0;
-          font-size: 24px;
-        }
-        .team-gender {
-          display: flex;
-          flex-direction: column;
-          padding: $base_padding 0 0 $base_padding;
-          label {
-            font-family: $encode-sans;
-            input {
-              margin: 10px;
-              color: white;
+          h2 {
+            padding: $base_padding $base_padding 5px $base_padding;
+            margin: 0;
+            font-size: 24px;
+          }
+          .team-gender {
+            display: flex;
+            flex-direction: column;
+            padding: $base_padding 0 0 $base_padding;
+            label {
+              font-family: $encode-sans;
+              input {
+                margin: 10px;
+                color: white;
+              }
             }
+          }
+        }
+        .path-info {
+          p {
+            padding: 10px;
+            font-size: 14px;
+
+            i {
+              font-size: 27px;
+              transform: translateY(4px);
+            }
+          }
+
+          @media screen and (max-width : 425px) {
+            display: none;
           }
         }
       }
@@ -45,11 +63,14 @@ section#teams {
         grid-column-start: 2;
         grid-column-end: 12;
         display: flex;
+        flex-wrap: nowrap;
         justify-content: center;
         flex-direction: row;
+
         max-width: 1280px;
         > div {
-          width: 300px;
+          flex-grow: .3;
+          flex-basis: 300px;
           flex-direction: column;
           letter-spacing: $letter-spacing-medium;
 
@@ -76,14 +97,17 @@ section#teams {
 
         > * {
           margin: 0;
-          padding: $base_padding;
+          padding: 20px;
           display: flex;
           justify-content: space-between;
+        }
+
+        @media screen and (max-width: 1080px) {
+          flex-wrap: wrap;
         }
       }
     }
     .team-browser-root {
-
       display: grid;
       grid-column-start: 1;
       grid-column-end: 13;
@@ -93,10 +117,9 @@ section#teams {
       justify-content: space-evenly;
       padding: 50px 0;
 
-      a {
+      .teams-team-container {
         line-height: normal;
-
-        > div.teams-team-container {
+        position: relative;
           background-color:black;
           height: 275px;
           .img-container {
@@ -139,6 +162,8 @@ section#teams {
             margin: 0;
             padding: 10px;
           }
+        &:hover {
+          cursor: pointer;
         }
       }
     }

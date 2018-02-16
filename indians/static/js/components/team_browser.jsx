@@ -8,22 +8,36 @@ const replaceUmlauts = (string) => {
   }
   return value;
 };
+const setPathColor = (path) => {
+  console.log(path);
+  switch (path) {
+    case "harrastajan":
+      return "ribbon-white";
+    case "kilpailijan":
+      return "ribbon-yellow";
+    case "urheilijan":
+      return "ribbon-red";
+    default:
+      return ("#000000");
+  }
+};
 
 const Team = (props) => {
   return (
-    <a href={`/joukkueet/${props.slug}`}>
-      <div className="teams-team-container">
-        <div className="img-container">
-          <img
-            className={props.image ? "team-image" : "default-image"}
-            src={props.image || '/static/images/indians_logo_345x345.jpg'}
-          />
-        </div>
-        <div className="desc-container">
-          <h3>{props.name}</h3>
-        </div>
+    <div className="teams-team-container card-parent" onClick={props.handleTeamClick}>
+      {// props.path && <i className="fa fa-info-circle fa-2x" style={{color:setPathColor(props.path)}}></i>
+      }
+      <i className={`ribbon ${setPathColor(props.path)}`}></i>
+      <div className="img-container">
+        <img
+          className={props.image ? "team-image" : "default-image"}
+          src={props.image || '/static/images/indians_logo_345x345.jpg'}
+        />
       </div>
-    </a>
+      <div className="desc-container">
+        <h3>{props.name}</h3>
+      </div>
+    </div>
   )
 };
 
@@ -39,9 +53,13 @@ class TeamBrowser extends React.Component {
         selectedArea: null,
         selectedSport: null
       },
+      selectedTeam: null
     };
-    this.handleSelectChange = this.handleSelectChange.bind(this);
-    this.handleChangedGender = this.handleChangedGender.bind(this);
+    ['handleSelectChange',
+      'handleChangedGender',
+      'handleTeamClick',
+      'handleModalClose'
+    ].forEach((fn) => this[fn] = this[fn].bind(this));
   }
 
   componentDidMount() {
@@ -73,28 +91,34 @@ class TeamBrowser extends React.Component {
       .map(team => {
       if (this.teamInRange(team)) {
         return <Team
+          handleTeamClick={() => {
+            this.handleTeamClick(team)
+          }}
           name={team.name}
           image={team.image}
           key={team.key}
           slug={team.slug}
+          path={team.path}
         />
       }
     });
+  }
+
+  handleTeamClick(team) {
+    this.setState({selectedTeam: team});
+  }
+
+  handleModalClose(e) {
+    if (this.state.selectedTeam && e.target.className === "modal-backdrop visible") {
+      console.log(this.state.selectedTeam);
+      this.setState({selectedTeam:null});
+    }
   }
 
   teamInRange(team) {
     let teamInSelectedRange = true;
     if (team) {
       Object.values(this.state.selectedProperties).map((value) => {
-        if (value) {
-          //console.log(this.state.selectedProperties);
-        }
-        /*
-        if (value && Object.values(team).indexOf(value) < 0) {
-          console.log(Object.values(team))
-          teamInSelectedRange = false;
-        }
-        */
         if (value && Object.values(team).map((p) => (replaceUmlauts(p)))
           .indexOf(value) < 0) {
             teamInSelectedRange = false;
@@ -122,11 +146,15 @@ class TeamBrowser extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="teams-wrapper" onClick={this.handleModalClose}>
         { TeamFilter && <TeamFilter {...this.state}
           handleSelectChange={this.handleSelectChange}
           handleChangedGender={this.handleChangedGender}
         /> }
+        {this.state.selectedTeam && <TeamModal
+          selectedTeam={this.state.selectedTeam}
+          default_image='/static/images/indians_logo_345x345.jpg'
+        />}
         <div className="team-browser-root">
           {this.mapTeams(this.state.teams)}
         </div>
