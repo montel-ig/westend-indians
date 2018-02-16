@@ -40,7 +40,7 @@ class TeamModal extends React.Component {
     const teamIsJoinable = () => (max_player_count > current_player_count) ;
     return (
       <div className={`modal-backdrop ${this.state.visibilityClass}`} >
-        <div className="modal-container">
+        <div className="team-modal-container">
           <div className="upper">
             <div className="modal-img-wrapper">
               <img className={`upper-team-img ${!image && "default-image"}`} src={image||this.props.default_image} />

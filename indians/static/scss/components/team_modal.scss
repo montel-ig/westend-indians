@@ -8,10 +8,10 @@
   z-index: 9999;
   transition: all .4s ease-in-out;
 
-  .modal-container {
+  .team-modal-container {
     color: white;
-    margin: 20vh 30vw;
-    width: 40vw;
+    margin: 20vh 35vw;
+    width: 30vw;
     height: auto;
     position: absolute;
     z-index: 9999;
@@ -20,11 +20,32 @@
     background: black;
     transition: opacity .4s ease-in-out .4s, transform .2s ease-in-out .4s;
 
-    @media screen and (max-width : 1024px) {
-      margin: 20vh 10vw;
+    @media screen and (max-width : 1200px) {
+      margin: 10vh 10vw;
       width: 80vw;
     }
+    @media screen and (max-width : 1024px) {
+      margin: 30vh 30vw;
+      width: 40vw;
+    }
+    @media screen and (max-width : 700px) {
+      margin: 10vh 10vw;
+      width: 80vw;
+    }
+    @media screen and (max-width : 450px) {
+      p {
+        font-size: 12px;
+      }
+    }
 
+    @media screen and (max-height : 1100px) {
+      margin: 10vh 35vw;
+      width: 30vw;
+    }
+    @media screen and (max-height : 900px) {
+      margin: 1vh 10vw;
+      width: 80vw;
+    }
     .upper, .middle, .lower {
       display: flex;
       width: 100%;
@@ -44,12 +65,14 @@
           height: 100%;
 
           img {
-            max-height: 800px;
+            max-height: 400px;
             width:100%;
             object-fit: contain;
 
             &.default-image {
-              width: 30%;
+              width: 40%;
+              padding-top: $base_padding;
+
             }
           }
           .modal-img {
@@ -115,6 +138,7 @@
             @media screen and (max-width : 750px) {
               height: 70px;
               width: 80%;
+              margin: 20px 0;
             }
           }
         }
