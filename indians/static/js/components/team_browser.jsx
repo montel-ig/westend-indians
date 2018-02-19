@@ -8,26 +8,11 @@ const replaceUmlauts = (string) => {
   }
   return value;
 };
-const setPathColor = (path) => {
-  console.log(path);
-  switch (path) {
-    case "harrastajan":
-      return "ribbon-white";
-    case "kilpailijan":
-      return "ribbon-yellow";
-    case "urheilijan":
-      return "ribbon-red";
-    default:
-      return ("#000000");
-  }
-};
 
 const Team = (props) => {
   return (
     <div className="teams-team-container card-parent" onClick={props.handleTeamClick}>
-      {// props.path && <i className="fa fa-info-circle fa-2x" style={{color:setPathColor(props.path)}}></i>
-      }
-      <i className={`ribbon ${setPathColor(props.path)}`}></i>
+      <i className={`ribbon ${props.path}`}></i>
       <div className="img-container">
         <img
           className={props.image ? "team-image" : "default-image"}

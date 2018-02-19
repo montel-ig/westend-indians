@@ -218,14 +218,14 @@
   transform: translateX(30%) translateY(0%) rotate(45deg);
   transform-origin: top left;
 
-  &.ribbon-white {
-     background:white;
+  &.harrastajan {
+     background:$harrastajan-polku;
    }
-  &.ribbon-yellow {
-    background:$indians-yellow;
+  &.kilpailijan {
+    background:$kilpailijan-polku;
   }
-  &.ribbon-red {
-    background:#990000;
+  &.urheilijan {
+    background:$urheilijan-polku;
   }
 }
 .ribbon:before,
