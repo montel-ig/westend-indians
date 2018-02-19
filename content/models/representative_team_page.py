@@ -2,13 +2,13 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from teams.views.team import members_to_json
-from teams.models import Team
 from content.models.indians_base_page import IndiansBasePage as Parent
 
 from wagtail.wagtailcore.models import Page
 from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailadmin.edit_handlers import FieldPanel
+from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
+from colorful.fields import RGBColorField
 
 
 class RepresentativeTeamPage(Parent):
@@ -16,13 +16,36 @@ class RepresentativeTeamPage(Parent):
     main_lift = RichTextField(blank=True)
     partners = RichTextField(blank=True)
 
-    content_panels = Page.content_panels + [
-        FieldPanel('body', classname="full"),
-        FieldPanel('main_lift', classname="full"),
-        FieldPanel('partners', classname="full"),
-    ]
+    pinnalla = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    pinnalla2 = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    pinnalla3 = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    lift_bgcolor = RGBColorField(max_length=120,blank=True)
 
-    def get_players(self):
-        players = members_to_json(Team.objects.get(pk=2))
-        return players
+    content_panels = Page.content_panels + [
+            FieldPanel('body', classname="full"),
+            FieldPanel('main_lift', classname="full"),
+            FieldPanel('partners', classname="full"),
+            FieldPanel('lift_bgcolor', classname="full"),
+            ImageChooserPanel('pinnalla'),
+            ImageChooserPanel('pinnalla2'),
+            ImageChooserPanel('pinnalla3'),
+        ]
 

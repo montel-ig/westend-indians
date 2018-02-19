@@ -34,6 +34,10 @@ section.team {
     }
   }
 }
+section.schedule {
+  background-color: black;
+  color:white;
+}
 section.schedule, section.statistics {
 
   .schedule-head, .statistics-head {
@@ -50,7 +54,6 @@ section.schedule, section.statistics {
   }
   .schedule-container, .statistics-container {
     align-items: flex-start;
-    display: flex;
     justify-content: space-evenly;
     max-width: 1280px;
     margin: 0 auto;
@@ -75,6 +78,8 @@ section.schedule, section.statistics {
     }
 
     .row-content {
+      grid-column-start: 1;
+      grid-column-end: 12;
       display: flex;
       padding-top: 5px;
       > div {
