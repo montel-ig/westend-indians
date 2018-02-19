@@ -1,11 +1,10 @@
 .main-grid-body {
-
   .club-body, .club-introduction, .club-values, .club-contact, .club-personnel {
     .content {
       .rich-text {
-        grid-column-start: 2;
-        grid-column-end: 12;
-        padding: 100px 50px 50px 50px;
+        grid-column-start: 1;
+        grid-column-end: 13;
+        padding: 100px $base_padding $base_padding $base_padding
         h2 {
           font-family: $black-ops;
           font-size: 24px;
@@ -16,17 +15,25 @@
           padding: 5px 20px;
           width: 50%;
         }
-
       }
     }
   }
-
   .club-body {
     background-image: url("http://i64.tinypic.com/2akq38.png");
   }
-
   .club-values, .club-contact {
     background-color: black;
     color: white;
+  }
+  .club-personnel {
+    .content {
+      .rich-text {
+        img {
+          width: 300px;
+          height: 200px;
+          object-fit: contain;
+        }
+      }
+    }
   }
 }
