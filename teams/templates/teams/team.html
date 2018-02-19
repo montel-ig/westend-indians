@@ -40,11 +40,8 @@
           {% endif %}
         </div>
         <div class="team-info">
-          {% if properties.current_player_count %}
-            <p>Nykyinen pelaajamäärä: {{ properties.current_player_count }}</p>
-          {% endif %}
-          {% if properties.max_player_count %}
-            <p>Maksimi pelaajamäärä: {{ properties.max_player_count }}</p>
+          {% if properties.current_player_count and properties.max_player_count %}
+            <p>Nykyinen pelaajamäärä: {{ properties.current_player_count }}/{{ properties.max_player_count }}</p>
           {% endif %}
         </div>
       </div>
