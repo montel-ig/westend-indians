@@ -5,6 +5,7 @@
 
 {% block title %} {{page.title}} {% endblock %}
 {% block main %}
+  <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
   <section class="events-body event ">
     <div class="events-body-container ignore-height">
       {{ page.body|richtext }}
