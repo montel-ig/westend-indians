@@ -1,8 +1,46 @@
-.tribe {
-  padding: $base_padding 0;
-}
-
 .main-grid-body {
+
+  section.tribe {
+    .tribe-container {
+      .repr-body {
+        grid-column-start: 1;
+        grid-column-end: 12;
+        h1 { margin: 0 }
+
+        .rich-text {
+          > p > img {
+            opacity: .4;
+          }
+          > p:empty {
+            display: none;
+          }
+        }
+      }
+
+      .info-links {
+        grid-column-start: 1;
+        grid-column-end: 6;
+        padding: 0;
+
+        a {
+          font-family: $titillium-web;
+          display: inline;
+          color: black;
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: 16px;
+          letter-spacing: $letter-spacing-medium;
+        }
+        a::after {
+          content: " | ";
+          padding: 5px;
+        }
+        a:last-child:after {
+          content: "";
+        }
+      }
+    }
+  }
 
   .tribe-body, #lift {
     display: flex;
@@ -67,9 +105,9 @@
     }
   }
   section.lift {
+    margin: 0;
     .lift-container {
       .lift-img {
-        padding: 40px;
         > img {
           max-width: 100%;
         }

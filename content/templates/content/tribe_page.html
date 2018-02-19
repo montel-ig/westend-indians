@@ -5,6 +5,21 @@
 
 {% block title %} {{page.title}} {% endblock %}
 {% block main %}
+  <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+  <section class="tribe">
+    <div class="tribe-container">
+      <img class="tribe-img" src="http://i64.tinypic.com/2ewnus8.jpg">
+      <div class="content tribe">
+        <h1>{{ page.title }}</h1>
+        <p class="description">{{ page.body|safe }}</p>
+        <ul class="info-links">
+          <a href="#tribenews">Uutiset</a>
+          <a href="#tribesome">Some</a>
+          <!-- <a href="{% slugurl 'teams' %}">seurat</a> -->
+        </ul>
+      </div>
+    </div>
+  </section>
   {% if page.pinnalla or page.pinnalla2 or page.pinnalla3%}
     <section class="lift" style="background-color:{{ page.lift_bgcolor }};">
       <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
@@ -22,27 +37,12 @@
       <img class="triangle justify-top" src="{% static "images/tilted-bg-white-bottom.svg" %}">
     </section>
   {% endif %}
-  <section class="tribe">
-    <div class="tribe-container">
-      <img class="tribe-img" src="http://i64.tinypic.com/2ewnus8.jpg">
-      <div class="content tribe">
-        <h1>{{ page.title }}</h1>
-        <p class="description">{{ page.body|safe }}</p>
-        <ul class="info-links">
-          <a href="http://indians.fi/ilmoittautuminen">liity mukaan</a>
-          <a href="#">junioritoiminta</a>
-          <a href="{% slugurl 'teams' %}">seurat</a>
-        </ul>
-      </div>
-    </div>
-  </section>
   <section id="lift">
     <div class="tribe-main-lift ignore-height add-space">
       {{ page.main_lift|richtext }}
     </div>
   </section>
-  <section class="tribe-news">
-    <img class="triangle flip-y  justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
+  <section class="tribe-news" id="tribenews"}>
     <div class="news-container add-space">
       <div class="row-head">
         <h1>uutiset</h1>
@@ -99,7 +99,7 @@
     </div>
   </section>
   -->
-  <section class="some">
+  <section class="some" id="tribesome"}>
     <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
     <div class="some-container">
       <h1>some</h1>
