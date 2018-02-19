@@ -5,8 +5,10 @@
   <h1 class="main-header-text header">Westend Indians</h1>
     {% if self.url == '/' %}
       <h1 class="main-header-text slogan rootslogan">Once a member - always part of the tribe</h1>
-    {% else %}
-      <h1 class="main-header-text slogan">{{title}}</h1>
+    {% elif title %}
+      <h1 class="main-header-text slogan">{{ title }}</h1>
+  {% else %}
+      <h1 class="main-header-text slogan">{{ properties.name }}</h1>
   {% endif %}
   <img class="main-img" src="{% static "images/header_main.jpg" %}">
   <ul class="nav-index">
