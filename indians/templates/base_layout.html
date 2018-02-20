@@ -14,11 +14,9 @@
     {% compress css %}
       <link rel="stylesheet" type="text/x-scss" href="{% static 'scss/main.scss' %}"/>
     {% endcompress %}
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Encode+Sans|Titillium+Web" rel="stylesheet">
-    <script defer src="https://use.fontawesome.com/b92969d192.js"></script>
   </head>
-  <body class="{% block body_css_class %}{% endblock %}">
+  <body>
     <div class="container">
       <div class="main-grid-header">
         {% include "header.html" with title=page.title %}
@@ -47,6 +45,7 @@
     <link rel="stylesheet" href="https://unpkg.com/react-select/dist/react-select.css">
 
     {% compress js %}
+      <script defer src="{% static 'js/vendor/fontawesome-all.min.js' %}"></script>
       <script type="text/jsx" src="{% static 'js/i18n.js' %}"></script>
       <script type="text/jsx" src="{% static 'js/index.jsx' %}"></script>
       <script type="text/jsx" src="{% static 'js/scrolling.js' %}"></script>

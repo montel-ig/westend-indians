@@ -1,244 +1,254 @@
-.footer-container {
-  display: block;
-  background-color: black;
-  color: white;
-  background-image: none;
-  align-items: flex-start;
-  margin: 0 auto;
-  padding-bottom: 100px;
-
-  a > h1 {
-    text-transform: uppercase;
-    font-family: $black-ops;
+section.footer {
+  .whiteblock {
+    position: relative;
+    bottom: 1px;
+    display: block;
+    max-width: none;
+    background-color: white;
+    height: 300px;
+    @media screen and (max-width: 600px) {
+      height: 120px;
+    }
+  }
+  .footer-container {
+    display: block;
+    background-color: black;
     color: white;
-    font-size: 48px;
-    letter-spacing: $letter-spacing-medium;
-    line-height: normal;
-    grid-column-start: 1;
-    margin: 0;
+    background-image: none;
+    align-items: flex-start;
+    margin: 0 auto;
+    padding-bottom: 100px;
 
-    @media screen and (max-width : 450px) {
-      font-size: 32px;
+    a > h1 {
+      text-transform: uppercase;
+      font-family: $black-ops;
+      color: white;
+      font-size: 48px;
+      letter-spacing: $letter-spacing-medium;
+      line-height: normal;
+      grid-column-start: 2;
+      margin: 0;
+
+      @media screen and (max-width : 450px) {
+        font-size: 32px;
+      }
     }
-  }
 
-  h2 {
-    margin:0;
-    padding:50px 0;
-    font-family: $encode-sans;
-    font-size: 24px;
-    letter-spacing: $letter-spacing-large;
-    text-transform: uppercase;
-    grid-column-start: 1;
+    h2 {
+      margin:0;
+      padding:50px 0;
+      font-family: $titillium-web;
+      font-size: 24px;
+      letter-spacing: $letter-spacing-large;
+      text-transform: uppercase;
+      grid-column-start: 2;
 
-    @media screen and (max-width : 450px) {
-      font-size: 18px;
+      @media screen and (max-width : 450px) {
+        font-size: 18px;
+      }
     }
-  }
 
-  .footer-slogan {
-    grid-column-start: 1;
-    grid-column-end: 11;
-    padding: 50px 0;
-  }
-
-  > div {
-    margin:0 100px;
-
-    @media screen and (max-width : 450px) {
-      margin: 0 auto;
+    .footer-slogan {
+      grid-column-start: 2;
+      grid-column-end: 11;
+      padding: 50px 0;
     }
-  }
 
-  .indians-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     > div {
-      margin: 50px 100px 0 0;
+      //margin:0 100px;
 
-      p {
-        font-family: $encode-sans;
-        margin: 0;
-        padding-top: 5px;
+      @media screen and (max-width : 450px) {
+        margin: 0 auto;
       }
+    }
 
-      h1 {
-        &:hover {
-          color: $indians-yellow;
-          transition: color 300ms linear;
+    .indians-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      > div {
+        margin: 50px 100px 0 0;
+
+        p {
+          font-family: $encode-sans;
+          margin: 0;
+          padding-top: 5px;
         }
-      }
-
-      @media screen and (min-width : 640px) and  (max-width : 1060px) {
-        margin: 50px 25px 0 0;
-
-        a > h1 {
-          font-size: 42px;
-        }
-      }
-
-      &.indians-social {
-        margin-right: 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-        a {
-          color: $indians-grey;
-          padding: 10px;
-
-          i:hover {
+        h1 {
+          &:hover {
             color: $indians-yellow;
             transition: color 300ms linear;
           }
         }
+        @media screen and (min-width : 640px) and  (max-width : 1060px) {
+          margin: 50px 25px 0 0;
 
-        @media screen and (min-width : 640px) and  (max-width : 1145px) {
+          a > h1 {
+            font-size: 42px;
+          }
+        }
+        &.indians-social {
+          margin-right: 0;
+          width: 100%;
+          display: flex;
+          justify-content: space-around;
+          a {
+            color: $indians-grey;
+            padding: 10px;
+            &:hover {
+              svg {
+                color: $indians-yellow;
+                transition: color 300ms linear;
+              }
+
+            }
+          }
+          @media screen and (min-width : 640px) and  (max-width : 1145px) {
+            display: flex;
+            flex-direction: column;
+            margin: 50px 50px 0 0;
+
+            a {
+              padding-bottom: 10px;
+            }
+          }
+
+          @media screen and (max-width : 820px) {
+            i {
+              font-size: 52px;
+            }
+          }
+        }
+        &.indians-address {
+          width: 100%;
+          @media screen and (max-width : 450px) {
+            margin: 0 auto;
+          }
+        }
+      }
+      @media screen and (min-width : 176px) and  (max-width : 680px) {
+        flex-direction: column;
+        justify-content: center;
+        > div {
+          margin: 50px auto;
+        }
+        > div.indians-address {
+          width: auto;
+          margin: 0;
           display: flex;
           flex-direction: column;
-          margin: 50px 50px 0 0;
-
-          a {
-            padding-bottom: 10px;
-          }
+          justify-content: center;
         }
 
-        @media screen and (max-width : 820px) {
-          i {
-            font-size: 52px;
-          }
+        > div.indians-social {
+          flex-direction: row;
+          margin: 50px 0 0 0;
         }
       }
-      &.indians-address {
-        width: 100%;
+
+      @media screen and (min-width : 640px) and (max-width : 870px) {
+        > div.indians-address {
+          width: auto;
+          margin-right: 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+      }
+    }
+    .partners {
+      grid-column-start: 2;
+      grid-column-end: 11;
+
+      > p {
+        color: white;
+        font-family: $titillium-web;
+        margin:0;
+        letter-spacing: $letter-spacing-medium;
+
         @media screen and (max-width : 450px) {
-          margin: 0 auto;
+          padding: 20px;
         }
       }
-    }
 
-
-
-    @media screen and (min-width : 176px) and  (max-width : 680px) {
-      flex-direction: column;
-      justify-content: center;
-      > div {
-        margin: 50px auto;
-      }
-      > div.indians-address {
-        width: auto;
-        margin: 0;
+      .row {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
+        justify-content: space-evenly;
+        flex-wrap: nowrap;
+
+        @media screen and (max-width : 460px) {
+          flex-wrap: wrap;
+        }
+
+        > div {
+          width: 120px;
+          height: 120px;
+          padding: 0 10px;
+
+          @media screen and (max-width : 640px) {
+            width: 75px;
+            height: 75px;
+            padding: 0 10px;
+          }
+
+          > a {
+            width: 100%;
+
+            > img {
+              width: 100%;
+              height: 100%;
+              filter: grayscale(.8);
+              &:hover {
+                filter: none;
+                transition: filter 300ms linear;
+              }
+
+            }
+          }
+
+        }
       }
-
-      > div.indians-social {
-        flex-direction: row;
-        margin: 50px 0 0 0;
-      }
-    }
-
-    @media screen and (min-width : 640px) and (max-width : 870px) {
-      > div.indians-address {
-        width: auto;
-        margin-right: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-    }
-
-
-  }
-
-  .partners {
-    grid-column-start: 2;
-    grid-column-end: 11;
-
-    > p {
-      color: white;
-      font-family: $titillium-web;
-      margin:0;
-      letter-spacing: $letter-spacing-medium;
 
       @media screen and (max-width : 450px) {
-        padding: 20px;
+        text-align: center;
+        margin: 0 auto;
       }
     }
 
-    .row {
-      display: flex;
-      justify-content: space-evenly;
-      flex-wrap: nowrap;
+    .co-op {
 
-      > div {
-        width: 120px;
-        height: 120px;
-        padding: 0 10px;
+      .row {
+        grid-template-columns: repeat(9, 1fr);
 
-        @media screen and (max-width : 640px) {
-          width: 75px;
+        > div {
+          width: 100px;
           height: 75px;
-          padding: 0 4px;
         }
+      }
+    }
 
-        > a {
-          width: 100%;
+    .featuring {
 
-          > img {
-            width: 100%;
-            height: 100%;
-            filter: grayscale(.9);
-            &:hover {
-              filter: none;
-              transition: filter 300ms linear;
-            }
-
-          }
+      .row {
+        grid-template-columns: repeat(11, 1fr);
+        > div {
+          width: 70px;
+          height: 40px;
         }
-
       }
     }
 
-    @media screen and (max-width : 450px) {
-      text-align: center;
-      margin: 0 auto;
+    .img-flipped {
+      width: 100%;
+      transform: scaleY(-1);
     }
-  }
 
-  .co-op {
-
-    .row {
-      grid-template-columns: repeat(9, 1fr);
-
-      > div {
-        width: 100px;
-        height: 75px;
-      }
+    hr {
+      border-color: $indians-dark;
     }
-  }
-
-  .featuring {
-
-    .row {
-      grid-template-columns: repeat(11, 1fr);
-      > div {
-        width: 70px;
-        height: 40px;
-      }
-    }
-  }
-
-  .img-flipped {
-    width: 100%;
-    transform: scaleY(-1);
-  }
-
-  hr {
-    border-color: $indians-dark;
   }
 }
+
 
 
 

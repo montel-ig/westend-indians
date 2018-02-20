@@ -4,11 +4,11 @@
 <section class="header">
   <h1 class="main-header-text header">Westend Indians</h1>
     {% if self.url == '/' %}
-      <h1 class="main-header-text slogan rootslogan">Once a member - always part of the tribe</h1>
+      <h2 class="main-header-text slogan rootslogan">Once a member - always part of the tribe</h2>
     {% elif title %}
-      <h1 class="main-header-text slogan">{{ title }}</h1>
+      <h2 class="main-header-text slogan">{{ title }}</h2>
   {% else %}
-      <h1 class="main-header-text slogan">{{ properties.name }}</h1>
+      <h2 class="main-header-text slogan">{{ properties.name }}</h2>
   {% endif %}
   <img class="main-img" src="{% static "images/faces_indians_1200x.jpg" %}">
 
