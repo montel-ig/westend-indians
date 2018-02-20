@@ -1,76 +1,81 @@
-.main-grid-body {
+.team_page {
 
-  section.team {
-    background-image: none;
-    max-width: 1280px;
-    margin:0 auto;
-    .teams-team-container {
-      padding-top: 120px;
+  .main-grid-body {
+    section.team {
+      background-image: none;
+      max-width: 1280px;
+      margin: 0 auto;
+      .teams-team-container {
+        padding-top: 120px;
 
-      @media screen and (max-width: 910px) {
-        display: flex;
-        flex-direction: column;
-      }
-
-      h1 {
-        position: relative;
-        margin: $base_padding * 2 0;
-        grid-column-start: 1;
-        grid-column-end: 13;
-      }
-
-      .teams-team-img {
-        position: relative;
-        grid-column-start: 1;
-        grid-column-end: 6;
-        max-width: 500px;
-
-        @media screen and (min-width : 176px) and  (max-width : 640px) {
-          padding-bottom: 50px;
-        }
-      }
-
-      div.content {
-        grid-column-start: auto;
-        grid-column-end: 13;
-
-        > div {
-          padding-left: 50px;
+        @media screen and (max-width: 910px) {
+          display: flex;
+          flex-direction: column;
         }
 
-        .team-contact {
-          padding-bottom: 30px;
-          p { word-wrap : break-word; }
+        h1 {
+          position: relative;
+          margin: $base_padding * 2 0;
+          grid-column-start: 1;
+          grid-column-end: 13;
         }
-      }
-      .team-description {
-        grid-column-start: 1;
-        grid-column-end: 13;
-        margin-top: $base_padding * 2;
-        @media screen and (min-width: 176px) and (max-width: 1200px) {
-          padding: 0 25px;
+
+        .teams-team-img {
+          position: relative;
+          grid-column-start: 1;
+          grid-column-end: 6;
+          max-width: 500px;
+
+          @media screen and (min-width: 176px) and (max-width: 640px) {
+            padding-bottom: 50px;
+          }
         }
-      }
-      .team-info {
-        p:empty {
-          display: none;
+
+        div.content {
+          grid-column-start: auto;
+          grid-column-end: 13;
+
+          > div {
+            padding-left: 50px;
+          }
+
+          .team-contact {
+            padding-bottom: 30px;
+            p {
+              word-wrap: break-word;
+            }
+          }
+        }
+        .team-description {
+          grid-column-start: 1;
+          grid-column-end: 13;
+          margin-top: $base_padding * 2;
+          @media screen and (min-width: 176px) and (max-width: 1200px) {
+            padding: 0 25px;
+          }
+        }
+        .team-info {
+          p:empty {
+            display: none;
+          }
         }
       }
     }
-  }
 
-  section.players {
-    background: black;
-    color: white;
-    padding:0 $base_padding;
+    section.players {
+      background: black;
+      color: white;
+      padding: 0 $base_padding;
 
-    .player-wrapper {
-      display: block;
-      padding: $base_padding 0;
-      h1 {
-        margin: 0;
+      .player-wrapper {
+        display: block;
         padding: $base_padding 0;
+        h1 {
+          margin: 0;
+          padding: $base_padding 0;
+        }
       }
     }
   }
+
 }

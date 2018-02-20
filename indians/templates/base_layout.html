@@ -16,9 +16,9 @@
     {% endcompress %}
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Encode+Sans|Titillium+Web" rel="stylesheet">
-    <script src="https://use.fontawesome.com/b92969d192.js"></script>
+    <script defer src="https://use.fontawesome.com/b92969d192.js"></script>
   </head>
-  <body>
+  <body class="{% block body_css_class %}{% endblock %}">
     <div class="container">
       <div class="main-grid-header">
         {% include "header.html" with title=page.title %}
@@ -49,12 +49,11 @@
     {% compress js %}
       <script type="text/jsx" src="{% static 'js/i18n.js' %}"></script>
       <script type="text/jsx" src="{% static 'js/index.jsx' %}"></script>
+      <script type="text/jsx" src="{% static 'js/scrolling.js' %}"></script>
 
       <script type="text/jsx" src="{% static 'js/components/player_modal.jsx' %}"></script>
       <script type="text/jsx" src="{% static 'js/components/player.jsx' %}"></script>
       <script type="text/jsx" src="{% static 'js/components/player_browser.jsx' %}"></script>
-
-
 
       <script type="text/jsx" src="{% static 'js/components/team_filter.jsx' %}"></script>
       <script type="text/jsx" src="{% static 'js/components/team_browser.jsx' %}"></script>

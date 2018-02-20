@@ -1,562 +1,585 @@
-.lift {
-  margin: 120px 0;
-}
+.home_page {
 
-.team-container,
-.tribe-container,
-.lift-container,
-.shop-container,
-.games-container,
-.news-container {
-
-  .content {
-
-    > p {
-      font-family: $encode-sans;
-      margin: 30px 0 30px 0;
-    }
-
-    .cta-link {
-      font-family: $titillium-web;
-      color: black;
-      letter-spacing: $letter-spacing-large;
-      text-transform: uppercase;
-      margin: 30px 0 30px 0;
-      font-weight: bold;
-
-      span {
-        position: relative;
-        bottom: 2px;
-      }
-    }
-
-    .info-links {
-      position: absolute;
-      padding: 0;
-
-      a {
-        font-family: $titillium-web;
-        display: inline;
-        color: black;
-        text-transform: uppercase;
-        font-weight: bold;
-        letter-spacing: $letter-spacing-medium;
-      }
-      a::after {
-        content: " | ";
-        padding: 5px;
-      }
-      a:last-child:after {
-        content: "";
-      }
-    }
-
-    &.team {
-      grid-column-start: 8;
-      grid-column-end: 12;
-    }
-
-    &.tribe {
-      grid-column-start: 2;
-      grid-column-end: 6;
-    }
-
-    &.shop {
-      grid-column-start: 8;
-      grid-column-end: 12;
-      > h1, p, a {
-        color: white;
-      }
-    }
-
-    ul {
-      list-style: circle;
-    }
+  .lift {
+    margin: 120px 0;
   }
 
-  .shop-products {
-    grid-column: 1 / span 7;
-    margin: 50px;
-    display: grid;
-    grid-gap: 50px;
-    grid-template-columns: 200px 200px;
-    grid-template-rows: 250px 250px;
+  .team-container,
+  .tribe-container,
+  .lift-container,
+  .shop-container,
+  .games-container,
+  .news-container {
 
-    > div {
-      background-color: white;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-left: 0;
-      margin-right: 0;
-      overflow: hidden;
+    .content {
 
-      .shop-item-description {
+      > p {
+        font-family: $encode-sans;
+        margin: 30px 0 30px 0;
+      }
+
+      .cta-link {
+        font-family: $titillium-web;
+        color: black;
+        letter-spacing: $letter-spacing-large;
+        text-transform: uppercase;
+        margin: 30px 0 30px 0;
+        font-weight: bold;
+
+        span {
+          position: relative;
+          bottom: 2px;
+        }
+      }
+
+      .info-links {
         position: absolute;
-        bottom: 10px;
+        padding: 0;
 
-        > p {
-          margin: 0;
-          font-size: 16px;
-          letter-spacing: $letter-spacing-large;
+        a {
+          font-family: $titillium-web;
+          display: inline;
+          color: black;
+          text-transform: uppercase;
           font-weight: bold;
-          padding: 10px 10px 0 10px;
+          letter-spacing: $letter-spacing-medium;
+        }
+        a::after {
+          content: " | ";
+          padding: 5px;
+        }
+        a:last-child:after {
+          content: "";
+        }
+      }
 
-          &#product-price {
-            text-align: center;
-            font-size: 120%;
+      &.team {
+        grid-column-start: 8;
+        grid-column-end: 12;
+      }
+
+      &.tribe {
+        grid-column-start: 2;
+        grid-column-end: 6;
+      }
+
+      &.shop {
+        grid-column-start: 8;
+        grid-column-end: 12;
+        > h1, p, a {
+          color: white;
+        }
+      }
+
+      ul {
+        list-style: circle;
+      }
+    }
+
+    .shop-products {
+      grid-column: 1 / span 7;
+      margin: 50px;
+      display: grid;
+      grid-gap: 50px;
+      grid-template-columns: 200px 200px;
+      grid-template-rows: 250px 250px;
+
+      > div {
+        background-color: white;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0;
+        margin-right: 0;
+        overflow: hidden;
+
+        .shop-item-description {
+          position: absolute;
+          bottom: 10px;
+
+          > p {
+            margin: 0;
+            font-size: 16px;
+            letter-spacing: $letter-spacing-large;
+            font-weight: bold;
+            padding: 10px 10px 0 10px;
+
+            &#product-price {
+              text-align: center;
+              font-size: 120%;
+            }
+          }
+        }
+
+        > a {
+          margin: 0 auto;
+          width: 75%;
+          height: 60%;
+          padding-top: 10px;
+
+          > img {
+            width: 100%;
+            max-height: 100%;
+            object-fit: scale-down;
+          }
+        }
+      }
+    }
+
+    .tribe-img {
+      position: absolute;
+      display: block;
+      transform: translateX(10%);
+      padding-bottom: 0;
+      left: 42%;
+      height: 600px;
+      max-width: 600px;
+      opacity: .4;
+
+      @media screen and (max-width: 1160px) {
+        transform: none;
+        height: auto;
+      }
+
+      @media screen and (min-width: 176px) and (max-width: 1020px) {
+        opacity: .2;
+      }
+
+      @media screen and (min-width: 1023px) and (max-width: 1140px) {
+        left: 40%;
+      }
+    }
+
+    .lift-img {
+      grid-column-start: 1;
+      grid-column-end: 13;
+    }
+
+    .row {
+      align-items: center;
+      text-align: center;
+
+      padding: 100px 0;
+      width: 100%;
+      grid-column-start: 1;
+      font-weight: bold;
+      grid-column-end: 13;
+      color: $indians-grey;
+      background-color: black;
+      display: flex;
+      justify-content: space-around;
+
+      .home, .away {
+        img {
+          width: 80%;
+        }
+
+        @media screen and (max-width: 720px) {
+          visibility: hidden;
+
+          .games-date {
+            position: absolute;
+            width: 100%;
           }
         }
       }
 
-      > a {
-        margin: 0 auto;
-        width: 75%;
-        height: 60%;
-        padding-top: 10px;
-
-        > img {
-          width: 100%;
-          max-height: 100%;
-          object-fit: scale-down;
-        }
-      }
-    }
-  }
-
-  .team-img {
-    position: absolute;
-    display: block;
-    transform: translateX(-30%);
-    opacity: .4;
-  }
-
-  .tribe-img {
-    position: absolute;
-    display: block;
-    transform: translateX(10%);
-    padding-bottom: 0;
-    left: 42%;
-    height: 600px;
-    max-width: 600px;
-    opacity: .4;
-
-    @media screen and (max-width: 1160px) {
-      transform: none;
-      height: auto;
-    }
-
-    @media screen and (min-width: 176px) and (max-width: 1020px) {
-      opacity: .2;
-    }
-
-    @media screen and (min-width: 1023px) and (max-width: 1140px) {
-      left: 40%;
-    }
-  }
-
-  .lift-img {
-    grid-column-start: 1;
-    grid-column-end: 13;
-  }
-
-  .row {
-    align-items: center;
-    text-align: center;
-
-    padding: 100px 0;
-    width: 100%;
-    grid-column-start: 1;
-    font-weight: bold;
-    grid-column-end: 13;
-    color: $indians-grey;
-    background-color: black;
-    display: flex;
-    justify-content: space-around;
-
-    .home, .away {
-      img {
-        width: 80%;
-      }
-
-      @media screen and (max-width: 720px) {
-        visibility: hidden;
-
-        .games-date {
-          position: absolute;
-          width: 100%;
-        }
-      }
-    }
-
-    .games-date {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      p {
-        color: $indians-grey;
-      }
-      h1 {
-        margin: 0;
-      }
-
-      .games-cta {
-        width: 400px;
-        padding: 10px;
-        align-items: center;
-        background-color: $indians-yellow;
-        color: black;
-        font-family: $encode-sans;
-        line-height: 17px;
-        text-transform: uppercase;
-
-        &:hover {
-          filter: brightness(140%);
-          transition: filter 500ms;
-        }
-
-        @media screen and (max-width: 450px) {
-          width: 100%;
-          padding: 10px 0;
-        }
-      }
-
-      @media screen and (max-width: 720px) {
-        position: absolute;
-        h1 {
-          padding: 20px;
-        }
-
-        width: 100%;
-      }
-    }
-  }
-
-  .row-head {
-    grid-column-start: 1;
-    grid-column-end: 12;
-    padding-top: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    @media screen and (max-width: 640px) {
-      display: block;
-    }
-
-    a {
-      color: black;
-      font-family: $titillium-web;
-      font-size: 14px;
-      font-weight: bold;
-      letter-spacing: $letter-spacing-medium;
-      text-transform: uppercase;
-      padding-left: 50px;
-
-      span {
-        position: relative;
-        bottom: 2px;
-      }
-
-      @media screen and (max-width: 640px) {
-        padding-left: 0;
-      }
-    }
-  }
-
-  .row-images {
-    grid-column-start: 1;
-    grid-column-end: 13;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .row-news {
-    grid-column-start: 1;
-    grid-column-end: 13;
-    display: flex;
-    align-items: center;
-    min-height: inherit;
-    padding-bottom: 100px;
-    justify-content: space-evenly;
-
-    @media screen and (min-width: 176px) and (max-width: 1024px) {
-      padding: 0 50px;
-    }
-
-    .news-item {
-      width: 325px;
-      height: 500px;
-
-      @media screen and (min-width: 176px) and (max-width: 1024px) {
-        width: 100% !important;
+      .games-date {
         display: flex;
-        height: auto;
-      }
-
-      @media screen and (max-width: 640px) {
         flex-direction: column;
-        padding-bottom: 30px;
-      }
-
-      > a > div.news-image {
-        height: 250px;
-        width: 325px;
-        display: flex;
-        align-items: center;
         justify-content: center;
+        align-items: center;
 
-        img {
+        p {
+          color: $indians-grey;
+        }
+        h1 {
+          margin: 0;
+        }
+
+        .games-cta {
+          width: 400px;
+          padding: 10px;
+          align-items: center;
+          background-color: $indians-yellow;
+          color: black;
+          font-family: $encode-sans;
+          line-height: 17px;
+          text-transform: uppercase;
+
+          &:hover {
+            filter: brightness(140%);
+            transition: filter 500ms;
+          }
+
+          @media screen and (max-width: 450px) {
+            width: 100%;
+            padding: 10px 0;
+          }
+        }
+
+        @media screen and (max-width: 720px) {
+          position: absolute;
+          h1 {
+            padding: 20px;
+          }
+
           width: 100%;
-          height: 100%;
         }
       }
+    }
 
-      > div.item-text-container {
-        padding: 20px;
+    .row-head {
+      grid-column-start: 1;
+      grid-column-end: 12;
+      padding-top: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-        .news-item-text {
-          font-size: 14px;
-          line-height: 16px;
-        }
+      @media screen and (max-width: 640px) {
+        display: block;
+      }
 
-        @media screen and (max-width: 1024px) {
-          padding: 0 50px;
+      a {
+        color: black;
+        font-family: $titillium-web;
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: $letter-spacing-medium;
+        text-transform: uppercase;
+        padding-left: 50px;
+
+        span {
+          position: relative;
+          bottom: 2px;
         }
 
         @media screen and (max-width: 640px) {
-          padding: 20px;
-        }
-
-        > h2 {
-          margin: 0;
-        }
-
-      }
-
-      @media screen and (max-width: 820px) {
-        align-items: center;
-        height: auto;
-
-        h2 {
-          margin-left: 20px;
-        }
-        .news-item-text {
-          display: none;
+          padding-left: 0;
         }
       }
     }
-  }
 
-  &.shop {
-    margin-top: 0;
-    background-color: black;
-    background-image: none;
-  }
-}
+    .row-images {
+      grid-column-start: 1;
+      grid-column-end: 13;
+      display: flex;
+      justify-content: space-between;
+    }
 
-.tribe-container, .tribe-img, .team-container, .team-img {
-  padding: 50px 0;
+    .row-news {
+      grid-column-start: 1;
+      grid-column-end: 13;
+      display: flex;
+      align-items: center;
+      min-height: inherit;
+      padding-bottom: 100px;
+      justify-content: space-evenly;
 
-  @media screen and (max-width: 640px) {
-    min-height: 0;
-    padding: $base_padding;
-  }
-}
+      @media screen and (min-width: 176px) and (max-width: 1024px) {
+        padding: 0 50px;
+      }
 
-section.lift {
+      .news-item {
+        width: 325px;
+        height: 500px;
 
-  .lift-container {
-    display: flex;
-    min-height: 0;
-    padding: $base_padding 0;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+        @media screen and (min-width: 176px) and (max-width: 1024px) {
+          width: 100% !important;
+          display: flex;
+          height: auto;
+        }
 
-  &.raise-up {
-    padding-top: 100px;
-    position: relative;
-    top: -100px;
-    //margin-bottom: -100px;
-  }
+        @media screen and (max-width: 640px) {
+          flex-direction: column;
+          padding-bottom: 30px;
+        }
 
-}
+        > a > div.news-image {
+          height: 250px;
+          width: 325px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
 
-.triangle {
-  z-index: 2;
-}
+        > div.item-text-container {
+          padding: 20px;
 
-.shop-container {
-  padding: 120px 0;
-  @media screen and (max-width: 500px) {
-    padding: 0;
-    min-height: 0;
+          .news-item-text {
+            font-size: 14px;
+            line-height: 16px;
+          }
 
-  }
-}
-
-.games-container {
-  @media screen and (max-width: 500px) {
-    padding-bottom: 50px;
-  }
-}
-
-//Mediaquerys
-
-@media screen and (min-width: 176px) and (max-width: 1024px) {
-
-  .main-grid-body {
-
-    > .team {
-
-      .team-container {
-        display: block;
-
-        .team-img {
-          opacity: .2;
-          width: 80%;
+          @media screen and (max-width: 1024px) {
+            padding: 0 50px;
+          }
 
           @media screen and (max-width: 640px) {
-            padding: 0;
-            transform: none;
-            height: auto;
+            padding: 20px;
           }
+
+          > h2 {
+            margin: 0;
+          }
+
         }
 
-        .team {
-          padding: 100px 30px;
+        @media screen and (max-width: 820px) {
+          align-items: center;
+          height: auto;
 
-          .description {
-            padding-bottom: 50px;
+          h2 {
+            margin-left: 20px;
+          }
+          .news-item-text {
+            display: none;
           }
         }
       }
     }
 
-    > .tribe {
-      background: none;
+    &.shop {
+      margin-top: 0;
+      background-color: black;
+      background-image: none;
+    }
+  }
+
+  .tribe-img,
+  .team-img {
+    position: absolute;
+    display: block;
+    opacity: 0;
+    transition: all 1.2s ease-in-out;
+  }
+
+  .team-img {
+    left: 0;
+    transform: translate(-20%, -13%);
+  }
+
+  .tribe-img {
+    right: 0;
+    transform: translate(20%, -10%);
+  }
+
+  section.in-focus {
+    .team-img,
+    .tribe-img {
+      opacity: 1;
+    }
+  }
+  section {
+    overflow: hidden;
+  }
+
+  .tribe-container, .tribe-img, .team-container, .team-img {
+    padding: 50px 0;
+
+    @media screen and (max-width: 640px) {
+      min-height: 0;
+      padding: $base_padding;
+    }
+  }
+
+  section.lift {
+
+    .lift-container {
+      display: flex;
+      min-height: 0;
+      padding: $base_padding 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    &.raise-up {
+      padding-top: 100px;
+      position: relative;
+      top: -100px;
+      //margin-bottom: -100px;
+    }
+
+  }
+
+  .triangle {
+    z-index: 2;
+  }
+
+  .shop-container {
+    padding: 120px 0;
+    @media screen and (max-width: 500px) {
       padding: 0;
+      min-height: 0;
 
-      .tribe-container {
-        display: block;
+    }
+  }
 
-        .tribe-img {
-          width: 80%;
-          left: 0;
-          padding: 0 $base_padding;
-        }
+  .games-container {
+    @media screen and (max-width: 500px) {
+      padding-bottom: 50px;
+    }
+  }
 
-        .tribe {
-          padding: 100px 30px;
-          margin-bottom: 100px;
+  //Mediaquerys
+  @media screen and (min-width: 176px) and (max-width: 1024px) {
 
-          .description {
-            padding-bottom: 50px;
-          }
+    .main-grid-body {
+
+      .team-img {
+        opacity: .2;
+        width: 80%;
+
+        @media screen and (max-width: 640px) {
+          padding: 0;
+          transform: none;
+          height: auto;
         }
       }
-    }
 
-    > .shop {
+      > .team {
 
-      @media screen and (max-width: 965px) {
-        display: flex;
-        .shop-container {
-          display: flex;
-          .shop-products {
-            display: flex;
-            flex-direction: column;
-            margin-right: 0;
-            > div {
-              width: 220px;
-              height: 180px;
-              margin-bottom: 20px;
-            }
-            > div:last-child {
-              display: none;
-            }
+        .team-container {
+          display: block;
 
-            @media screen and (max-width: 500px) {
-              display: none;
-            }
-          }
-          .shop {
+
+          .team {
             padding: 100px 30px;
 
-            .cta-text {
+            .description {
               padding-bottom: 50px;
             }
           }
         }
       }
-    }
 
-    > .news {
-      display: block;
+      > .tribe {
+        background: none;
+        padding: 0;
 
-      .news-container {
+        .tribe-container {
+          display: block;
 
-        .row-head {
-          padding: 50px;
+          .tribe-img {
+            width: 80%;
+            left: 0;
+            padding: 0 $base_padding;
+          }
 
-          @media screen and (max-width: 640px) {
-            padding: 50px 10px 30px 10px;
+          .tribe {
+            padding: 100px 30px;
+            margin-bottom: 100px;
 
-            > a {
-              font-size: 12px;
+            .description {
+              padding-bottom: 50px;
             }
           }
         }
-        .row-news {
+      }
+
+      > .shop {
+
+        @media screen and (max-width: 965px) {
           display: flex;
-          flex-direction: column;
-          @media screen and (min-width: 176px) and (max-width: 1024px) {
-            display: block;
-
-            .news-item {
-              width: 300px;
-              height: auto;
-              padding-bottom: 20px;
-
-              > a {
-                //width: 300px;
-
-                > div.news-image {
-                  width: 250px;
-                  height: 150px;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-
-                  img {
-                    width: 100%;
-                    height: 100%;
-                  }
-                }
+          .shop-container {
+            display: flex;
+            .shop-products {
+              display: flex;
+              flex-direction: column;
+              margin-right: 0;
+              > div {
+                width: 220px;
+                height: 180px;
+                margin-bottom: 20px;
+              }
+              > div:last-child {
+                display: none;
               }
 
-              .item-text-container {
-                align-self: center;
-                //padding: 25px 0 100px 0;
-                > a > h2 {
-                  margin: 0;
+              @media screen and (max-width: 500px) {
+                display: none;
+              }
+            }
+            .shop {
+              padding: 100px 30px;
+
+              .cta-text {
+                padding-bottom: 50px;
+              }
+            }
+          }
+        }
+      }
+
+      > .news {
+        display: block;
+
+        .news-container {
+
+          .row-head {
+            padding: 50px;
+
+            @media screen and (max-width: 640px) {
+              padding: 50px 10px 30px 10px;
+
+              > a {
+                font-size: 12px;
+              }
+            }
+          }
+          .row-news {
+            display: flex;
+            flex-direction: column;
+            @media screen and (min-width: 176px) and (max-width: 1024px) {
+              display: block;
+
+              .news-item {
+                width: 300px;
+                height: auto;
+                padding-bottom: 20px;
+
+                > a {
+                  //width: 300px;
+
+                  > div.news-image {
+                    width: 250px;
+                    height: 150px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    img {
+                      width: 100%;
+                      height: 100%;
+                    }
+                  }
+                }
+
+                .item-text-container {
+                  align-self: center;
+                  //padding: 25px 0 100px 0;
+                  > a > h2 {
+                    margin: 0;
+                  }
                 }
               }
             }
           }
         }
       }
-    }
-    > .lift {
-      .lift-container {
-        > div > img {
-          width: 100%;
-          height: auto;
+      > .lift {
+        .lift-container {
+          > div > img {
+            width: 100%;
+            height: auto;
+          }
         }
       }
     }
