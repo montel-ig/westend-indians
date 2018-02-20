@@ -53,24 +53,6 @@
         }
       }
 
-      &.team {
-        grid-column-start: 8;
-        grid-column-end: 12;
-      }
-
-      &.tribe {
-        grid-column-start: 2;
-        grid-column-end: 6;
-      }
-
-      &.shop {
-        grid-column-start: 8;
-        grid-column-end: 12;
-        > h1, p, a {
-          color: white;
-        }
-      }
-
       ul {
         list-style: circle;
       }
@@ -124,30 +106,6 @@
             object-fit: scale-down;
           }
         }
-      }
-    }
-
-    .tribe-img {
-      position: absolute;
-      display: block;
-      transform: translateX(10%);
-      padding-bottom: 0;
-      left: 42%;
-      height: 600px;
-      max-width: 600px;
-      opacity: .4;
-
-      @media screen and (max-width: 1160px) {
-        transform: none;
-        height: auto;
-      }
-
-      @media screen and (min-width: 176px) and (max-width: 1020px) {
-        opacity: .2;
-      }
-
-      @media screen and (min-width: 1023px) and (max-width: 1140px) {
-        left: 40%;
       }
     }
 
@@ -353,22 +311,104 @@
     }
   }
 
+
+  .team {
+    .content {
+      grid-column-start: 8;
+      grid-column-end: 12;
+    }
+  }
+
+  .tribe {
+    .content {
+      grid-column-start: 2;
+      grid-column-end: 6;
+    }
+  }
+
+  .team,
+  .tribe {
+    position: relative;
+    @media screen and (max-width: 1024px) {
+      grid-column-start: 2;
+      grid-column-end: 12;
+      .content {
+        position: relative;
+        background: rgba(255, 255, 255, 0.8);
+        top: 100px;
+        padding: 80px 40px 100px;
+      }
+    }
+  }
+
+
   .tribe-img,
   .team-img {
     position: absolute;
     display: block;
     opacity: 0;
     transition: all 1.2s ease-in-out;
+    margin: 0;
   }
 
   .team-img {
     left: 0;
     transform: translate(-20%, -13%);
+    @media screen and (max-width: 1980px) {
+      transform: translate(-30%, -13%);
+    }
+    @media screen and (max-width: 1700px) {
+      transform: translate(-40%, -13%);
+    }
+    @media screen and (max-width: 1520px) {
+      transform: translate(-10%, 0%);
+      max-width: 800px;
+    }
+    @media screen and (max-width: 1360px) {
+      transform: none;
+      left: 0;
+      top: 40px;
+      max-width: 50%;
+    }
+    @media screen and (max-width: 1024px) {
+      max-width: none;
+      top: 0;
+      width: 100%;
+    }
+    @media screen and (max-width: 800px) {
+      width: auto;
+      transform: translateX(-20%);
+    }
   }
 
   .tribe-img {
     right: 0;
     transform: translate(20%, -10%);
+    @media screen and (max-width: 1980px) {
+      transform: translate(30%, -10%);
+    }
+    @media screen and (max-width: 1700px) {
+      transform: translate(40%, -10%);
+    }
+    @media screen and (max-width: 1520px) {
+      transform: translate(10%, 10%);
+      max-width: 800px;
+    }
+    @media screen and (max-width: 1360px) {
+      transform: none;
+      right: 0;
+      top: 140px;
+      max-width: 50%;
+    }
+    @media screen and (max-width: 1024px) {
+      max-width: none;
+      width: 100%;
+      top: 0;
+    }
+    @media screen and (max-width: 800px) {
+      width: auto;
+      transform: translateX(20%);
+    }
   }
 
   section.in-focus {
@@ -377,16 +417,16 @@
       opacity: 1;
     }
   }
+
   section {
     overflow: hidden;
   }
 
-  .tribe-container, .tribe-img, .team-container, .team-img {
-    padding: 50px 0;
-
-    @media screen and (max-width: 640px) {
-      min-height: 0;
-      padding: $base_padding;
+  .shop {
+    grid-column-start: 8;
+    grid-column-end: 12;
+    > h1, p, a {
+      color: white;
     }
   }
 
@@ -432,23 +472,10 @@
   @media screen and (min-width: 176px) and (max-width: 1024px) {
 
     .main-grid-body {
-
-      .team-img {
-        opacity: .2;
-        width: 80%;
-
-        @media screen and (max-width: 640px) {
-          padding: 0;
-          transform: none;
-          height: auto;
-        }
-      }
-
       > .team {
 
         .team-container {
           display: block;
-
 
           .team {
             padding: 100px 30px;
@@ -466,12 +493,6 @@
 
         .tribe-container {
           display: block;
-
-          .tribe-img {
-            width: 80%;
-            left: 0;
-            padding: 0 $base_padding;
-          }
 
           .tribe {
             padding: 100px 30px;

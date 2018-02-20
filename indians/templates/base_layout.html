@@ -16,7 +16,7 @@
     {% endcompress %}
     <link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Encode+Sans|Titillium+Web" rel="stylesheet">
   </head>
-  <body>
+  <body class="{% block body_css_class %}{% endblock %}">
     <div class="container">
       <div class="main-grid-header">
         {% include "header.html" with title=page.title %}
