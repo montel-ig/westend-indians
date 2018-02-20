@@ -3,6 +3,8 @@
 .main-grid-header {
   width: 100%;
   background-color: $indians-black;
+  z-index: 2;
+  position: relative;
 
   .header {
     position: relative;

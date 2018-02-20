@@ -130,7 +130,9 @@ html {
       width: 100%;
       display: block;
       overflow-x: hidden;
-      transform: translateX(2px);
+      //transform: translateX(2px);
+      padding: 0;
+      margin: 0;
 
       &.flip-y {
         transform: scaleY(-1);
