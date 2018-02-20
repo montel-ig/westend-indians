@@ -113,7 +113,7 @@
         <div class="news-item">
           <a href="{% slugurl 'news' %}">
             <div class="news-image">
-              {% if newsitem.thumbnail_image.url %}
+              {% if newsitem.thumbnail_image and newsitem.thumbnail_image.url %}
                 <img src="{{ newsitem.thumbnail_image.url }}" alt="{{ newsitem.title }}">
               {% endif %}
             </div>

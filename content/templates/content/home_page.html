@@ -7,10 +7,9 @@
 {% block title %}westend indians{% endblock %}
 {% block slogan %}Once a member - always part of the tribe{% endblock %}
 {% block main %}
-  <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+  <img class="triangle" src="{% static "images/tilted-bg-black-top-right.svg" %}">
   {% if page.pinnalla or page.pinnalla2 or page.pinnalla3%}
-    <section class="lift" style="background-color:{{ page.lift_bgcolor }};">
-      <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
+    <section class="lift raise-up" style="background-color:{{ page.lift_bgcolor }};">
       <div class="lift-container">
         <div class="lift-img">
           {% image page.pinnalla width-1280 %}
@@ -77,87 +76,8 @@
       </div>
     </div>
   </section>
-  <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
-<!--
-  {% if page.upcoming_homegame.opponent %}
-    <section class="games">
-      <div class="games-container full-black ignore-height">
-        <div class="row">
-          <div class="home">
-            <img src="{% static "images/indians_logo_345x345.jpg" %}">
-          </div>
-          <div class="games-date">
-            <h1>seuraava edustusjoukkueen kotiottelu</h1>
-            <p>Vastassa: <span>{{ page.upcoming_homegame.opponent }}</span></p>
-            <p>{{ page.upcoming_homegame.date|date:"d.n.Y" }}  kello {{ page.upcoming_homegame.date.time }}</p>
-            <a href="{% slugurl 'info' %}" class="games-cta">tule katsomaan</a>
-          </div>
-          <div class="away">
-            <img src="{% static "images/indians_logo_345x345.jpg" %}">
-          </div>
-        </div>
-      </div>
-    </section>
-  {% endif %}
-<section class="news">
-<img class="triangle flip-y  justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
-<div class="news-container  add-space">
-<div class="row-head">
-  <h1>uutiset</h1>
-  <a href="{% slugurl 'news' %}">katso kaikki uutiset <span>»</span></a>
-</div>
-<div class="row-news">
-  {% for newsitem in page.front_page_news %}
-    {% if newsitem %}
-      <div class="news-item">
-        <a href="{% slugurl 'news' %}">
-          <div class="news-image">
-            <img src="http://i64.tinypic.com/4sxy79.png">
-          </div>
-        </a>
-        <div class="item-text-container">
-          <a href="{% slugurl 'news' %}"><h2 class="news-item-header">{{ newsitem.title }}</h2></a>
-          <p class="news-item-text">
-            {{ newsitem.ingress }}
-          </p>
-        </div>
-      </div>
-    {% endif %}
-  {% endfor %}
-</div>
-</div>
-</section>
-<section class="events">
-<div class="events-container add-space">
-<div class="row-head">
-  <h1>tapahtumat</h1>
-  <a href="{% slugurl 'tapahtumat' %}">katso kaikki tapahtumat <span>»</span></a>
-</div>
-<div class="row-events">
-  {% for event in page.front_page_events %}
-    {% if event %}
-      <div class="event-item">
-        <a href="#">
-          <div class="event-image">
-            <img src="http://i64.tinypic.com/4sxy79.png">
-          </div>
-        </a>
-        <div class="item-text-container">
-          <a href="{% slugurl 'tapahtumat' %}"><h2 class="events-item-header">{{event.name}}</h2></a>
-          <div class="event-item-date">
-            <p style="margin-bottom: 5px;">{{event.start_time}}</p>
-            <p id="event-middle"> - </p>
-            <p style="margin-top: 5px;">{{event.end_time}}</p>
-          </div>
-        </div>
-      </div>
-    {% endif %}
-  {% endfor %}
-</div>
-</div>
-</section>
--->
 {% endblock %}
+
 {% block footer %}
   {% include "footer.html" with sponsor_items=page.front_page_sponsors %}
 {% endblock %}
