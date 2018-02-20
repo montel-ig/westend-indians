@@ -95,9 +95,12 @@ section.footer {
           a {
             color: $indians-grey;
             padding: 10px;
-            i:hover {
-              color: $indians-yellow;
-              transition: color 300ms linear;
+            &:hover {
+              svg {
+                color: $indians-yellow;
+                transition: color 300ms linear;
+              }
+
             }
           }
           @media screen and (min-width : 640px) and  (max-width : 1145px) {
