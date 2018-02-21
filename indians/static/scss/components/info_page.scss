@@ -1,28 +1,26 @@
-section.team-info {
-
-  .team-info-container {
-
-    .team-info-content {
-      grid-column-start: 2;
-      grid-column-end: 12;
-      margin-bottom: 100px;
-
-      > * {
-        margin: 100px 0;
-      }
-
-      h2 {
-        background-color: black;
-        color: white;
-        padding: 5px 20px;
-        width: 50%;
-        margin-bottom: 50px;
-      }
-      .info-contact {
-        .rich-text {
-          .richtext-image {
-            width: 25%;
-            height: 25%;
+.info_page {
+  section.team-info {
+    .team-info-container {
+      .team-info-content {
+        grid-column-start: 2;
+        grid-column-end: 12;
+        margin-bottom: 100px;
+        > * {
+          margin: 100px 0;
+        }
+        h2 {
+          background-color: black;
+          color: white;
+          padding: 5px 20px;
+          width: 50%;
+          margin-bottom: 50px;
+        }
+        .info-contact {
+          .rich-text {
+            .richtext-image {
+              width: 25%;
+              height: 25%;
+            }
           }
         }
       }

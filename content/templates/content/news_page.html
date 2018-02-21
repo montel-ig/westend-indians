@@ -3,6 +3,8 @@
 {% load staticfiles %}
 {% load wagtailimages_tags %}
 
+{% block body_css_class %}news_page{% endblock %}
+
 {% block title %} {{page.title}} {% endblock %}
 {% block main %}
   <section class="news-description">

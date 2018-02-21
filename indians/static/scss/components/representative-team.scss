@@ -1,104 +1,97 @@
-section.team {
+.representative_page {
+  section.team {
+    .team-container {
+      .repr-body {
+        grid-column-start: 1;
+        grid-column-end: 12;
 
-  .team-container {
-    .repr-body {
-      grid-column-start: 1;
-      grid-column-end: 12;
-
-      .rich-text > p > img {
-        opacity: .4;
+        .rich-text > p > img {
+          opacity: .4;
+        }
       }
-    }
+      .info-links {
+        grid-column-start: 1;
+        grid-column-end: 6;
+        padding: 0;
 
-    .info-links {
-      grid-column-start: 1;
-      grid-column-end: 6;
-      padding: 0;
-
-      a {
-        font-family: $titillium-web;
-        display: inline;
-        color: black;
-        text-transform: uppercase;
-        font-weight: bold;
-        font-size: 16px;
-        letter-spacing: $letter-spacing-medium;
-      }
-      a::after {
-        content: " | ";
-        padding: 5px;
-      }
-      a:last-child:after {
-        content: "";
+        a {
+          font-family: $titillium-web;
+          display: inline;
+          color: black;
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: 16px;
+          letter-spacing: $letter-spacing-medium;
+        }
+        a::after {
+          content: " | ";
+          padding: 5px;
+        }
+        a:last-child:after {
+          content: "";
+        }
       }
     }
   }
-}
-section.schedule {
-  background-color: black;
-  color:white;
-}
-section.schedule, section.statistics {
-
-  .schedule-head, .statistics-head {
-    font-family: $black-ops;
-    font-size: 24px;
-    letter-spacing:$letter-spacing-large;
-    text-transform: uppercase;
-
-    > div {
-      display: flex;
-      flex-direction: column;
-      width:100%;
-    }
+  section.schedule {
+    background-color: black;
+    color: white;
   }
-  .schedule-container, .statistics-container {
-    align-items: flex-start;
-    justify-content: space-evenly;
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 100px 40px;
+  section.schedule, section.statistics {
+    .schedule-head, .statistics-head {
+      font-family: $black-ops;
+      font-size: 24px;
+      letter-spacing: $letter-spacing-large;
+      text-transform: uppercase;
 
-    @media screen and (min-width: 176px) and (max-width: 1130px) {
-      flex-direction: column;
-      padding-left: 50px;
-    }
-
-    @media screen and (min-width: 176px) and (max-width: 1130px) {
-      padding-left: 20px;
-    }
-
-    @media screen and (min-width: 176px) and (max-width: 1130px) {
-      margin-left: 0;
-    }
-
-    h1 {
-      padding: 0 50px 0 0 ;
-      margin:  0;
-    }
-
-    .row-content {
-      grid-column-start: 1;
-      grid-column-end: 12;
-      display: flex;
-      padding-top: 5px;
       > div {
         display: flex;
         flex-direction: column;
-        font-family: "Encode Sans", sans-serif;
-        font-size: 18px;
-        letter-spacing: 1px;
-        line-height: 21px;
+        width: 100%;
+      }
+    }
+    .schedule-container, .statistics-container {
+      align-items: flex-start;
+      justify-content: space-evenly;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 100px 40px;
 
-        @media screen and (min-width: 176px) and (max-width: 640px) {
-          justify-content: space-between;
-
-          &#draws {
-            display: none;
-          }
-        }
+      @media screen and (min-width: 176px) and (max-width: 1130px) {
+        flex-direction: column;
+        padding-left: 50px;
+      }
+      @media screen and (min-width: 176px) and (max-width: 1130px) {
+        padding-left: 20px;
       }
 
+      @media screen and (min-width: 176px) and (max-width: 1130px) {
+        margin-left: 0;
+      }
+      h1 {
+        padding: 0 50px 0 0;
+        margin: 0;
+      }
+      .row-content {
+        grid-column-start: 1;
+        grid-column-end: 12;
+        display: flex;
+        padding-top: 5px;
+        > div {
+          display: flex;
+          flex-direction: column;
+          font-family: "Encode Sans", sans-serif;
+          font-size: 18px;
+          letter-spacing: 1px;
+          line-height: 21px;
+          @media screen and (min-width: 176px) and (max-width: 640px) {
+            justify-content: space-between;
+
+            &#draws {
+              display: none;
+            }
+          }
+        }
         > * {
           padding: 25px 50px 0 10px;
           margin: 0;
@@ -110,31 +103,65 @@ section.schedule, section.statistics {
       }
     }
   }
+  section.news {
+    .news-container {
+      display: block;
+      .row-head {
+        padding: 50px;
 
-section.players {
-  background: black;
-  color: white;
+        @media screen and (max-width: 640px) {
+          padding: 50px 10px 30px 10px;
+          > a {
+            font-size: 12px;
+          }
+        }
+      }
+      .row-news {
+        display: flex;
+        //flex-direction: column;
+        @media screen and (min-width: 176px) and (max-width: 1024px) {
+          display: block;
+        }
+        .news-item {
+          width: 300px;
+          height: auto;
+          padding: $base_padding;
+          > a {
+            //width: 300px;
+            > div.news-image {
+              width: 250px;
+              height: 150px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
 
-  .player-wrapper {
-    display: block;
-
-    h1 {
-      margin: 0;
-      padding: 100px 0 100px 50px;
-    }
-  }
-}
-
-section.team {
-  .team-container {
-    &.repr {
-      @media screen and (min-width: 176px) and (max-width: 1330px) {
-        margin-left: 50px;
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+          .item-text-container {
+            align-self: center;
+            padding: 25px 0 100px 0;
+            > a > h2 {
+              margin: 0;
+            }
+          }
+        }
       }
     }
   }
-}
-
-section.footer>img:first-child {
-  background-color: white;
+  section.team {
+    .team-container {
+      &.repr {
+        @media screen and (min-width: 176px) and (max-width: 1330px) {
+          margin-left: 50px;
+        }
+      }
+    }
+  }
+  section.footer > img:first-child {
+    background-color: white;
+  }
 }

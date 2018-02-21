@@ -3,6 +3,8 @@
 {% load staticfiles %}
 {% load wagtailimages_tags %}
 
+{% block body_css_class %}tribe_page{% endblock %}
+
 {% block title %} {{page.title}} {% endblock %}
 {% block main %}
   <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">

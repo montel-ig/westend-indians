@@ -1,5 +1,4 @@
-.main-grid-body {
-
+.tribe_page {
   section.tribe {
     .tribe-container {
       .repr-body {
@@ -16,7 +15,6 @@
           }
         }
       }
-
       .info-links {
         grid-column-start: 1;
         grid-column-end: 6;
@@ -41,7 +39,6 @@
       }
     }
   }
-
   .tribe-body, #lift {
     display: flex;
     justify-content: center;
@@ -72,24 +69,48 @@
     }
     @media screen and (min-width : 176px) and  (max-width : 640px) {
       display: block;
+    }
+    .news-container {
+      .row-head {
+        padding: 50px;
 
-      .news-container {
-        .row-head {
-          padding: 0px;
+        @media screen and (max-width: 640px) {
+          padding: 50px 10px 30px 10px;
+          > a {
+            font-size: 12px;
+          }
         }
-        .row-news {
-          display: flex;
-          flex-direction: column;
-          .news-item {
-            padding-bottom: 100px;
-            width: 325px;
-            > a > div.news-image {
+      }
+      .row-news {
+        display: flex;
+        //flex-direction: column;
+        @media screen and (min-width: 176px) and (max-width: 1024px) {
+          display: block;
+        }
+        .news-item {
+          width: 300px;
+          height: auto;
+          padding: $base_padding;
+          > a {
+            //width: 300px;
+            > div.news-image {
+              width: 250px;
+              height: 150px;
               display: flex;
               justify-content: center;
               align-items: center;
-              height: 150px;
-              width: 325px;
-              border: solid 1px;
+
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+          .item-text-container {
+            align-self: center;
+            padding: 25px 0 100px 0;
+            > a > h2 {
+              margin: 0;
             }
           }
         }
