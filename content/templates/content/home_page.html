@@ -9,7 +9,7 @@
 {% block title %}westend indians{% endblock %}
 {% block slogan %}Once a member - always part of the tribe{% endblock %}
 {% block main %}
-  <img class="triangle" src="{% static "images/tilted-bg-black-top-right.svg" %}">
+  <img class="triangle justify-bottom" src="{% static "images/tilted-bg-black-top-right.svg" %}">
   {% if page.pinnalla or page.pinnalla2 or page.pinnalla3%}
     <section class="lift raise-up" style="background-color:{{ page.lift_bgcolor }};">
       <div class="lift-container">
@@ -58,9 +58,7 @@
       </div>
     </div>
   </section>
-
   <img class="triangle flip-x justify-top" src="{% static "images/tilted-bg-black-top.svg" %}">
-
   <section class="shop">
     <div class="shop-container">
       <div class="shop-products">
@@ -81,6 +79,8 @@
       </div>
     </div>
   </section>
+<img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+
 {% endblock %}
 
 {% block footer %}
