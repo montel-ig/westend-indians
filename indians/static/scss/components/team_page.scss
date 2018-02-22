@@ -20,11 +20,12 @@
           grid-column-end: 13;
         }
 
-        .teams-team-img {
+        img {
           position: relative;
           grid-column-start: 1;
           grid-column-end: 6;
-          max-width: 500px;
+          max-width: 100%;
+          object-fit: contain;
 
           @media screen and (min-width: 176px) and (max-width: 640px) {
             padding-bottom: 50px;
