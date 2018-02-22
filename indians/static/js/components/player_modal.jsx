@@ -57,9 +57,9 @@ class PlayerModal extends React.Component {
           <div className="lower">
             { role && <p className="position">{role}</p> }
             { position && <p className="position">{t('player_modal',position)}</p> }
-            { handedness && <p>Kätisyys: {t('player_modal',handedness)}</p> }
-            { height && <p>Pituus (cm): {height}</p> }
-            { weight && <p>Paino (kg): {weight}</p> }
+            { handedness && <p>Pelaa {t('player_modal',handedness)}</p> }
+            { height && <p>Pituus: {height} cm</p> }
+            { weight && <p>Paino: {weight} kg</p> }
           </div>
           <div className="some">
             {this.props.selectedPlayer.some_instagram &&
