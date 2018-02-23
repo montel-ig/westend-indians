@@ -16,7 +16,7 @@ class PlayerBrowser extends React.Component {
   }
 
   filterEmployeesFromPlayers(players, employees) {
-    return players.filter(person => employees ? person.role : !person.role);
+    return players.filter(person => employees ? person.role && !person.number : !person.role);
   }
 
   mapPlayers(players) {
@@ -24,8 +24,10 @@ class PlayerBrowser extends React.Component {
       .sort((a,b) => a.number - b.number)
       .map(player => {
       if (!player.role) {
-        return <Player
+        return <Person
           name={`${player.first_name} ${player.last_name}`}
+          first_name={player.first_name}
+          last_name={player.last_name}
           origin={player.origin}
           number={player.number}
           position={player.position}
@@ -55,7 +57,7 @@ class PlayerBrowser extends React.Component {
   mapEmployees(employees) {
     return employees
       .map(employee => {
-      return <Player
+      return <Person
         name={`${employee.first_name} ${employee.last_name}`}
         origin={employee.origin}
         role={employee.role}
@@ -117,6 +119,7 @@ class PlayerBrowser extends React.Component {
   }
 
   render() {
+    console.log(this.state.employees);
     return (
       <div className="player-wrapper" onClick={this.handleModalClose}>
         <h1>pelaajat</h1>
@@ -129,7 +132,7 @@ class PlayerBrowser extends React.Component {
         <div className={this.state.selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
           {this.mapPlayers(this.state.players)}
         </div>
-        <h1>Toimihenkilöt</h1>
+        {this.state.employees.length > 0 && <h1>Toimihenkilöt</h1>}
         <div className={this.state.selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
           {this.mapEmployees(this.state.employees)}
         </div>

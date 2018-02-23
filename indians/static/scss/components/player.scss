@@ -22,8 +22,10 @@
 
     .desc-container {
       position: absolute;
-      bottom: 10px;
-      padding: 0 $base_padding / 2;
+      bottom: 0;
+      width: 100%;
+
+      //padding: 0 $base_padding / 2;
 
       > p {
         color: $indians-yellow;
@@ -42,53 +44,97 @@
         }
       }
 
-      .player-desc {
-        background:rgba(0,0,0,0.2);
-        width: 100%;
+      .bottom {
         display: flex;
-        list-style: none;
-        flex-direction: row;
-        padding: 0;
-        margin: 0;
-
-
-        > li {
-          margin: auto 0;
-
-          > p {
-            font-family: $titillium-web;
-            font-size: 20px;
-            color: white;
-            text-transform: uppercase;
-
-            @media screen and (min-width: 176px) and (max-width: 1200px) {
-              font-size: 16px;
-            }
-
-            @media screen and (min-width: 176px) and (max-width: 600px) {
-              font-size: 12px;
-              line-height: 14px;
-            }
-
-            @media screen and (min-width: 176px) and (max-width: 430px) {
-              font-size: 8px;
-            }
+        width: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        .player-name {
+          padding: 5px 0;
+          margin-left: 85px;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          flex-flow:column nowrap;
+          @media screen and (max-width: 1200px) {
+            margin-left: 44px;
           }
-
-          .player-number {
-            margin: 0 10px 0 0;
+          @media screen and (max-width : 420px) {
+            padding: 0 0 0 40px;
+            margin-left: 10px;
           }
-
-          &.employee {
-            text-align: start;
-            width: 100%;
-            p { margin:0}
-          }
-
-          &.player {
+          > div {
             text-align: left;
-            width: 100%;
-            p { margin: 0; }
+            p {
+              margin: 3px 0;
+              font-size: 16px;
+              word-spacing: 100vw;
+              text-transform: uppercase;
+              letter-spacing: 4px;
+              @media screen and (max-width : 420px) {
+                font-size: 16px;
+              }
+              @media screen and (min-width: 176px) and (max-width: 1200px) {
+                margin: 0;
+                font-size: 10px;
+                letter-spacing: 3px;
+                line-height: 16px;
+              }
+
+              @media screen and (min-width: 176px) and (max-width: 600px) {
+                font-size: 12px;
+                line-height: 14px;
+              }
+
+              @media screen and (min-width: 176px) and (max-width: 430px) {
+                font-size: 8px;
+              }
+            }
+          }
+        }
+        .number {
+          position: absolute;
+          left: 0;
+          height: 100%;
+          display: flex;
+          padding: 0 10px;
+          p {
+            margin:auto;
+            color: $indians-yellow;
+            font-size: 35px;
+            @media screen and (max-width: 1200px) {
+              font-size: 14px;
+            }
+          }
+        }
+        .employee {
+          .role {
+            p {
+              color: $indians-yellow;
+              margin: 5px 0 20px 10px;
+              letter-spacing: 3px;
+              @media screen and (min-width: 176px) and (max-width: 1200px) {
+                margin: 0 0 0 10px;
+                font-size: 10px;
+                line-height: 16px;
+                letter-spacing: 2px;
+              }
+            }
+          }
+          .employee-name {
+            div {
+              p {
+                font-size: 16px;
+                text-transform: uppercase;
+                letter-spacing: 4px;
+                word-spacing: 100vw;
+                margin: 5px 0 10px 10px;
+                @media screen and (min-width: 176px) and (max-width: 1200px) {
+                  font-size: 10px;
+                  letter-spacing: 3px;
+                  line-height: 16px;
+                }
+              }
+            }
           }
         }
       }
@@ -100,23 +146,7 @@
     transition: all .3s ease-in-out;
     cursor: pointer;
   }
-
-}
-
-.player-name,
-.player-number,
-.player-browser-root .player-container .desc-container .player-desc > li > p.player-number {
-  color: $indians-yellow;
-  font-size: xx-large;
-  text-align: center;
-
   @media screen and (min-width: 176px) and (max-width: 1200px) {
-    font-size: 25px;
+    line-height: 16px;
   }
-
-  @media screen and (min-width: 176px) and (max-width: 600px) {
-    font-size: 16px;
-  }
-
 }
-
