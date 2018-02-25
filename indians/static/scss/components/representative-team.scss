@@ -1,6 +1,14 @@
 .representative_page {
+  section.in-focus {
+    .lift-container,
+    .news-container .row-news .news-item,
+    .some-container .some-row div {
+      opacity: 1;
+    }
+  }
   section.team {
     .team-container {
+      padding: 0 $base_padding $base_padding $base_padding;
       .repr-body {
         grid-column-start: 1;
         grid-column-end: 12;
@@ -11,7 +19,7 @@
       }
       .info-links {
         grid-column-start: 1;
-        grid-column-end: 6;
+        grid-column-end: 12;
         padding: 0;
 
         a {
@@ -39,10 +47,7 @@
   }
   section.schedule, section.statistics {
     .schedule-head, .statistics-head {
-      font-family: $black-ops;
-      font-size: 24px;
-      letter-spacing: $letter-spacing-large;
-      text-transform: uppercase;
+
 
       > div {
         display: flex;
@@ -59,31 +64,33 @@
 
       @media screen and (min-width: 176px) and (max-width: 1130px) {
         flex-direction: column;
-        padding-left: 50px;
-      }
-      @media screen and (min-width: 176px) and (max-width: 1130px) {
-        padding-left: 20px;
-      }
-
-      @media screen and (min-width: 176px) and (max-width: 1130px) {
-        margin-left: 0;
-      }
-      h1 {
-        padding: 0 50px 0 0;
-        margin: 0;
       }
       .row-content {
         grid-column-start: 1;
         grid-column-end: 12;
-        display: flex;
         padding-top: 5px;
+
         > div {
           display: flex;
-          flex-direction: column;
           font-family: "Encode Sans", sans-serif;
           font-size: 18px;
           letter-spacing: 1px;
           line-height: 21px;
+          justify-content: space-between;
+          p {
+            &.location {
+              //margin: 14px 0;
+            }
+            @media screen and (max-width: 630px) {
+              font-size: 12px;
+            }
+            @media screen and (max-width: 500px) {
+              font-size: 10px;
+            }
+            @media screen and (max-width: 420px) {
+              font-size: 8px;
+            }
+          }
           @media screen and (min-width: 176px) and (max-width: 640px) {
             justify-content: space-between;
 
@@ -92,42 +99,67 @@
             }
           }
         }
-        > * {
-          padding: 25px 50px 0 10px;
-          margin: 0;
-
-          @media screen and (min-width: 176px) and (max-width: 640px) {
-            padding: 25px 25px 0 0;
+        .cell {
+          flex-direction: column;
+        }
+        .head {
+          height: 50px;
+          & h3:nth-child(2) {
+            margin-left: 20px;
+          }
+          & h3:nth-child(3) {
+            margin-right: 50px;
+          }
+          h3 {
+            @media screen and (max-width: 630px) {
+              font-size: 14px;
+            }
+            @media screen and (max-width: 500px) {
+              font-size: 10px;
+            }
+            @media screen and (max-width: 420px) {
+              font-size: 12px;
+            }
           }
         }
       }
     }
   }
-  section.news {
+  .news {
     .news-container {
-      display: block;
       .row-head {
-        padding: 50px;
-
+        grid-column-start: 1;
+        grid-column-end: 13;
         @media screen and (max-width: 640px) {
-          padding: 50px 10px 30px 10px;
+          padding: 50px 0 30px 0;
           > a {
             font-size: 12px;
           }
         }
       }
       .row-news {
+        grid-column-start: 1;
+        grid-column-end: 13;
         display: flex;
-        //flex-direction: column;
-        @media screen and (min-width: 176px) and (max-width: 1024px) {
-          display: block;
+        @media screen and (min-width: 176px) and (max-width: 920px) {
+          flex-direction: column;
+          align-items: center;
+          div.news-item {
+            width: 320px;
+            padding: 10px;
+          }
         }
         .news-item {
+          opacity: 0;
+          transition: $scroll-transition;
           width: 300px;
+          max-width: 100%;
           height: auto;
           padding: $base_padding;
+          @media screen and (max-width: 1160px) {
+            padding: $base_padding / 2;
+          }
           > a {
-            //width: 300px;
             > div.news-image {
               width: 250px;
               height: 150px;
@@ -144,6 +176,9 @@
           .item-text-container {
             align-self: center;
             padding: 25px 0 100px 0;
+            @media screen and (min-width: 176px) and (max-width: 1024px) {
+              padding: 20px 0 0 0;
+            }
             > a > h2 {
               margin: 0;
             }
@@ -156,7 +191,6 @@
     .team-container {
       &.repr {
         @media screen and (min-width: 176px) and (max-width: 1330px) {
-          margin-left: 50px;
         }
       }
     }
