@@ -7,7 +7,7 @@
 
 {% block title %} {{page.title}} {% endblock %}
 {% block main %}
-  <section class="news-description">
+  <section class="news-description" id="news"}>
     <div class="news-body-container ignore-height">
       <p>{{ page.description }}</p>
     </div>
@@ -17,7 +17,7 @@
     <div class="news-item-container">
       {% for news_item in page.news %}
         <div class="news-item">
-          <h1>
+          <h1 id="{{ news_item.id }}">
             {{ news_item.title }}
           </h1>
           <p id="lead-paragraph">
