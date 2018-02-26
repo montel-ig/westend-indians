@@ -2,13 +2,12 @@ FROM python:3.6-alpine
 MAINTAINER lauri@montel.fi
 
 ENV PYTHONUNBUFFERED 1
-ENV work_dir /app
-RUN mkdir -p ${work_dir}
-WORKDIR ${work_dir}
+ENV WORK_DIR /app
+RUN mkdir -p ${WORK_DIR}
+WORKDIR ${WORK_DIR}
 
-ADD requirements.txt ${work_dir}
-ADD package.json ${work_dir}
-
+ADD requirements.txt ${WORK_DIR}
+ADD package.json ${WORK_DIR}
 
 RUN apk --update add nginx supervisor postgresql-dev build-base nodejs jpeg-dev zlib-dev linux-headers && \
     npm install && \
@@ -26,8 +25,10 @@ COPY deployment/docker/supervisor.ini /etc/supervisor.d/
 
 EXPOSE 80
 
-ADD . ${work_dir}
-RUN python manage.py collectstatic --noinput
-RUN DEBUG=no python manage.py compress
+ENV DJANGO_SETTINGS indians.settings.prod
+
+ADD . ${WORK_DIR}
+RUN python manage.py collectstatic --settings=${DJANGO_SETTINGS} --noinput
+RUN DEBUG=no python manage.py compress --settings=${DJANGO_SETTINGS}
 
 CMD ["/app/deployment/docker/entry.sh"]
