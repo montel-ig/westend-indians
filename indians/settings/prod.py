@@ -4,6 +4,8 @@ import sys
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
+COMPRESS_ENABLED = True
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
