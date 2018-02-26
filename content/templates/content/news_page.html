@@ -1,4 +1,5 @@
 {% extends "base_layout.html" %}
+
 {% load wagtailcore_tags %}
 {% load staticfiles %}
 {% load wagtailimages_tags %}
@@ -6,6 +7,7 @@
 {% block body_css_class %}news_page{% endblock %}
 
 {% block title %} {{page.title}} {% endblock %}
+
 {% block main %}
   <section class="news-description" id="news"}>
     <div class="news-body-container ignore-height">
@@ -30,6 +32,7 @@
   </section>
   <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
 {% endblock %}
+
 {% block footer %}
   {% include "footer.html" with sponsor_items=page.front_page_sponsors %}
 {% endblock %}

@@ -4,6 +4,7 @@
 {% block body_css_class %}statistics_page{% endblock %}
 
 {% block title %} {{page.title}} {% endblock %}
+
 {% block main %}
   <section class="team-statistics">
     <div class="team-statistics-container">
@@ -30,6 +31,7 @@
     </div>
   </section>
 {% endblock %}
+
 {% block footer %}
 {% include "footer.html" with sponsor_items=page.front_page_sponsors %}
 {% endblock %}
