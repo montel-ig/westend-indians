@@ -8,7 +8,7 @@
 {% block main %}
   <section class="teams-description">
     <div class="container ignore-height">
-      {% lorem 2 p random %}
+      {{ page.description|safe }}
     </div>
     <img class="triangle flip-x justify-top" src="{% static "images/tilted-bg-white-top.svg" %}">
 
