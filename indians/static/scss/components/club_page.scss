@@ -1,6 +1,5 @@
-.main-grid-body {
-
-  .club-body, .club-introduction, .club-values, .club-contact, .club-personnel {
+.club_page {
+  .body, .introduction, .values, .contact, .personnel {
     .content {
       .rich-text {
         grid-column-start: 1;
@@ -16,16 +15,13 @@
           padding: 5px 20px;
           width: 50%;
         }
-
       }
     }
   }
-
-  .club-body {
+  .body {
     background-image: url("http://i64.tinypic.com/2akq38.png");
   }
-
-  .club-values, .club-contact {
+  .values, .contact {
     background-color: black;
     color: white;
   }

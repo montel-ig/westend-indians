@@ -1,8 +1,8 @@
 var locales = {'fi':
   {'player_modal':
-    {'both': 'molemmat',
-      'right': 'oikea',
-      'left': 'vasen',
+    {'both': 'molemmilta',
+      'right': 'oikealta',
+      'left': 'vasemmalta',
       "fwd": "hyökkääjä",
       "goal": "maalivahti",
       "def": "puolustaja"

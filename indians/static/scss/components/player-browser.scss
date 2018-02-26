@@ -3,17 +3,20 @@
   grid-template-columns: repeat(5, 250px);
   //grid-template-rows: repeat(5, 350px);
 
-  justify-content: center;
   padding-bottom: $base_padding;
 
   &:empty {
     display: none;
   }
 
-  @media screen and (min-width: 176px) and (max-width: 1200px) {
+  @media screen and (max-width: 1300px) {
+    grid-template-columns: repeat(4, 250px);
+  }
+  @media screen and (max-width: 1200px) {
     grid-template-columns: repeat(auto-fit, 150px);
-    grid-template-rows: repeat(5, 200px);
-    padding: 0 25px;
+  }
+  @media screen and (max-width: 530px) {
+    justify-content: center;
   }
 }
 

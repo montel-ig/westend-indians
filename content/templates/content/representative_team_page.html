@@ -3,6 +3,7 @@
 {% load staticfiles %}
 {% load wagtailimages_tags %}
 
+{% block body_css_class %}representative_page{% endblock %}
 
 {% block title %} {{page.title}} {% endblock %}
 {% block main %}
@@ -14,9 +15,9 @@
         {{ page.body|richtext }}
       </div>
       <ul class="info-links">
-        <a href="/joukkueet/miehet-edustus">pelaajat</a>
-        <a href="#schedule">otteluohjelma</a>
-        <a href="#statistics">sarjataulukko</a>
+        <a href="#team-schedule">otteluohjelma</a>
+        <a href="#team-news">uutiset</a>
+        <a href="#team-some">some</a>
       </ul>
     </div>
   </section>
@@ -42,66 +43,41 @@
     <img class="triangle justify-top" src="{% static "images/tilted-bg-white-bottom.svg" %}">
   </section>
   {% endif %}
-  <!--
-  {% if page.upcoming_homegame.opponent %}
-    <section class="games">
-      <img class="triangle  flip-y justify-top" src="{% static "images/tilted-bg-black-top.svg" %}">
-      <div class="games-container full-black ignore-height">
-        <div class="row">
-          <div class="home">
-            <img src="{% static "images/indians_logo_345x345.jpg" %}">
-          </div>
-          <div class="games-date">
-            <h1>seuraava edustusjoukkueen kotiottelu</h1>
-            <p>Vastassa: <span>{{ page.upcoming_homegame.opponent }}</span></p>
-            <p>{{ page.upcoming_homegame.date|date:"d.n.Y" }}  kello {{ page.upcoming_homegame.date.time }}</p>
-            <a href="{% slugurl 'info' %}" class="games-cta">tule katsomaan</a>
-          </div>
-          <div class="away">
-            <img src="{% static "images/indians_logo_345x345.jpg" %}">
-          </div>
-        </div>
-      </div>
-    </section>
-  {% endif %}
-  -->
-
   {% if page.representative_team_page_matches %}
-    <section class="schedule" id="schedule"}>
+    <section class="schedule" id="team-schedule"}>
       <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
-
       <div class="schedule-container repr ignore-height">
         <h1 class="schedule-head">otteluohjelma</h1>
         <div class="row-content">
-          <div>
+          <div class="head">
             <h3>Ajankohta</h3>
-            {% for match in page.representative_team_page_matches %}
-              <p>{{ match.date.date|date:"d.n.Y" }}  kello {{ match.date.time }}</p>
-            {% endfor %}
-          </div>
-          <div>
             <h3>Vastassa</h3>
-            {% for match in page.representative_team_page_matches %}
-              <p>{{ match.opponent }}</p>
-            {% endfor %}
-          </div>
-          <div>
             <h3>Paikka</h3>
-            {% for match in page.representative_team_page_matches %}
-              {% if match.homegame %}
-                <p>Espoon Otaniemi</p>
-              {% else %}
-                <p>{{ match.location }}</p>
-              {% endif %}
-            {% endfor %}
           </div>
+          {% for match in page.representative_team_page_matches %}
+          <div>
+            <div class="cell">
+                  <p>{{ match.date.date|date:"d.n.Y" }}  kello {{ match.date.time }}</p>
+            </div>
+            <div class="cell">
+                <p>{{ match.opponent }}</p>
+            </div>
+            <div class="cell">
+                {% if match.homegame %}
+                  <p class="location">Espoon Otaniemi</p>
+                {% else %}
+                  <p class="location"}>{{ match.location }}</p>
+                {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
         </div>
       </div>
-      <img class="triangle justify-top" src="{% static "images/tilted-bg-white-bottom.svg" %}">
-
+      <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
     </section>
   {% endif %}
-  <section class="news">
+  <section class="news" id="team-news"}>
     <div class="news-container  add-space">
       <div class="row-head">
         <h1>uutiset</h1>
@@ -111,7 +87,7 @@
         {% for newsitem in page.representative_team_page_news %}
         {% if newsitem %}
         <div class="news-item">
-          <a href="{% slugurl 'news' %}">
+          <a href="{% slugurl 'news' %}#{{ newsitem.id }}">
             <div class="news-image">
               {% if newsitem.thumbnail_image and newsitem.thumbnail_image.url %}
                 <img src="{{ newsitem.thumbnail_image.url }}" alt="{{ newsitem.title }}">
@@ -119,7 +95,7 @@
             </div>
           </a>
           <div class="item-text-container">
-            <a href="{% slugurl 'news' %}"><h2 class="news-item-header">{{ newsitem.title }}</h2></a>
+            <a href="{% slugurl 'news' %}#{{ newsitem.id }}"><h2 class="news-item-header">{{ newsitem.title }}</h2></a>
             <p class="news-item-text">
               {{ newsitem.ingress }}
             </p>
@@ -129,9 +105,9 @@
         {% endfor %}
       </div>
     </div>
-    <img class="triangle flip-y  justify-top" src="{% static "images/tilted-bg-black-top.svg" %}">
   </section>
-  <section class="some">
+  <section class="some" id="team-some"}>
+    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
     <div class="some-container">
       <h1>some</h1>
       <div class="some-row">
@@ -143,53 +119,6 @@
         </div>
         <div class="team-twitter">
           {% include "twitter_widget.html" %}
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--
-  <section class="players" id="players">
-    <div class="players-container">
-    </div>
-    <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-black-bottom.svg" %}">
-  </section>
-  -->
-  <section class="statistics" id="statistics">
-    <img class="triangle flip-y  justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
-    <div class="statistics-container repr ignore-height">
-      <h1 class="schedule-head">sarjataulukko</h1>
-      <div class="row-content">
-        <div>Joukkue
-          <p>Westend Indians</p>
-          <p>Westend Indians</p>
-          <p>Westend Indians</p>
-          <p>Westend Indians</p>
-          <p>Westend Indians</p>
-          <p>Westend Indians</p>
-        </div>
-        <div>Voittoja
-          <p>10</p>
-          <p>10</p>
-          <p>10</p>
-          <p>10</p>
-          <p>10</p>
-          <p>10</p>
-        </div>
-        <div>Tappioita
-          <p>5</p>
-          <p>5</p>
-          <p>5</p>
-          <p>5</p>
-          <p>5</p>
-          <p>5</p>
-        </div>
-        <div id="draws"}>Tasapelejä
-          <p>2</p>
-          <p>2</p>
-          <p>2</p>
-          <p>2</p>
-          <p>2</p>
-          <p>2</p>
         </div>
       </div>
     </div>

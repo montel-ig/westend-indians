@@ -183,4 +183,10 @@ section.events {
       }
     }
   }
+  // events page
+  .event-container {
+    grid-column-start: 1;
+    grid-column-end: 13;
+    padding-left: $base_padding;
+  }
 }

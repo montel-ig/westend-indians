@@ -1,22 +1,50 @@
-.main-grid-body {
-
+.tribe_page {
+  section.in-focus {
+    .lift-container,
+    .news-container .row-news .news-item,
+    .some-container .some-row div {
+      opacity: 1;
+    }
+  }
   section.tribe {
     .tribe-container {
-      .repr-body {
+      padding: 120px $base_padding;
+      grid-column-start: 1;
+      grid-column-end: 12;
+      @media screen and  (max-width : 420px) {
+        padding: $base_padding;
+        display: block;
+        min-height: 0;
+      }
+      h1 {
+        margin: 0
+      }
+      img {
         grid-column-start: 1;
+        grid-column-end: 8;
+        max-width: 100%;
+        object-fit: contain;
+        @media screen and  (max-width : 880px) {
+          grid-column-end: 13;
+        }
+      }
+      .content {
+        grid-column-start: 9;
         grid-column-end: 12;
-        h1 { margin: 0 }
-
-        .rich-text {
-          > p > img {
-            opacity: .4;
-          }
-          > p:empty {
-            display: none;
-          }
+        @media screen and  (max-width : 880px) {
+          padding-top: $base_padding;
+          grid-column-start: 1;
         }
       }
 
+      .rich-text {
+        > p > img {
+          opacity: .4;
+        }
+        > p:empty {
+          display: none;
+        }
+      }
       .info-links {
         grid-column-start: 1;
         grid-column-end: 6;
@@ -41,7 +69,6 @@
       }
     }
   }
-
   .tribe-body, #lift {
     display: flex;
     justify-content: center;
@@ -63,7 +90,7 @@
       }
     }
   }
-  section.tribe-news {
+  .tribe-news {
     .news-container {
       .row-head {
         grid-column-start: 1;
@@ -72,44 +99,88 @@
     }
     @media screen and (min-width : 176px) and  (max-width : 640px) {
       display: block;
+    }
+    .news-container {
+      .row-head {
+        padding: 50px;
 
-      .news-container {
-        .row-head {
-          padding: 0px;
+        @media screen and (max-width: 640px) {
+          padding: 50px 10px 30px 10px;
+          > a {
+            font-size: 12px;
+          }
         }
-        .row-news {
-          display: flex;
+      }
+      .row-news {
+        grid-column-start: 1;
+        grid-column-end: 13;
+        display: flex;
+        align-items: center;
+        @media screen and (min-width: 176px) and (max-width: 920px) {
           flex-direction: column;
-          .news-item {
-            padding-bottom: 100px;
-            width: 325px;
-            > a > div.news-image {
+          div.news-item {
+            width: 320px;
+          }
+        }
+        .news-item {
+          opacity: 0;
+          transition: $scroll-transition;
+          width: 300px;
+          height: auto;
+          padding: $base_padding;
+          @media screen and (max-width: 1160px) {
+            width: 250px;
+          }
+          @media screen and (min-width: 176px) and (max-width: 1024px) {
+            padding: $base_padding / 2;
+          }
+          > a {
+            > div.news-image {
+              width: 250px;
+              height: 150px;
               display: flex;
               justify-content: center;
               align-items: center;
-              height: 150px;
-              width: 325px;
-              border: solid 1px;
+
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+          .item-text-container {
+            align-self: center;
+            padding: 25px 0 100px 0;
+            @media screen and (min-width: 176px) and (max-width: 1024px) {
+              padding: 20px 0 0 0;
+            }
+            > a > h2 {
+              margin: 0;
             }
           }
         }
       }
     }
   }
-  section.tribe-some {
-    .some-container {
-      grid-column-start: 1;
-      grid-column-end: 13;
-      display: flex;
-      justify-content: space-around;
-    }
-  }
-  section.lift {
+  .lift {
     margin: 0;
     .lift-container {
+      opacity:0;
+      transition: $scroll-transition;
+      display: flex;
+      min-height: 0;
+      flex-wrap: wrap;
+      padding: $base_padding;
+      justify-content: center;
       .lift-img {
+        width: 100%;
         > img {
           max-width: 100%;
+          height: 100%;
+          object-fit: contain;
+          padding: $base_padding 0;
+
+
         }
       }
     }

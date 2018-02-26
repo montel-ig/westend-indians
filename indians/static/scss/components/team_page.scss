@@ -7,7 +7,9 @@
       margin: 0 auto;
       .teams-team-container {
         padding-top: 120px;
-
+        @media screen and (max-width: 380px) {
+          padding-top: $base_padding;
+        }
         @media screen and (max-width: 910px) {
           display: flex;
           flex-direction: column;
@@ -18,13 +20,23 @@
           margin: $base_padding * 2 0;
           grid-column-start: 1;
           grid-column-end: 13;
+          @media screen and (max-width: 420px) {
+            margin: $base_padding 0;
+          }
         }
 
-        .teams-team-img {
+        p {
+          @media screen and (max-width: 420px) {
+            margin: 20px 0;
+          }
+        }
+
+        img {
           position: relative;
           grid-column-start: 1;
-          grid-column-end: 6;
-          max-width: 500px;
+          grid-column-end: 10;
+          max-width: 100%;
+          object-fit: contain;
 
           @media screen and (min-width: 176px) and (max-width: 640px) {
             padding-bottom: 50px;
@@ -33,10 +45,10 @@
 
         div.content {
           grid-column-start: auto;
-          grid-column-end: 13;
+          grid-column-end: 12;
 
           > div {
-            padding-left: 50px;
+
           }
 
           .team-contact {
@@ -66,6 +78,9 @@
       background: black;
       color: white;
       padding: 0 $base_padding;
+      @media screen and (max-width: 380px) {
+        padding: 0 $base_padding / 2;
+      }
 
       .player-wrapper {
         display: block;

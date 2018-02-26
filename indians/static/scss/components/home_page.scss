@@ -1,9 +1,5 @@
 .home_page {
 
-  .lift {
-    margin: 120px 0;
-  }
-
   .team-container,
   .tribe-container,
   .lift-container,
@@ -90,6 +86,7 @@
             &#product-price {
               text-align: center;
               font-size: 120%;
+              color: black;
             }
           }
         }
@@ -313,6 +310,10 @@
 
 
   .team {
+    @media screen and (max-width: 620px) {
+      position: relative;
+      top: -50px;
+    }
     .content {
       grid-column-start: 8;
       grid-column-end: 12;
@@ -323,6 +324,9 @@
     .content {
       grid-column-start: 2;
       grid-column-end: 6;
+      @media screen and (max-width: 620px) {
+        margin-bottom: 50px;
+      }
     }
   }
 
@@ -330,6 +334,7 @@
   .tribe {
     position: relative;
     @media screen and (max-width: 1024px) {
+      padding: $base_padding 0;
       grid-column-start: 2;
       grid-column-end: 12;
       .content {
@@ -347,7 +352,7 @@
     position: absolute;
     display: block;
     opacity: 0;
-    transition: all 1.2s ease-in-out;
+    transition: $scroll-transition;
     margin: 0;
   }
 
@@ -422,13 +427,7 @@
     overflow: hidden;
   }
 
-  .shop {
-    grid-column-start: 8;
-    grid-column-end: 12;
-    > h1, p, a {
-      color: white;
-    }
-  }
+
 
   section.lift {
 
@@ -455,6 +454,20 @@
 
   .shop-container {
     padding: 120px 0;
+    div.shop {
+      grid-column-start: 8;
+      grid-column-end: 12;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      > h1, p, a.cta-link {
+        color: white;
+        margin: 10px;
+        &:empty {
+          display: none;
+        }
+      }
+    }
     @media screen and (max-width: 500px) {
       padding: 0;
       min-height: 0;
@@ -489,7 +502,6 @@
 
       > .tribe {
         background: none;
-        padding: 0;
 
         .tribe-container {
           display: block;
@@ -532,7 +544,6 @@
               padding: 100px 30px;
 
               .cta-text {
-                padding-bottom: 50px;
               }
             }
           }
