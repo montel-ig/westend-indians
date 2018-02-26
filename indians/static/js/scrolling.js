@@ -18,10 +18,11 @@
     const st = window.pageYOffset
     // st > 240 ? document.body.addClass('fixed-menu') : $BODY.removeClass('fixed-menu')
     const screenMidPoint = window.innerHeight / 2 + st
+    const screenBottomPoint = window.innerHeight + st - 200
     // console.log('screen mid point', screenMidPoint)
     for(let sl of SECTION_LOCATIONS) {
       // if(sl[0] < screenMidPoint && screenMidPoint < sl[1]) {
-      if(sl[0] < screenMidPoint) {
+      if(sl[0] < screenBottomPoint) {
         //          if(i == 0) {
         //            $BODY.addClass('at-top');
         //          } else {

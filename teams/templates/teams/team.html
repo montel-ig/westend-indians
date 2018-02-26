@@ -1,4 +1,5 @@
 {% extends "base_layout.html" %}
+
 {% load wagtailcore_tags %}
 {% load staticfiles %}
 {% load wagtailimages_tags %}
@@ -6,6 +7,7 @@
 {% block body_css_class %}team_page{% endblock %}
 
 {% block title %} {{ properties.name }} {% endblock %}
+
 {% block slogan %}Once a member - always part of the tribe{% endblock %}
 
 {% block main %}
@@ -73,6 +75,7 @@
     }
   </script>
 {% endblock %}
+
 {% block footer %}
   {% include "footer.html" with sponsor_items=sponsors %}
 {% endblock %}

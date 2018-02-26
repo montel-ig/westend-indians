@@ -6,6 +6,7 @@
 {% block body_css_class %}club_page{% endblock %}
 
 {% block title %} {{page.title}} {% endblock %}
+
 {% block main %}
   <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
   <section class="body">
@@ -39,6 +40,7 @@
     </div>
   </section>
 {% endblock %}
+
 {% block footer %}
   {% include "footer.html" with sponsor_items=page.front_page_sponsors %}
 {% endblock %}
