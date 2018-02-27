@@ -78,13 +78,18 @@
       <h1>some</h1>
       <div class="some-row">
         <div class="team-face">
-          {% include "facebook_widget.html" %}
-        </div>
-        <div id="instafeed" class="team-insta">
-          {% include "instagram_widget.html" %}
+          {% include "icons/facebook_icon.html" %}
+          {% include "some/facebook/facebook_widget_team.html" %}
         </div>
         <div class="team-twitter">
-          {% include "twitter_widget.html" %}
+          {% include "icons/twitter_icon.html" %}
+          {% include "some/twitter/twitter_widget_team.html" %}
+        </div>
+      </div>
+      <div class="instagram-wrapper">
+        {% include "icons/instagram_icon.html" %}
+        <div id="instafeed" class="team-insta">
+          {% include "some/instagram/instagram_widget_team.html" %}
         </div>
       </div>
     </div>
