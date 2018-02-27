@@ -41,11 +41,13 @@ class IndiansBasePage(Page):
 
     @property
     def representative_team_page_news(self):
-        return NewsItem.objects.filter(subject='miehet-edustus').order_by("-created_at")[:3]
+        now = datetime.datetime.now()
+        return NewsItem.objects.filter(subject='miehet-edustus',publication_date__lt=now).order_by("-created_at")[:3]
 
     @property
     def tribe_page_news(self):
-        return NewsItem.objects.filter(subject='heimo').order_by("-created_at")[:3]
+        now = datetime.datetime.now()
+        return NewsItem.objects.filter(subject='heimo',publication_date__lt=now).order_by("-created_at")[:3]
 
     # Events
 

@@ -1,6 +1,8 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 
+from django.utils import timezone
+
 SUBJECT_TYPES = (
     ('heimo', 'Heimo'),
     ('miehet-edustus', 'Miehet-edustus'),
@@ -13,6 +15,7 @@ class NewsItem(models.Model):
     ingress = models.TextField()
     body = RichTextField()
     thumbnail_image = models.ImageField(null=True)
+    publication_date = models.DateTimeField(default=timezone.now, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
