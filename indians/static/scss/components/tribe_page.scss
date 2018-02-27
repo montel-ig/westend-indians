@@ -162,27 +162,4 @@
       }
     }
   }
-  .lift {
-    margin: 0;
-    .lift-container {
-      opacity:0;
-      transition: $scroll-transition;
-      display: flex;
-      min-height: 0;
-      flex-wrap: wrap;
-      padding: $base_padding;
-      justify-content: center;
-      .lift-img {
-        width: 100%;
-        > img {
-          max-width: 100%;
-          height: 100%;
-          object-fit: contain;
-          padding: $base_padding 0;
-
-
-        }
-      }
-    }
-  }
 }
