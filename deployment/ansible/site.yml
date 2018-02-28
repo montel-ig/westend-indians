@@ -28,3 +28,6 @@
         dest: /etc/nginx/conf.d/production.conf
       notify:
         - restart nginx
+
+    - name: Copy site update script
+      copy: src=files/update.sh dest=/home/chief/update.sh
