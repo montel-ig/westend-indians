@@ -25,6 +25,7 @@ COPY deployment/docker/supervisor.ini /etc/supervisor.d/
 EXPOSE 80
 
 ENV DJANGO_SETTINGS indians.settings.prod
+ENV SECRET_KEY "not-so-secret"
 
 ADD . ${WORK_DIR}
 RUN python manage.py collectstatic --settings=${DJANGO_SETTINGS} --noinput
