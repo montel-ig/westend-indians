@@ -1,0 +1,10 @@
+{% load startswith %}
+
+<ul class="sub-nav">
+  {% for sub_menuitem in pages %}
+    <li class="link"><a href="{{ sub_menuitem.url }}">{{ sub_menuitem.title.upper }}</a></li>
+  {% endfor %}
+  {% if self.url|startswith:'/miehet-edustus/' %}
+    <li class="link"><a href="/joukkueet/miehet-edustus">JOUKKUE</a></li>
+  {% endif %}
+</ul>

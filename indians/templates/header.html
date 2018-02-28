@@ -1,6 +1,6 @@
 {% load staticfiles %}
 {% load wagtailcore_tags %}
-{% load current_path_check %}
+{% load startswith %}
 
 <section class="header">
   <h1 class="main-header-text header">Westend Indians</h1>
@@ -23,7 +23,9 @@
     <ul class="nav-index">
       {% for menuitem in request.site.root_page.get_children.live.in_menu %}
         <li class="link">
-          <a class="{% current_path_check menuitem.url %}" href="/{{ menuitem.slug }}">{{ menuitem.title.upper }}</a>
+          <a class="{% if request.path|startswith:menuitem.url %} current {% endif %}" href="/{{ menuitem.slug }}">
+            {{ menuitem.title.upper }}
+          </a>
         </li>
         {% if forloop.counter == 2 %}
         <li class="logo">
@@ -39,16 +41,9 @@
     </a>
   </nav>
 
-
-
-  {% if self.url != '/' and self.get_children%}
-    <ul class="sub-nav">
-      {% for sub_menuitem in self.get_children.live %}
-        <li class="link"><a href="{{ sub_menuitem.slug }}">{{ sub_menuitem.title.upper }}</a></li>
-      {% endfor %}
-      {% if self.url == '/miehet-edustus/' %}
-        <li class="link"><a href="/joukkueet/miehet-edustus">JOUKKUE</a></li>
-      {% endif %}
-    </ul>
+  {% if self.url != '/' and self.get_children %}
+    {% include "subnav.html" with pages=self.get_children.live %}
+  {% elif self.depth == 4 %}
+    {% include "subnav.html" with pages=self.get_parent.get_children.live %}
   {% endif %}
 </section>
