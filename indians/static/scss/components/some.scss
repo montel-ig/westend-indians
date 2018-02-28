@@ -45,21 +45,29 @@ section.some {
         overflow: hidden;
       }
     }
-    .instagram-wrapper {
+    #instafeed {
+      a img {
+        height: 146px;
+      }
+      @media screen and (max-width: 880px) {
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        width: 450px;
+      }
+    }
+    div.instagram-wrapper {
+      max-height: none;
       display: flex;
-      flex-direction: column;
       svg {
-        padding: $base_padding 50px 10px 50px;
+        //padding: $base_padding 50px 10px 50px;
       }
       .team-insta {
         display: flex;
+        flex-direction: column;
         justify-content: center;
         flex-wrap: wrap;
-        padding: 0 $base_padding $base_padding $base_padding;
-
-        a {
-          padding: 5px;
-        }
+        //padding: 0 $base_padding 20px $base_padding;
       }
     }
 

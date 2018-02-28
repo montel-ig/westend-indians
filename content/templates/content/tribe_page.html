@@ -79,17 +79,18 @@
           {% include "icons/facebook_icon.html" %}
           {% include "some/facebook/facebook_widget_tribe.html" %}
         </div>
+        <div class="instagram-wrapper">
+          {% include "icons/instagram_icon.html" %}
+          <div id="instafeed" class="team-insta">
+            {% include "some/instagram/instagram_widget_tribe.html" %}
+          </div>
+        </div>
         <div class="team-twitter">
           {% include "icons/twitter_icon.html" %}
           {% include "some/twitter/twitter_widget_tribe.html" %}
         </div>
       </div>
-      <div class="instagram-wrapper">
-        {% include "icons/instagram_icon.html" %}
-        <div id="instafeed" class="team-insta">
-          {% include "some/instagram/instagram_widget_tribe.html" %}
-        </div>
-      </div>
+
     </div>
     <img class="triangle flip-x justify-top" src="{% static "images/tilted-bg-white-top.svg" %}">
   </section>
