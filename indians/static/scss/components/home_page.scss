@@ -308,7 +308,6 @@
     }
   }
 
-
   .team {
     @media screen and (max-width: 620px) {
       position: relative;
@@ -330,9 +329,10 @@
     }
   }
 
-  .team,
-  .tribe {
+  section.team,
+  section.tribe {
     position: relative;
+    overflow: hidden;
     @media screen and (max-width: 1024px) {
       padding: $base_padding 0;
       grid-column-start: 2;
@@ -423,12 +423,6 @@
       opacity: 1;
     }
   }
-
-  section {
-    overflow: hidden;
-  }
-
-
 
   section.lift {
 

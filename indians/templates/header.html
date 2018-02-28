@@ -3,27 +3,45 @@
 
 <section class="header">
   <h1 class="main-header-text header">Westend Indians</h1>
-    {% if self.url == '/' %}
-      <h2 class="main-header-text slogan rootslogan">Once a member - always part of the tribe</h2>
-    {% elif title %}
-      <h2 class="main-header-text slogan">{{ title }}</h2>
+
+  {% if self.url == '/' %}
+    <p class="main-header-text slogan rootslogan">Once a member - always part of the tribe</p>
+  {% elif title %}
+    <p class="main-header-text slogan">{{ title }}</p>
   {% else %}
-      <h2 class="main-header-text slogan">{{ properties.name }}</h2>
+    <p class="main-header-text slogan">{{ properties.name }}</p>
   {% endif %}
+
   <img class="main-img" src="{% static "images/faces_indians_1200x.jpg" %}">
 
-  <ul class="nav-index">
-    <li class="nav-logo"}><a href="{%slugurl 'home'%}"><img id="nav-logo" src="{% static "images/g12.max-165x165.png" %}" /></a></li>
-    {% for menuitem in request.site.root_page.get_children.live.in_menu %}
-      <li><a class="nav-link" href="/{{ menuitem.slug }}">{{ menuitem.title.upper }}</a></li>
-    {% endfor %}
-  </ul>
+  <nav>
+    <!--<img src="{% static 'images/logo.png' %}" />-->
+    <a class="feather" href="{%slugurl 'home'%}">
+      <img src="{% static 'images/feather-start.png' %}" />
+    </a>
+    <ul class="nav-index">
+      {% for menuitem in request.site.root_page.get_children.live.in_menu %}
+        <li class="link"><a href="/{{ menuitem.slug }}">{{ menuitem.title.upper }}</a></li>
+        {% if forloop.counter == 2 %}
+        <li class="logo">
+          <a href="{%slugurl 'home'%}">
+            <img src="{% static 'images/logo.png' %}" />
+          </a>
+        </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    <a class="feather right" href="{%slugurl 'home'%}">
+      <img src="{% static 'images/feather-end.png' %}" />
+    </a>
+  </nav>
+
+
 
   {% if self.url != '/' and self.get_children%}
-    <hr />
-    <ul class="nav-index">
+    <ul class="sub-nav">
       {% for sub_menuitem in self.get_children.live %}
-        <li><a class="nav-link" href="{{ sub_menuitem.slug }}">{{ sub_menuitem.title.upper }}</a></li>
+        <li class="link"><a href="{{ sub_menuitem.slug }}">{{ sub_menuitem.title.upper }}</a></li>
       {% endfor %}
       {% if self.url == '/miehet-edustus/' %}
         <li><a href="/joukkueet/miehet-edustus">JOUKKUE</a></li>

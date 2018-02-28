@@ -10,10 +10,15 @@
   vars:
     server_name: westendindians.fi
     upstream_server: http://127.0.0.1:8001
+    webhooker_user: chief
+    webhooker_group: chief
+    webhooker_working_dir: /home/chief/
+    webhooker_config_file: files/webhooker.indians.config
 
   roles:
     - montel.nginx-front
     - montel.docker
+    - montel.webhooker
 
   tasks:
     - name: Create nginx configuration for production
