@@ -1,15 +1,7 @@
 #!/bin/sh
 
-SETTINGS=indians.settings
-
-echo "********************* running migrations"
+echo "*** Running migrations ***"
 python manage.py migrate
 
-#echo "********************* collect static"
-#python manage.py collectstatic --noinput --settings ${SETTINGS}
-#
-#echo "********************* compress"
-#python manage.py compress --settings ${SETTINGS}
-
-echo "********************* starting supervisord"
-supervisord -n -c /etc/supervisor.d/supervisor.ini
+echo "*** Starting the circus ***"
+circusd /app/deployment/docker/circus.ini
