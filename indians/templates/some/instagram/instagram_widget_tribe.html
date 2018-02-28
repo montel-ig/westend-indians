@@ -1,0 +1,12 @@
+{% load staticfiles %}
+<script src="{% static 'js/vendor/instafeed.js' %}"></script>
+<script type="text/javascript">
+  var feed = new Instafeed({
+    accessToken: '469004690.1677ed0.9811626b3c4f48f7ac9042374d642077',
+    get: 'user',
+    userId: '469004690',
+    sortBy: 'most-recent',
+    limit:7
+  });
+  feed.run();
+</script>
