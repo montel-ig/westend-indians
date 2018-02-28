@@ -8,7 +8,6 @@ WORKDIR ${WORK_DIR}
 
 ADD requirements.txt ${WORK_DIR}
 ADD package.json ${WORK_DIR}
-montel.webhooker
 RUN apk --update add nginx supervisor postgresql-dev build-base nodejs jpeg-dev zlib-dev linux-headers && \
     npm install && \
     pip install uwsgi && \
