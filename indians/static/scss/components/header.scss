@@ -34,7 +34,7 @@
       color: $indians-yellow;
 
       &.header {
-        bottom: 30%;
+        top: 55%;
         width: 100%;
         font-family: $black-ops;
         transform: translate(-50%, -40px);
@@ -69,7 +69,7 @@
       }
 
       &.slogan {
-        bottom: 19%;
+        top: 64%;
         width: 100%;
         font-family: $black-ops;
         transform: translate(-50%);
@@ -132,56 +132,7 @@
         }
       }
 
-
       ul.nav-index {
-        z-index: 2;
-        position: relative;
-        margin: 0 54px;
-        height: 43px;
-        padding: 0 20px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        align-items: stretch;
-        font-family: $titillium-web;
-        letter-spacing: 2px;
-        //background-color: black;
-        background: $indians-yellow;
-        border-bottom: 1px solid black;
-
-        li.link {
-          a {
-            color: black;
-            display: block;
-            font-size: 20px;
-            line-height: 43px - 3px * 2;
-            //font-weight: bold;
-            transition: all 200ms ease-in;
-            border-top: 3px solid transparent;
-            border-bottom: 3px solid transparent;
-
-            &.current {
-              border-color: $indians-red;
-            }
-
-            &:hover {
-              border-color: $indians-red;
-            }
-
-            @media screen and (max-width : 800px) {
-              font-size: 16px;
-            }
-
-            @media screen and (max-width : 400px) {
-              font-size: 12px;
-            }
-
-            @media screen and (min-width : 401px) and (max-width : 480px) {
-              font-size: 14px;
-            }
-          }
-        }
-
         li.logo {
           height: 25px;
           width: 148px;
@@ -192,6 +143,66 @@
             top: -30px;
             border-bottom: none;
           }
+        }
+      }
+    }
+    ul.nav-index,
+    ul.sub-nav {
+      z-index: 2;
+      position: relative;
+      margin: 0 54px;
+      height: 43px;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: stretch;
+      font-family: $titillium-web;
+      letter-spacing: 2px;
+      //background-color: black;
+      background: $indians-yellow;
+      border-bottom: 1px solid black;
+
+      li.link {
+        a {
+          color: black;
+          display: block;
+          font-size: 20px;
+          line-height: 43px - 3px * 2;
+          //font-weight: bold;
+          transition: all 200ms ease-in;
+          border-top: 3px solid transparent;
+          border-bottom: 3px solid transparent;
+
+          &.current {
+            border-color: $indians-red;
+          }
+
+          &:hover {
+            border-color: $indians-red;
+          }
+
+          @media screen and (max-width : 800px) {
+            font-size: 16px;
+          }
+
+          @media screen and (max-width : 400px) {
+            font-size: 12px;
+          }
+
+          @media screen and (min-width : 401px) and (max-width : 480px) {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    ul.sub-nav {
+      margin-top: 57px;
+      background: black;
+      li.link {
+        a {
+          color: $indians-yellow;
         }
       }
     }

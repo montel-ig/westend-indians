@@ -36,11 +36,12 @@
     </a>
   </nav>
 
+
+
   {% if self.url != '/' and self.get_children%}
-    <hr />
-    <ul class="nav-index">
+    <ul class="sub-nav">
       {% for sub_menuitem in self.get_children.live %}
-        <li><a class="link" href="{{ sub_menuitem.slug }}">{{ sub_menuitem.title.upper }}</a></li>
+        <li class="link"><a href="{{ sub_menuitem.slug }}">{{ sub_menuitem.title.upper }}</a></li>
       {% endfor %}
       {% if self.url == '/miehet-edustus/' %}
         <li><a href="/joukkueet/miehet-edustus">JOUKKUE</a></li>
