@@ -35,14 +35,6 @@ ALLOWED_HOSTS = ['80.69.173.67', 'localhost', 'staging.westendindians.fi', 'beta
 # Application definition
 
 INSTALLED_APPS = [
-    'indians',
-    'teams',
-    'events',
-    'news',
-    'content',
-    'products',
-    'sponsors',
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -70,6 +62,13 @@ INSTALLED_APPS = [
     'imagekit',
     'ckeditor',
 
+    'indians',
+    'teams',
+    'events',
+    'news',
+    'content',
+    'products',
+    'sponsors',
 
 ]
 
