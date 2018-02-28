@@ -166,7 +166,10 @@
       > a {
         color: $indians-grey;
         &:hover {
-          color: $indians-yellow;
+          svg path {
+            fill: $indians-yellow;
+            transition: color 300ms linear;
+          }
         }
       }
       > li > p {

@@ -10,7 +10,7 @@ section.footer {
       height: 120px;
     }
   }
-  .footer-container {
+  .container {
     display: block;
     background-color: black;
     color: white;
@@ -28,14 +28,14 @@ section.footer {
       grid-column-start: 2;
       margin: 0;
 
-      @media screen and (max-width : 450px) {
+      @media screen and (max-width : 640px) {
         font-size: 32px;
       }
     }
 
     h2 {
       margin:0;
-      padding:50px 0;
+      padding:15px 0;
       font-family: $titillium-web;
       font-size: 24px;
       letter-spacing: $letter-spacing-large;
@@ -47,8 +47,8 @@ section.footer {
       }
     }
 
-    .footer-slogan {
-      margin-top: $base_padding;
+    .slogan {
+      text-align: center;
       grid-column-start: 2;
       grid-column-end: 11;
     }
@@ -61,106 +61,112 @@ section.footer {
       }
     }
 
-    .indians-info {
+    .info {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      margin: 25px;
-      > div {
-        p {
-          font-family: $encode-sans;
-          margin: 0;
-          padding-top: 5px;
-          @media screen and (max-width : 420px) {
-            padding: 0;
-          }
+      margin: $base_padding 0;
+      @media screen and (max-width : 420px) {
+        margin: 20px 0;
+      }
+      @media screen and (max-width : 640px) {
+        flex-direction: column;
+      }
+      a > h1 {
+        &:hover {
+          color: $indians-yellow;
+          transition: color 300ms linear;
         }
-        h1 {
-          &:hover {
-            color: $indians-yellow;
-            transition: color 300ms linear;
-          }
+      }
+      > div {
+        width: 33.33%; /* for the older browsers fallback */
+        width: calc(100% / 3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media screen and (max-width : 640px) {
+          width: 100%;
         }
         @media screen and (min-width : 640px) and  (max-width : 1060px) {
           a > h1 {
             font-size: 42px;
           }
         }
-        &.indians-social {
-          margin-right: 0;
+        a {
+          color: $indians-grey;
+          padding: 10px;
+          margin: 0;
+          svg{
+            @media screen and (max-width : 420px) {
+              width: 40px;
+            }
+          }
+          &:hover {
+            svg path {
+              fill: $indians-yellow;
+              transition: color 300ms linear;
+            }
+          }
+        }
+        &:nth-child(1) {
+          @media screen and (min-width : 1145px) {
+            justify-content: flex-end;
+          }
+         }
+        &:nth-child(3) {
+          @media screen and (min-width : 1145px) {
+            justify-content: flex-start;
+          }
+        }
+        @media screen and (max-width : 1145px) {
+          display: flex;
+          justify-content: center;
+          a {
+            padding-bottom: 10px;
+          }
+        }
+
+        @media screen and (max-width : 820px) {
+          i {
+            font-size: 52px;
+          }
+        }
+      }
+      div.social, div.logo {
+        @media screen and (max-width : 420px) {
+          flex-wrap: nowrap;
+        }
+      }
+      .social {
+        @media screen and (max-width : 1140px) {
+          flex-wrap: wrap;
+        }
+      }
+      .logo {
+        flex-wrap: wrap;
+        div {
+          width: 120px;
           display: flex;
           justify-content: center;
           align-items: center;
-          a {
-            color: $indians-grey;
-            padding: 10px;
-            margin: 0;
-            svg{
-              @media screen and (max-width : 780px) {
-                font-size: 2.5em;
-              }
-            }
-            &:hover {
-              svg {
-                color: $indians-yellow;
-                transition: color 300ms linear;
-              }
-
-            }
-          }
           @media screen and (min-width : 640px) and  (max-width : 1145px) {
-            display: flex;
             flex-direction: column;
-
-            a {
-              padding-bottom: 10px;
-            }
           }
-
-          @media screen and (max-width : 820px) {
-            i {
-              font-size: 52px;
-            }
+          > img {
+            width: 100%;
+            height: 100%;
           }
         }
-        &.indians-address {
-
-        }
-      }
-      @media screen and  (max-width : 680px) {
-        flex-direction: column;
-        justify-content: center;
-
-        > div.indians-address {
-          width: auto;
-          margin: 0;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-        }
-
-        > div.indians-social {
-          flex-direction: row;
-          margin: 50px 0 0 0;
-          @media screen and (max-width : 420px) {
-            margin: 20px 0 0 0;
-          }
-        }
-      }
-
-      @media screen and (min-width : 640px) and (max-width : 870px) {
-        > div.indians-address {
-          width: auto;
-          margin-right: 20px;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
+        a {
+          margin: 10px 0;
         }
       }
     }
     .partners {
       grid-column-start: 2;
       grid-column-end: 11;
+
+      margin-bottom: 120px;
 
       h2 {
         @media screen and (max-width : 420px) {
@@ -189,19 +195,7 @@ section.footer {
         }
 
         > div {
-          width: 120px;
-          height: 120px;
           padding: 0 10px;
-
-          @media screen and (max-width : 640px) {
-            width: 75px;
-            height: 75px;
-            padding: 0 10px;
-          }
-          @media screen and (max-width : 420px) {
-            width: 65px;
-            height: 65px;
-          }
 
           > a {
             width: 100%;
@@ -217,7 +211,67 @@ section.footer {
 
             }
           }
+        }
 
+        &.top-level {
+          @media screen and (max-width : 840px) {
+            flex-wrap: wrap;
+          }
+          > div {
+            width: 170px;
+            @media screen and (max-width : 840px) {
+              height: 85px;
+            }
+            @media screen and (max-width : 640px) {
+              width: 120px;
+              padding: 0 10px;
+            }
+            @media screen and (max-width : 420px) {
+              width: 100px;
+              padding: 0 10px;
+            }
+          }
+        }
+        &.second-level {
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          @media screen and (max-width : 1040px) {
+            justify-content: center;
+          }
+          > div {
+            width: 120px;
+            padding: 0 10px;
+            @media screen and (max-width : 840px) {
+              height: 55px;
+            }
+            @media screen and (max-width : 640px) {
+              width: 75px;
+              padding: 0 10px;
+            }
+            @media screen and (max-width : 420px) {
+              width: 60px;
+              padding: 0 10px;
+            }
+          }
+        }
+        &.third-level {
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          @media screen and (max-width : 1040px) {
+            justify-content: center;
+          }
+          > div {
+            width: 75px;
+            padding: 0 20px;
+            @media screen and (max-width : 640px) {
+              width: 50px;
+              padding: 0 10px;
+            }
+            @media screen and (max-width : 420px) {
+              width: 45px;
+              padding: 0 10px;
+            }
+          }
         }
       }
 
@@ -234,7 +288,7 @@ section.footer {
     }
 
     hr {
-      border-color: $indians-dark;
+      border-color: darken($indians-dark,40%);
     }
   }
 }
