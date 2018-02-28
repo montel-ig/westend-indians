@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load wagtailcore_tags %}
+{% load current_path_check %}
 
 <section class="header">
   <h1 class="main-header-text header">Westend Indians</h1>
@@ -21,10 +22,12 @@
     </a>
     <ul class="nav-index">
       {% for menuitem in request.site.root_page.get_children.live.in_menu %}
-        <li class="link"><a href="/{{ menuitem.slug }}">{{ menuitem.title.upper }}</a></li>
+        <li class="link">
+          <a class="{% current_path_check menuitem.url %}" href="/{{ menuitem.slug }}">{{ menuitem.title.upper }}</a>
+        </li>
         {% if forloop.counter == 2 %}
         <li class="logo">
-          <a href="{%slugurl 'home'%}">
+          <a href="{% slugurl 'home' %}">
             <img src="{% static 'images/logo.png' %}" />
           </a>
         </li>
@@ -44,7 +47,7 @@
         <li class="link"><a href="{{ sub_menuitem.slug }}">{{ sub_menuitem.title.upper }}</a></li>
       {% endfor %}
       {% if self.url == '/miehet-edustus/' %}
-        <li><a href="/joukkueet/miehet-edustus">JOUKKUE</a></li>
+        <li class="link"><a href="/joukkueet/miehet-edustus">JOUKKUE</a></li>
       {% endif %}
     </ul>
   {% endif %}
