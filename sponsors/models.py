@@ -14,6 +14,7 @@ class Sponsor(models.Model):
         ('top', 'Top level sponsor'),
         ('second', 'Second level sponsor'),
         ('third', 'Third level sponsor'),
+        ('bottom', 'Bottom level logo'),
     ), blank=True, null=True, max_length=12)
 
     visible_for_team = models.BooleanField(default=True)
