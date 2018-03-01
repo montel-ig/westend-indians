@@ -56,7 +56,10 @@
           {% endif %}
         {% endfor %}
       </div>
-        <a href="{% slugurl 'home' %}"><h1>Westend<br/>Indians</h1></a>
+      <div class="mid">
+        <img src="{% static 'images/logo.png' %}" />
+        <a id="indians"href="{% slugurl 'home' %}"><h1>Westend Indians</h1></a>
+      </div>
       <div class="social">
         <a href="https://www.facebook.com/westendindians/">
           {% include "icons/facebook_icon.html" %}

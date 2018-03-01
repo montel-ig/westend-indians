@@ -18,21 +18,6 @@ section.footer {
     align-items: flex-start;
     margin: 0 auto;
 
-    a > h1 {
-      text-transform: uppercase;
-      font-family: $black-ops;
-      color: white;
-      font-size: 48px;
-      letter-spacing: $letter-spacing-medium;
-      line-height: normal;
-      grid-column-start: 2;
-      margin: 0;
-
-      @media screen and (max-width : 640px) {
-        font-size: 32px;
-      }
-    }
-
     h2 {
       margin:0;
       padding:15px 0;
@@ -65,9 +50,9 @@ section.footer {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      margin: 20px 0;
+      margin-top: 20px;
       @media screen and (max-width : 420px) {
-        margin: 20px 0;
+        margin: 0;
       }
       @media screen and (max-width : 640px) {
         flex-direction: column;
@@ -125,7 +110,6 @@ section.footer {
             padding-bottom: 10px;
           }
         }
-
         @media screen and (max-width : 820px) {
           i {
             font-size: 52px;
@@ -138,42 +122,73 @@ section.footer {
         }
       }
       .social {
-        @media screen and (max-width : 1140px) {
-          flex-wrap: wrap;
+        @media screen and (max-width : 780px) {
+          a {
+            padding: 5px;
+            svg {
+              width: 35px;
+            }
+          }
         }
       }
-      .logo {
-        flex-wrap: wrap;
+      .mid {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: auto;
+        img {
+          width: 100px;
+        }
+        a {
+          position: relative;
+          margin: 0 auto;
+          padding: 20px 0;
+          &:hover {
+            h1 {
+              color: $indians-yellow;
+              transition: color 300ms linear;
+            }
+          }
+          h1 {
+            padding: 0;
+            text-transform: uppercase;
+            font-family: $black-ops;
+            color: white;
+            font-size: 18px;
+            letter-spacing: $letter-spacing-medium;
+            line-height: normal;
+            grid-column-start: 2;
+            margin: 0;
+          }
+        }
+      }
+       .logo {
         div {
           width: 142px;
           display: flex;
           justify-content: center;
           align-items: center;
           @media screen and (min-width : 640px) and  (max-width : 1145px) {
-            flex-direction: column;
           }
-          > img {
+          > img, a > img {
             width: 100%;
             height: 100%;
-            /*
-            filter: grayscale(.5);
+            filter: grayscale(.7);
             &:hover {
               filter: none;
               transition: filter 300ms linear;
             }
-            */
           }
-        }
-        a {
-          margin: 10px 0;
         }
       }
     }
     .partners {
       grid-column-start: 2;
       grid-column-end: 11;
-
       margin-bottom: 120px;
+      @media screen and (max-width : 800px) {
+        margin-bottom: 40px;
+      }
 
       h2 {
         @media screen and (max-width : 420px) {
@@ -200,13 +215,11 @@ section.footer {
         @media screen and (max-width : 460px) {
           flex-wrap: wrap;
         }
-
         > div {
           padding: 0 10px;
           margin: auto 0;
           > a {
             width: 100%;
-
             > img {
               width: 100%;
               height: 100%;
@@ -215,7 +228,6 @@ section.footer {
                 filter: none;
                 transition: filter 300ms linear;
               }
-
             }
           }
         }
@@ -223,18 +235,18 @@ section.footer {
         &.top-level {
           @media screen and (max-width : 840px) {
             flex-wrap: wrap;
+            justify-content: flex-start;
           }
           > div {
-            width: 170px;
+            width: 125px;
             @media screen and (max-width : 840px) {
-              height: 85px;
             }
             @media screen and (max-width : 640px) {
               width: 120px;
               padding: 0 10px;
             }
             @media screen and (max-width : 420px) {
-              width: 100px;
+              width: 75px;
               padding: 0 10px;
             }
           }
@@ -242,21 +254,17 @@ section.footer {
         &.second-level {
           justify-content: flex-start;
           flex-wrap: wrap;
-          @media screen and (max-width : 1040px) {
-            justify-content: center;
-          }
           > div {
-            width: 120px;
+            width: 100px;
             padding: 0 10px;
             @media screen and (max-width : 840px) {
-              height: 55px;
             }
             @media screen and (max-width : 640px) {
               width: 75px;
               padding: 0 10px;
             }
             @media screen and (max-width : 420px) {
-              width: 60px;
+              width: 52px;
               padding: 0 10px;
             }
           }
@@ -264,9 +272,6 @@ section.footer {
         &.third-level {
           justify-content: flex-start;
           flex-wrap: wrap;
-          @media screen and (max-width : 1040px) {
-            justify-content: center;
-          }
           > div {
             width: 75px;
             padding: 0 20px;
