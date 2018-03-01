@@ -45,6 +45,11 @@
             <p>{{ properties.leader_phone }}</p>
           {% endif %}
         </div>
+        {% if properties.registration_link %}
+          <div class="signup">
+            <a href="{{ properties.registration_link }}" target="_blank"><button>Liity mukaan</button></a>
+          </div>
+        {% endif %}
         <div class="team-info">
           {% if properties.current_player_count and properties.max_player_count %}
             <p>Nykyinen pelaajamäärä: {{ properties.current_player_count }}/{{ properties.max_player_count }}</p>
@@ -63,7 +68,6 @@
       </div>
     </section>
   <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
-
   {% endif %}
 
   <script type="application/javascript">

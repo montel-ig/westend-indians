@@ -2,10 +2,12 @@ import json
 
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 
 
 from teams.models import Team
 from sponsors.models import Sponsor
+from signups.forms import SignupForm
 
 def teams(request):
     teams = get_list_or_404(Team)
@@ -53,7 +55,7 @@ def team_properties(team: Team) -> str:
     """ Retrieve a JSON encoded string with the properties of the given team. """
     team_dict = {}
     take_from_team = ('name', 'slug', 'description', 'contact_name', 'contact_email', 'contact_phone',
-                        'leader_name', 'leader_email', 'leader_phone',
+                        'leader_name', 'leader_email', 'leader_phone', 'registration_link',
                         'some_instagram', 'some_twitter', 'some_facebook', 'some_snapchat', 'current_player_count',
                         'max_player_count', 'gender', 'path', 'sport', 'age_level',
                       )
@@ -66,4 +68,17 @@ def team_properties(team: Team) -> str:
     team_dict["brochure"] = team.brochure.url if team.brochure else None
 
     return team_dict
+
+def get_signup(request):
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            form.save()
+            return HttpResponseRedirect('/thanks/')
+
+    else:
+        form = SignupForm()
 
