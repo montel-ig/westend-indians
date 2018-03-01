@@ -14,7 +14,7 @@
         {% for sponsor in sponsor_items %}
         {% if sponsor.level == 'top' %}
         <div>
-          <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
+          <a href="{{ sponsor.url|default_if_none:sponsor.image.url }}" target="_blank"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
         </div>
         {% endif %}
         {% endfor %}
@@ -24,7 +24,7 @@
         {% for sponsor in sponsor_items %}
         {% if sponsor.level == 'second' %}
         <div>
-          <a href="{{ sponsor.url }}"><img src="{{ sponsor.image.url }}"></a>
+          <a href="{{ sponsor.url|default_if_none:sponsor.image.url }}" target="_blank"><img src="{{ sponsor.image.url }}"></a>
         </div>
         {% endif %}
         {% endfor %}
@@ -34,7 +34,7 @@
         {% for sponsor in sponsor_items %}
         {% if sponsor.level == 'third' %}
         <div>
-          <a href="{{ sponsor.url }}"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
+          <a href="{{ sponsor.url|default_if_none:sponsor.image.url }}" target="_blank"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
         </div>
         {% endif %}
         {% endfor %}
@@ -47,7 +47,11 @@
         {% for logo in sponsor_items %}
           {% if logo.level == 'bottom' %}
             <div>
-              <img src="{{ logo.sponsor_thumbnail.url }}">
+              {% if logo.url %}
+                <a href="{{ logo.url }}" target="_blank"><img src="{{ logo.sponsor_thumbnail.url }}"></a>
+              {% else %}
+                <img src="{{ logo.sponsor_thumbnail.url }}">
+              {% endif %}
             </div>
           {% endif %}
         {% endfor %}
