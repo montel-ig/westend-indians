@@ -35,9 +35,9 @@ class TeamModal extends React.Component {
     const { name, slug, description, contact_name, contact_email, contact_phone,
       leader_name, leader_email, leader_phone,image, some_instagram, some_twitter,
       some_facebook, some_snapchat, current_player_count, max_player_count,gender,
-      path, sport, age_level, brochure
+      path, sport, age_level, brochure, registration_link
     } = this.props.selectedTeam;
-    const teamIsJoinable = () => (max_player_count > current_player_count) ;
+    //const teamIsJoinable = () => (max_player_count > current_player_count) ;
     return (
       <div className={`modal-backdrop ${this.state.visibilityClass}`} >
         <div className="team-modal-container">
@@ -69,7 +69,7 @@ class TeamModal extends React.Component {
               </div>
             </div>
             <div className="lower-right">
-              <button onClick={()=>this.openPage(`/joukkueet/${slug}`)} disabled={!teamIsJoinable}>{teamIsJoinable ? "Liity mukaan" : "Tiedustele liittymistä"}</button>
+              { registration_link && <button onClick={()=>this.openPage(registration_link)}>Liity mukaan</button> }
               <button onClick={()=>this.openPage(`/joukkueet/${slug}`)}>Joukkueen sivulle</button>
               {brochure && <button onClick={()=>window.location.href=brochure}>Lataa esite</button> }
               <a href={`/joukkueet/${slug}`}>Lisätietoja</a>
