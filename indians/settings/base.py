@@ -35,6 +35,15 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'staging.westendindians.fi']
 # Application definition
 
 INSTALLED_APPS = [
+    'indians',
+    'teams',
+    'events',
+    'news',
+    'content',
+    'products',
+    'sponsors',
+    'signups',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -61,16 +70,6 @@ INSTALLED_APPS = [
     'colorful',
     'imagekit',
     'ckeditor',
-
-    'indians',
-    'teams',
-    'events',
-    'news',
-    'content',
-    'products',
-    'sponsors',
-    'signups',
-
 ]
 
 MIDDLEWARE = [
