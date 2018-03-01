@@ -76,6 +76,8 @@ class Team(models.Model):
     age_level = models.CharField(blank=True, null=True, max_length=12, choices=AGE_LEVEL_TYPES)
     area = models.ForeignKey(Area, null=True, blank=True)
 
+    registration_link = models.CharField(blank=True, null=True, max_length=255)
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
