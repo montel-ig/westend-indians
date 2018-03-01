@@ -71,7 +71,7 @@
             max-height: 99%;
             z-index: -1;
             &.player-default {
-              width: 75%;
+              width: 50%;
             }
           }
         }
@@ -215,10 +215,24 @@
       @media screen and (max-width : 420px) {
         &.left {
           top: 35%;
+          right: 100%;
           font-size: 45px !important;
         }
         &.right {
           top: 35%;
+          left: 99%;
+          font-size: 45px !important;
+        }
+      }
+      @media screen and (max-width : 400px) {
+        &.left {
+          top: 35%;
+          right: 83%;
+          font-size: 45px !important;
+        }
+        &.right {
+          top: 35%;
+          left: 82%;
           font-size: 45px !important;
         }
       }

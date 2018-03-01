@@ -8,14 +8,13 @@
     display: flex;
 
     .player-img-wrapper {
-      margin: auto;
       max-height: 350px;
       .player-img {
         width: 100%;
         max-height: 350px;
 
         &.player-default {
-          transform: scale(.7);
+          transform: scale(.4);
         }
       }
     }
