@@ -425,3 +425,10 @@
     -webkit-transform: rotate(1turn);
   }
 }
+.Select-menu-outer {
+  max-height: 1000px;
+}
+
+.Select-menu {
+  max-height: 998px;
+}

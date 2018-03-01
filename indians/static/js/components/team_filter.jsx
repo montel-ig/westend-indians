@@ -48,9 +48,21 @@ const TeamFilter = (props) => {
           </div>
         </div>
         <div className="path-info">
-          <p><span><i className="fa fa-square fa-2x" style={{color:"#ffffff",paddingRight:"10px"}}></i></span>Harrastajan polku</p>
-          <p><span><i className="fa fa-square fa-2x" style={{color:"#FBEF36",paddingRight:"10px"}}></i></span>Kilpailijan polku</p>
-          <p><span><i className="fa fa-square fa-2x" style={{color:"#990000",paddingRight:"10px"}}></i></span>Urheilijan polku</p>
+          <p>
+            <span>
+              <svg id="harrastajan" width="55" height="55" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1664 416v960q0 119-84.5 203.5t-203.5 84.5h-960q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z"/></svg>
+            </span>Harrastajan polku
+          </p>
+          <p>
+            <span>
+              <svg id="kilpailijan" width="55" height="55" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1664 416v960q0 119-84.5 203.5t-203.5 84.5h-960q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z"/></svg>
+            </span>Kilpailijan polku
+          </p>
+          <p>
+            <span>
+              <svg id="urheilijan" width="55" height="55" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1664 416v960q0 119-84.5 203.5t-203.5 84.5h-960q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z"/></svg>
+            </span>Urheilijan polku
+          </p>
         </div>
       </div>
       <div className="team-filter">

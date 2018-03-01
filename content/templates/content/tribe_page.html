@@ -15,8 +15,8 @@
         <h1>{{ page.title }}</h1>
         <p class="description">{{ page.body|safe }}</p>
         <ul class="info-links">
-          <a href="#tribenews">Uutiset</a>
-          <a href="#tribesome">Some</a>
+          <a href="#uutiset">Uutiset</a>
+          <a href="#some">Some</a>
         </ul>
       </div>
     </div>
@@ -43,16 +43,16 @@
       {{ page.main_lift|richtext }}
     </div>
   </section>
-  <section class="tribe-news" id="tribenews"}>
+  <section class="tribe-news" id="uutiset"}>
     <div class="news-container add-space">
       <div class="row-head">
         <h1>uutiset</h1>
-        <a href="{% slugurl 'news' %}">katso kaikki uutiset »</a>
+        <a href="{% slugurl 'uutiset' %}" target="_blank">katso kaikki uutiset »</a>
       </div>
       <div class="row-news">
         {% for newsitem in page.tribe_page_news %}
         <div class="news-item">
-          <a href="{% slugurl 'news' %}">
+          <a href="{% slugurl 'uutiset' %}#{{ newsitem.id }}" target="_blank">
             <div class="news-image">
               {% if newsitem.thumbnail_image %}
                 <img src="{{ newsitem.thumbnail_image.url }}" alt="{{ newsitem.title }}">
@@ -60,7 +60,7 @@
             </div>
           </a>
           <div class="item-text-container">
-            <a href="{% slugurl 'news' %}"><h2 class="news-item-header">{{ newsitem.title }}</h2></a>
+            <a href="{% slugurl 'uutiset' %}#{{ newsitem.id }}" target="_blank"><h2 class="news-item-header">{{ newsitem.title }}</h2></a>
             <p class="news-item-text">
               {{ newsitem.ingress }}
             </p>
@@ -70,7 +70,7 @@
       </div>
     </div>
   </section>
-  <section class="some" id="tribesome"}>
+  <section class="some" id="some"}>
     <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
     <div class="some-container">
       <h1>some</h1>

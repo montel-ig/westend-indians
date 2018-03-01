@@ -37,6 +37,13 @@
           grid-column-end: 10;
           max-width: 100%;
           object-fit: contain;
+          &#default {
+            grid-column-start: 3;
+            width: 250px;
+            @media screen and (max-width: 420px) {
+              display: none;
+            }
+          }
 
           @media screen and (min-width: 176px) and (max-width: 640px) {
             padding-bottom: 50px;
@@ -53,6 +60,9 @@
 
           .team-contact {
             padding-bottom: 30px;
+            @media screen and (min-width: 176px) and (max-width: 1200px) {
+             padding: 0;
+            }
             p {
               word-wrap: break-word;
             }
@@ -64,6 +74,9 @@
           margin-top: $base_padding * 2;
           @media screen and (min-width: 176px) and (max-width: 1200px) {
             padding: 0 25px;
+          }
+          @media screen and (min-width: 176px) and (max-width: 1200px) {
+            margin: 0;
           }
         }
         .team-info {

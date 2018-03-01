@@ -16,8 +16,8 @@
         {{ page.body|richtext }}
       </div>
       <ul class="info-links">
-        <a href="#team-news">uutiset</a>
-        <a href="#team-some">some</a>
+        <a href="#uutiset">uutiset</a>
+        <a href="#some">some</a>
       </ul>
     </div>
   </section>
@@ -43,17 +43,17 @@
     <img class="triangle justify-top" src="{% static "images/tilted-bg-white-bottom.svg" %}">
   </section>
   {% endif %}
-  <section class="news" id="team-news"}>
+  <section class="news" id="uutiset"}>
     <div class="news-container  add-space">
       <div class="row-head">
         <h1>uutiset</h1>
-        <a href="{% slugurl 'news' %}">katso kaikki uutiset <span>»</span></a>
+        <a href="{% slugurl 'uutiset' %}" target="_blank">katso kaikki uutiset <span>»</span></a>
       </div>
       <div class="row-news">
         {% for newsitem in page.representative_team_page_news %}
         {% if newsitem %}
         <div class="news-item">
-          <a href="{% slugurl 'news' %}#{{ newsitem.id }}">
+          <a href="{% slugurl 'uutiset' %}#{{ newsitem.id }}" target="_blank">
             <div class="news-image">
               {% if newsitem.thumbnail_image and newsitem.thumbnail_image.url %}
                 <img src="{{ newsitem.thumbnail_image.url }}" alt="{{ newsitem.title }}">
@@ -61,7 +61,7 @@
             </div>
           </a>
           <div class="item-text-container">
-            <a href="{% slugurl 'news' %}#{{ newsitem.id }}"><h2 class="news-item-header">{{ newsitem.title }}</h2></a>
+            <a href="{% slugurl 'uutiset' %}#{{ newsitem.id }}" target="_blank"><h2 class="news-item-header">{{ newsitem.title }}</h2></a>
             <p class="news-item-text">
               {{ newsitem.ingress }}
             </p>
@@ -72,7 +72,7 @@
       </div>
     </div>
   </section>
-  <section class="some" id="team-some"}>
+  <section class="some" id="some"}>
     <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
     <div class="some-container">
       <h1>some</h1>
