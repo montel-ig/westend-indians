@@ -49,12 +49,27 @@
           }
           .path-info {
             p {
-              padding: 10px;
               font-size: 14px;
-
-              i {
-                font-size: 27px;
-                transform: translateY(4px);
+              margin: 0 10px;
+              span svg {
+                width: 20px;
+                transform: translateY(22px);
+                padding: 0 5px;
+                &#harrastajan {
+                  path {
+                    fill: $harrastajan-polku;
+                  }
+                }
+                &#kilpailijan {
+                  path {
+                    fill: $kilpailijan-polku;
+                  }
+                }
+                &#urheilijan {
+                  path {
+                    fill: $urheilijan-polku;
+                  }
+                }
               }
             }
 
