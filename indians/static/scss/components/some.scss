@@ -1,6 +1,6 @@
 section.some {
   background-color: black;
-  @media screen and (max-width: 430px) {
+  @media screen and (max-width: 490px) {
     display: none;
   }
   h1 {
@@ -28,7 +28,7 @@ section.some {
       display: flex;
       justify-content: space-evenly;
 
-      @media screen and (max-width: 880px) {
+      @media screen and (max-width: 950px) {
         flex-direction: column;
         > div {
           margin: 0 auto;
@@ -53,7 +53,7 @@ section.some {
       a img {
         height: 146px;
       }
-      @media screen and (max-width: 880px) {
+      @media screen and (max-width: 950px) {
         flex-direction: row;
         justify-content: flex-start;
         flex-wrap: wrap;
@@ -63,6 +63,9 @@ section.some {
     div.instagram-wrapper {
       max-height: none;
       display: flex;
+      @media screen and (min-width: 950px) and (max-width: 1100px) {
+        display: none;
+      }
       svg {
         //padding: $base_padding 50px 10px 50px;
       }
