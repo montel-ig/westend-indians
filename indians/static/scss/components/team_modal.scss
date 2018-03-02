@@ -34,10 +34,9 @@
     }
     @media screen and (max-width : 450px) {
       p {
-        font-size: 12px;
+        //margin: 2px 0;
       }
     }
-
     @media screen and (max-height : 1100px) {
       margin: 5vh 25vw;
       width: 50vw;
@@ -47,8 +46,15 @@
       width: 80vw;
     }
     @media screen and (max-height : 900px) {
-      margin: 1vh 10vw;
+      margin: 5vh 10vw;
       width: 80vw;
+    }
+    @media (orientation: landscape) and (max-width: 800px){
+      margin: 1vh 10vw;
+      height: 350px;
+    }
+    @media (orientation: landscape) and (max-width: 800px) {
+      margin: 1vh 10vw;
     }
     .upper, .middle, .lower {
       display: flex;
@@ -58,6 +64,9 @@
       div.upper {
         flex-direction: column;
         height: 45%;
+        @media (orientation: landscape) and (max-width: 800px){
+          display: none;
+        }
 
         .modal-img-wrapper {
           box-sizing: border-box;
@@ -72,6 +81,9 @@
             max-height: 400px;
             width:100%;
             object-fit: contain;
+            @media (orientation: landscape) and (max-height: 800px) {
+              height: 300px;
+            }
 
             &.default-image {
               width: 40%;
@@ -102,7 +114,15 @@
         p {
           font-size: 14px;
           overflow-wrap: break-word;
-          word-wrap: break-word;        }
+          word-wrap: break-word;
+          @media screen and (max-width : 420px) {
+            font-size: 12px;
+          }
+          @media(orientation: landscape) {
+            font-size: 12px;
+            margin: 2px;
+          }
+        }
         div {
           .title {
             color: $indians-yellow;
@@ -135,15 +155,19 @@
             text-transform: uppercase;
             word-wrap: break-word;
             padding: 5px;
+            @media(orientation: landscape) {
+              width: 40%;
+              height: 50px;
+            }
+            @media screen and (max-width : 420px) {
+              width: 80%;
+              font-size: 14px;
+            }
             &:hover {
                 filter: brightness(140%);
                 transition: filter 500ms;
             }
-            @media screen and (max-width : 750px) {
-              height: 70px;
-              width: 80%;
-              margin: 20px 0;
-            }
+
           }
         }
       }

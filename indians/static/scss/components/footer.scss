@@ -143,10 +143,13 @@ section.footer {
           position: relative;
           margin: 0 auto;
           padding: 20px 0;
+          transition: color 300ms linear;
+          @media screen and (max-width: 420px) {
+            padding: 20px 0 5px 0;
+          }
           &:hover {
             h1 {
               color: $indians-yellow;
-              transition: color 300ms linear;
             }
           }
           h1 {
@@ -223,9 +226,10 @@ section.footer {
               width: 100%;
               height: 100%;
               filter: grayscale(.8);
+              transition: filter 300ms linear;
+
               &:hover {
                 filter: none;
-                transition: filter 300ms linear;
               }
             }
           }
