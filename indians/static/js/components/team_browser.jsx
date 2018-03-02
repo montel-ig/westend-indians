@@ -95,7 +95,6 @@ class TeamBrowser extends React.Component {
 
   handleModalClose(e) {
     if (this.state.selectedTeam && e.target.className === "modal-backdrop visible") {
-      console.log(this.state.selectedTeam);
       this.setState({selectedTeam:null});
     }
   }
