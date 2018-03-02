@@ -17,6 +17,7 @@
         }
       }
     }
+
   }
   .body {
     background-image: url("http://i64.tinypic.com/2akq38.png");
@@ -24,5 +25,12 @@
   .values, .contact {
     background-color: black;
     color: white;
+  }
+  .personnel {
+    img {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+    }
   }
 }
