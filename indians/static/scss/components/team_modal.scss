@@ -146,14 +146,6 @@
             margin: 35px 0;
             height: 50px;
             width: 50%;
-            background-color: $indians-yellow;
-            color: black;
-            font-family: $encode-sans;
-            text-align: center;
-            display: inline-block;
-            line-height: 17px;
-            text-transform: uppercase;
-            word-wrap: break-word;
             padding: 5px;
             @media(orientation: landscape) {
               width: 40%;
@@ -163,11 +155,6 @@
               width: 80%;
               font-size: 14px;
             }
-            &:hover {
-                filter: brightness(140%);
-                transition: filter 500ms;
-            }
-
           }
         }
       }

@@ -13,13 +13,14 @@
   }
   section.news-items {
     background-color: black;
+    padding-top: 60px;
 
     div.news-item-container {
       color: white;
       align-items: flex-start;
       > .news-item {
-        grid-column-start: 1;
-        grid-column-end: 13;
+        grid-column-start: 2;
+        grid-column-end: 12;
         margin-bottom: 100px;
         font-family: "Encode Sans", sans-serif;
         letter-spacing: 1px;
@@ -45,6 +46,15 @@
             font-size: initial;
           }
         }
+      }
+    }
+
+    .cta {
+      grid-column-start: 1;
+      grid-column-end: 13;
+      .button {
+        display: block;
+        margin: 20px auto;
       }
     }
   }

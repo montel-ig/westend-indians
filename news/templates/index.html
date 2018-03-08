@@ -1,0 +1,30 @@
+{% extends "base_layout.html" %}
+
+{% load staticfiles %}
+
+{% block body_css_class %}news_page{% endblock %}
+
+{% block title %} {{news_item.title}} {% endblock %}
+
+{% block main %}
+<section class="news-items">
+  <div class="news-item-container">
+    {% for news_item in news %}
+    <div class="news-item">
+      <h1 id="{{ news_item.id }}">
+        {{ news_item.title }}
+      </h1>
+      <p id="lead-paragraph">
+        {{ news_item.ingress }}
+      </p>
+      <a href="{% url 'news_item' news_item.slug %}" class="button">Lue koko juttu</a>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+<img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+{% endblock %}
+
+{% block footer %}
+{% include "footer.html" with sponsor_items=sponsors %}
+{% endblock %}

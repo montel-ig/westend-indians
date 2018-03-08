@@ -24,8 +24,12 @@ from wagtail.wagtailcore import urls as wagtail_urls
 from wagtail.wagtailsearch import urls as wagtailsearch_urls
 
 from teams.views import team
+import news.views
 
 urlpatterns = [
+      url(r'uutiset/(?P<slug>[\w-]+)', news.views.news_item, name='news_item'),
+      url(r'uutiset/', news.views.index),
+
       url(r'^admin/', admin.site.urls),
       url(r'^cms/', include(wagtailadmin_urls)),
       url(r'^search/', include(wagtailsearch_urls)),

@@ -8,7 +8,7 @@
   <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
   <div class="container">
     <div class="partners">
-      <h2>pääyhteistyökumppanit</h2>
+      <h2>Pääyhteistyökumppanit</h2>
       {% block sponsors %}
       <div class="top-level row">
         {% for sponsor in sponsor_items %}
@@ -19,7 +19,7 @@
         {% endif %}
         {% endfor %}
       </div>
-      <h2>yhteistyössä</h2>
+      <h2>Yhteistyössä</h2>
       <div class="second-level row">
         {% for sponsor in sponsor_items %}
         {% if sponsor.level == 'second' %}
@@ -29,7 +29,7 @@
         {% endif %}
         {% endfor %}
       </div>
-      <h2>kentällä mukana</h2>
+      <h2>Kentällä mukana</h2>
       <div class="third-level row">
         {% for sponsor in sponsor_items %}
         {% if sponsor.level == 'third' %}
