@@ -43,7 +43,8 @@ class TeamBrowser extends React.Component {
     ['handleSelectChange',
       'handleChangedGender',
       'handleTeamClick',
-      'handleModalClose'
+      'handleModalClose',
+      'onEscPress'
     ].forEach((fn) => this[fn] = this[fn].bind(this));
   }
 
@@ -64,6 +65,18 @@ class TeamBrowser extends React.Component {
     }).then(function(teams) {
       that.setState({teams})
     });
+    document.addEventListener("keydown", this.onEscPress, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.onEscPress, false);
+  }
+
+  onEscPress(event) {
+    if(event.keyCode === 27) {
+      // close modal
+      this.setState({selectedTeam:null});
+    }
   }
 
   mapTeams(teams) {

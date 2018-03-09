@@ -5,13 +5,28 @@ class PlayerBrowser extends React.Component {
     ['mapPlayers',
      'handleModalClose',
      'handlePlayerClick',
-     'handlePlayerChange'
+     'handlePlayerChange',
+      'onEscPress'
     ].forEach((fn) => this[fn] = this[fn].bind(this));
 
     this.state = {
       players: this.filterEmployeesFromPlayers(objectToArray(team_members)),
       employees: this.filterEmployeesFromPlayers(objectToArray(team_members), true),
       selectedPlayer: null,
+    }
+  }
+  componentDidMount() {
+    document.addEventListener("keydown", this.onEscPress, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.onEscPress, false);
+  }
+
+  onEscPress(event) {
+    if(event.keyCode === 27) {
+      // close modal
+      this.setState({selectedPlayer:null});
     }
   }
 
@@ -119,7 +134,6 @@ class PlayerBrowser extends React.Component {
   }
 
   render() {
-    console.log(this.state.employees);
     return (
       <div className="player-wrapper" onClick={this.handleModalClose}>
         <h1>pelaajat</h1>
@@ -142,7 +156,6 @@ class PlayerBrowser extends React.Component {
 }
 
 function createPlayerBrowser(id) {
-
   ReactDOM.render(
     <PlayerBrowser />,
     document.getElementById(id)
