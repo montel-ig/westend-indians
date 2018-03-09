@@ -75,20 +75,12 @@ class IndiansBasePage(Page):
         return Match.objects.filter(homegame=True, date__gt=now, team__id=teamId).order_by('-date').last()
 
     # Lift images
+
+    @property
     def lift_count(self):
         images = [self.pinnalla,self.pinnalla2,self.pinnalla3]
         count = len([i for i in images if i])
         return count
-
-    def full_width_image(self,image):
-        return image.get_rendition('width-1280')
-
-    def medium_width_image(self,image):
-        return image.get_rendition('width-700')
-
-    def small_width_image(self,image):
-        return image.get_rendition('width-350')
-
 
     class Meta:
         abstract = True
