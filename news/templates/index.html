@@ -9,11 +9,16 @@
 {% block main %}
 <section class="news-items">
   <div class="news-item-container">
-    {% for news_item in news %}
+
+    <div id="news-carousel"></div>
+
+    <h1>Vanhemmat uutiset</h1>
+
+    {% for news_item in rest_of_news %}
     <div class="news-item">
-      <h1 id="{{ news_item.id }}">
+      <h2 id="{{ news_item.id }}">
         {{ news_item.title }}
-      </h1>
+      </h2>
       <p id="lead-paragraph">
         {{ news_item.ingress }}
       </p>
@@ -22,7 +27,16 @@
     {% endfor %}
   </div>
 </section>
+
 <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+
+<script type="application/javascript">
+  var news = {{ news_for_carousel_json|safe }};
+  window.onload = function() {
+    createNewsCarousel("news-carousel", news);
+  }
+</script>
+
 {% endblock %}
 
 {% block footer %}

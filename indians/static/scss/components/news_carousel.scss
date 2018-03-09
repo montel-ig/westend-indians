@@ -1,0 +1,65 @@
+#news-carousel {
+
+  background: black;
+  color: white;
+
+  .highlight {
+    display: flex;
+    border: 1px solid $indians-not-so-black;
+
+    .image {
+      flex: 6;
+      height: 460px;
+      background-size: cover;
+      background-position: center center;
+    }
+
+    .description {
+      flex: 4;
+      padding: 20px 40px;
+      .button {
+        margin-top: 30px;
+        float: right;
+      }
+
+      @media screen and (max-width: 800px) {
+        padding: 20px 20px;
+        h1 {
+          font-size: 1.2rem;
+        }
+        p {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+
+  .news-item {
+    display: block;
+    background: $indians-almost-black;
+    border-bottom: 1px solid $indians-not-so-black;
+    color: white;
+    width: 100%;
+    cursor: pointer;
+    h3 {
+      padding: 0 22px;
+      line-height: 60px;
+      margin: 0;
+      font-size: 1.2rem;
+      .arrow {
+        font-size: 1.6rem;
+        display: inline-block;
+        margin-right: 16px;
+      }
+
+      @media screen and (max-width: 800px) {
+        font-size: 1rem;
+      }
+    }
+    &.active {
+      background: $indians-yellow;
+      color: black;
+    }
+  }
+
+}

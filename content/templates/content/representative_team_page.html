@@ -32,40 +32,24 @@
     <div class="lift-container">
       {% include "lift.html" with page=page %}
     </div>
-    <img class="triangle justify-top" src="{% static "images/tilted-bg-white-bottom.svg" %}">
+    <img class="triangle justify-top" src="{% static "images/tilted-bg-black-bottom.svg" %}">
   </section>
   {% endif %}
+
   <section class="news" id="uutiset"}>
-    <div class="news-container  add-space">
-      <div class="row-head">
-        <h1>uutiset</h1>
-        <a href="{% slugurl 'uutiset' %}" target="_blank">katso kaikki uutiset <span>»</span></a>
-      </div>
-      <div class="row-news">
-        {% for newsitem in page.representative_team_page_news %}
-        {% if newsitem %}
-        <div class="news-item">
-          <a href="{% slugurl 'uutiset' %}#{{ newsitem.id }}" target="_blank">
-            <div class="news-image">
-              {% if newsitem.thumbnail_image and newsitem.thumbnail_image.url %}
-                <img src="{{ newsitem.thumbnail_image.url }}" alt="{{ newsitem.title }}">
-              {% endif %}
-            </div>
-          </a>
-          <div class="item-text-container">
-            <a href="{% slugurl 'uutiset' %}#{{ newsitem.id }}" target="_blank"><h2 class="news-item-header">{{ newsitem.title }}</h2></a>
-            <p class="news-item-text">
-              {{ newsitem.ingress }}
-            </p>
-          </div>
+    <div>
+      <div>
+        <h1>Uutiset</h1>
+        <div id="news-carousel"></div>
+        <div class="all-news">
+          <a href="{% slugurl 'uutiset' %}" class="button">Katso kaikki uutiset <span>»</span></a>
         </div>
-        {% endif %}
-        {% endfor %}
       </div>
     </div>
   </section>
+
   <section class="some" id="some"}>
-    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
+    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-black-top.svg" %}">
     <div class="some-container">
       <img id="logo" src="{% static "images/follow-the-tribe.jpg" %}">
       <div class="some-row">
@@ -87,6 +71,14 @@
     </div>
     <img class="triangle justify-top" src="{% static "images/tilted-bg-white-bottom.svg" %}">
   </section>
+
+  <script type="application/javascript">
+    var news = {{ page.representative_team_page_news_json|safe }};
+    window.onload = function() {
+      createNewsCarousel("news-carousel", news);
+    }
+  </script>
+
 {% endblock %}
 
 {% block footer %}

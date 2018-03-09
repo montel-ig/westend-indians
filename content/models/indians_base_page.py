@@ -5,6 +5,7 @@ from wagtail.wagtailcore.models import Page
 
 from django.db.models.functions import datetime
 
+from news.utils import _serialize_news
 from sponsors.models import Sponsor
 from news.models import NewsItem
 from events.models import Event
@@ -39,9 +40,10 @@ class IndiansBasePage(Page):
         return NewsItem.objects.order_by("-created_at")[:3]
 
     @property
-    def representative_team_page_news(self):
+    def representative_team_page_news_json(self):
         now = datetime.datetime.now()
-        return NewsItem.objects.filter(subject='miehet-edustus',publication_date__lt=now).order_by("-publication_date")[:3]
+        news = NewsItem.objects.filter(subject='miehet-edustus',publication_date__lt=now).order_by("-publication_date")[:3]
+        return _serialize_news(news)
 
     @property
     def tribe_page_news(self):
