@@ -54,7 +54,7 @@ def team_properties(team: Team) -> str:
     take_from_team = ('name', 'slug', 'description', 'contact_name', 'contact_email', 'contact_phone',
                         'leader_name', 'leader_email', 'leader_phone', 'registration_link',
                         'some_instagram', 'some_twitter', 'some_facebook', 'some_snapchat', 'current_player_count',
-                        'max_player_count', 'gender', 'path', 'sport', 'age_level',
+                        'max_player_count', 'gender', 'path', 'sport', 'age_level', 'short_description',
                       )
     take_from_area = ('name', 'address', 'lat', 'lng')
     for attr in take_from_team:

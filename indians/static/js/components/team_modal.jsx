@@ -35,12 +35,13 @@ class TeamModal extends React.Component {
     const { name, slug, description, contact_name, contact_email, contact_phone,
       leader_name, leader_email, leader_phone,image, some_instagram, some_twitter,
       some_facebook, some_snapchat, current_player_count, max_player_count,gender,
-      path, sport, age_level, brochure, registration_link
+      path, sport, age_level, brochure, registration_link, short_description
     } = this.props.selectedTeam;
     //const teamIsJoinable = () => (max_player_count > current_player_count) ;
     return (
       <div className={`modal-backdrop ${this.state.visibilityClass}`} >
         <div className="team-modal-container">
+          <p>✕</p>
           <div className="upper">
             <div className="modal-img-wrapper">
               <img className={`upper-team-img ${!image && "default-image"}`} src={image||this.props.default_image} />
@@ -48,6 +49,7 @@ class TeamModal extends React.Component {
           </div>
           <div className="middle">
             <h2 className="team-title">{name}</h2>
+            { short_description && <p className="desc-short">{short_description}</p> }
           </div>
           <div className="lower">
             <div className="lower-left">
