@@ -1,0 +1,31 @@
+{% extends "base_layout.html" %}
+
+{% load staticfiles %}
+
+{% block body_css_class %}news_page{% endblock %}
+
+{% block title %} {{news_item.title}} {% endblock %}
+
+{% block main %}
+<section class="news-items">
+  <div class="news-item-container">
+    <div class="news-item">
+      <h1 id="{{ news_item.id }}">
+        {{ news_item.title }}
+      </h1>
+      <p id="lead-paragraph">
+        {{ news_item.ingress }}
+      </p>
+      {{ news_item.body|safe }}
+    </div>
+
+    <div class="cta">
+      <a class="button" href="./">Uutislistaukseen</a>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block footer %}
+{% include "footer.html" with sponsor_items=sponsors %}
+{% endblock %}
