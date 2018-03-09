@@ -11,7 +11,7 @@ EXPOSE 80
 RUN curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh && \
     bash nodesource_setup.sh && \
     apt-get install -y --no-install-recommends nginx vim-tiny nodejs libpq-dev build-essential libjpeg-dev && \
-    pip install circus chaussette && \
+    pip install "tornado<5" circus chaussette && \
     rm -rf /var/lib/apt/lists/*
 
 # install our app requirements
