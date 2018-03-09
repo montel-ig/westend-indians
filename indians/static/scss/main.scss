@@ -7,6 +7,7 @@
 @import "components/player-browser";
 @import "components/player";
 @import "components/player-modal";
+@import "components/news_carousel";
 @import "components/team-browser";
 @import "components/team_page";
 @import "components/representative-team";
@@ -59,7 +60,6 @@ html {
     a {
       text-decoration: none;
       display: block;
-      color: black;
       width: fit-content;
     }
 

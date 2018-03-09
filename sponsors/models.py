@@ -2,6 +2,7 @@ from django.db import models
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFit
 
+
 class Sponsor(models.Model):
     name = models.CharField(max_length=255)
     url = models.URLField(max_length=255, null=True, blank=True)

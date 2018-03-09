@@ -3,6 +3,8 @@ from ckeditor.fields import RichTextField
 
 from django.utils import timezone
 from django.utils.text import slugify
+from imagekit.models import ImageSpecField
+from pilkit.processors import ResizeToFit
 
 SUBJECT_TYPES = (
     ('heimo', 'Heimo'),
@@ -17,7 +19,18 @@ class NewsItem(models.Model):
     title = models.CharField(max_length=255)
     ingress = models.TextField()
     body = RichTextField()
-    thumbnail_image = models.ImageField(null=True)
+    thumbnail_image = models.ImageField(null=True, blank=True)
+
+    image = models.ImageField(null=True, blank=True)
+    image_wide = ImageSpecField(source='image',
+                                processors=[ResizeToFit(width=1280, height=800, upscale=True)],
+                                options={'quality': 80},
+                                autoconvert=True)
+    image_medium = ImageSpecField(source='image',
+                                  processors=[ResizeToFit(width=750, height=800, upscale=True)],
+                                  options={'quality': 80},
+                                  autoconvert=True)
+
     publication_date = models.DateTimeField(default=timezone.now, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)

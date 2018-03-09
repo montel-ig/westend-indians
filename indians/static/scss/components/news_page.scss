@@ -1,4 +1,21 @@
 .news_page {
+
+  h1,
+  .news-item {
+    grid-column-start: 2;
+    grid-column-end: 12;
+  }
+
+  #news-carousel {
+    grid-column-start: 2;
+    grid-column-end: 12;
+  }
+
+
+  .news-carousel {
+    margin-bottom: 60px;
+  }
+
   section.news-description {
     .news-body-container {
       margin: 50px auto;
@@ -11,6 +28,7 @@
       }
     }
   }
+
   section.news-items {
     background-color: black;
     padding-top: 60px;
@@ -18,9 +36,8 @@
     div.news-item-container {
       color: white;
       align-items: flex-start;
+
       > .news-item {
-        grid-column-start: 2;
-        grid-column-end: 12;
         margin-bottom: 100px;
         font-family: "Encode Sans", sans-serif;
         letter-spacing: 1px;
@@ -58,6 +75,7 @@
       }
     }
   }
+
   div.news-partners {
     display: block;
   }
