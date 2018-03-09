@@ -288,6 +288,12 @@ section.footer {
             }
           }
         }
+
+        &.second-level, &.third-level {
+          @media screen and (max-width : 420px) {
+            display: none;
+          }
+        }
       }
 
       @media screen and (max-width : 450px) {
