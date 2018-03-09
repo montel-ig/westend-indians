@@ -23,7 +23,7 @@ const TeamFilter = (props) => {
                 checked={props.selectedProperties.selectedGender==="male"}
                 onChange={props.handleChangedGender}
               />
-              <span>Miehet</span>
+              <span>Miehet ja pojat</span>
             </label>
             <label>
               <input
@@ -33,7 +33,7 @@ const TeamFilter = (props) => {
                 checked={props.selectedProperties.selectedGender==="female"}
                 onChange={props.handleChangedGender}
               />
-              <span>Naiset</span>
+              <span>Naiset ja tytöt</span>
             </label>
             <label>
               <input

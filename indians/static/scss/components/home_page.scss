@@ -425,22 +425,11 @@
   }
 
   section.lift {
-
-    .lift-container {
-      display: flex;
-      min-height: 0;
-      padding: $base_padding 0;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
     &.raise-up {
       padding-top: 100px;
       position: relative;
       top: -100px;
-      //margin-bottom: -100px;
     }
-
   }
 
   .triangle {

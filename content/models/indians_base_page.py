@@ -4,7 +4,6 @@ from __future__ import unicode_literals
 from wagtail.wagtailcore.models import Page
 
 from django.db.models.functions import datetime
-from django.db.models import Min
 
 from sponsors.models import Sponsor
 from news.models import NewsItem
@@ -75,6 +74,13 @@ class IndiansBasePage(Page):
         now = datetime.datetime.now()
         return Match.objects.filter(homegame=True, date__gt=now, team__id=teamId).order_by('-date').last()
 
+    # Lift images
+
+    @property
+    def lift_count(self):
+        images = [self.pinnalla,self.pinnalla2,self.pinnalla3]
+        count = len([i for i in images if i])
+        return count
 
     class Meta:
         abstract = True

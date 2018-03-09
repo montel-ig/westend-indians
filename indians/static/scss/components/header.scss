@@ -75,6 +75,7 @@
         transform: translate(-50%);
         font-size: 3vw;
         letter-spacing: $letter-spacing-medium;
+        text-transform: capitalize;
 
         @media screen and (min-width : 176px) and (max-width : 360px) {
           font-size: 10px;
