@@ -8,6 +8,8 @@ POSITION_TYPES = (
     ('fwd', 'Forward'),
     ('def', 'Defense'),
     ('goal', 'Goalie'),
+    ('coach', 'Coach'),
+    ('support', 'Support'),
     ('player', 'Player'),
 )
 HANDEDNESS_TYPES = (
