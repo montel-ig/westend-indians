@@ -54,10 +54,7 @@
       margin: 10vh 10vw;
       width: 80vw;
     }
-    @media screen and (max-height : 900px) {
-      margin: 10vh 2vw;
-      width: 96vw;
-    }
+
     @media (orientation: landscape) and (max-width: 800px){
       margin: 1vh 10vw;
       height: 350px;
@@ -91,7 +88,7 @@
             width:100%;
             object-fit: contain;
             @media (orientation: landscape) and (max-height: 800px) {
-              height: 300px;
+              height: 250px;
             }
 
             &.default-image {
@@ -111,21 +108,27 @@
           }
         }
       }
-      div.middle {
+      .middle {
         justify-content: center;
         flex-direction: column;
-        border-bottom: solid 1px $indians-yellow;
+        border-bottom: solid 1px $indians-not-so-black;
         h2 {
           text-align: center;
           font-size: 25px;
           margin: 20px;
+          @media screen and (max-width: 420px){
+            font-size: 16px;
+            margin: 10px;
+          }
         }
         p {
           margin: 0;
-        }
-        .desc-short {
-          padding: 10px;
+          padding: 0  10px 10px 10px;
           text-align: center;
+          font-size: 16px;
+          @media screen and (max-width: 420px), (max-height: 420px){
+            font-size: 10px;
+          }
         }
       }
       div.lower {
@@ -134,24 +137,27 @@
           overflow-wrap: break-word;
           word-wrap: break-word;
           @media screen and (max-width : 420px) {
-            font-size: 12px;
+            font-size: 10px;
           }
-          @media(orientation: landscape) {
+          @media(orientation: landscape) and (max-width : 680px)  {
             font-size: 12px;
             margin: 2px;
           }
         }
         div {
           .title {
-            //color: $indians-yellow;
+            color: $indians-yellow;
           }
         }
         .lower-left {
-          width: 50%;
-          //border-right: solid 1px $indians-yellow;
-
+          width: 66.6%;
           .lower-left-upper, .lower-left-lower {
-            div { padding: 10px }
+            div {
+              padding: 10px;
+              @media(orientation: landscape) and (max-height : 700px) {
+                padding: 0 10px;
+              }
+            }
           }
         }
         .lower-right {
@@ -171,14 +177,19 @@
             padding: 10px;
             margin: 35px 0;
             height: 50px;
-            width: 50%;
+            width: 70%;
             @media(orientation: landscape) {
-              width: 40%;
-              height: 50px;
+
             }
             @media screen and (max-width : 420px) {
               width: 80%;
-              font-size: 14px;
+              font-size: 10px;
+              margin: 10px 0;
+            }
+            @media(orientation: landscape) and (max-width : 700px) {
+              width: 50%;
+              height: 50px;
+              margin: 5px 0;
             }
           }
         }

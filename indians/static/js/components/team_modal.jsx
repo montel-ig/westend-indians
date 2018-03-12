@@ -74,7 +74,6 @@ class TeamModal extends React.Component {
               { registration_link && <button onClick={()=>this.openPage(registration_link)}>Liity mukaan</button> }
               <button onClick={()=>this.openPage(`/joukkueet/${slug}`)}>Joukkueen sivulle</button>
               {brochure && <button onClick={()=>window.location.href=brochure}>Lataa esite</button> }
-              <a href={`/joukkueet/${slug}`}>Lisätietoja</a>
             </div>
           </div>
         </div>
