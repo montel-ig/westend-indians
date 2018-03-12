@@ -210,92 +210,98 @@ section.footer {
       }
 
       .row {
-        display: flex;
-        justify-content: space-evenly;
-        flex-wrap: nowrap;
-
-        @media screen and (max-width : 460px) {
-          flex-wrap: wrap;
-        }
         > div {
-          padding: 0 10px;
-          margin: auto 0;
-          > a {
-            width: 100%;
-            > img {
+          display: flex;
+          justify-content: space-evenly;
+          flex-wrap: nowrap;
+          @media screen and (max-width: 460px) {
+            flex-wrap: wrap;
+          }
+          > div {
+            padding: 0 10px;
+            margin: auto 0;
+            > a {
               width: 100%;
-              height: 100%;
-              filter: grayscale(.8);
-              transition: filter 300ms linear;
+              > img {
+                width: 100%;
+                height: 100%;
+                filter: grayscale(.8);
+                transition: filter 300ms linear;
 
-              &:hover {
-                filter: none;
+                &:hover {
+                  filter: none;
+                }
               }
             }
           }
         }
 
-        &.top-level {
-          @media screen and (max-width : 840px) {
-            flex-wrap: wrap;
-            justify-content: flex-start;
-          }
-          > div {
-            width: 125px;
-            @media screen and (max-width : 840px) {
+          &.top-level {
+            > div {
+              @media screen and (max-width: 840px) {
+                flex-wrap: wrap;
+                justify-content: flex-start;
+              }
+              > div {
+                width: 125px;
+                @media screen and (max-width: 840px) {
+                }
+                @media screen and (max-width: 640px) {
+                  width: 120px;
+                  padding: 0 10px;
+                }
+                @media screen and (max-width: 420px) {
+                  width: 60px;
+                  padding: 0 5px;
+                }
+              }
             }
-            @media screen and (max-width : 640px) {
-              width: 120px;
-              padding: 0 10px;
-            }
-            @media screen and (max-width : 420px) {
-              width: 75px;
-              padding: 0 10px;
-            }
-          }
-        }
-        &.second-level {
-          justify-content: flex-start;
-          flex-wrap: wrap;
-          > div {
-            width: 100px;
-            padding: 0 10px;
-            @media screen and (max-width : 840px) {
-            }
-            @media screen and (max-width : 640px) {
-              width: 75px;
-              padding: 0 10px;
-            }
-            @media screen and (max-width : 420px) {
-              width: 52px;
-              padding: 0 10px;
-            }
-          }
-        }
-        &.third-level {
-          justify-content: flex-start;
-          flex-wrap: wrap;
-          > div {
-            width: 75px;
-            padding: 0 20px;
-            @media screen and (max-width : 640px) {
-              width: 50px;
-              padding: 0 10px;
-            }
-            @media screen and (max-width : 420px) {
-              width: 45px;
-              padding: 0 10px;
-            }
-          }
-        }
 
-        &.second-level, &.third-level {
-          @media screen and (max-width : 420px) {
-            display: none;
+          }
+          &.second-level {
+            > div {
+              justify-content: flex-start;
+              flex-wrap: wrap;
+              > div {
+                width: 100px;
+                padding: 0 10px;
+                @media screen and (max-width: 840px) {
+                }
+                @media screen and (max-width: 640px) {
+                  width: 75px;
+                  padding: 0 10px;
+                }
+                @media screen and (max-width: 420px) {
+                  width: 52px;
+                  padding: 0 10px;
+                }
+              }
+            }
+          }
+          &.third-level {
+            > div {
+              justify-content: flex-start;
+              flex-wrap: wrap;
+              > div {
+                width: 75px;
+                padding: 0 20px;
+                @media screen and (max-width: 640px) {
+                  width: 50px;
+                  padding: 0 10px;
+                }
+                @media screen and (max-width: 420px) {
+                  width: 45px;
+                  padding: 0 10px;
+                }
+              }
+            }
+          }
+          &.second-level, &.third-level {
+            @media screen and (max-width: 420px) {
+              display: none;
+            }
           }
         }
-      }
-
       @media screen and (max-width : 450px) {
         text-align: center;
         margin: 0 auto;
