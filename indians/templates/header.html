@@ -13,7 +13,11 @@
     <p class="main-header-text slogan">{{ properties.name }}</p>
   {% endif %}
 
-  <img class="main-img" src="{% static "images/faces_indians_1200x.jpg" %}">
+  {% if request.path|startswith:'/miehet-edustus' %}
+    <img class="main-img" src="{% static "images/faces_1200x.jpg" %}">
+  {% else %}
+    <img class="main-img" src="{% static "images/faces_indians_1200x.jpg" %}">
+  {% endif %}
 
   <nav>
     <!--<img src="{% static 'images/logo.png' %}" />-->
