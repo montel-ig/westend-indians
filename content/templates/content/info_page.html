@@ -2,6 +2,7 @@
 {% load wagtailcore_tags %}
 {% load staticfiles %}
 {% load wagtailimages_tags %}
+{% load submenu %}
 
 {% block body_css_class %}info_page{% endblock %}
 
@@ -9,18 +10,29 @@
 
 {% block main %}
   <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+
   <section class="team-info">
+
+    {% submenu page %}
+
     <div class="team-info-container">
       <div class="team-info-content">
+        <a id="body"></a>
         <div class="info-body">
           {{ page.body|richtext }}
         </div>
+
+        <a id="tickets"></a>
         <div class="info-lift">
           {{ page.tickets|richtext }}
         </div>
+
+        <a id="information"></a>
         <div class="info-information">
           {{ page.information|richtext }}
         </div>
+
+        <a id="contact"></a>
         <div class="info-contact">
           {{ page.contact|richtext }}
         </div>

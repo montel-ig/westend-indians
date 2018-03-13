@@ -20,18 +20,19 @@
 @import "components/some";
 @import "components/teams_page";
 @import "components/team_modal";
+@import "submenu";
 
 
 // General
 html {
 
   background-color: black;
+  //scroll-behavior: smooth;
 
   body {
     margin: 0;
     padding: 0;
     background-color: white;
-
 
     h1 {
       font-family: $black-ops;
@@ -89,6 +90,7 @@ html {
     section {
       max-width: 100%;
       background-repeat: repeat;
+
       > div {
         display: grid;
         grid-template-columns: repeat(12, 1fr);

@@ -8,13 +8,18 @@
   }
   section.team {
     .team-container {
-      padding: 120px $base_padding;
+      padding: 40px $base_padding 120px;
       .repr-body {
         grid-column-start: 1;
-        grid-column-end: 12;
+        grid-column-end: 13;
 
         .rich-text > p > img {
           opacity: .4;
+        }
+
+        img {
+          margin-top: 40px;
+          max-width: 100%;
         }
       }
       .info-links {
