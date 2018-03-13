@@ -8,17 +8,23 @@
 {% block title %} {{page.title}} {% endblock %}
 
 {% block main %}
-  <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+  <img class="triangle" src="{% static "images/tilted-bg-black-top-right.svg" %}">
+
   <section class="team">
     <div class="team-container repr ignore-height"}>
       <div class="repr-body">
         <h1>{{ page.title}}</h1>
         {{ page.body|richtext }}
+
+        <ul class="info-links">
+          <a href="#uutiset" class="scroll-to-link">uutiset</a>
+          <a id="some-cta" href="#some" class="scroll-to-link">some</a>
+        </ul>
+
+        {% if page.team_photo %}
+          {% image page.team_photo width-1280 width="100%" height="auto" alt="Miesten edustusjoukkue" %}
+        {% endif %}
       </div>
-      <ul class="info-links">
-        <a href="#uutiset">uutiset</a>
-        <a id="some-cta" href="#some">some</a>
-      </ul>
     </div>
   </section>
   <section class="repr-lift ">
