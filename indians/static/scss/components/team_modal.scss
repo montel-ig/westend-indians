@@ -47,8 +47,8 @@
       }
     }
     @media screen and (max-height : 1100px) {
-      margin: 5vh 25vw;
-      width: 50vw;
+      margin: 2vh 10vw;
+      width: 80vw;
     }
     @media screen and (max-height : 1100px) and (max-width: 820px) {
       margin: 10vh 10vw;
@@ -154,7 +154,7 @@
           .lower-left-upper, .lower-left-lower {
             div {
               padding: 10px;
-              @media(orientation: landscape) and (max-height : 700px) {
+              @media(orientation: landscape) and (max-height : 780px) {
                 padding: 0 10px;
               }
             }
@@ -178,8 +178,8 @@
             margin: 35px 0;
             height: 50px;
             width: 70%;
-            @media(orientation: landscape) {
-
+            @media(orientation: landscape) and (max-height : 780px) {
+              margin: 15px 0;
             }
             @media screen and (max-width : 420px) {
               width: 80%;

@@ -27,10 +27,10 @@ class PlayerModal extends React.Component {
   }
 
   onArrowPress(event) {
-    if(event.keyCode === 39) {
+    if(event.keyCode === 39 || event.type === 'swiped-right') {
       // next player
       this.props.handlePlayerChange("next", this.state.isEmployee);
-    } else if (event.keyCode === 37) {
+    } else if (event.keyCode === 37 || event.type === 'swiped-left') {
       // previous player
       this.props.handlePlayerChange(false, this.state.isEmployee);
     }
@@ -41,10 +41,14 @@ class PlayerModal extends React.Component {
       this.setState({visibilityClass: "visible"});
     }.bind(this), 100);
     document.addEventListener("keydown", this.onArrowPress, false);
+    document.addEventListener('swiped-right', this.onArrowPress, false);
+    document.addEventListener('swiped-left', this.onArrowPress, false);
   }
 
   componentWillUnmount() {
     document.removeEventListener("keydown", this.onArrowPress, false);
+    document.removeEventListener('swiped-right', this.onArrowPress, false);
+    document.removeEventListener('swiped-left', this.onArrowPress, false);
   }
 
   render() {
