@@ -8,36 +8,42 @@
   <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
   <div class="container">
     <div class="partners">
-      <h2>Pääyhteistyökumppanit</h2>
       {% block sponsors %}
       <div class="top-level row">
-        {% for sponsor in sponsor_items %}
-        {% if sponsor.level == 'top' %}
+          <h2>Pääyhteistyökumppanit</h2>
         <div>
-          <a href="{{ sponsor.url|default_if_none:sponsor.image.url }}" target="_blank"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
+          {% for sponsor in sponsor_items %}
+          {% if sponsor.level == 'top' %}
+          <div>
+            <a href="{{ sponsor.url|default_if_none:sponsor.image.url }}" target="_blank"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
+          </div>
+          {% endif %}
+          {% endfor %}
         </div>
-        {% endif %}
-        {% endfor %}
       </div>
       <div class="second-level row">
         <h2>Yhteistyössä</h2>
-        {% for sponsor in sponsor_items %}
-        {% if sponsor.level == 'second' %}
         <div>
-          <a href="{{ sponsor.url|default_if_none:sponsor.image.url }}" target="_blank"><img src="{{ sponsor.image.url }}"></a>
+          {% for sponsor in sponsor_items %}
+          {% if sponsor.level == 'second' %}
+          <div>
+            <a href="{{ sponsor.url|default_if_none:sponsor.image.url }}" target="_blank"><img src="{{ sponsor.image.url }}"></a>
+          </div>
+          {% endif %}
+          {% endfor %}
         </div>
-        {% endif %}
-        {% endfor %}
       </div>
       <div class="third-level row">
         <h2>Kentällä mukana</h2>
-        {% for sponsor in sponsor_items %}
-        {% if sponsor.level == 'third' %}
         <div>
-          <a href="{{ sponsor.url|default_if_none:sponsor.image.url }}" target="_blank"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
+          {% for sponsor in sponsor_items %}
+          {% if sponsor.level == 'third' %}
+          <div>
+            <a href="{{ sponsor.url|default_if_none:sponsor.image.url }}" target="_blank"><img src="{{ sponsor.sponsor_thumbnail.url }}"></a>
+          </div>
+          {% endif %}
+          {% endfor %}
         </div>
-        {% endif %}
-        {% endfor %}
       </div>
       {% endblock %}
     </div>

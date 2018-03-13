@@ -48,6 +48,7 @@ class Team(models.Model):
     slug = models.SlugField(max_length=255, unique=True, blank=True, editable=False)
 
     description = RichTextField(null=True, blank=True)
+    short_description = models.TextField(blank=True, null=True)
 
     contact_name = models.CharField(blank=True, null=True, max_length=255)
     contact_email = models.EmailField(blank=True, null=True)

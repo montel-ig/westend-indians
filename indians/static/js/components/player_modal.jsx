@@ -6,12 +6,13 @@ class PlayerModal extends React.Component {
       selectedPlayer:null,
       isEmployee: typeof props.selectedPlayer.role === 'string'
     }
+    this.onArrowPress = this.onArrowPress.bind(this);
   }
   openPage(slug) {
     window.open(slug, '_blank');
   }
 
-  getYoutubeId(url){
+  getYoutubeId(url) {
     let ID = '';
     url = url.replace(/(>|<)/gi,'').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
 
@@ -25,10 +26,25 @@ class PlayerModal extends React.Component {
     return ID;
   }
 
+  onArrowPress(event) {
+    if(event.keyCode === 39) {
+      // next player
+      this.props.handlePlayerChange("next", this.state.isEmployee);
+    } else if (event.keyCode === 37) {
+      // previous player
+      this.props.handlePlayerChange(false, this.state.isEmployee);
+    }
+  }
+
   componentDidMount() {
     setTimeout(function () {
       this.setState({visibilityClass: "visible"});
     }.bind(this), 100);
+    document.addEventListener("keydown", this.onArrowPress, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.onArrowPress, false);
   }
 
   render() {

@@ -1,7 +1,6 @@
 section.some {
   background-color: black;
   @media screen and (max-width: 490px) {
-    display: none;
   }
   h1 {
     padding: 0 0 50px 50px;
@@ -27,19 +26,6 @@ section.some {
     .some-row {
       display: flex;
       justify-content: space-evenly;
-
-      @media screen and (max-width: 950px) {
-        flex-direction: column;
-        > div {
-          margin: 0 auto;
-          padding-bottom: 20px;
-          @media screen and (max-width: 620px) {
-            > iframe, #twitter-widget-0 {
-              max-height: 500px;
-            }
-          }
-        }
-      }
       > div {
         display: flex;
         flex-direction: column;
@@ -48,10 +34,23 @@ section.some {
         max-height: 820px;
         overflow: hidden;
       }
+      @media screen and (max-width: 740px) {
+        flex-direction: column;
+        > div {
+          margin: 0 auto;
+          padding-bottom: 20px;
+          max-height: 520px;
+        }
+      }
     }
     #instafeed {
-      a img {
-        height: 146px;
+      max-width: 320px;
+
+      a {
+        padding: 2px;
+        img {
+          height: 146px;
+        }
       }
       @media screen and (max-width: 950px) {
         flex-direction: row;
@@ -61,9 +60,8 @@ section.some {
       }
     }
     div.instagram-wrapper {
-      max-height: none;
       display: flex;
-      @media screen and (min-width: 950px) and (max-width: 1100px) {
+      @media screen and (max-width: 740px) {
         display: none;
       }
       svg {
@@ -71,7 +69,6 @@ section.some {
       }
       .team-insta {
         display: flex;
-        flex-direction: column;
         justify-content: center;
         flex-wrap: wrap;
         //padding: 0 $base_padding 20px $base_padding;

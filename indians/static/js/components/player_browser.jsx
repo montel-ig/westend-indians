@@ -1,3 +1,11 @@
+const positions = {
+  forward: 'fwd',
+  defense: 'def',
+  goal: 'goalie',
+  coach: 'coach',
+  support: 'support',
+  player: 'player'
+};
 
 class PlayerBrowser extends React.Component {
   constructor(props) {
@@ -6,12 +14,18 @@ class PlayerBrowser extends React.Component {
      'handleModalClose',
      'handlePlayerClick',
      'handlePlayerChange',
-      'onEscPress'
+      'onEscPress',
+      'filterByPosition',
+      'findOrphanedIndians'
     ].forEach((fn) => this[fn] = this[fn].bind(this));
 
     this.state = {
-      players: this.filterEmployeesFromPlayers(objectToArray(team_members)),
-      employees: this.filterEmployeesFromPlayers(objectToArray(team_members), true),
+      forwards: this.filterByPosition(objectToArray(team_members), 'fwd'),
+      defenses: this.filterByPosition(objectToArray(team_members), 'def'),
+      goalies: this.filterByPosition(objectToArray(team_members), 'goalie'),
+      coaches: this.filterByPosition(objectToArray(team_members), 'coach'),
+      support: this.filterByPosition(objectToArray(team_members), 'support'),
+      other: this.findOrphanedIndians(objectToArray(team_members)),
       selectedPlayer: null,
     }
   }
@@ -30,8 +44,14 @@ class PlayerBrowser extends React.Component {
     }
   }
 
-  filterEmployeesFromPlayers(players, employees) {
-    return players.filter(person => employees ? person.role && !person.number : !person.role);
+  filterByPosition(players,predicate) {
+    if (Object.values(positions).indexOf(predicate) > -1) {
+      return players.filter((p) => (p.position === predicate));
+    }
+  }
+
+  findOrphanedIndians(players) {
+    return players.filter((p) => (!p.position));
   }
 
   mapPlayers(players) {
@@ -53,7 +73,6 @@ class PlayerBrowser extends React.Component {
           handedness={player.handedness}
           height={player.height}
           weight={player.weight}
-          //todo: years_combined
           school={player.school}
           some_facebook={player.some_facebook}
           some_instagram={player.some_instagram}
@@ -110,7 +129,6 @@ class PlayerBrowser extends React.Component {
             selectedPlayer: indiansToIterate[indiansToIterate.indexOf(this.state.selectedPlayer)+1]
           };
         }
-
       });
     } else {
       this.setState(function(prevState) {
@@ -136,7 +154,6 @@ class PlayerBrowser extends React.Component {
   render() {
     return (
       <div className="player-wrapper" onClick={this.handleModalClose}>
-        <h1>pelaajat</h1>
         {this.state.selectedPlayer && <PlayerModal
           players={this.state.players}
           employees={this.state.employees}
@@ -144,11 +161,40 @@ class PlayerBrowser extends React.Component {
           handlePlayerChange={this.handlePlayerChange}
         />}
         <div className={this.state.selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
-          {this.mapPlayers(this.state.players)}
+          {this.state.forwards.length > 0 && <h1>Hyökkääjät</h1>}
+          <div>
+            { this.mapPlayers(this.state.forwards) }
+          </div>
         </div>
-        {this.state.employees.length > 0 && <h1>Toimihenkilöt</h1>}
         <div className={this.state.selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
-          {this.mapEmployees(this.state.employees)}
+          {this.state.defenses.length > 0 && <h1>Puolustajat</h1>}
+          <div>
+            { this.mapPlayers(this.state.defenses) }
+          </div>
+        </div>
+        <div className={this.state.selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
+          {this.state.goalies.length > 0 && <h1>Maalivahdit</h1>}
+          <div>
+            {this.mapPlayers(this.state.goalies)}
+          </div>
+        </div>
+        <div className={this.state.selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
+          {this.state.coaches.length > 0 && <h1>Valmentajat</h1>}
+          <div>
+            {this.mapEmployees(this.state.coaches)}
+          </div>
+        </div>
+        <div className={this.state.selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
+          {this.state.support.length > 0 && <h1>Toimihenkilöt</h1>}
+          <div>
+            {this.mapEmployees(this.state.support)}
+          </div>
+        </div>
+        <div className={this.state.selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
+          {this.state.other.length > 0 && <h1>Muut</h1>}
+          <div>
+            {this.mapEmployees(this.state.other)}
+          </div>
         </div>
       </div>
     );

@@ -1,4 +1,4 @@
-.player-browser-root {
+.player-browser-root > div {
   display: grid;
   grid-template-columns: repeat(5, 250px);
   //grid-template-rows: repeat(5, 350px);
