@@ -1,0 +1,40 @@
+@import "variables.scss";
+
+nav.submenu {
+
+  position: sticky;
+  top: 0px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 $base_padding;
+
+  div {
+    display: flex;
+    grid-column-start: 2;
+    grid-column-end: 12;
+    a {
+      flex: 1 1 60px;
+      box-sizing: border-box;
+      display: block;
+      background: $indians-almost-black;
+      border: 1px solid white;
+      color: white;
+      grid-column-start: 2;
+      grid-column-end: 11;
+      padding: 8px 12px;
+      font-size: 14px;
+      &:before {
+        content: '» ';
+        display: inline-block;
+        margin: 0 4px;
+        position: relative;
+        top: -1px;
+      }
+    }
+  }
+}
