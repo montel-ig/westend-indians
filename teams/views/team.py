@@ -8,13 +8,11 @@ from sponsors.models import Sponsor
 
 def teams(request):
     teams = get_list_or_404(Team)
-
     return render(request, 'teams/teams_page.html', {'teams': teams})
 
 
 def teams_json(request):
     teams = json.dumps([team_properties(t) for t in Team.objects.all()])
-
     return HttpResponse(teams)
 
 

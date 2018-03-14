@@ -1,4 +1,5 @@
 {% extends "base_layout.html" %}
+
 {% load wagtailcore_tags %}
 {% load staticfiles %}
 {% load wagtailimages_tags %}
@@ -6,36 +7,51 @@
 
 {% block body_css_class %}info_page{% endblock %}
 
-{% block title %} {{page.title}} {% endblock %}
+{% block title %}
+  {% if page.depth == 4 %}
+    {{ page.get_parent.title }} /
+    {{ page.title }}
+  {% else %}
+    {{ page.title }}
+  {% endif %}
+{% endblock %}
 
 {% block main %}
   <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
 
   <section class="team-info">
-
     {% submenu page %}
 
     <div class="team-info-container">
       <div class="team-info-content">
-        <a id="body"></a>
-        <div class="info-body">
-          {{ page.body|richtext }}
-        </div>
 
-        <a id="tickets"></a>
-        <div class="info-lift">
-          {{ page.tickets|richtext }}
-        </div>
+        {% if page.body|length > 0 %}
+          <a id="body"></a>
+          <div class="info-body">
+            {{ page.body|richtext }}
+          </div>
+        {% endif %}
 
-        <a id="information"></a>
-        <div class="info-information">
-          {{ page.information|richtext }}
-        </div>
+        {% if page.tickets|length > 0 %}
+          <a id="tickets"></a>
+          <div class="info-lift">
+            {{ page.tickets|richtext }}
+          </div>
+        {% endif %}
 
-        <a id="contact"></a>
-        <div class="info-contact">
-          {{ page.contact|richtext }}
-        </div>
+        {% if page.information|length > 0 %}
+          <a id="information"></a>
+          <div class="info-information">
+            {{ page.information|richtext }}
+          </div>
+        {% endif %}
+
+        {% if page.contact|length > 0 %}
+          <a id="contact"></a>
+          <div class="info-contact">
+            {{ page.contact|richtext }}
+          </div>
+        {% endif %}
       </div>
     </div>
   </section>

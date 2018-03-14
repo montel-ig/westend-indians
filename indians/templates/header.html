@@ -5,13 +5,20 @@
 <section class="header">
   <h1 class="main-header-text header">Westend Indians</h1>
 
-  {% if self.url == '/' %}
-    <p class="main-header-text slogan rootslogan">Once a member - always part of the tribe</p>
-  {% elif title %}
-    <p class="main-header-text slogan">{{ title }}</p>
-  {% else %}
-    <p class="main-header-text slogan">{{ properties.name }}</p>
-  {% endif %}
+  <p class="main-header-text slogan rootslogan">
+    {% if page %}
+      {% if page.depth == 4 %}
+        {{ page.get_parent.title }} /
+        {{ page.title }}
+      {% else %}
+        {{ page.title }}
+      {% endif %}
+    {% elif properties %}
+      {{ properties.name }}
+    {% else %}
+      Once a member - always part of the tribe
+    {% endif %}
+  </p>
 
   {% if request.path|startswith:'/miehet-edustus' %}
     <img class="main-img" src="{% static "images/faces_1200x.jpg" %}">
@@ -50,4 +57,5 @@
   {% elif self.depth == 4 %}
     {% include "subnav.html" with pages=self.get_parent.get_children.live %}
   {% endif %}
+
 </section>
