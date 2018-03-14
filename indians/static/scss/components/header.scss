@@ -28,7 +28,7 @@
     .main-header-text {
       position: absolute;
       opacity: 0;
-      z-index: 9999;
+      z-index: 5;
       left: 50%;
       text-align: center;
       color: $indians-yellow;
@@ -129,7 +129,7 @@
           right: 10px;
         }
 
-        @media screen and (max-width : 640px) {
+        @media screen and (max-width : 780px) {
           display: none;
         }
       }
@@ -192,18 +192,18 @@
             border-color: $indians-red;
           }
 
-          @media screen and (max-width : 800px) {
-            font-size: 16px;
+          @media screen and (max-width : 1020px) {
+            font-size: 1rem;
           }
 
-          @media screen and (max-width : 400px) {
-            font-size: 12px;
-          }
-
-          @media screen and (min-width : 401px) and (max-width : 480px) {
-            font-size: 14px;
+          @media screen and (max-width : 900px) {
+            font-size: 0.8rem;
           }
         }
+      }
+
+      @media screen and (max-width : 780px) {
+        display: none;
       }
     }
 
@@ -222,4 +222,106 @@
   }
 }
 
-//mediaquerys
+#mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  .hamburger {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 38px;
+    height: 38px;
+    img {
+      max-width: 100%;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  > ul {
+    position: absolute;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100vh;
+    box-sizing: border-box;
+    background: $indians-almost-black;
+    border-right: 1px solid $indians-bg-grey;
+    padding: 20px 0;
+    transition: left 420ms;
+    box-shadow: 2px 0 8px 0px $indians-almost-black;
+
+    > li > a {
+      text-transform: uppercase;
+    }
+
+    ul {
+      li a {
+        padding-left: 40px;
+        border-bottom: 1px dotted $indians-bg-grey;
+        font-size: 1rem;
+      }
+    }
+
+    li {
+      padding: 0;
+      margin: 0;
+      a {
+        font-family: $titillium-web;
+        line-height: 1.5em;
+        padding: 8px 20px;
+        color: white;
+        box-sizing: border-box;
+        display: block;
+        text-align: left;
+        width: 100%;
+        border-bottom: 1px solid $indians-bg-grey;
+      }
+      &.logo {
+        margin-bottom: 30px;
+        a {
+          height: 100px;
+          text-align: center;
+          border-bottom: none;
+        }
+        img {
+          margin: 0 auto;
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+      &.close {
+        position: absolute;
+        width: 40px;
+        right: 0;
+        top: 0;
+        line-height: 40px;
+        color: $indians-grey;
+        font-size: 30px;
+        cursor: pointer;
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+
+  &.open {
+    .hamburger {
+      display: none;
+    }
+    > ul {
+      left: 0px;
+    }
+  }
+
+  @media screen and (min-width: 781px) {
+    display: none;
+  }
+}

@@ -26,8 +26,40 @@
     <img class="main-img" src="{% static "images/faces_indians_1200x.jpg" %}">
   {% endif %}
 
+  <nav id="mobile-nav" class="">
+    <div class="hamburger">
+      <img src="{% static 'images/hamburger.svg' %}" />
+    </div>
+    <ul>
+      <li class="close">
+        ✕
+      </li>
+      <li class="logo">
+        <a href="{% slugurl 'home' %}">
+          <img src="{% static 'images/logo.png' %}" />
+        </a>
+      </li>
+      {% for menuitem in request.site.root_page.get_children.live.in_menu %}
+      <li>
+        <a class="{% if request.path|startswith:menuitem.url %} current {% endif %}" href="/{{ menuitem.slug }}">
+          {{ menuitem.title }}
+        </a>
+        <ul>
+          {% for second_level_menuitem in menuitem.get_children.live.in_menu %}
+            <li>
+              <a class="{% if request.path|startswith:second_level_menuitem.url %} current {% endif %}"
+                 href="/{{ menuitem.slug }}/{{ second_level_menuitem.slug }}">
+                {{ second_level_menuitem.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+
   <nav>
-    <!--<img src="{% static 'images/logo.png' %}" />-->
     <a class="feather" href="{%slugurl 'home'%}">
       <img src="{% static 'images/feather-start.png' %}" />
     </a>
@@ -53,9 +85,9 @@
   </nav>
 
   {% if self.url != '/' and self.get_children %}
-    {% include "subnav.html" with pages=self.get_children.live %}
+    {% include "subnav.html" with pages=self.get_children.live.in_menu %}
   {% elif self.depth == 4 %}
-    {% include "subnav.html" with pages=self.get_parent.get_children.live %}
+    {% include "subnav.html" with pages=self.get_parent.get_children.live.in_menu %}
   {% endif %}
 
 </section>

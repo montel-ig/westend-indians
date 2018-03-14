@@ -12,7 +12,7 @@ function scrollTo(element, to, duration) {
   if(duration <= 0) return
   let difference = to - element.scrollTop
   let perTick = difference / duration * 10
-  
+
   setTimeout(function() {
     element.scrollTop = element.scrollTop + perTick
     if(element.scrollTop === to) return
@@ -33,8 +33,7 @@ function scrollTo(element, to, duration) {
   setTimeout(function() {
     document.querySelector(".main-header-text").classList.add("shadows")
   }, 2000)
-  
-  console.log('adding scroll to links')
+
   for(let elem of document.querySelectorAll('.scroll-to-link')) {
     elem.addEventListener('click', function(e) {
       try {
@@ -46,5 +45,36 @@ function scrollTo(element, to, duration) {
       }
     })
   }
+
+  // Passive event support detection / https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md
+  // Test via a getter in the options object to see if the passive property is accessed
+  let supportsPassive = false
+  try {
+    let opts = Object.defineProperty({}, 'passive', {
+      get: function() {
+        supportsPassive = true
+      }
+    })
+    window.addEventListener("testPassive", null, opts)
+    window.removeEventListener("testPassive", null, opts)
+  } catch(e) {
+  }
+
+  // Mobile menu magic
+  const mobileMenu = document.querySelector('#mobile-nav')
+  const hamburger = mobileMenu.querySelector(".hamburger")
+  const closeButton = mobileMenu.querySelector(".close")
+  const openMenu = () => {
+    mobileMenu.classList.add('open')
+  }
+  const closeMenu = () => {
+    mobileMenu.classList.remove('open')
+  }
+
+  hamburger.addEventListener('touchstart', openMenu, supportsPassive ? {passive: true} : false)
+  hamburger.addEventListener('click', openMenu, supportsPassive ? {passive: true} : false)
+  closeButton.addEventListener('touchstart', closeMenu, supportsPassive ? {passive: true} : false)
+  closeButton.addEventListener('click', closeMenu, supportsPassive ? {passive: true} : false)
+
 
 })()
