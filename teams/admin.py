@@ -1,6 +1,26 @@
-from django.contrib import admin
+from django.contrib import admin, messages
 
 from teams.models import Team, Member, School, TeamMembership, Area, Match
+
+
+# def add_all_to_new_team(_modeladmin, request, queryset):
+#     try:
+#         new_team = Team.objects.get(name="Temporary Tiipee")
+#     except Team.DoesNotExist:
+#         new_team = Team.objects.create(name="Temporary Tiipee")
+#
+#     for member in queryset:
+#
+#     messages.success(request, "Successfully created {} with {} as admin".format(new_school, new_admin))
+#
+# add_all_to_new_team.short_description = "Add selected to Temporary Tiipee team"
+
+
+def remove_from_all_teams(_, request, queryset):
+    for member in queryset:
+        member.memberships.all().delete()
+        messages.success(request, f"Successfully removed {member.full_name} from all teams")
+remove_from_all_teams.short_description = "Remove player(s) from all teams"
 
 
 class MembershipInline(admin.TabularInline):
@@ -13,6 +33,7 @@ class MemberAdmin(admin.ModelAdmin):
     inlines = (MembershipInline,)
     list_display = ('name', 'team_memberships')
     list_filter = ('teams__name',)
+    actions = (remove_from_all_teams,)
 
     def team_memberships(self, obj):
         return ','.join(map(lambda t: t.name, obj.teams.all()))
