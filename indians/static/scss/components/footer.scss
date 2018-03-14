@@ -26,10 +26,6 @@ section.footer {
       letter-spacing: $letter-spacing-large;
       text-transform: uppercase;
       grid-column-start: 2;
-
-      @media screen and (max-width : 450px) {
-        font-size: 18px;
-      }
     }
 
     .slogan {
@@ -57,7 +53,10 @@ section.footer {
       @media screen and (max-width : 640px) {
         flex-direction: column;
       }
-      a > h1 {
+      div.mid a h1 {
+        @media screen and (max-width : 420px) {
+          font-size: 14px;
+        }
         &:hover {
           color: $indians-yellow;
           transition: color 300ms linear;
@@ -195,6 +194,7 @@ section.footer {
       h2 {
         @media screen and (max-width : 420px) {
           padding: 15px 0;
+          font-size: 14px;
         }
       }
 

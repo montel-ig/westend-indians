@@ -38,13 +38,15 @@ class TeamBrowser extends React.Component {
         selectedArea: null,
         selectedSport: null
       },
+      hashUrl: [],
       selectedTeam: null
     };
     ['handleSelectChange',
       'handleChangedGender',
       'handleTeamClick',
       'handleModalClose',
-      'onEscPress'
+      'onEscPress',
+      'hashList'
     ].forEach((fn) => this[fn] = this[fn].bind(this));
   }
 
@@ -112,10 +114,24 @@ class TeamBrowser extends React.Component {
     }
   }
 
+  hashList() {
+    // parse url hash to a list of conditions
+    return window.location.hash.split(',').map((h) => {
+      if (h[0] === '#') {
+        h = h.substr(1);
+      }
+      return h;
+    });
+  };
+
+
+
   teamInRange(team) {
     let teamInSelectedRange = true;
-    if (team) {
-      Object.values(this.state.selectedProperties).map((value) => {
+    let hashList = this.hashList();
+    if (hashList) {
+      // exclude team from results if all the conditions in hashList is not met
+      hashList.map((value) => {
         if (value && Object.values(team).map((p) => (replaceUmlauts(p)))
           .indexOf(value) < 0) {
             teamInSelectedRange = false;
@@ -128,8 +144,12 @@ class TeamBrowser extends React.Component {
   handleSelectChange(selectedOption) {
     if (selectedOption.value==='all') {
       this.setState({selectedProperties: Object.assign({}, this.state.selectedProperties, {[selectedOption.property]: null})});
+      console.log(selectedOption)
     } else {
-      this.setState({selectedProperties: Object.assign({}, this.state.selectedProperties, {[selectedOption.property]: selectedOption.value})});
+      this.setState({
+        selectedProperties: Object.assign({}, this.state.selectedProperties, {[selectedOption.property]: selectedOption.value}),
+        hashUrl: [...this.state.hashUrl,selectedOption.value]
+      });
     }
   }
 
@@ -137,11 +157,15 @@ class TeamBrowser extends React.Component {
     if (e.target.value==='all') {
       this.setState({selectedProperties: Object.assign({}, this.state.selectedProperties, {selectedGender: null})});
     } else {
-      this.setState({selectedProperties: Object.assign({}, this.state.selectedProperties, {selectedGender: e.target.value})});
+      this.setState({
+        selectedProperties: Object.assign({}, this.state.selectedProperties, {selectedGender: e.target.value}),
+        hashUrl: [...this.state.hashUrl,e.target.value]
+      });
     }
   }
 
   render() {
+    window.location.hash = this.state.hashUrl;
     return (
       <div className="teams-wrapper" onClick={this.handleModalClose}>
         { TeamFilter && <TeamFilter {...this.state}

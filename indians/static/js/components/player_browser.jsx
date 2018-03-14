@@ -20,6 +20,7 @@ class PlayerBrowser extends React.Component {
     ].forEach((fn) => this[fn] = this[fn].bind(this));
 
     this.state = {
+      team: objectToArray(team_members).sort((a,b) => a.number - b.number),
       forwards: this.filterByPosition(objectToArray(team_members), 'fwd'),
       defenses: this.filterByPosition(objectToArray(team_members), 'def'),
       goalies: this.filterByPosition(objectToArray(team_members), 'goalie'),
@@ -51,7 +52,7 @@ class PlayerBrowser extends React.Component {
   }
 
   findOrphanedIndians(players) {
-    return players.filter((p) => (!p.position));
+    return players.filter((p) => (!p.position || p.position === 'player'));
   }
 
   mapPlayers(players) {
@@ -117,28 +118,28 @@ class PlayerBrowser extends React.Component {
   }
 
   handlePlayerChange(person, isEmployee) {
-    let indiansToIterate = isEmployee === true ? this.state.employees : this.state.players;
+    const indians = this.state.team;
     if (person) {
       this.setState(function(prevState) {
-        if (indiansToIterate.indexOf(this.state.selectedPlayer)+1 === indiansToIterate.length) {
+        if (indians.indexOf(this.state.selectedPlayer)+1 === indians.length) {
           return {
-            selectedPlayer: indiansToIterate[0]
+            selectedPlayer: indians[0]
           };
         } else {
           return {
-            selectedPlayer: indiansToIterate[indiansToIterate.indexOf(this.state.selectedPlayer)+1]
+            selectedPlayer: indians[indians.indexOf(this.state.selectedPlayer)+1]
           };
         }
       });
     } else {
       this.setState(function(prevState) {
-        if (indiansToIterate.indexOf(this.state.selectedPlayer) === 0) {
+        if (indians.indexOf(this.state.selectedPlayer) === 0) {
           return {
-            selectedPlayer: indiansToIterate[indiansToIterate.length-1]
+            selectedPlayer: indians[indians.length-1]
           };
         } else {
           return {
-            selectedPlayer: indiansToIterate[indiansToIterate.indexOf(this.state.selectedPlayer)-1]
+            selectedPlayer: indians[indians.indexOf(this.state.selectedPlayer)-1]
           };
         }
       });
