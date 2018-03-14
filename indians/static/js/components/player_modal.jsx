@@ -1,12 +1,14 @@
 class PlayerModal extends React.Component {
   constructor(props) {
-    super()
+    super();
     this.state = {
       visibilityClass:"not-visible",
       selectedPlayer:null,
       isEmployee: typeof props.selectedPlayer.role === 'string'
-    }
-    this.onArrowPress = this.onArrowPress.bind(this);
+    };
+    ['onArrowPress',
+      'disableScrolling'
+    ].forEach((fn) => this[fn] = this[fn].bind(this));
   }
   openPage(slug) {
     window.open(slug, '_blank');
@@ -36,6 +38,12 @@ class PlayerModal extends React.Component {
     }
   }
 
+  disableScrolling() {
+    console.log("disable scrolling");
+    //window.onscroll = () => (window.scrollTo(0, 0));
+    document.body.style.overflow = "hidden";
+  }
+
   componentDidMount() {
     setTimeout(function () {
       this.setState({visibilityClass: "visible"});
@@ -49,10 +57,12 @@ class PlayerModal extends React.Component {
     document.removeEventListener("keydown", this.onArrowPress, false);
     document.removeEventListener('swiped-right', this.onArrowPress, false);
     document.removeEventListener('swiped-left', this.onArrowPress, false);
+    document.body.style.overflow = "visible";
   }
 
   render() {
     const { first_name, last_name, origin, number, position, handedness, born, height, weight, school, role, video_url, description } = this.props.selectedPlayer;
+    this.state.visibilityClass === 'visible' && this.disableScrolling();
     return (
       <div className={`player-modal-backdrop ${this.state.visibilityClass}`} >
         <div className="player-modal-container">
