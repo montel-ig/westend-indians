@@ -32,21 +32,24 @@ class TeamBrowser extends React.Component {
     this.state = {
       teams: [],
       selectedProperties: {
-        selectedGender: null,
-        selectedAge: null,
-        selectedPath: null,
-        selectedArea: null,
-        selectedSport: null
+        gender: null,
+        age_level: null,
+        path: null,
+        area_name: null,
+        sport: null,
+        team: null
       },
-      hashUrl: [],
-      selectedTeam: null
+      hashUrl: this.hashList(),
     };
     ['handleSelectChange',
       'handleChangedGender',
-      'handleTeamClick',
+      'handleSelectedTeam',
       'handleModalClose',
       'onEscPress',
-      'hashList'
+      'hashList',
+      'updateHashUrl',
+      'setInitialDropDownValues',
+      'setTeamFromHash'
     ].forEach((fn) => this[fn] = this[fn].bind(this));
   }
 
@@ -65,7 +68,9 @@ class TeamBrowser extends React.Component {
         return response.statusText;
       }
     }).then(function(teams) {
-      that.setState({teams})
+      that.setState({teams});
+      that.setInitialDropDownValues();
+      that.setTeamFromHash()
     });
     document.addEventListener("keydown", this.onEscPress, false);
   }
@@ -74,10 +79,34 @@ class TeamBrowser extends React.Component {
     document.removeEventListener("keydown", this.onEscPress, false);
   }
 
+  setInitialDropDownValues() {
+    // set dropdown values from hash on component mount
+    const hashList = this.hashList();
+    let selectedProperties = this.state.selectedProperties;
+    Object.entries(hashList).map((h) => {
+      selectedProperties[h[1][0]] = h[1][1]
+    });
+    this.setState({ selectedProperties });
+  }
+
+  setTeamFromHash() {
+    const hashList = this.hashList();
+    // if team is set in hash, find and assign the corresponding team
+    Object.values(hashList).map((h) => {
+      if (h[0]==='team') {
+        this.setState({
+          selectedProperties: Object.assign({},
+            this.state.selectedProperties,
+            {team: this.state.teams.find((team) => (team.slug === h[1]))})
+        });
+      }
+    });
+  }
+
   onEscPress(event) {
     if(event.keyCode === 27) {
       // close modal
-      this.setState({selectedTeam:null});
+      this.setState({team:null});
     }
   }
 
@@ -92,7 +121,7 @@ class TeamBrowser extends React.Component {
       if (this.teamInRange(team)) {
         return <Team
           handleTeamClick={() => {
-            this.handleTeamClick(team)
+            this.handleSelectedTeam(team)
           }}
           name={team.name}
           image={team.image}
@@ -104,36 +133,43 @@ class TeamBrowser extends React.Component {
     });
   }
 
-  handleTeamClick(team) {
-    this.setState({selectedTeam: team});
-  }
-
   handleModalClose(e) {
-    if (this.state.selectedTeam && e.target.className === "modal-backdrop visible") {
-      this.setState({selectedTeam:null});
+    if (this.state.selectedProperties.team && e.target.className === "modal-backdrop visible") {
+      this.setState({
+        selectedProperties: Object.assign({}, this.state.selectedProperties, {team: null})
+      },() => { this.updateHashUrl() });
     }
   }
 
   hashList() {
-    // parse url hash to a list of conditions
-    return window.location.hash.split(',').map((h) => {
-      if (h[0] === '#') {
-        h = h.substr(1);
-      }
-      return h;
-    });
+    // parse hash to a list of conditions
+    return window.location.hash
+      .substr(1)
+      .split(',')
+      .map((a) => (a.split('=')));
   };
 
-
+  updateHashUrl() {
+    // compose hash from selected properties
+    const hashUrl = Object.entries(this.state.selectedProperties)
+                    .filter((p) => (p[1]))
+                    .map((p) => (`${p[0]}=${p[1]}`));
+    if (hashUrl.length === 0) {
+      hashUrl.push('all');
+    }
+    window.location.hash = hashUrl
+    this.setState({ hashUrl })
+  }
 
   teamInRange(team) {
+    // exclude team from results if all the conditions in hashList have not met
     let teamInSelectedRange = true;
     let hashList = this.hashList();
     if (hashList) {
-      // exclude team from results if all the conditions in hashList is not met
       hashList.map((value) => {
-        if (value && Object.values(team).map((p) => (replaceUmlauts(p)))
-          .indexOf(value) < 0) {
+        if (value && value !== 'all' && Object.values(team)
+          .map((p) => (replaceUmlauts(p)))
+          .indexOf(value[1]) < 0) {
             teamInSelectedRange = false;
           }
       });
@@ -141,39 +177,51 @@ class TeamBrowser extends React.Component {
     return teamInSelectedRange;
   }
 
-  handleSelectChange(selectedOption) {
-    if (selectedOption.value==='all') {
-      this.setState({selectedProperties: Object.assign({}, this.state.selectedProperties, {[selectedOption.property]: null})});
-      console.log(selectedOption)
+  handleSelectedTeam(team) {
+    if (!team) {
+      this.setState({selectedProperties: Object.assign({}, this.state.selectedProperties, {team: null})},
+        () => { this.updateHashUrl() });
     } else {
       this.setState({
-        selectedProperties: Object.assign({}, this.state.selectedProperties, {[selectedOption.property]: selectedOption.value}),
-        hashUrl: [...this.state.hashUrl,selectedOption.value]
+        selectedProperties: Object.assign({}, this.state.selectedProperties, { team: team.slug }),
+      }, () => {
+        this.updateHashUrl();
+        this.setTeamFromHash()
       });
+    }
+  }
+
+  handleSelectChange(selectedOption) {
+    if (selectedOption.value==='all') {
+      this.setState({selectedProperties: Object.assign({}, this.state.selectedProperties, {[selectedOption.property]: null})},
+        () => { this.updateHashUrl() });
+    } else {
+      this.setState({
+        selectedProperties: Object.assign({}, this.state.selectedProperties, {[selectedOption.property]: selectedOption.value})
+      },() => { this.updateHashUrl() });
     }
   }
 
   handleChangedGender(e) {
     if (e.target.value==='all') {
-      this.setState({selectedProperties: Object.assign({}, this.state.selectedProperties, {selectedGender: null})});
+      this.setState({selectedProperties: Object.assign({}, this.state.selectedProperties, {gender: null})},
+        () => { this.updateHashUrl() });
     } else {
       this.setState({
-        selectedProperties: Object.assign({}, this.state.selectedProperties, {selectedGender: e.target.value}),
-        hashUrl: [...this.state.hashUrl,e.target.value]
-      });
+        selectedProperties: Object.assign({}, this.state.selectedProperties, {gender: e.target.value}),
+      }, () => { this.updateHashUrl() });
     }
   }
 
   render() {
-    window.location.hash = this.state.hashUrl;
     return (
       <div className="teams-wrapper" onClick={this.handleModalClose}>
         { TeamFilter && <TeamFilter {...this.state}
           handleSelectChange={this.handleSelectChange}
           handleChangedGender={this.handleChangedGender}
         /> }
-        {this.state.selectedTeam && <TeamModal
-          selectedTeam={this.state.selectedTeam}
+        {this.state.selectedProperties.team && <TeamModal
+          selectedTeam={this.state.selectedProperties.team}
           default_image='/static/images/indians_logo_345x345.jpg'
         />}
         <div className="team-browser-root">

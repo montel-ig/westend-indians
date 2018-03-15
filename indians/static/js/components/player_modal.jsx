@@ -40,7 +40,6 @@ class PlayerModal extends React.Component {
 
   disableScrolling() {
     console.log("disable scrolling");
-    //window.onscroll = () => (window.scrollTo(0, 0));
     document.body.style.overflow = "hidden";
   }
 

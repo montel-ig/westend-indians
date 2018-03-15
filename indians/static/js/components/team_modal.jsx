@@ -37,7 +37,6 @@ class TeamModal extends React.Component {
       some_facebook, some_snapchat, current_player_count, max_player_count,gender,
       path, sport, age_level, brochure, registration_link, short_description
     } = this.props.selectedTeam;
-    //const teamIsJoinable = () => (max_player_count > current_player_count) ;
     return (
       <div className={`modal-backdrop ${this.state.visibilityClass}`} >
         <div className="team-modal-container">

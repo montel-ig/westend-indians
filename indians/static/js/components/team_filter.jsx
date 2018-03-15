@@ -10,7 +10,7 @@ const TeamFilter = (props) => {
                 type="radio"
                 value="all"
                 name="gender"
-                checked={props.selectedProperties.selectedGender===null}
+                checked={props.selectedProperties.gender===null}
                 onChange={props.handleChangedGender}
               />
               <span>Kaikki</span>
@@ -20,7 +20,7 @@ const TeamFilter = (props) => {
                 type="radio"
                 value="male"
                 name="gender"
-                checked={props.selectedProperties.selectedGender==="male"}
+                checked={props.selectedProperties.gender==="male"}
                 onChange={props.handleChangedGender}
               />
               <span>Miehet ja pojat</span>
@@ -30,7 +30,7 @@ const TeamFilter = (props) => {
                 type="radio"
                 value="female"
                 name="gender"
-                checked={props.selectedProperties.selectedGender==="female"}
+                checked={props.selectedProperties.gender==="female"}
                 onChange={props.handleChangedGender}
               />
               <span>Naiset ja tytöt</span>
@@ -40,7 +40,7 @@ const TeamFilter = (props) => {
                 type="radio"
                 value="mixed"
                 name="gender"
-                checked={props.selectedProperties.selectedGender==="mixed"}
+                checked={props.selectedProperties.gender==="mixed"}
                 onChange={props.handleChangedGender}
               />
               <span>Seka</span>
@@ -71,23 +71,23 @@ const TeamFilter = (props) => {
           <Select
             name="form-field-name"
             placeholder="Kaikki"
-            value={props.selectedProperties.selectedAge}
+            value={props.selectedProperties.age_level}
             onChange={props.handleSelectChange}
             clearable={false}
             resetValue=""
             noResultsText="Ei tuloksia"
             options={[
-              { value: 'all', label: 'Kaikki', property: "selectedAge"},
-              { value: 'adult', label: '+20-vuotiaat', property: "selectedAge"},
-              { value: 'a', label: '17-20', property: "selectedAge"},
-              { value: 'b', label: '15-17', property: "selectedAge"},
-              { value: 'c', label: '13-15', property: "selectedAge"},
-              { value: 'd', label: '11-13', property: "selectedAge"},
-              { value: 'e', label: '9-11', property: "selectedAge"},
-              { value: 'f', label: '7-9', property: "selectedAge"},
-              { value: 'g', label: '5-7', property: "selectedAge"},
-              { value: 'h', label: '3-5', property: "selectedAge"},
-              { value: 'i', label: '1-3', property: "selectedAge"}
+              { value: 'all', label: 'Kaikki', property: "age_level"},
+              { value: 'adult', label: '+20-vuotiaat', property: "age_level"},
+              { value: 'a', label: '17-20', property: "age_level"},
+              { value: 'b', label: '15-17', property: "age_level"},
+              { value: 'c', label: '13-15', property: "age_level"},
+              { value: 'd', label: '11-13', property: "age_level"},
+              { value: 'e', label: '9-11', property: "age_level"},
+              { value: 'f', label: '7-9', property: "age_level"},
+              { value: 'g', label: '5-7', property: "age_level"},
+              { value: 'h', label: '3-5', property: "age_level"},
+              { value: 'i', label: '1-3', property: "age_level"}
             ]}
           />
         </div>
@@ -96,18 +96,18 @@ const TeamFilter = (props) => {
           <Select
             name="form-field-name"
             placeholder="Kaikki"
-            value={props.selectedProperties.selectedPath}
+            value={props.selectedProperties.path}
             onChange={props.handleSelectChange}
             clearable={false}
             noResultsText="Ei tuloksia"
             options={[
-              { value: 'all', label: 'Kaikki', property: "selectedPath"},
-              { value: 'urheilijan', label: 'Urheilijan polku (3+)', property: "selectedPath" },
-              { value: 'kilpailijan', label: 'Kilpailijan polku (3-2)', property: "selectedPath" },
-              { value: 'harrastajan', label: 'Harrastajan polku (1)', property: "selectedPath" },
-              { value: 'salibandy_koulut', label: 'Salibandy koulut (1, 2 tai 3)', property: "selectedPath" },
-              { value: 'koulujen_iltapaivatoiminta', label: 'Koulujen iltapäivätoiminta (1 tai 2)', property: "selectedPath" },
-              { value: 'erityisryhmat', label: 'Erityisryhmät', property: "selectedPath" }
+              { value: 'all', label: 'Kaikki', property: "path"},
+              { value: 'urheilijan', label: 'Urheilijan polku (3+)', property: "path" },
+              { value: 'kilpailijan', label: 'Kilpailijan polku (3-2)', property: "path" },
+              { value: 'harrastajan', label: 'Harrastajan polku (1)', property: "path" },
+              { value: 'salibandy_koulut', label: 'Salibandy koulut (1, 2 tai 3)', property: "path" },
+              { value: 'koulujen_iltapaivatoiminta', label: 'Koulujen iltapäivätoiminta (1 tai 2)', property: "path" },
+              { value: 'erityisryhmat', label: 'Erityisryhmät', property: "path" }
             ]}
           />
         </div>
@@ -116,19 +116,19 @@ const TeamFilter = (props) => {
           <Select
             name="form-field-name"
             placeholder="Kaikki"
-            value={props.selectedProperties.selectedArea}
+            value={props.selectedProperties.area_name}
             onChange={props.handleSelectChange}
             clearable={false}
             noResultsText="Ei tuloksia"
             options={[
-              { value: 'all', label: 'Kaikki', property: "selectedArea"},
-              { value: 'tapiola', label: 'Tapiola', property: "selectedArea" },
-              { value: 'leppavaara', label: 'Leppävaara', property: "selectedArea" },
-              { value: 'matinkylaolari', label: 'Matinkylä-Olari', property: "selectedArea" },
-              { value: 'espoonkeskus', label: 'Espoon keskus', property: "selectedArea" },
-              { value: 'espoonlahti', label: 'Espoonlahti', property: "selectedArea" },
-              { value: 'kauklahti', label: 'Kauklahti', property: "selectedArea" },
-              { value: 'pohjoisespoo', label: 'Pohjois-Espoo', property: "selectedArea" }
+              { value: 'all', label: 'Kaikki', property: "area_name"},
+              { value: 'tapiola', label: 'Tapiola', property: "area_name" },
+              { value: 'leppavaara', label: 'Leppävaara', property: "area_name" },
+              { value: 'matinkylaolari', label: 'Matinkylä-Olari', property: "area_name" },
+              { value: 'espoonkeskus', label: 'Espoon keskus', property: "area_name" },
+              { value: 'espoonlahti', label: 'Espoonlahti', property: "area_name" },
+              { value: 'kauklahti', label: 'Kauklahti', property: "area_name" },
+              { value: 'pohjoisespoo', label: 'Pohjois-Espoo', property: "area_name" }
             ]}
           />
         </div>
@@ -137,16 +137,16 @@ const TeamFilter = (props) => {
           <Select
             name="form-field-name"
             placeholder="Kaikki"
-            value={props.selectedProperties.selectedSport}
+            value={props.selectedProperties.sport}
             onChange={props.handleSelectChange}
             clearable={false}
             noResultsText="Ei tuloksia"
             options={[
-              { value: 'all', label: 'Kaikki', property: "selectedSport"},
-              { value: 'floorball', label: 'Salibandy', property: "selectedSport" },
-              { value: 'multiple', label: 'Monilajiryhmät', property: "selectedSport" },
-              { value: 'football', label: 'Jalkapallo', property: "selectedSport" },
-              { value: 'running', label: 'Juoksukurssit', property: "selectedSport" }
+              { value: 'all', label: 'Kaikki', property: "sport"},
+              { value: 'floorball', label: 'Salibandy', property: "sport" },
+              { value: 'multiple', label: 'Monilajiryhmät', property: "sport" },
+              { value: 'football', label: 'Jalkapallo', property: "sport" },
+              { value: 'running', label: 'Juoksukurssit', property: "sport" }
             ]}
           />
         </div>
