@@ -105,8 +105,8 @@ class TeamBrowser extends React.Component {
 
   onEscPress(event) {
     if(event.keyCode === 27) {
-      // close modal
-      this.setState({team:null});
+      // close modal with no parameters
+      this.handleSelectedTeam();
     }
   }
 
