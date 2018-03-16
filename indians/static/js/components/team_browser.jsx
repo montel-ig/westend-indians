@@ -1,3 +1,5 @@
+const registryInquiryUrl = 'http://www.westendindians.fi/tiedustelu?no_layout=true'
+
 const replaceUmlauts = (string) => {
   let value;
   if (typeof string === 'string') {
@@ -8,6 +10,14 @@ const replaceUmlauts = (string) => {
   }
   return value;
 };
+
+const NoResults = (props) => (
+  <div className="no-results">
+    <h2>Ei löytynyt sopivia joukkueita</h2>
+    <p>Ei hätää. Lähetä meille linkistä vapaa tiedustelu ja etsimme sopivaa tekemistä sinulle tai lapsellesi.</p>
+    <button onClick={() => (window.open(registryInquiryUrl, '_blank'))}>TIEDUSTELULOMAKKEESEEN</button>
+  </div>
+);
 
 const Team = (props) => {
   return (
@@ -111,26 +121,28 @@ class TeamBrowser extends React.Component {
   }
 
   mapTeams(teams) {
-    return objectToArray(teams)
+    const filteredteams = objectToArray(teams)
       .sort((a,b) => {
         if(a.name < b.name) return -1;
         if(a.name > b.name) return 1;
         return 0;
       })
-      .map(team => {
-      if (this.teamInRange(team)) {
-        return <Team
-          handleTeamClick={() => {
+      .filter(team => this.teamInRange(team))
+      .map((team) => (
+        <Team
+          handleTeamClick={() => (
             this.handleSelectedTeam(team)
-          }}
+          )}
           name={team.name}
           image={team.image}
           key={team.key}
           slug={team.slug}
           path={team.path}
         />
-      }
-    });
+      )
+    );
+    console.log(filteredteams.length)
+    return (filteredteams.length > 0 ? filteredteams : <NoResults />);
   }
 
   handleModalClose(e) {

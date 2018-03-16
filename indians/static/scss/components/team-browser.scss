@@ -57,6 +57,20 @@
       cursor: pointer;
     }
   }
+
+  .no-results {
+    padding: 40px;
+    width: 480px;
+    background-color: black;
+    color: white;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    box-sizing: border-box;
+    h2 {
+      margin: 0 0 20px;
+    }
+  }
 }
 
 
