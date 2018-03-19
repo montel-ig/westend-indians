@@ -1,10 +1,29 @@
 .team_page {
 
   .main-grid-body {
+
+    section.repr-lift {
+      background: black;
+      color: white;
+      margin: 0;
+      padding: $base_padding 0;
+      > div {
+        > div {
+          grid-column-start: 2;
+          grid-column-end: 12;
+          img {
+            margin-top: 40px;
+            max-width: 100%;
+          }
+        }
+      }
+    }
+
     section.team {
       background-image: none;
       max-width: 1280px;
       margin: 0 auto;
+
 
       .teams-team-container {
         padding-top: $base_padding;
