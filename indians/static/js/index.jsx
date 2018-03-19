@@ -24,14 +24,14 @@ function scrollTo(element, to, duration) {
   document.querySelector(".main-img").classList.add("active")
 
   setTimeout(function() {
-    document.querySelector(".main-header-text").classList.add("active-transform")
+    document.querySelector("#page-header > *").classList.add("active-transform")
     if(document.querySelector(".slogan")) {
       document.querySelector(".slogan").classList.add("active-fadein")
     }
   }, 800)
 
   setTimeout(function() {
-    document.querySelector(".main-header-text").classList.add("shadows")
+    document.querySelector("#page-header > *").classList.add("shadows")
   }, 2000)
 
   for(let elem of document.querySelectorAll('.scroll-to-link')) {

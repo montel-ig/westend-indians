@@ -25,41 +25,38 @@
       }
     }
 
-    .main-header-text {
+    .title {
       position: absolute;
-      opacity: 0;
       z-index: 5;
-      left: 50%;
       text-align: center;
-      color: $indians-yellow;
+      margin: 0;
+      padding: 0;
+      left: 0;
+      top: 70%;
+      width: 100%;
+      display: block;
+      min-height: auto;
 
-      &.header {
-        top: 55%;
-        width: 100%;
+      h1,
+      .slogan {
+        opacity: 0;
+        margin: 0;
         font-family: $black-ops;
-        transform: translate(-50%, -40px);
+        color: $indians-yellow;
+      }
+
+      h1 {
+        padding: 0;
         font-size: 7vw;
-        line-height: 60px;
+        line-height: 1em;
         letter-spacing: $letter-spacing-x-large;
         text-transform: uppercase;
         text-shadow: 0 9px 1px #ffffff00;
 
-        @media screen and (min-width : 176px) and  (max-width : 640px) {
-          line-height: 45px;
-          bottom: 40%;
-        }
-
-        @media screen and (min-width : 1820px) {
-          font-size: 3vw;
-        }
-
-        @media screen and (min-width : 2450px) {
-        }
-
         &.active-transform {
-          opacity:1;
+          opacity: 1;
           transition: opacity 1.2s ease-in-out .2s, transform .4s ease-in-out .2s;
-          transform: translate(-50%, 0px);
+          transform: translate(0, 0);
         }
 
         &.shadows {
@@ -68,45 +65,31 @@
         }
       }
 
-      &.slogan {
-        top: 63%;
-        width: 100%;
-        font-family: $black-ops;
-        transform: translate(-50%);
-        font-size: 3vw;
+      .slogan {
+        //font-family: $black-ops;
+        color: $indians-yellow;
         letter-spacing: $letter-spacing-medium;
         text-transform: capitalize;
-        z-index: 1;
+        font-family: $titillium-web;
+        font-size: 2.8vw;
+        padding-top: 5px;
 
-        @media screen and (min-width : 176px) and (max-width : 360px) {
-          font-size: 10px;
-          bottom: 32%;
-        }
-
-        @media screen and (min-width : 361px) and (max-width : 640px) {
-          font-size: 17px;
-          padding-top: 400px;
-          bottom: 27%;
-        }
-
-        @media screen and (min-width : 641px) and  (max-width : 1024px) {
-          font-size: 26px;
-          bottom: 20%;
-        }
-        @media screen and (min-width : 1820px) {
-          font-size: 2vw;
-          bottom: 14%;
-        }
         &.active-fadein {
           opacity:1;
           transition: opacity 1.2s ease-in-out .5s;
         }
       }
 
-      &.rootslogan {
-        font-family: $titillium-web;
-        font-size: 24px;
+      @media screen and (min-width : 781px) {
+        top: 62%;
       }
+
+      @media screen and (min-width : 1000px) {
+        .slogan {
+          padding-top: 20px;
+        }
+      }
+
     }
 
     nav {
@@ -144,12 +127,13 @@
         }
         li.logo {
           height: 25px;
-          width: 148px;
+          width: 88px;
           overflow: visible;
           a {
             display: block;
             position: relative;
-            top: -30px;
+            top: -52px;
+            left: -60px;
             border-bottom: none;
           }
         }

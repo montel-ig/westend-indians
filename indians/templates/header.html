@@ -3,22 +3,28 @@
 {% load startswith %}
 
 <section class="header">
-  <h1 class="main-header-text header">Westend Indians</h1>
 
-  <p class="main-header-text slogan rootslogan">
-    {% if page %}
-      {% if page.depth == 4 %}
-        {{ page.get_parent.title }} /
-        {{ page.title }}
+  <div class="title" id="page-header">
+    <h1>
+      Westend Indians
+    </h1>
+    <p class="slogan">
+      {% if page %}
+        {% if page.depth == 4 %}
+          {{ page.get_parent.title }} /
+          {{ page.title }}
+        {% elif page.title == 'Westend Indians' %}
+          Once a member - always part of the tribe
+        {% else %}
+          {{ page.title }}
+        {% endif %}
+      {% elif properties %}
+        {{ properties.name }}
       {% else %}
-        {{ page.title }}
+        Once a member - always part of the tribe
       {% endif %}
-    {% elif properties %}
-      {{ properties.name }}
-    {% else %}
-      Once a member - always part of the tribe
-    {% endif %}
-  </p>
+    </p>
+  </div>
 
   {% if request.path|startswith:'/miehet-edustus' %}
     <img class="main-img" src="{% static "images/faces_1200x.jpg" %}">
@@ -60,23 +66,18 @@
   </nav>
 
   <nav>
-    <a class="feather" href="{%slugurl 'home'%}">
-      <img src="{% static 'images/feather-start.png' %}" />
-    </a>
     <ul class="nav-index">
+      <li class="logo">
+        <a href="{% slugurl 'home' %}">
+          <img src="{% static 'images/logo.png' %}" />
+        </a>
+      </li>
       {% for menuitem in request.site.root_page.get_children.live.in_menu %}
         <li class="link">
           <a class="{% if request.path|startswith:menuitem.url %} current {% endif %}" href="/{{ menuitem.slug }}">
             {{ menuitem.title.upper }}
           </a>
         </li>
-        {% if forloop.counter == 2 %}
-        <li class="logo">
-          <a href="{% slugurl 'home' %}">
-            <img src="{% static 'images/logo.png' %}" />
-          </a>
-        </li>
-        {% endif %}
       {% endfor %}
     </ul>
     <a class="feather right" href="{%slugurl 'home'%}">
