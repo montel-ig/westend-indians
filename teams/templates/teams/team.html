@@ -11,7 +11,8 @@
 {% endblock %}
 
 {% block main %}
-  <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+  <img class="triangle" src="{% static "images/tilted-bg-black-top.svg" %}">
+
   <section class="team" style="background-color: white;">
     <div class="teams-team-container"}>
       <h1>{{ properties.name }}</h1>
@@ -61,21 +62,23 @@
       </div>
     </div>
   </section>
+
   {% if members|length >= 10  %}
-    <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-black-top.svg" %}">
+    <img class="triangle" src="{% static "images/tilted-bg-black-bottom.svg" %}">
     <section class="players" id="players">
     </section>
-  <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+
+
+    <script type="application/javascript">
+      var team_members = {{ members|safe }} ;
+      window.onload = function() {
+        if(document.getElementById("players")!=null && team_members){
+          createPlayerBrowser("players");
+        }
+      }
+    </script>
   {% endif %}
 
-  <script type="application/javascript">
-    var team_members = {{ members|safe }} ;
-    window.onload = function() {
-      if(document.getElementById("players")!=null && team_members){
-        createPlayerBrowser("players");
-      }
-    }
-  </script>
 {% endblock %}
 
 {% block footer %}

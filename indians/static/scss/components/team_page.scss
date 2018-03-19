@@ -34,7 +34,7 @@
         img {
           position: relative;
           grid-column-start: 1;
-          grid-column-end: 10;
+          grid-column-end: 13;
           max-width: 100%;
           object-fit: contain;
           &#default {
@@ -90,7 +90,8 @@
     section.players {
       background: black;
       color: white;
-      padding: 0 $base_padding;
+      padding: 0 $base_padding $base_padding * 2;
+
       @media screen and (max-width: 380px) {
         padding: 0 $base_padding / 2;
       }

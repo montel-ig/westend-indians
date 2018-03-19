@@ -1,4 +1,5 @@
 {% extends "base_layout.html" %}
+{% load static %}
 {% load wagtailcore_tags %}
 
 {% block body_css_class %}statistics_page{% endblock %}
@@ -6,6 +7,8 @@
 {% block title %} {{page.title}} {% endblock %}
 
 {% block main %}
+  <img class="triangle" src="{% static "images/tilted-bg-black-top.svg" %}">
+
   <section class="team-statistics">
     <div class="team-statistics-container">
       <div class="team-statistics-content">
@@ -30,6 +33,7 @@
       </div>
     </div>
   </section>
+  <img class="triangle" src="{% static "images/tilted-bg-black-bottom.svg" %}">
 {% endblock %}
 
 {% block footer %}
