@@ -3,11 +3,15 @@
   section.teams-description {
     background-color: black;
     .container {
-      padding: $base_padding / 2 $base_padding $base_padding / 2 * 3;
+      padding: $base_padding $base_padding $base_padding / 2 * 3;
       color: white;
       > * {
-        grid-column-start: 1;
-        grid-column-end: 13;
+        grid-column-start: 2;
+        grid-column-end: 12;
+        @media screen and (max-width: 480px) {
+          grid-column-start: 1;
+          grid-column-end: 13;
+        }
       }
       p > a {
         color:$indians-yellow;

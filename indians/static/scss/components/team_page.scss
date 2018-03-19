@@ -5,8 +5,9 @@
       background-image: none;
       max-width: 1280px;
       margin: 0 auto;
+
       .teams-team-container {
-        padding-top: 120px;
+        padding-top: $base_padding;
         @media screen and (max-width: 380px) {
           padding-top: $base_padding;
         }

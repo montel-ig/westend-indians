@@ -17,7 +17,7 @@
     .main-img {
       opacity:0;
       margin-top: 40px;
-      width: 90%;
+      width: 80%;
 
       &.active {
         opacity:1;
@@ -207,7 +207,7 @@
     }
 
     ul.sub-nav {
-      margin-top: 0;
+      margin-top: 5px;
       background: none;
       padding-bottom: 25px;
       li.link {

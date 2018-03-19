@@ -10,7 +10,7 @@ from sponsors.models import Sponsor
 from news.models import NewsItem
 from events.models import Event
 from products.models import ProductImage
-from teams.models import Match
+from teams.models import Match, Team
 
 
 class IndiansBasePage(Page):
@@ -87,3 +87,4 @@ class IndiansBasePage(Page):
 
     class Meta:
         abstract = True
+

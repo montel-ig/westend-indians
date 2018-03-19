@@ -144,6 +144,9 @@ html {
       &.flip-x {
         transform: scale(-1, -1);
       }
+      &.black-bg {
+        background: black;
+      }
     }
     .justify-top {
       top:2px;

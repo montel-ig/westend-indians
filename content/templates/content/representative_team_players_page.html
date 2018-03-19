@@ -1,0 +1,95 @@
+{% extends "base_layout.html" %}
+{% load wagtailcore_tags %}
+{% load staticfiles %}
+{% load wagtailimages_tags %}
+
+{% block body_css_class %}team_page{% endblock %}
+
+{% block title %} {{page.title}} {% endblock %}
+
+{% block main %}
+  <img class="triangle" src="{% static "images/tilted-bg-black-top-right.svg" %}">
+
+  <section class="repr-lift ">
+    <div class="ignore-height repr">
+      {{ page.main_lift|richtext }}
+    </div>
+  </section>
+
+  <section class="team" style="background-color: white;">
+    <div class="teams-team-container"}>
+      <h1>{{ properties.name }}</h1>
+
+      {% if properties.image %}
+        <img class="teams-team-img" src="{{ page.properties.image }}">
+      {% else %}
+        <img id="default" src="{% static 'images/logo.png' %}" />
+      {% endif %}
+
+      <div class="content team">
+        <div class="team-contact">
+          {% if page.properties.contact_name %}
+          <h2>Urheiluvastaava</h2>
+          <p>{{ page.properties.contact_name }}</p>
+          {% endif %}
+          {% if page.properties.contact_email %}
+          <p>{{ page.properties.contact_email }}</p>
+          {% endif %}
+          {% if page.properties.contact_phone %}
+          <p>{{ page.properties.contact_phone }}</p>
+          {% endif %}
+        </div>
+        <div class="team-leader">
+          {% if page.properties.leader_name %}
+          <h2>Joukkueenjohtaja</h2>
+          <p>{{ page.properties.leader_name }}</p>
+          {% endif %}
+          {% if page.properties.leader_email %}
+          <p>{{ page.properties.leader_email }}</p>
+          {% endif %}
+          {% if page.properties.leader_phone %}
+          <p>{{ page.properties.leader_phone }}</p>
+          {% endif %}
+        </div>
+
+        <div class="team-info">
+          {% if page.properties.current_player_count and page.properties.max_player_count %}
+          <p>Nykyinen pelaajamäärä: {{ page.properties.current_player_count }}/{{ page.properties.max_player_count }}</p>
+          {% endif %}
+        </div>
+      </div>
+      <div class="team-description">
+        <p>{{ page.properties.description|safe }}</p>
+      </div>
+    </div>
+  </section>
+
+  <img class="triangle" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+  <section class="players" id="players">
+  </section>
+
+  <script type="application/javascript">
+    var team_members = {{ page.members_json|safe }};
+    window.onload = function() {
+      if(document.getElementById("players")!=null && team_members){
+        createPlayerBrowser("players");
+      }
+    }
+  </script>
+
+  {% if page.pinnalla or page.pinnalla2 or page.pinnalla3%}
+  <section class="lift" style="background-color:{{ page.lift_bgcolor }};">
+    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
+    <div class="lift-container">
+      {% include "lift.html" with page=page %}
+    </div>
+  </section>
+  {% endif %}
+
+  <img class="triangle black-bg" src="{% static "images/tilted-line-almost-black.svg" %}">
+
+{% endblock %}
+
+{% block footer %}
+  {% include "footer.html" with sponsor_items=page.team_sponsors %}
+{% endblock %}
