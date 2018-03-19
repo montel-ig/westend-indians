@@ -17,4 +17,6 @@ def submenu(page):
             if f:
                 txt = truncatewords(f.groups()[0], 4)
                 menu_items.append(f"<a href='#{t}' data-href='#{t}' class='scroll-to-link'>{txt}</a>")
-    return safe("<nav class='submenu'><div>" + ' '.join(menu_items) + "</div></nav>")
+    if len(menu_items) > 1:
+        return safe("<nav class='submenu'><div>" + ' '.join(menu_items) + "</div></nav>")
+    return ''
