@@ -26,7 +26,7 @@
     }
 
     .title {
-      position: absolute;
+      position: relative;
       z-index: 5;
       text-align: center;
       margin: 0;
@@ -83,13 +83,6 @@
       @media screen and (min-width : 600px) {
       }
 
-      @media screen and (min-width : 781px) {
-        top: 40vw;
-        .slogan {
-          padding-top: 20px;
-          padding-bottom: 20px;
-        }
-      }
       @media screen and (min-width : 1281px) {
         top: 520px;
         h1 {
