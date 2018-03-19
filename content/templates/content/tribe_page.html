@@ -7,8 +7,10 @@
 
 {% block title %} {{page.title}} {% endblock %}
 {% block main %}
-  <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+  <img class="triangle" src="{% static "images/tilted-bg-black-top.svg" %}">
   <section class="tribe">
+
+
     <div class="tribe-container">
       <img class="tribe-img" src="http://i64.tinypic.com/2ewnus8.jpg">
       <div class="content tribe">
@@ -21,49 +23,38 @@
       </div>
     </div>
   </section>
+
+  {% if page.main_lift|striptags|length > 0 %}
+    <section class="lift">
+      <div class="tribe-main-lift ignore-height add-space">
+        {{ page.main_lift|richtext }}
+      </div>
+    </section>
+  {% endif %}
+
   {% if page.pinnalla or page.pinnalla2 or page.pinnalla3%}
     <section class="lift" style="background-color:{{ page.lift_bgcolor }};">
-      <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
+      <img class="triangle" src="{% static "images/tilted-bg-white-top.svg" %}">
       <div class="lift-container">
         {% include "lift.html" with page=page %}
       </div>
-      <img class="triangle justify-top" src="{% static "images/tilted-bg-white-bottom.svg" %}">
     </section>
   {% endif %}
-  <section id="lift">
-    <div class="tribe-main-lift ignore-height add-space">
-      {{ page.main_lift|richtext }}
-    </div>
-  </section>
-  <section class="tribe-news" id="uutiset"}>
-    <div class="news-container add-space">
-      <div class="row-head">
-        <h1>uutiset</h1>
-        <a href="{% slugurl 'uutiset' %}" target="_blank">katso kaikki uutiset »</a>
-      </div>
-      <div class="row-news">
-        {% for newsitem in page.tribe_page_news %}
-        <div class="news-item">
-          <a href="{% slugurl 'uutiset' %}#{{ newsitem.id }}" target="_blank">
-            <div class="news-image">
-              {% if newsitem.thumbnail_image %}
-                <img src="{{ newsitem.thumbnail_image.url }}" alt="{{ newsitem.title }}">
-              {% endif %}
-            </div>
-          </a>
-          <div class="item-text-container">
-            <a href="{% slugurl 'uutiset' %}#{{ newsitem.id }}" target="_blank"><h2 class="news-item-header">{{ newsitem.title }}</h2></a>
-            <p class="news-item-text">
-              {{ newsitem.ingress }}
-            </p>
-          </div>
+
+  <section class="news" id="uutiset">
+    <img class="triangle" src="{% static "images/tilted-bg-yellow-top.svg" %}">
+    <div>
+      <div>
+        <h1>Uutiset</h1>
+        <div id="news-carousel"></div>
+        <div class="all-news">
+          <a href="{% slugurl 'uutiset' %}" class="button">Katso kaikki uutiset <span>»</span></a>
         </div>
-        {% endfor %}
       </div>
     </div>
   </section>
+
   <section class="some" id="some"}>
-    <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
     <div class="some-container">
       <img id="logo" src="{% static "images/follow-the-tribe.jpg" %}">
       <div class="some-row">
@@ -82,11 +73,20 @@
           {% include "some/twitter/twitter_widget_tribe.html" %}
         </div>
       </div>
-
     </div>
-    <img class="triangle flip-x justify-top" src="{% static "images/tilted-bg-white-top.svg" %}">
+    <img class="triangle" src="{% static "images/tilted-bg-black-top.svg" %}">
   </section>
-  {% endblock %}
+
+  <script type="application/javascript">
+    var news = {{ page.tribe_page_news_json|safe }};
+    window.onload = function() {
+      createNewsCarousel("news-carousel", news);
+    }
+  </script>
+
+{% endblock %}
+
+
 {% block footer %}
   {% include "footer.html" with sponsor_items=page.tribe_sponsors %}
 {% endblock %}

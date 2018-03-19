@@ -31,6 +31,7 @@ class NewsCarousel extends React.Component {
       </a>
     )
 
+    // custom cooked opacity animation
     if(this.state.animationStartedTime !== null) {
       const ct = new Date().getTime()
       const dt = ct - this.state.animationStartedTime
@@ -42,7 +43,8 @@ class NewsCarousel extends React.Component {
       }
     }
 
-    if(!this.state.automaticSwitchIntervalId) {
+    // automatic switching if more than one news item
+    if(!this.state.automaticSwitchIntervalId && newsItems.length > 1) {
       this.state.automaticSwitchIntervalId = setInterval(() => {
         const highlightIndex = this.props.news.findIndex((d) => d.id === this.state.currentHighlight)
         let ni = highlightIndex + 1

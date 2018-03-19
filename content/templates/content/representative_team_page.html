@@ -27,11 +27,13 @@
       </div>
     </div>
   </section>
+
   <section class="repr-lift ">
     <div class="ignore-height repr">
       {{ page.main_lift|richtext }}
     </div>
   </section>
+
   {% if page.pinnalla or page.pinnalla2 or page.pinnalla3%}
   <section class="lift" style="background-color:{{ page.lift_bgcolor }};">
     <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
@@ -42,7 +44,7 @@
   </section>
   {% endif %}
 
-  <section class="news" id="uutiset"}>
+  <section class="news" id="uutiset">
     <div>
       <div>
         <h1>Uutiset</h1>

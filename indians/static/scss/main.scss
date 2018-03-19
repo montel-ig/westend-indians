@@ -228,3 +228,22 @@ a.button {
     transition: filter 500ms;
   }
 }
+
+
+section.news {
+  background: black;
+  color: white;
+
+  > div > div {
+    grid-column-start: 1;
+    grid-column-end: 13;
+  }
+  .all-news {
+    display: block;
+    margin: 20px 0;
+    text-align: right;
+    .button {
+      display: inline-block;
+    }
+  }
+}

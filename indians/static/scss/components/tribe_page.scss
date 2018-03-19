@@ -1,4 +1,5 @@
 .tribe_page {
+
   section.in-focus {
     .lift-container,
     .news-container .row-news .news-item,
@@ -6,9 +7,12 @@
       opacity: 1;
     }
   }
+
   section.tribe {
+
     .tribe-container {
-      padding: 120px $base_padding;
+      padding: $base_padding * 2 $base_padding;
+
       grid-column-start: 1;
       grid-column-end: 12;
       @media screen and  (max-width : 420px) {
@@ -81,9 +85,10 @@
     justify-content: center;
   }
 
-  #lift {
+  .lift {
+    background: white;
     .tribe-main-lift {
-      margin: 0 auto;
+      margin: $base_padding auto;
       display: flex;
       justify-content: center;
       overflow: hidden;
