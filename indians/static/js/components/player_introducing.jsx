@@ -3,8 +3,8 @@ const Player_introducing = (props) => {
     <div className="modal-img-wrapper">
       {(() => {
         if (props.video_url) {
-          return <iframe width="385"
-                         height="450"
+          return <iframe width="600"
+                         height="400"
                          src={`https://www.youtube.com/embed/${props.video_url}?rel=0&amp;controls=0&amp;showinfo=0&autoplay=1&mute=1`}
                          frameborder="0" allow="autoplay; encrypted-media">
           </iframe>;

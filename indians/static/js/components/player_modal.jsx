@@ -39,8 +39,6 @@ class PlayerModal extends React.Component {
   }
 
   disableScrolling() {
-    console.log("disable scrolling");
-    //window.onscroll = () => (window.scrollTo(0, 0));
     document.body.style.overflow = "hidden";
   }
 
@@ -65,7 +63,7 @@ class PlayerModal extends React.Component {
     this.state.visibilityClass === 'visible' && this.disableScrolling();
     return (
       <div className={`player-modal-backdrop ${this.state.visibilityClass}`} >
-        <div className="player-modal-container">
+        <div className={`player-modal-container ${video_url ? "wide" : "medium"}`}>
           <div className="upper">
             <Player_introducing
               video_url={video_url && this.getYoutubeId(video_url)}
@@ -77,7 +75,7 @@ class PlayerModal extends React.Component {
                 { number && <p>#{number}</p> }
               </div>
               <div className="name">
-                <div>
+                <div className={video_url ? "line" : ""}>
                   <p>{first_name}</p>
                   <p> {last_name}</p>
                 </div>

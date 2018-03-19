@@ -1,7 +1,7 @@
 const positions = {
   forward: 'fwd',
   defense: 'def',
-  goal: 'goalie',
+  goal: 'goal',
   coach: 'coach',
   support: 'support',
   player: 'player'
@@ -23,7 +23,7 @@ class PlayerBrowser extends React.Component {
       team: objectToArray(team_members).sort((a,b) => a.number - b.number),
       forwards: this.filterByPosition(objectToArray(team_members), 'fwd'),
       defenses: this.filterByPosition(objectToArray(team_members), 'def'),
-      goalies: this.filterByPosition(objectToArray(team_members), 'goalie'),
+      goalies: this.filterByPosition(objectToArray(team_members), 'goal'),
       coaches: this.filterByPosition(objectToArray(team_members), 'coach'),
       support: this.filterByPosition(objectToArray(team_members), 'support'),
       other: this.findOrphanedIndians(objectToArray(team_members)),
