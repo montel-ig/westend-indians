@@ -32,7 +32,7 @@
       margin: 0;
       padding: 0;
       left: 0;
-      top: 70%;
+      top: 46vw;
       width: 100%;
       display: block;
       min-height: auto;
@@ -80,15 +80,17 @@
         }
       }
 
-      @media screen and (min-width : 781px) {
-        top: 62%;
+      @media screen and (min-width : 600px) {
       }
 
-      @media screen and (min-width : 1000px) {
+      @media screen and (min-width : 781px) {
+        top: 40vw;
         .slogan {
           padding-top: 20px;
+          padding-bottom: 20px;
         }
       }
+
 
     }
 
@@ -127,7 +129,7 @@
         }
         li.logo {
           height: 25px;
-          width: 88px;
+          width: 85px;
           overflow: visible;
           a {
             display: block;
@@ -200,6 +202,9 @@
           color: $indians-yellow;
           width: 100%;
           display: inline-block;
+          &.current {
+            border-top: none;
+          }
         }
       }
     }

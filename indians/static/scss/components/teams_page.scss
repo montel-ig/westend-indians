@@ -1,8 +1,9 @@
 .teams_page {
+
   section.teams-description {
     background-color: black;
     .container {
-      padding: 120px $base_padding;
+      padding: $base_padding / 2 $base_padding $base_padding / 2 * 3;
       color: white;
       > * {
         grid-column-start: 1;
@@ -14,8 +15,10 @@
       }
     }
   }
+
   section#teams {
-    padding-top: 120px;
+    padding-top: 60px;
+
     > div {
       .filter-container {
         background-color: black;

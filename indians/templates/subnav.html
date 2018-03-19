@@ -2,9 +2,18 @@
 
 <ul class="sub-nav">
   {% for sub_menuitem in pages %}
-    <li class="link"><a href="{{ sub_menuitem.url }}">{{ sub_menuitem.title.upper }}</a></li>
+    <li class="link">
+      {% with url=sub_menuitem.url %}
+        <a class="{% if request.path|startswith:url %} current {% endif %}"
+           href="{{ url }}">
+          {{ sub_menuitem.title.upper }}
+        </a>
+      {% endwith %}
+    </li>
   {% endfor %}
   {% if self.url|startswith:'/miehet-edustus/' %}
-    <li class="link"><a href="/joukkueet/miehet-edustus">JOUKKUE</a></li>
+    <li class="link">
+      <a href="/joukkueet/miehet-edustus">JOUKKUE</a>
+    </li>
   {% endif %}
 </ul>
