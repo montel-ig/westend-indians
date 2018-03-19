@@ -62,6 +62,7 @@ html {
       text-decoration: none;
       display: block;
       width: fit-content;
+      color: $indians-red; // default that works on black and white both
     }
 
     a, p {
@@ -173,9 +174,9 @@ html {
         > * { text-align: center; }
       }
 
-      p > img, img {
-        width: 50%;
-        object-fit: contain;
+      p > img,
+      img {
+        max-width: 100%;
       }
 
       &:empty {
