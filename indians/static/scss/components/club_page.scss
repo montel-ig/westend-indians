@@ -21,6 +21,10 @@
         max-width: 100%
       }
 
+      p {
+        overflow: hidden;
+      }
+
       @media screen and (max-width: 680px) {
         grid-column-start: 1;
         grid-column-end: 13;

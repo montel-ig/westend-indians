@@ -71,9 +71,12 @@ function scrollTo(element, to, duration) {
     mobileMenu.classList.remove('open')
   }
 
-  hamburger.addEventListener('touchstart', openMenu, supportsPassive ? {passive: true} : false)
+  // with chrome webdev responsive view these cause a peculiar bug where frontpage loads after every click
+  // only nice to have, so disabling
+  // hamburger.addEventListener('touchstart', openMenu, supportsPassive ? {passive: true} : false)
+  // closeButton.addEventListener('touchstart', closeMenu, supportsPassive ? {passive: true} : false)
+
   hamburger.addEventListener('click', openMenu, supportsPassive ? {passive: true} : false)
-  closeButton.addEventListener('touchstart', closeMenu, supportsPassive ? {passive: true} : false)
   closeButton.addEventListener('click', closeMenu, supportsPassive ? {passive: true} : false)
 
 

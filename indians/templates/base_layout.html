@@ -8,6 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
+    <meta name="theme-color" content="#0b0b0b">
     <title>{% block title %}Westend Indians{% endblock %}</title>
     <meta name="description" content={{page.description}}>
 
@@ -19,6 +20,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Encode+Sans|Titillium+Web" rel="stylesheet">
   </head>
+
   <body class="{% block body_css_class %}{% endblock %}">
     <div class="container">
       <div class="main-grid-header">
@@ -81,7 +83,6 @@
         js.src = "https://connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
-
     </script>
 
   </body>

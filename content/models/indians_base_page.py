@@ -42,13 +42,13 @@ class IndiansBasePage(Page):
     @property
     def representative_team_page_news_json(self):
         now = datetime.datetime.now()
-        news = NewsItem.objects.filter(subject='miehet-edustus', publication_date__lt=now).order_by("-publication_date")[:3]
+        news = NewsItem.objects.filter(subject='miehet-edustus', publication_date__lt=now, visible=True).order_by("-publication_date")[:3]
         return _serialize_news(news)
 
     @property
     def tribe_page_news_json(self):
         now = datetime.datetime.now()
-        news = NewsItem.objects.filter(subject='heimo', publication_date__lt=now).order_by("-publication_date")[:3]
+        news = NewsItem.objects.filter(subject='heimo', publication_date__lt=now, visible=True).order_by("-publication_date")[:3]
         return _serialize_news(news)
 
     # Events

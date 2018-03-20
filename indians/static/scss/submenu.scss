@@ -3,7 +3,7 @@
 nav.submenu {
 
   position: sticky;
-  top: 0px;
+  top: 0;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
@@ -35,11 +35,25 @@ nav.submenu {
         margin: 0 4px;
         position: relative;
         top: -1px;
+        @media screen and (max-width: 480px) {
+          display: none;
+        }
+      }
+      @media screen and (max-width: 480px) {
+        font-size: 12px;
       }
     }
     @media screen and (max-width: 680px) {
       grid-column-start: 1;
       grid-column-end: 13;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: 0;
+    position: static;
+    a {
+      text-align: center;
     }
   }
 }

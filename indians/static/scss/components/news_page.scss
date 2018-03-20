@@ -4,11 +4,19 @@
   .news-item {
     grid-column-start: 2;
     grid-column-end: 12;
+    @media screen and (max-width: 480px) {
+      grid-column-start: 1;
+      grid-column-end: 13;
+    }
   }
 
   #news-carousel {
     grid-column-start: 2;
     grid-column-end: 12;
+    @media screen and (max-width: 480px) {
+      grid-column-start: 1;
+      grid-column-end: 13;
+    }
   }
 
   .news-carousel {
