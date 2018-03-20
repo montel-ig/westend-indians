@@ -141,8 +141,10 @@ class TeamBrowser extends React.Component {
         />
       )
     );
-    console.log(filteredteams.length)
-    return (filteredteams.length > 0 ? filteredteams : <NoResults />);
+    if (filteredteams.length < 1 && !this.state.selectedProperties.team) {
+      return <NoResults />
+    }
+    return filteredteams
   }
 
   handleModalClose(e) {
