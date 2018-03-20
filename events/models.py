@@ -1,11 +1,13 @@
 from django.db import models
 from ckeditor.fields import RichTextField
+from django.utils import timezone
 from django.utils.text import slugify
 
 
 class Event(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, blank=True, editable=False, null=True)
+
     description = RichTextField()
 
     start_time = models.DateTimeField(null=False)
@@ -15,6 +17,9 @@ class Event(models.Model):
     city = models.CharField(max_length=255)
     lat = models.DecimalField(max_digits=19, decimal_places=16, null=True, default=None, blank=True)
     lng = models.DecimalField(max_digits=19, decimal_places=16, null=True, default=None, blank=True)
+
+    publication_date = models.DateTimeField(default=timezone.now, blank=True)
+    visible = models.BooleanField(default=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
