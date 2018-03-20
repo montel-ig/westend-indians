@@ -146,6 +146,7 @@ html {
       }
       &.black-bg {
         background: black;
+        padding-bottom: 40px;  // assuming only used before footer
       }
     }
     .justify-top {

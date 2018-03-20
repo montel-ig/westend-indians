@@ -1,0 +1,38 @@
+{% extends "base_layout.html" %}
+
+{% load staticfiles %}
+
+{% block body_css_class %}news_page{% endblock %}
+
+{% block title %} {{event.title}} {% endblock %}
+
+{% block main %}
+
+<section class="news-items">
+  <div class="news-item-container">
+    <div class="news-item">
+      <h1 id="{{ event.id }}">
+        {{ event.name }}
+      </h1>
+      <p>
+        {{ event.description|safe }}
+      </p>
+
+      <div class="location">
+        {{ event.street_address }}, {{ event.city }}
+      </div>
+    </div>
+
+    <div class="cta">
+      <a class="button" href="/">Etusivulle</a>
+    </div>
+  </div>
+</section>
+
+<img class="triangle black-bg" src="{% static "images/tilted-line-almost-black.svg" %}">
+
+{% endblock %}
+
+{% block footer %}
+{% include "footer.html" with sponsor_items=sponsors %}
+{% endblock %}
