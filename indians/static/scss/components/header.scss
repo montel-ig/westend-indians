@@ -23,16 +23,21 @@
         opacity:1;
         transition: opacity 2.5s ease-in-out
       }
+
+      &.representative-team {
+        margin-top: 10px;
+      }
+
     }
 
     .title {
-      position: relative;
+      position: absolute;
       z-index: 5;
       text-align: center;
       margin: 0;
       padding: 0;
       left: 0;
-      top: 46vw;
+      top: 40vw;
       width: 100%;
       display: block;
       min-height: auto;
@@ -80,11 +85,15 @@
         }
       }
 
-      @media screen and (min-width : 600px) {
+      @media screen and (min-width : 781px) {
+        top: 34vw;
+        .slogan {
+          padding-top: 20px;
+          padding-bottom: 20px;
+        }
       }
-
       @media screen and (min-width : 1281px) {
-        top: 520px;
+        top: 440px;
         h1 {
           font-size: 86px;
         }
