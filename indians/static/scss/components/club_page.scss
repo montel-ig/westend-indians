@@ -1,36 +1,42 @@
 .club_page {
-  .body, .introduction, .values, .contact, .personnel {
-    .content {
-      .rich-text {
+  .content {
+    .rich-text {
+      grid-column-start: 2;
+      grid-column-end: 12;
+      padding: $base_padding 0;
+      box-sizing: border-box;
+      max-width: 100%;
+
+      h2 {
+        font-family: $black-ops;
+        font-size: 24px;
+        letter-spacing: $letter-spacing-large;
+        text-transform: uppercase;
+        background-color: black;
+        color: white;
+        padding: $base_padding / 2 0;
+      }
+
+      img {
+        max-width: 100%
+      }
+
+      @media screen and (max-width: 680px) {
         grid-column-start: 1;
         grid-column-end: 13;
-        padding: 100px 50px 50px 50px;
-        h2 {
-          font-family: $black-ops;
-          font-size: 24px;
-          letter-spacing: $letter-spacing-large;
-          text-transform: uppercase;
-          background-color: black;
-          color: white;
-          padding: 5px 20px;
-          width: 50%;
-        }
       }
     }
+  }
 
-  }
-  .body {
-    background-image: url("http://i64.tinypic.com/2akq38.png");
-  }
-  .values, .contact {
+  .values,
+  .contact {
     background-color: black;
     color: white;
   }
+
   .personnel {
-    img {
-      width: 150px;
-      height: 150px;
-      object-fit: contain;
+    .content .rich-text img {
+      max-width: 200px;
     }
   }
 }
