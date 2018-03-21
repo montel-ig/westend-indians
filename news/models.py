@@ -32,6 +32,7 @@ class NewsItem(models.Model):
                                   autoconvert=True)
 
     publication_date = models.DateTimeField(default=timezone.now, blank=True)
+    visible = models.BooleanField(default=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

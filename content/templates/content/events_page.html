@@ -8,11 +8,13 @@
 {% block title %} {{page.title}} {% endblock %}
 {% block main %}
   <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+
   <section class="events-body event ">
     <div class="events-body-container ignore-height">
       {{ page.body|richtext }}
     </div>
   </section>
+
   <section class="events">
     <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
     <div class="event-container">
@@ -21,21 +23,22 @@
           <h1>
             {{ event.name|linebreaks }}
           </h1>
-          {{ event.description|safe }}
           <p>
             {{ event.start_time }} - {{ event.end_time }}
           </p>
           <p>
-            {{ event.street_address }} {{ event.city }}
+            {{ event.street_address }}, {{ event.city }}
           </p>
           <p>
-            {{ event.lat|default_if_none:"&nbsp;" }} {{ event.lng|default_if_none:"&nbsp;" }}
+            <a href="{% url 'event' event.slug %}" class="button">Lue lisää tapahtumasta</a>
           </p>
         </div>
       {% endfor %}
     </div>
   </section>
-  <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+
+  <img class="triangle black-bg" src="{% static "images/tilted-line-almost-black.svg" %}">
+
 {% endblock %}
 {% block footer %}
   {% include "footer.html" with sponsor_items=page.front_page_sponsors %}

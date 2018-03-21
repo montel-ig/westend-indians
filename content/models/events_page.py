@@ -2,6 +2,8 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.utils.datetime_safe import datetime
+
 from content.models.indians_base_page import IndiansBasePage as Parent
 
 from wagtail.wagtailcore.models import Page
@@ -22,4 +24,5 @@ class EventsPage(Parent):
 
     @property
     def events(self):
-        return Event.objects.all()
+        now = datetime.now()
+        return Event.objects.filter(publication_date__lte=now, visible=True)

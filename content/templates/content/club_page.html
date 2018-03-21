@@ -1,6 +1,7 @@
 {% extends "base_layout.html" %}
 {% load wagtailcore_tags %}
 {% load staticfiles %}
+{% load submenu %}
 {% load wagtailimages_tags %}
 
 {% block body_css_class %}club_page{% endblock %}
@@ -9,31 +10,42 @@
 
 {% block main %}
   <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+  {% submenu page %}
+
   <section class="body">
+    <a id="body"></a>
     <div class="content ignore-height">
       {{ page.body|richtext }}
     </div>
   </section>
+
   <section class="introduction" id="esittely"}>
+    <a id="introduction"></a>
     <img class="triangle flip-y justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
     <div class="content ignore-height">
       {{ page.introduction|richtext }}
     </div>
     <img class="triangle flip-y justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
   </section>
+
   <section class="values" id="arvot">
+    <a id="values"></a>
     <img class="triangle flip-y justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
     <div class="content ignore-height">
       {{ page.values|richtext }}
     </div>
   </section>
+
   <section class="contact">
+    <a id="contact"></a>
     <div class="content ignore-height">
       {{ page.contact|richtext }}
     </div>
     <img class="triangle flip-y justify-top" src="{% static "images/tilted-bg-white-top.svg" %}">
   </section>
+
   <section class="personnel">
+    <a id="personnel"></a>
     <img class="triangle flip-y justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
     <div class="content ignore-height">
       {{ page.personnel|richtext }}

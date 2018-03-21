@@ -10,8 +10,10 @@ from wagtail.wagtailsearch import urls as wagtailsearch_urls
 
 from teams.views import team
 import news.views
+import events.views
 
 urlpatterns = [
+      url(r'tapahtumat/(?P<slug>[\w-]+)', events.views.event, name='event'),
       url(r'uutiset/(?P<slug>[\w-]+)', news.views.news_item, name='news_item'),
       url(r'uutiset/', news.views.index),
 
