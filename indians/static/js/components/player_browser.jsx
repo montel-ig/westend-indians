@@ -80,9 +80,8 @@ class PlayerBrowser extends React.Component {
           some_snapchat={player.some_snapchat}
           some_twitter={player.some_twitter}
           video_url={player.video_url}
-          handlePlayerClick={() => {
-            this.handlePlayerClick(player)
-          }}
+          handlePlayerClick={()=>{this.handlePlayerClick(player)}}
+          handleModalClose={this.handleModalClose}
           key={player.key}
         />
       }
@@ -107,6 +106,7 @@ class PlayerBrowser extends React.Component {
         some_twitter={employee.some_twitter}
         video_url={employee.video_url}
         handlePlayerClick={()=>{this.handlePlayerClick(employee)}}
+        handleModalClose={this.handleModalClose}
         key={employee.key}
       />
     });
