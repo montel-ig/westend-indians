@@ -122,6 +122,18 @@ section.footer {
         }
       }
       .social {
+        img {
+          width: 75px;
+          position: absolute;
+          transform: translate(20px, -80px);
+          @media screen and (max-width: 780px) {
+            width: 60px;
+            transform: translate(20px, -65px);
+          }
+          @media screen and (max-width: 640px) {
+            display: none;
+          }
+        }
         @media screen and (max-width : 780px) {
           a {
             padding: 5px;
@@ -138,6 +150,9 @@ section.footer {
         width: auto;
         img {
           width: 100px;
+          @media screen and (max-width: 420px) {
+            width: 65px;
+          }
         }
         a {
           position: relative;

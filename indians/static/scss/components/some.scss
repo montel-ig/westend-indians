@@ -19,6 +19,7 @@ section.some {
     color: white;
       img#logo {
         padding: 20px 0 $base_padding $base_padding;
+        width: 100px;
         @media screen and (max-width: 780px) {
           width: 120px;
         }
