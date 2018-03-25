@@ -6,23 +6,27 @@
       padding: $base_padding 0;
       box-sizing: border-box;
       max-width: 100%;
+      @media screen and (min-width: 1020px) {
+        grid-column-end: 9;
+      }
 
       h2 {
         font-family: $black-ops;
-        font-size: 24px;
         letter-spacing: $letter-spacing-large;
         text-transform: uppercase;
         background-color: black;
         color: white;
-        padding: $base_padding / 2 0;
+        padding: 5px 20px;
+        margin-bottom: 50px;
       }
 
       img {
         max-width: 100%
       }
 
-      p {
-        overflow: hidden;
+      p, li {
+        font-size: $small;
+        line-height: 21px;
       }
 
       @media screen and (max-width: 680px) {
