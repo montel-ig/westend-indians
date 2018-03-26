@@ -6,7 +6,7 @@
     <div class="partners">
       {% block sponsors %}
       <div class="top-level row">
-          <h2>Pääyhteistyökumppanit</h2>
+          <h2>Head partners of the Tribe</h2>
         <div>
           {% for sponsor in sponsor_items %}
           {% if sponsor.level == 'top' %}
@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="second-level row">
-        <h2>Yhteistyössä</h2>
+        <h2>Partners of the Tribe</h2>
         <div>
           {% for sponsor in sponsor_items %}
           {% if sponsor.level == 'second' %}
@@ -30,7 +30,7 @@
         </div>
       </div>
       <div class="third-level row">
-        <h2>Kentällä mukana</h2>
+        <h2>Part of the Tribe</h2>
         <div>
           {% for sponsor in sponsor_items %}
           {% if sponsor.level == 'third' %}
@@ -63,7 +63,6 @@
         <a id="indians"href="{% slugurl 'home' %}"><h1>Westend Indians</h1></a>
       </div>
       <div class="social">
-        <img src="{% static "images/Follow_kasi_Heimo.png" %}">
         <a href="https://www.facebook.com/westendindians/">
           {% include "icons/facebook_icon.html" %}
         </a>
