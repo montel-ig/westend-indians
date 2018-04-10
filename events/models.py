@@ -7,7 +7,7 @@ from django.utils.text import slugify
 class Event(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, blank=True, editable=False, null=True)
-
+    ingress = models.TextField(blank=True, null=True)
     description = RichTextField()
 
     start_time = models.DateTimeField(null=False)
