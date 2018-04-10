@@ -25,4 +25,4 @@ class EventsPage(Parent):
     @property
     def events(self):
         now = datetime.now()
-        return Event.objects.filter(publication_date__lte=now, visible=True)
+        return Event.objects.filter(publication_date__lte=now, visible=True).order_by("-start_time")
