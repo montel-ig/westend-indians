@@ -19,12 +19,12 @@
         }
         h2 {
           background-color: black;
-          color: white;
-          padding: 5px 20px;
+          color: $indians-yellow;
+          padding: 12px 20px;
           margin-bottom: 50px;
         }
         p, li {
-          font-size: $small;
+          font-size: $text-small;
           line-height: 21px;
         }
         .info-contact {
