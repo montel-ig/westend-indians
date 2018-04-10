@@ -9,14 +9,16 @@
       @media screen and (min-width: 1020px) {
         grid-column-end: 10;
       }
+      h2, a {
+        color: $indians-yellow;
+      }
 
       h2 {
         font-family: $black-ops;
         letter-spacing: $letter-spacing-large;
         text-transform: uppercase;
         background-color: black;
-        color: white;
-        padding: 5px 20px;
+        padding: 12px 20px;
         margin-bottom: 50px;
       }
 
@@ -25,7 +27,7 @@
       }
 
       p, li {
-        font-size: $small;
+        font-size: $text-small;
         line-height: 21px;
       }
 
