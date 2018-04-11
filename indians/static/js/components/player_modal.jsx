@@ -68,6 +68,7 @@ class PlayerModal extends React.Component {
     return (
       <div className={`player-modal-backdrop ${this.state.visibilityClass}`} >
         <div className={`player-modal-container ${video_url ? "wide" : "medium"}`}>
+          <i id="close">✕</i>
           <div className="upper">
             <Player_introducing
               video_url={video_url && this.getYoutubeId(video_url)}
