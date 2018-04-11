@@ -258,21 +258,21 @@ section.footer {
                 flex-wrap: wrap;
                 justify-content: flex-start;
               }
+              @media screen and (max-width: 420px) {
+                justify-content: center;
+              }
               > div {
                 width: 125px;
-                @media screen and (max-width: 840px) {
-                }
                 @media screen and (max-width: 640px) {
-                  width: 120px;
+                  width: 100px;
                   padding: 0 10px;
                 }
                 @media screen and (max-width: 420px) {
-                  width: 60px;
+                  width: 70px;
                   padding: 0 5px;
                 }
               }
             }
-
           }
           &.second-level {
             > div {
@@ -281,15 +281,15 @@ section.footer {
               > div {
                 width: 100px;
                 padding: 0 10px;
-                @media screen and (max-width: 840px) {
+                @media screen and (min-width: 1360px) {
+                  padding: 0 30px;
+                }
+                @media screen and (max-width: 1360px) {
+                  padding: 0 20px;
                 }
                 @media screen and (max-width: 640px) {
-                  width: 75px;
-                  padding: 0 10px;
-                }
-                @media screen and (max-width: 420px) {
-                  width: 52px;
-                  padding: 0 10px;
+                  width: 65px;
+                  padding: 0 5px;
                 }
               }
             }
@@ -303,10 +303,6 @@ section.footer {
                 padding: 0 20px;
                 @media screen and (max-width: 640px) {
                   width: 50px;
-                  padding: 0 10px;
-                }
-                @media screen and (max-width: 420px) {
-                  width: 45px;
                   padding: 0 10px;
                 }
               }
