@@ -1,41 +1,63 @@
 .info_page {
-  section.team-info {
-    margin: $base_padding 0;
-    .team-info-container {
-      .team-info-content {
+  section {
+    > div {
+      @media screen and (max-width : 420px) {
+        padding: 0;
+      }
+      > div {
         grid-column-start: 2;
         grid-column-end: 12;
         margin-bottom: 100px;
-        @media screen and (min-width: 1020px) {
-          grid-column-end: 10;
-        }
-        > * {
-          margin: 40px 0 100px;
-        }
         > a {
           margin: 0;
           position: relative;
           top: -45px;
         }
+        h2, h3 {
+          margin: 0 auto;
+          width: 35rem;
+          @media screen and (max-width : 700px) {
+            width: initial;
+          }
+        }
         h2 {
+          margin: 4em auto;
           background-color: black;
-          color: $indians-yellow;
-          padding: 12px 20px;
+          color: white;
+          padding: 12px 0;
+          padding-left: 12px;
           margin-bottom: 50px;
         }
-        p, li {
+        p, ul li {
           font-size: $text-small;
           line-height: 21px;
-        }
-        .info-contact {
-          .rich-text {
-            .richtext-image {
-              width: 25%;
-              height: 25%;
-            }
+          width: 35rem;
+          margin: 2em auto;
+          @media screen and (max-width : 700px) {
+            width: initial;
           }
+          @media screen and (max-width : 420px) {
+            font-size: $text-mobile;
+          }
+        }
+        .rich-text {
+          .richtext-image {
+            width: 25%;
+            height: 25%;
+          }
+        }
+        @media screen and (min-width: 1020px) {
+          grid-column-end: 10;
+        }
+      }
+      &.black {
+        h2 {
+          padding-left: 0;
         }
       }
     }
   }
+
+
+
 }

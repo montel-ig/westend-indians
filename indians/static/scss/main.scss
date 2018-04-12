@@ -59,6 +59,7 @@ html {
     }
     h3 {
       font-family: $titillium-web;
+      font-size: 18px;
     }
 
     a {
@@ -94,6 +95,13 @@ html {
     section {
       max-width: 100%;
       background-repeat: repeat;
+      &.black {
+        background: black;
+        color: white;
+        h2 {
+          color: $indians-yellow;
+        }
+      }
 
       > div {
         display: grid;
