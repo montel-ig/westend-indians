@@ -7,6 +7,19 @@ class TeamModal extends React.Component {
     }
   }
 
+  mapSponsors(sponsors) {
+    return sponsors.map((sponsor) => (
+        <div>
+          {sponsor &&
+          <a href={sponsor.url} target="_blank">
+            <img src={sponsor.sponsor_thumbnail} alt={sponsor.name}/>
+          </a>
+          }
+        </div>
+      )
+    )
+  }
+
   openPage(slug) {
     window.open(slug, '_blank');
   }
@@ -35,8 +48,10 @@ class TeamModal extends React.Component {
     const { name, slug, description, contact_name, contact_email, contact_phone,
       leader_name, leader_email, leader_phone,image, some_instagram, some_twitter,
       some_facebook, some_snapchat, current_player_count, max_player_count,gender,
-      path, sport, age_level, brochure, registration_link, short_description
+      path, sport, age_level, brochure, registration_link, short_description,
+      sponsor_1, sponsor_2, sponsor_3, sponsor_4, sponsor_5
     } = this.props.selectedTeam;
+    const sponsors = [sponsor_1, sponsor_2, sponsor_3, sponsor_4, sponsor_5];
     return (
       <div className={`modal-backdrop ${this.state.visibilityClass}`} >
         <div className="team-modal-container">
@@ -54,7 +69,7 @@ class TeamModal extends React.Component {
             <div className="lower-left">
               <div className="lower-left-upper">
                 <div className="team-leader">
-                  { contact_name && <p className="title">Joukkueen johtaja:</p> }
+                  { contact_name && <p className="title">Seuran urheiluvastaava:</p> }
                   { contact_name && <p>{contact_name}</p> }
                   { contact_email && <p>{contact_email}</p> }
                   { contact_phone && <p>{contact_phone}</p> }
@@ -62,7 +77,7 @@ class TeamModal extends React.Component {
               </div>
               <div className="lower-left-lower">
                 <div className="team-contact">
-                  { leader_name && <p className="title">Seuran urheiluvastaava:</p> }
+                  { leader_name && <p className="title">Joukkueenjohtaja:</p> }
                   { leader_name && <p>{leader_name}</p> }
                   { leader_email && <p>{leader_email}</p> }
                   { leader_phone && <p>{leader_phone}</p> }
@@ -86,6 +101,9 @@ class TeamModal extends React.Component {
             {some_facebook &&
             <a href={`https://www.facebook.com/${some_facebook}`} target="_blank"><svg width="45" height="45" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1376 128q119 0 203.5 84.5t84.5 203.5v960q0 119-84.5 203.5t-203.5 84.5h-188v-595h199l30-232h-229v-148q0-56 23.5-84t91.5-28l122-1v-207q-63-9-178-9-136 0-217.5 80t-81.5 226v171h-200v232h200v595h-532q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960z" fill="#fff"/></svg>
             </a>}
+          </div>
+          <div className="sponsors">
+            {this.mapSponsors(sponsors)}
           </div>
         </div>
       </div>

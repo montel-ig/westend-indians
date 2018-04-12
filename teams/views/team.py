@@ -64,7 +64,6 @@ def team_properties(team: Team) -> str:
         s = getattr(team, sponsor)
         sponsor_dict['name'] = s.name if hasattr(s, 'name') else None
         sponsor_dict['url'] = s.url if hasattr(s, 'url') else None
-        sponsor_dict['image'] = s.image.url if hasattr(s, 'image') else None
         sponsor_dict['sponsor_thumbnail'] = s.sponsor_thumbnail.url if hasattr(s, 'sponsor_thumbnail') else None
         team_dict[sponsor] = sponsor_dict
     for attr in take_from_area:
