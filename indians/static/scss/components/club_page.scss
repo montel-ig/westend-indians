@@ -1,13 +1,19 @@
 .club_page {
+  nav.submenu {
+    padding: $base_padding 0;
+  }
   .content {
     .rich-text {
       grid-column-start: 2;
       grid-column-end: 12;
-      padding: $base_padding 0;
       box-sizing: border-box;
       max-width: 100%;
       @media screen and (min-width: 1020px) {
         grid-column-end: 10;
+      }
+      p, li, h2, h3 {
+        width: 35rem;
+        margin: 2em auto;
       }
       h2, a {
         color: $indians-yellow;
@@ -19,7 +25,7 @@
         text-transform: uppercase;
         background-color: black;
         padding: 12px 20px;
-        margin-bottom: 50px;
+
       }
 
       img {

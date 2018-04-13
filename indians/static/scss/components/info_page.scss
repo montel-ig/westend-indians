@@ -22,10 +22,10 @@
         }
         h2 {
           margin: 4em auto;
+          font-family: $black-ops;
           background-color: black;
-          color: white;
-          padding: 12px 0;
-          padding-left: 12px;
+          color: $indians-yellow;
+          padding: 12px;
           margin-bottom: 50px;
         }
         p, ul li {
@@ -52,7 +52,7 @@
       }
       &.black {
         h2 {
-          padding-left: 0;
+          padding: 12px 0;
         }
       }
     }
