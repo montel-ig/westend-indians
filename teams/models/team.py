@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.text import slugify
 
 from teams.models.area import Area
+from sponsors.models import Sponsor
 
 from ckeditor.fields import RichTextField
 
@@ -76,6 +77,12 @@ class Team(models.Model):
     sport = models.CharField(blank=True, null=True, max_length=12, choices=SPORT_TYPES)
     age_level = models.CharField(blank=True, null=True, max_length=12, choices=AGE_LEVEL_TYPES)
     area = models.ForeignKey(Area, null=True, blank=True)
+
+    sponsor_1 = models.ForeignKey(Sponsor, null=True, blank=True, related_name="sponsor1")
+    sponsor_2 = models.ForeignKey(Sponsor, null=True, blank=True, related_name="sponsor2")
+    sponsor_3 = models.ForeignKey(Sponsor, null=True, blank=True, related_name="sponsor3")
+    sponsor_4 = models.ForeignKey(Sponsor, null=True, blank=True, related_name="sponsor4")
+    sponsor_5 = models.ForeignKey(Sponsor, null=True, blank=True, related_name="sponsor5")
 
     registration_link = models.CharField(blank=True, null=True, max_length=255)
 

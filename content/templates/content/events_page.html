@@ -20,14 +20,17 @@
     <div class="event-container">
       {% for event in page.events %}
         <div class="event">
-          <h1>
-            {{ event.name|linebreaks }}
-          </h1>
+          <h2 id="{{ event.id }}">
+            {{ event.name }}
+          </h2>
           <p>
             {{ event.start_time }} - {{ event.end_time }}
           </p>
           <p>
             {{ event.street_address }}, {{ event.city }}
+          </p>
+          <p>
+            {{ event.ingress }}
           </p>
           <p>
             <a href="{% url 'event' event.slug %}" class="button">Lue lisää tapahtumasta</a>

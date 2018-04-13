@@ -49,12 +49,16 @@ class PlayerModal extends React.Component {
     document.addEventListener("keydown", this.onArrowPress, false);
     document.addEventListener('swiped-right', this.onArrowPress, false);
     document.addEventListener('swiped-left', this.onArrowPress, false);
+    document.addEventListener('swiped-up', this.props.handleModalClose, false);
+    document.addEventListener('swiped-down', this.props.handleModalClose, false);
   }
 
   componentWillUnmount() {
     document.removeEventListener("keydown", this.onArrowPress, false);
     document.removeEventListener('swiped-right', this.onArrowPress, false);
     document.removeEventListener('swiped-left', this.onArrowPress, false);
+    document.removeEventListener('swiped-up', this.props.handleModalClose, false);
+    document.removeEventListener('swiped-down', this.props.handleModalClose, false);
     document.body.style.overflow = "visible";
   }
 
@@ -64,6 +68,7 @@ class PlayerModal extends React.Component {
     return (
       <div className={`player-modal-backdrop ${this.state.visibilityClass}`} >
         <div className={`player-modal-container ${video_url ? "wide" : "medium"}`}>
+          <i id="close">✕</i>
           <div className="upper">
             <Player_introducing
               video_url={video_url && this.getYoutubeId(video_url)}

@@ -49,7 +49,7 @@ class Member(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    school = models.ForeignKey(School, null=True, blank=True, default=None)
+    school = models.CharField(max_length=255, null=True, blank=True)
     teams = models.ManyToManyField(through='TeamMembership', to=Team, related_name='members')
 
     def save(self, *args, **kwargs):

@@ -57,12 +57,16 @@ html {
         font-size: 14px;
       }
     }
+    h3 {
+      font-family: $titillium-web;
+      font-size: 18px;
+    }
 
     a {
       text-decoration: none;
       display: block;
       width: fit-content;
-      color: $indians-red; // default that works on black and white both
+      color: $indians-yellow;
     }
 
     a, p {
@@ -91,6 +95,13 @@ html {
     section {
       max-width: 100%;
       background-repeat: repeat;
+      &.black {
+        background: black;
+        color: white;
+        h2 {
+          color: $indians-yellow;
+        }
+      }
 
       > div {
         display: grid;

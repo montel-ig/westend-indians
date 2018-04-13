@@ -17,46 +17,46 @@
 {% endblock %}
 
 {% block main %}
-  <img class="triangle" src="{% static "images/tilted-bg-black-top.svg" %}">
-
+  <img class="triangle justify-bottom" src="{% static "images/tilted-bg-black-top.svg" %}">
   <section class="team-info">
     {% submenu page %}
-
-    <div class="team-info-container">
-      <div class="team-info-content">
-
-        {% if page.body|striptags|length > 0 %}
-          <a id="body"></a>
-          <div class="info-body">
-            {{ page.body|richtext }}
-          </div>
-        {% endif %}
-
-        {% if page.tickets|striptags|length > 0 %}
-          <a id="tickets"></a>
-          <div class="info-lift">
-            {{ page.tickets|richtext }}
-          </div>
-        {% endif %}
-
-        {% if page.information|striptags|length > 0 %}
-          <a id="information"></a>
-          <div class="info-information">
-            {{ page.information|richtext }}
-          </div>
-        {% endif %}
-
-        {% if page.contact|striptags|length > 0 %}
-          <a id="contact"></a>
-          <div class="info-contact">
-            {{ page.contact|richtext }}
-          </div>
-        {% endif %}
-      </div>
-    </div>
   </section>
-
-  <img class="triangle" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+  <section>
+    {% if page.body|striptags|length > 0 %}
+    <a id="body"></a>
+    <div class="info-body">
+      {{ page.body|richtext }}
+    </div>
+    {% endif %}
+  </section>
+  <section class="black">
+    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
+    {% if page.tickets|striptags|length > 0 %}
+    <a id="tickets"></a>
+    <div class="info-lift">
+      {{ page.tickets|richtext }}
+    </div>
+    {% endif %}
+  </section>
+  <img class="triangle justify-bottom" src="{% static "images/tilted-bg-black-top.svg" %}">
+  <section>
+    {% if page.information|striptags|length > 0 %}
+    <a id="information"></a>
+    <div class="info-information">
+      {{ page.information|richtext }}
+    </div>
+    {% endif %}
+  </section>
+  <section class="black">
+    {% if page.contact|striptags|length > 0 %}
+    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
+    <a id="contact"></a>
+    <div class="info-contact">
+      {{ page.contact|richtext }}
+    </div>
+    {% endif %}
+    <img class="triangle" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+  </section>
 {% endblock %}
 
 {% block footer %}

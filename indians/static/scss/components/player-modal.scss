@@ -25,6 +25,19 @@
     background: black;
     transition: opacity .4s ease-in-out .4s, transform .2s ease-in-out .4s;
 
+    #close {
+      float: right;
+      transform: translateY(-60px);
+      font-size: 50px;
+      pointer-events: none;
+      @media screen and (max-width : 420px) {
+        transform: translate(-20px, -60px);
+      }
+      @media screen and (max-width : 360px) {
+        transform: translate(-20px, -50px);
+      }
+    }
+
     @media (max-width : 1024px) and (max-height : 800px) {
       height: 600px;
     }

@@ -6,7 +6,7 @@
     <div class="partners">
       {% block sponsors %}
       <div class="top-level row">
-          <h2>Pääyhteistyökumppanit</h2>
+          <h2>Head partners of the Tribe</h2>
         <div>
           {% for sponsor in sponsor_items %}
           {% if sponsor.level == 'top' %}
@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="second-level row">
-        <h2>Yhteistyössä</h2>
+        <h2>Partners of the Tribe</h2>
         <div>
           {% for sponsor in sponsor_items %}
           {% if sponsor.level == 'second' %}
@@ -30,7 +30,7 @@
         </div>
       </div>
       <div class="third-level row">
-        <h2>Kentällä mukana</h2>
+        <h2>Part of the Tribe</h2>
         <div>
           {% for sponsor in sponsor_items %}
           {% if sponsor.level == 'third' %}

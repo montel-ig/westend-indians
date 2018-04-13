@@ -10,7 +10,7 @@
 
   .team-modal-container {
     color: white;
-    margin: 20vh 35vw;
+    margin: 10vh 35vw;
     width: 30vw;
     height: auto;
     position: absolute;
@@ -23,35 +23,26 @@
       position: absolute;
       margin: 0;
       transform: translateY(-50px);
+      right: 0;
       text-align: right;
       font-size: 50px;
-      right: 0;
       pointer-events: none;
+      @media screen and (max-width : 420px) {
+        font-size: 30px;
+        transform: translate(-20px, -30px);
+      }
     }
 
     @media screen and (max-width : 1200px) {
       margin: 10vh 10vw;
       width: 80vw;
     }
-    @media screen and (max-width : 1024px) {
-      margin: 30vh 30vw;
-      width: 40vw;
-    }
     @media screen and (max-width : 700px) {
       margin: 10vh 10vw;
       width: 80vw;
     }
-    @media screen and (max-width : 450px) {
-      p {
-        //margin: 2px 0;
-      }
-    }
-    @media screen and (max-height : 1100px) {
-      margin: 2vh 10vw;
-      width: 80vw;
-    }
     @media screen and (max-height : 1100px) and (max-width: 820px) {
-      margin: 10vh 10vw;
+      margin: 5vh 10vw;
       width: 80vw;
     }
 
@@ -91,7 +82,7 @@
             }
 
             &.default-image {
-              width: 40%;
+              width: 25%;
               padding-top: $base_padding;
 
             }
@@ -131,6 +122,7 @@
         }
       }
       div.lower {
+        border-bottom: solid 1px #1f1f1f;
         p {
           font-size: 14px;
           overflow-wrap: break-word;
@@ -195,14 +187,16 @@
       }
     .some {
       display: flex;
+      justify-content: center;
+      padding-top: 10px;
       a {
-        padding: 0 10px 10px 10px;
+        padding: 0 10px;
         svg {
           width: 40px;
           height: 40px;
           @media screen and (max-width: 420px){
-            width: 20px;
-            height: 20px;
+            width: 30px;
+            height: 30px;
           }
         }
         &:hover {
@@ -247,7 +241,22 @@
         }
       }
     }
-
+    .sponsors {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      div {
+        width: 75px;
+        padding: 0 10px;
+        a {
+          img {
+            object-fit: contain;
+            width: 100%;
+            max-height: 100%;
+          }
+        }
+      }
+    }
   }
 
   &.not-visible {

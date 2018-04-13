@@ -74,7 +74,6 @@
         //font-family: $black-ops;
         color: $indians-yellow;
         letter-spacing: $letter-spacing-medium;
-        text-transform: capitalize;
         font-family: $titillium-web;
         font-size: 2.8vw;
         padding-top: 5px;
@@ -111,7 +110,7 @@
 
     nav {
       position: relative;
-      padding-bottom: 30px;
+      padding: 30px;
 
       .feather {
         display: block;
@@ -138,8 +137,10 @@
         li {
           width: 20%;
           a {
+            font-family: $black-ops;
             width: 100%;
             display: inline-block;
+            color: $indians-yellow!important;
           }
         }
         li.logo {
@@ -170,7 +171,7 @@
       font-family: $titillium-web;
       letter-spacing: 2px;
       //background-color: black;
-      background: $indians-yellow;
+      background: black;
       border-bottom: 1px solid black;
 
       li.link {
@@ -217,6 +218,7 @@
           color: $indians-yellow;
           width: 100%;
           display: inline-block;
+          font-size: 16px;
           border-top: none;
           &.current {
             border-top: none;

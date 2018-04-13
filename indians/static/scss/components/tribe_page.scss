@@ -15,10 +15,10 @@
 
       grid-column-start: 1;
       grid-column-end: 12;
+      min-height: 0;
       @media screen and  (max-width : 420px) {
         padding: $base_padding;
         display: block;
-        min-height: 0;
       }
       h1 {
         margin: 0
@@ -33,7 +33,7 @@
         }
       }
       .content {
-        grid-column-start: 9;
+        grid-column-start: 2;
         grid-column-end: 12;
         @media screen and  (max-width : 880px) {
           padding-top: $base_padding;
@@ -63,19 +63,12 @@
           font-size: 16px;
           letter-spacing: $letter-spacing-medium;
         }
-        @media screen and (min-width: 490px) {
-          a::after {
-            content: " | ";
-            padding: 5px;
-          }
-          a:last-child:after {
-            content: "";
-          }
+        a::after {
+          content: " | ";
+          padding: 5px;
         }
-      }
-      #some-cta {
-        @media screen and (max-width: 490px) {
-          display: none;
+        a:last-child:after {
+          content: "";
         }
       }
     }

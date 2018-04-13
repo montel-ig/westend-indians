@@ -51,7 +51,7 @@ class NewsCarousel extends React.Component {
         if(ni >= newsItems.length) {
           ni = 0
         }
-        console.log(ni, newsItems.length)
+        //console.log(ni, newsItems.length)
         this.showNews(this.props.news[ni].id)
       }, 4000)
     }
