@@ -2,6 +2,8 @@ from django.db import models
 from ckeditor.fields import RichTextField
 from django.utils import timezone
 from django.utils.text import slugify
+from imagekit.models import ImageSpecField
+from pilkit.processors import ResizeToFit
 
 
 class Event(models.Model):
@@ -9,6 +11,17 @@ class Event(models.Model):
     slug = models.SlugField(max_length=255, blank=True, editable=False, null=True)
     ingress = models.TextField(blank=True, null=True)
     description = RichTextField()
+
+    image = models.ImageField(null=True, blank=True)
+    image_wide = ImageSpecField(source='image',
+                                processors=[ResizeToFit(width=1280, height=800, upscale=True)],
+                                options={'quality': 80},
+                                autoconvert=True)
+    image_medium = ImageSpecField(source='image',
+                                  processors=[ResizeToFit(width=750, height=800, upscale=True)],
+                                  options={'quality': 80},
+                                  autoconvert=True)
+
 
     start_time = models.DateTimeField(null=False)
     end_time = models.DateTimeField(blank=True, null=True)
