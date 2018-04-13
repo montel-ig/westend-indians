@@ -59,7 +59,7 @@ class Command(BaseCommand):
             publication_date = datetime.datetime(2012, 1, 1, 0, 0, 0)  # there are null values..
 
         publication_date = pytz.timezone('Europe/Helsinki').localize(publication_date)
-        if NewsItem.objects.exists(title=title, publication_date=publication_date):
+        if NewsItem.objects.filter(title=title, publication_date=publication_date).exists():
             print(f'Already had {title}')
             return NewsItem.objects.get(title=title, publication_date=publication_date)
 
