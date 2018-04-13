@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
 
+from sponsors.models import Sponsor
 from teams.models.team import Team
 from teams.models.school import School
 
@@ -51,6 +52,8 @@ class Member(models.Model):
 
     school = models.CharField(max_length=255, null=True, blank=True)
     teams = models.ManyToManyField(through='TeamMembership', to=Team, related_name='members')
+
+    sponsors = models.ManyToManyField(to=Sponsor, related_name='sponsored_players')
 
     def save(self, *args, **kwargs):
         if (not self.slug) or (self.slug != self.__get_unique_slug()):
