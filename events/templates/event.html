@@ -11,6 +11,9 @@
 <section class="news-items">
   <div class="news-item-container">
     <div class="news-item">
+      {% if event.image %}
+        <img src="{{event.image_wide.url}}" />
+      {% endif %}
       <h1 id="{{ event.id }}">
         {{ event.name }}
       </h1>
