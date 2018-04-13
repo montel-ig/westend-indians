@@ -36,7 +36,7 @@ def members_to_json(team: Team) -> str:
         m = ms.member
         members_dict[m.id] = dict([(v, getattr(m, v)) for v in take_from_member])
         members_dict[m.id]['born'] = m.born.year if m.born else None  # format date separately
-        members_dict[m.id]['school'] = m.school.name if m.school else None
+        members_dict[m.id]['school'] = m.school
         members_dict[m.id]['image'] = m.image.url if m.image else None
         members_dict[m.id].update(dict([(v, getattr(ms, v)) for v in take_from_membership]))
 

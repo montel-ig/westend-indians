@@ -22,7 +22,7 @@
   {% if request.path|startswith:'/miehet-edustus' %}
     <a href="/"><img class="main-img representative-team" src="{% static "images/faces_1200x.jpg" %}"></a>
   {% else %}
-  <a href="/"><img class="main-img" src="{% static "images/faces_indians_1200x.jpg" %}"></a>
+    <a href="/"><img class="main-img" src="{% static "images/faces_indians_1200x.jpg" %}"></a>
   {% endif %}
 
   <nav id="mobile-nav" class="">
@@ -72,6 +72,8 @@
 
   {% if self.url != '/' and self.get_children %}
     {% include "subnav.html" with pages=self.get_children.live.in_menu %}
+  {% elif appear_as_page %}
+    {% include "subnav.html" with pages=appear_as_page.get_children.live.in_menu %}
   {% elif self.depth == 4 %}
     {% include "subnav.html" with pages=self.get_parent.get_children.live.in_menu %}
   {% endif %}

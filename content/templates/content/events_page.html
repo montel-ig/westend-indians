@@ -30,7 +30,7 @@
             {{ event.street_address }}, {{ event.city }}
           </p>
           <p>
-            {{ event.ingress }}
+            {{ event.ingress|default:'' }}
           </p>
           <p>
             <a href="{% url 'event' event.slug %}" class="button">Lue lisää tapahtumasta</a>
