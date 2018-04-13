@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.utils.datetime_safe import datetime
-from wagtail.wagtailcore.models import Page
 
 from events.models import Event
 from sponsors.models import Sponsor
