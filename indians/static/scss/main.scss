@@ -160,6 +160,14 @@ html {
     .richtext-image {
       width: 70%;
       object-fit: contain;
+      margin: 0 $base_padding / 2;
+
+      &.left {
+        float: left;
+      }
+      &.right {
+        float: right;
+      }
     }
 
     .rich-text {
