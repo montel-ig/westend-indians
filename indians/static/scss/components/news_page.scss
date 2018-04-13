@@ -53,6 +53,39 @@
         font-family: "Encode Sans", sans-serif;
         letter-spacing: 1px;
 
+        > a {
+          margin: 0;
+          position: relative;
+          top: -45px;
+        }
+        h1, h2, h3 {
+          margin: 0 auto;
+          width: 35rem;
+          @media screen and (max-width : 700px) {
+            width: initial;
+          }
+        }
+        h2 {
+          margin: 4em auto;
+          font-family: $black-ops;
+          background-color: black;
+          color: $indians-yellow;
+          padding: 12px;
+          margin-bottom: 50px;
+        }
+        p, ul li {
+          font-size: $text-small;
+          line-height: 21px;
+          width: 35rem;
+          margin: 2em auto;
+          @media screen and (max-width : 700px) {
+            width: initial;
+          }
+          @media screen and (max-width : 420px) {
+            font-size: $text-mobile;
+          }
+        }
+
         > p {
           font-size: 14px;
 
