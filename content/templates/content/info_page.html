@@ -30,8 +30,10 @@
     </div>
     {% endif %}
   </section>
-  <img class="triangle" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+
   <section class="black">
+    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
+
     {% if page.tickets|striptags|length > 0 %}
     <a id="tickets"></a>
     <div class="info-lift">
@@ -39,7 +41,8 @@
     </div>
     {% endif %}
   </section>
-  <img class="triangle justify-bottom" src="{% static "images/tilted-bg-black-top.svg" %}">
+<img class="triangle justify-bottom" src="{% static "images/tilted-bg-black-top.svg" %}">
+
   <section>
     {% if page.information|striptags|length > 0 %}
     <a id="information"></a>
@@ -55,8 +58,8 @@
       {{ page.contact|richtext }}
     </div>
     {% endif %}
+    <img class="triangle" src="{% static "images/tilted-bg-black-bottom.svg" %}">
   </section>
-  <img class="triangle" src="{% static "images/tilted-bg-black-bottom.svg" %}">
 {% endblock %}
 
 {% block footer %}
