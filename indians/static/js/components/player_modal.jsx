@@ -28,6 +28,22 @@ class PlayerModal extends React.Component {
     return ID;
   }
 
+  mapSponsors(sponsors) {
+    if (!sponsors) {
+      return null;
+    }
+    return Object.values(sponsors).map((sponsor, index) => (
+        <div key={index}>
+          {sponsor &&
+          <a href={sponsor.url} target="_blank">
+            <img src={sponsor.sponsor_thumbnail} alt={sponsor.name}/>
+          </a>
+          }
+        </div>
+      )
+    )
+  }
+
   onArrowPress(event) {
     if(event.keyCode === 39 || event.type === 'swiped-right') {
       // next player
@@ -63,7 +79,7 @@ class PlayerModal extends React.Component {
   }
 
   render() {
-    const { first_name, last_name, origin, number, position, handedness, born, height, weight, school, role, video_url, description } = this.props.selectedPlayer;
+    const { first_name, last_name, origin, number, position, handedness, born, height, weight, school, role, video_url, description, sponsors } = this.props.selectedPlayer;
     this.state.visibilityClass === 'visible' && this.disableScrolling();
     return (
       <div className={`player-modal-backdrop ${this.state.visibilityClass}`} >
@@ -93,6 +109,7 @@ class PlayerModal extends React.Component {
             { handedness && <p>Pelaa {t('player_modal',handedness)}</p> }
             { height && <p>Pituus: {height} cm</p> }
             { weight && <p>Paino: {weight} kg</p> }
+            { school && <p>{school}</p> }
           </div>
           <div className="some">
             {this.props.selectedPlayer.some_instagram &&
@@ -105,6 +122,9 @@ class PlayerModal extends React.Component {
             {this.props.selectedPlayer.some_facebook &&
               <a href={`https://www.facebook.com/${this.props.selectedPlayer.some_facebook}`} target="_blank"><svg width="45" height="45" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1376 128q119 0 203.5 84.5t84.5 203.5v960q0 119-84.5 203.5t-203.5 84.5h-188v-595h199l30-232h-229v-148q0-56 23.5-84t91.5-28l122-1v-207q-63-9-178-9-136 0-217.5 80t-81.5 226v171h-200v232h200v595h-532q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960z" fill="#fff"/></svg>
               </a>}
+          </div>
+          <div className="sponsors">
+            {this.mapSponsors(sponsors)}
           </div>
           <div onClick={()=>{this.props.handlePlayerChange("next", this.state.isEmployee)}}>
             <svg className="icons right" width="64" height="56" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1600 960q0 54-37 91l-651 651q-39 37-91 37-51 0-90-37l-75-75q-38-38-38-91t38-91l293-293h-704q-52 0-84.5-37.5t-32.5-90.5v-128q0-53 32.5-90.5t84.5-37.5h704l-293-294q-38-36-38-90t38-90l75-75q38-38 90-38 53 0 91 38l651 651q37 35 37 90z" fill="#fff"/></svg>
