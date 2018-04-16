@@ -38,6 +38,17 @@ def members_to_json(team: Team) -> str:
         members_dict[m.id]['born'] = m.born.year if m.born else None  # format date separately
         members_dict[m.id]['school'] = m.school
         members_dict[m.id]['image'] = m.image.url if m.image else None
+
+        sponsors_serialized = [r for r in m.sponsors.all() if r]
+        sponsors_dict = {}
+        for sponsor in sponsors_serialized:
+            sponsor_dict = {}
+            sponsor_dict['name'] = sponsor.name if hasattr(sponsor, 'name') else None
+            sponsor_dict['url'] = sponsor.url if hasattr(sponsor, 'url') else None
+            sponsor_dict['sponsor_thumbnail'] = sponsor.sponsor_thumbnail.url if hasattr(sponsor, 'sponsor_thumbnail') else None
+            sponsors_dict[sponsor.name] = sponsor_dict
+
+        members_dict[m.id]['sponsors'] = sponsors_dict
         members_dict[m.id].update(dict([(v, getattr(ms, v)) for v in take_from_membership]))
 
     if members_dict:
