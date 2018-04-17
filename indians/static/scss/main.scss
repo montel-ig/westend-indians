@@ -64,12 +64,12 @@ html {
 
     a {
       text-decoration: none;
-      display: block;
-      width: fit-content;
+      //display: block;
+      //width: fit-content;
       color: $indians-yellow;
     }
 
-    a, p {
+    p {
       font-family: $encode-sans;
       font-size: 18px;
       letter-spacing: $letter-spacing-medium;
