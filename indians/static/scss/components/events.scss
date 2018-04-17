@@ -18,6 +18,13 @@ section.events {
     .text {
       flex: 3;
     }
+    @media screen and (max-width: 480px) {
+      display: block;
+      .image {
+        margin: 0;
+        width: 100%;
+      }
+    }
   }
 
   @media screen and (min-width : 176px) and  (max-width : 1024px) {
