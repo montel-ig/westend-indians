@@ -20,21 +20,28 @@
     <div class="event-container">
       {% for event in page.events %}
         <div class="event">
-          <h2 id="{{ event.id }}">
-            {{ event.name }}
-          </h2>
-          <p>
-            {{ event.start_time }} - {{ event.end_time }}
-          </p>
-          <p>
-            {{ event.street_address }}, {{ event.city }}
-          </p>
-          <p>
-            {{ event.ingress|default:'' }}
-          </p>
-          <p>
-            <a href="{% url 'event' event.slug %}" class="button">Lue lisää tapahtumasta</a>
-          </p>
+          <div class="image">
+            {% if event.image %}
+              <img src="{{event.image_medium.url}}" />
+            {% endif %}
+          </div>
+          <div class="text">
+            <h2 id="{{ event.id }}">
+              {{ event.name }}
+            </h2>
+            <p>
+              {{ event.start_time }} - {{ event.end_time }}
+            </p>
+            <p>
+              {{ event.street_address }}, {{ event.city }}
+            </p>
+            <p>
+              {{ event.ingress|default:'' }}
+            </p>
+            <p>
+              <a href="{% url 'event' event.slug %}" class="button">Lue lisää tapahtumasta</a>
+            </p>
+          </div>
         </div>
       {% endfor %}
     </div>
