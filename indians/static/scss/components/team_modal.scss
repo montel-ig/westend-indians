@@ -116,6 +116,7 @@
           padding: 0  10px 10px 10px;
           text-align: center;
           font-size: 16px;
+          line-height: 18px;
           @media screen and (max-width: 420px), (max-height: 420px){
             font-size: 10px;
           }
@@ -127,8 +128,10 @@
           font-size: 14px;
           overflow-wrap: break-word;
           word-wrap: break-word;
+          margin: 2px 0;
           @media screen and (max-width : 420px) {
             font-size: 10px;
+            line-height: 18px;
           }
           @media(orientation: landscape) and (max-width : 680px)  {
             font-size: 12px;
@@ -185,28 +188,6 @@
           }
         }
       }
-    .some {
-      display: flex;
-      justify-content: center;
-      padding-top: 10px;
-      a {
-        padding: 0 10px;
-        svg {
-          width: 40px;
-          height: 40px;
-          @media screen and (max-width: 420px){
-            width: 30px;
-            height: 30px;
-          }
-        }
-        &:hover {
-          svg path {
-            fill: $indians-yellow;
-            transition: color 300ms linear;
-          }
-        }
-      }
-    }
     .material-icons {
       user-select: none;
       position: absolute;
@@ -241,9 +222,31 @@
         }
       }
     }
+    .some {
+      display: flex;
+      justify-content: space-evenly;
+      padding-top: 10px;
+      a {
+        padding: 0 10px;
+        svg {
+          width: 40px;
+          height: 40px;
+          @media screen and (max-width: 420px){
+            width: 30px;
+            height: 30px;
+          }
+        }
+        &:hover {
+          svg path {
+            fill: $indians-yellow;
+            transition: color 300ms linear;
+          }
+        }
+      }
+    }
     .sponsors {
       display: flex;
-      justify-content: center;
+      justify-content: space-evenly;
       align-items: center;
       div {
         width: 75px;

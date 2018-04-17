@@ -8,8 +8,11 @@ class TeamModal extends React.Component {
   }
 
   mapSponsors(sponsors) {
-    return sponsors.map((sponsor) => (
-        <div>
+    if (!sponsors) {
+      return null;
+    }
+    return Object.values(sponsors).map((sponsor, index) => (
+        <div key={index}>
           {sponsor &&
           <a href={sponsor.url} target="_blank">
             <img src={sponsor.sponsor_thumbnail} alt={sponsor.name}/>
@@ -49,9 +52,8 @@ class TeamModal extends React.Component {
       leader_name, leader_email, leader_phone,image, some_instagram, some_twitter,
       some_facebook, some_snapchat, current_player_count, max_player_count,gender,
       path, sport, age_level, brochure, registration_link, short_description,
-      sponsor_1, sponsor_2, sponsor_3, sponsor_4, sponsor_5
+      sponsors
     } = this.props.selectedTeam;
-    const sponsors = [sponsor_1, sponsor_2, sponsor_3, sponsor_4, sponsor_5];
     return (
       <div className={`modal-backdrop ${this.state.visibilityClass}`} >
         <div className="team-modal-container">
@@ -68,6 +70,10 @@ class TeamModal extends React.Component {
           <div className="lower">
             <div className="lower-left">
               <div className="lower-left-upper">
+                <div>
+                  { current_player_count && <p>Pelaajamäärä: {current_player_count}</p> }
+                  { max_player_count && <p>Max. pelaajamäärä: {max_player_count}</p> }
+                </div>
                 <div className="team-leader">
                   { contact_name && <p className="title">Seuran urheiluvastaava:</p> }
                   { contact_name && <p>{contact_name}</p> }
