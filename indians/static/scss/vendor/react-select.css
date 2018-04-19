@@ -7,6 +7,7 @@
 */
 .Select {
   position: relative;
+  font-family: 'Titillium Web', sans-serif;
 }
 .Select input::-webkit-contacts-auto-fill-button,
 .Select input::-webkit-credentials-auto-fill-button {
@@ -149,7 +150,7 @@
   box-shadow: none;
   cursor: default;
   display: inline-block;
-  font-family: inherit;
+  font-family: 'Titillium Web', sans-serif;
   font-size: inherit;
   margin: 0;
   outline: none;
