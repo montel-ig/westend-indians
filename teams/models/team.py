@@ -22,25 +22,25 @@ GENDER_TYPES = (
 )
 
 PATH_TYPES = (
-    ('urheilijan', 'Urheilijan polku (3+)'),
-    ('kilpailijan', 'Kilpailijan polku (3-2)'),
-    ('harrastajan', 'Harrastajan polku (1)'),
-    ('salibandy_koulut', 'Salibandy koulut (1, 2 tai 3)'),
-    ('koulujen_iltapaivatoiminta', 'Koulujen iltapäivätoiminta (1 tai 2)'),
+    ('urheilijan', '3+ (Urheilijan polku)'),
+    ('kilpailijan', '3-2 (Kilpailijan polku)'),
+    ('harrastajan', '2-1 (Harrastajan polku)'),
+    ('Kaupunginosajoukkueet', 'Kaupunginosajoukkueet (F-G-juniorit)'),
+    ('salibandy_koulut', 'Salibandykoulut (H-juniorit)'),
+    ('koulujen_iltapaivatoiminta', 'Koulujen iltapäivätoiminta (6lk-Esikoulu)'),
     ('erityisryhmat', 'Erityisryhmät'),
 )
 
 AGE_LEVEL_TYPES = (
-    ('adult', '+20-vuotiaat (Aikuiset)'),
-    ('a', '20-17-vuotiaat (A-juniorit)'),
-    ('b', '17-15-vuotiaat (B-juniorit)'),
-    ('c', '15-13-vuotiaat (C-juniorit)'),
-    ('d', '13-11-vuotiaat (D-juniorit)'),
-    ('e', '11-9-vuotiaat (E-juniorit)'),
-    ('f', '9-7-vuotiaat (F-juniorit)'),
-    ('g', '7-5-vuotiaat (G-juniorit)'),
-    ('h', '5-3-vuotiaat (H-juniorit)'),
-    ('i', '3-1 vuotiaat (I-juniorit)')
+    ('adult', '1997 => (Aikuiset)'),
+    ('a', '1998-2000 (A-juniorit)'),
+    ('b', '2001-2002 (B-juniorit)'),
+    ('c', '2003-2004 (C-juniorit)'),
+    ('d', '2005-2006 (D-juniorit)'),
+    ('e', '2007-2008 (E-juniorit)'),
+    ('f', '2009-2010 (F-juniorit)'),
+    ('g', '2011-2012 (G-juniorit)'),
+    ('h', '2013-2017 (H-juniorit)'),
 )
 
 

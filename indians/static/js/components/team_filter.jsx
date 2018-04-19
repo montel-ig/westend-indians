@@ -50,22 +50,12 @@ const Gender = (props) => (
       />
       <span>Naiset ja tytöt</span>
     </label>
-    <label>
-      <input
-        type="radio"
-        value="mixed"
-        name="gender"
-        checked={props.gender==="mixed"}
-        onChange={props.handleChangedGender}
-      />
-      <span>Seka</span>
-    </label>
   </div>
 );
 
 const Age = (props) => (
   <div className='select-age'>
-    <p>Ikä</p>
+    <p>Syntymävuosi</p>
     <Select
       name="form-field-name"
       placeholder="Kaikki"
@@ -76,16 +66,15 @@ const Age = (props) => (
       noResultsText="Ei tuloksia"
       options={[
         { value: 'all', label: 'Kaikki', property: "age_level"},
-        { value: 'adult', label: '+20-vuotiaat', property: "age_level"},
-        { value: 'a', label: '17-20', property: "age_level"},
-        { value: 'b', label: '15-17', property: "age_level"},
-        { value: 'c', label: '13-15', property: "age_level"},
-        { value: 'd', label: '11-13', property: "age_level"},
-        { value: 'e', label: '9-11', property: "age_level"},
-        { value: 'f', label: '7-9', property: "age_level"},
-        { value: 'g', label: '5-7', property: "age_level"},
-        { value: 'h', label: '3-5', property: "age_level"},
-        { value: 'i', label: '1-3', property: "age_level"}
+        { value: 'adult', label: '1997 => (Aikuiset)', property: "age_level"},
+        { value: 'a', label: '1998-2000 (A-juniorit)', property: "age_level"},
+        { value: 'b', label: '2001-2002 (B-juniorit)', property: "age_level"},
+        { value: 'c', label: '2003-2004 (C-juniorit)', property: "age_level"},
+        { value: 'd', label: '2005-2006 (D-juniorit)', property: "age_level"},
+        { value: 'e', label: '2007-2008 (E-juniorit)', property: "age_level"},
+        { value: 'f', label: '2009-2010 (F-juniorit)', property: "age_level"},
+        { value: 'g', label: '2011-2012 (G-juniorit)', property: "age_level"},
+        { value: 'h', label: '2013-2017 (H-juniorit)', property: "age_level"},
       ]}
     />
   </div>
@@ -93,7 +82,7 @@ const Age = (props) => (
 
 const Path = (props) => (
   <div className='select-path'>
-    <p>Polku <span className="events">(Tapahtumakerrat viikossa)</span></p>
+    <p>Tapahtumat / viikko <span className="events">(Polku)</span></p>
     <Select
       name="form-field-name"
       placeholder="Kaikki"
@@ -103,11 +92,12 @@ const Path = (props) => (
       noResultsText="Ei tuloksia"
       options={[
         { value: 'all', label: 'Kaikki', property: "path"},
-        { value: 'urheilijan', label: 'Urheilijan polku (3+)', property: "path" },
-        { value: 'kilpailijan', label: 'Kilpailijan polku (3-2)', property: "path" },
-        { value: 'harrastajan', label: 'Harrastajan polku (1)', property: "path" },
-        { value: 'salibandy_koulut', label: 'Salibandy koulut (1, 2 tai 3)', property: "path" },
-        { value: 'koulujen_iltapaivatoiminta', label: 'Koulujen iltapäivätoiminta (1 tai 2)', property: "path" },
+        { value: 'urheilijan', label: '3+ (Urheilijan polku)', property: "path" },
+        { value: 'kilpailijan', label: '3-2 (Kilpailijan polku)', property: "path" },
+        { value: 'harrastajan', label: '2-1 (Harrastajan polku)', property: "path" },
+        { value: 'Kaupunginosajoukkueet', label: 'Kaupunginosajoukkueet (F-G-juniorit)', property: "path" },
+        { value: 'salibandy_koulut', label: 'Salibandykoulut (H-juniorit)', property: "path" },
+        { value: 'koulujen_iltapaivatoiminta', label: 'Koulujen iltapäivätoiminta (6lk-Esikoulu)', property: "path" },
         { value: 'erityisryhmat', label: 'Erityisryhmät', property: "path" }
       ]}
     />
@@ -116,7 +106,7 @@ const Path = (props) => (
 
 const Area = (props) => (
   <div className='select-area'>
-    <p>Alueet</p>
+    <p>Alue</p>
     <Select
       name="form-field-name"
       placeholder="Kaikki"
@@ -152,7 +142,7 @@ const Sport = (props) => (
         { value: 'all', label: 'Kaikki', property: "sport"},
         { value: 'floorball', label: 'Salibandy', property: "sport" },
         { value: 'multiple', label: 'Monilajiryhmät', property: "sport" },
-        { value: 'football', label: 'Jalkapallo', property: "sport" },
+        { value: 'soccer', label: 'Jalkapallo', property: "sport" },
         { value: 'running', label: 'Juoksukurssit', property: "sport" }
       ]}
     />
@@ -162,33 +152,38 @@ const Sport = (props) => (
 const TeamFilter = (props) => {
   return (
     <div className="filter-container">
-      <div className="filter-upper">
-        <div className="filter-title">
-          <h2>Löydä joukkueesi<hr /></h2>
+      <div className="title">
+        <h2>Löydä joukkueesi tai harrasteryhmäsi <hr /></h2>
+      </div>
+      <div>
+        <div className="left">
           <Gender
             gender={props.selectedProperties.gender}
             handleChangedGender={props.handleChangedGender}
           />
+          <Sport
+            sport={props.selectedProperties.sport}
+            handleSelectChange={props.handleSelectChange}
+          />
+
         </div>
-        <PathInfo/>
-      </div>
-      <div className="team-filter">
-        <Age
-          age={props.selectedProperties.age_level}
-          handleSelectChange={props.handleSelectChange}
-        />
-        <Path
-          path={props.selectedProperties.path}
-          handleSelectChange={props.handleSelectChange}
-        />
-        <Area
-          area={props.selectedProperties.area_name}
-          handleSelectChange={props.handleSelectChange}
-        />
-        <Sport
-          sport={props.selectedProperties.sport}
-          handleSelectChange={props.handleSelectChange}
-        />
+        <div className="middle">
+          <Age
+            age={props.selectedProperties.age_level}
+            handleSelectChange={props.handleSelectChange}
+          />
+          <Area
+            area={props.selectedProperties.area_name}
+            handleSelectChange={props.handleSelectChange}
+          />
+        </div>
+        <div className="right">
+          <Path
+            path={props.selectedProperties.path}
+            handleSelectChange={props.handleSelectChange}
+          />
+          <PathInfo/>
+        </div>
       </div>
     </div>
   );
