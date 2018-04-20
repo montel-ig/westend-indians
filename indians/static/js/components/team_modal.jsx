@@ -71,8 +71,9 @@ class TeamModal extends React.Component {
             <div className="lower-left">
               <div className="lower-left-upper">
                 <div>
-                  { current_player_count && <p>Pelaajamäärä: {current_player_count}</p> }
-                  { max_player_count && <p>Max. pelaajamäärä: {max_player_count}</p> }
+                  { current_player_count && max_player_count &&
+                    <p>Pelaajamäärä: {current_player_count}/{max_player_count}</p>
+                  }
                 </div>
                 <div className="team-leader">
                   { contact_name && <p className="title">Seuran urheiluvastaava:</p> }
