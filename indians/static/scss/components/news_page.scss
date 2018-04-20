@@ -60,7 +60,7 @@
         }
         h1, h2, h3 {
           margin: 0 auto;
-          width: 35rem;
+          width: $paragraph_width;
           @media screen and (max-width : 700px) {
             width: initial;
           }
@@ -76,7 +76,7 @@
         p, ul li {
           font-size: $text-small;
           line-height: 21px;
-          width: 35rem;
+          width: $paragraph_width;
           margin: 2em auto;
           @media screen and (max-width : 700px) {
             width: initial;

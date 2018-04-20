@@ -12,7 +12,7 @@
         grid-column-end: 10;
       }
       p, li, h2, h3 {
-        width: 35rem;
+        width: $paragraph_width;
         margin: 2em auto;
       }
       h2, a {
