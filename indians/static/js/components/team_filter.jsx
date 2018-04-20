@@ -82,7 +82,7 @@ const Age = (props) => (
 
 const Path = (props) => (
   <div className='select-path'>
-    <p>Tapahtumat / viikko <span className="events">(Polku)</span></p>
+    <p>Tapahtumat / viikko (Polku)</p>
     <Select
       name="form-field-name"
       placeholder="Kaikki"
@@ -152,37 +152,33 @@ const Sport = (props) => (
 const TeamFilter = (props) => {
   return (
     <div className="filter-container">
-      <div className="title">
-        <h2>Löydä joukkueesi tai harrasteryhmäsi <hr /></h2>
-      </div>
+      <h2>Löydä joukkueesi tai harrasteryhmäsi</h2>
       <div>
-        <div className="left">
+        <div className="column">
           <Gender
             gender={props.selectedProperties.gender}
             handleChangedGender={props.handleChangedGender}
           />
-          <Sport
-            sport={props.selectedProperties.sport}
-            handleSelectChange={props.handleSelectChange}
-          />
-
         </div>
-        <div className="middle">
+        <div className="column">
           <Age
             age={props.selectedProperties.age_level}
             handleSelectChange={props.handleSelectChange}
           />
-          <Area
-            area={props.selectedProperties.area_name}
-            handleSelectChange={props.handleSelectChange}
-          />
-        </div>
-        <div className="right">
           <Path
             path={props.selectedProperties.path}
             handleSelectChange={props.handleSelectChange}
           />
-          <PathInfo/>
+        </div>
+        <div className="column">
+          <Sport
+            sport={props.selectedProperties.sport}
+            handleSelectChange={props.handleSelectChange}
+        />
+          <Area
+            area={props.selectedProperties.area_name}
+            handleSelectChange={props.handleSelectChange}
+          />
         </div>
       </div>
     </div>

@@ -76,7 +76,7 @@
           display: flex;
           justify-content:center;
           align-items: center;
-          height: 70%;
+          height: 80%;
           overflow: hidden;
           @media screen and (max-width : 420px) {
             height: 80%;
@@ -99,7 +99,7 @@
           width: 100%;
           display: flex;
           align-items: center;
-          height: 30%;
+          height: 20%;
           box-sizing: border-box;
           background: $indians-yellow;
           @media screen and (max-width : 420px) {
@@ -136,14 +136,14 @@
             }
           }
           .number {
-            background-color: black;
+            background: $indians-yellow;
             width: 30%;
             height: 100%;
             display: flex;
             padding: 0 10px;
             p {
               margin:auto;
-              color: $indians-yellow;
+              color: black;
               font-size: 40px;
             }
           }
@@ -162,7 +162,7 @@
           width: 100%;
           box-sizing: border-box;
           height: 70%;
-          padding: 20px;
+          padding: 40px;
           @media screen and (max-width : 420px) {
             height: 65%;
           }
@@ -228,6 +228,9 @@
             }
             > li > p {
               color: white;
+            }
+            &:empty {
+              display: none;
             }
           }
           .sponsors {
