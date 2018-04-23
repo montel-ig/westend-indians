@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from teams.models import Team
 from sponsors.models import Sponsor
 
+
 def teams(request):
     teams = get_list_or_404(Team)
     return render(request, 'teams/teams_page.html', {'teams': teams})
@@ -61,9 +62,10 @@ def team_properties(team: Team) -> str:
     """ Retrieve a JSON encoded string with the properties of the given team. """
     team_dict = {}
     take_from_team = ('name', 'slug', 'description', 'contact_name', 'contact_email', 'contact_phone',
-                        'leader_name', 'leader_email', 'leader_phone', 'registration_link',
-                        'some_instagram', 'some_twitter', 'some_facebook', 'some_snapchat', 'current_player_count',
-                        'max_player_count', 'gender', 'path', 'sport', 'age_level', 'short_description',
+                      'leader_name', 'leader_email', 'leader_phone', 'registration_link',
+                      'some_instagram', 'some_twitter', 'some_facebook', 'some_snapchat', 'current_player_count',
+                      'max_player_count', 'gender', 'path', 'sport', 'age_level', 'short_description',
+                      'show_name_in_modal'
                       )
     take_from_area = ('name', 'address', 'lat', 'lng')
 
@@ -79,9 +81,10 @@ def team_properties(team: Team) -> str:
         sponsors_dict[s.name] = sponsor_dict
     team_dict['sponsors'] = sponsors_dict
     for attr in take_from_area:
-        team_dict["area_"+attr] = getattr(team.area, attr) if hasattr(team.area, attr) else None
+        team_dict["area_" + attr] = getattr(team.area, attr) if hasattr(team.area, attr) else None
     team_dict["image"] = team.image.url if team.image else None
+    team_dict["leader_image"] = team.leader_image_medium.url if team.leader_image else None
+    team_dict["contact_image"] = team.contact_image_medium.url if team.contact_image else None
     team_dict["brochure"] = team.brochure.url if team.brochure else None
 
     return team_dict
-

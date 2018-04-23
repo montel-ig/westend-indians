@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
+from imagekit.models import ImageSpecField
+from pilkit.processors import ResizeToFit
 
 from teams.models.area import Area
 from sponsors.models import Sponsor
@@ -54,10 +56,20 @@ class Team(models.Model):
     contact_name = models.CharField(blank=True, null=True, max_length=255)
     contact_email = models.EmailField(blank=True, null=True)
     contact_phone = models.CharField(max_length=64, blank=True, null=True)
+    contact_image = models.ImageField(null=True, blank=True)
+    contact_image_medium = ImageSpecField(source='image',
+                                         processors=[ResizeToFit(width=200, height=200, upscale=True)],
+                                         options={'quality': 80},
+                                         autoconvert=True)
 
     leader_name = models.CharField(blank=True, null=True, max_length=255)
     leader_email = models.EmailField(blank=True, null=True)
     leader_phone = models.CharField(max_length=64, blank=True, null=True)
+    leader_image = models.ImageField(null=True, blank=True)
+    leader_image_medium = ImageSpecField(source='image',
+                                processors=[ResizeToFit(width=200, height=200, upscale=True)],
+                                options={'quality': 80},
+                                autoconvert=True)
 
     brochure = models.FileField(blank=True, null=True)
     image = models.ImageField(blank=True, null=True)
@@ -80,6 +92,7 @@ class Team(models.Model):
     sponsors = models.ManyToManyField(to=Sponsor, blank=True, related_name='sponsored_teams')
 
     registration_link = models.CharField(blank=True, null=True, max_length=255)
+    show_name_in_modal = models.BooleanField(default=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
