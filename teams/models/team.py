@@ -57,8 +57,8 @@ class Team(models.Model):
     contact_email = models.EmailField(blank=True, null=True)
     contact_phone = models.CharField(max_length=64, blank=True, null=True)
     contact_image = models.ImageField(null=True, blank=True)
-    contact_image_medium = ImageSpecField(source='image',
-                                         processors=[ResizeToFit(width=200, height=200, upscale=True)],
+    contact_image_medium = ImageSpecField(source='contact_image',
+                                         processors=[ResizeToFit(width=160, height=160, upscale=True)],
                                          options={'quality': 80},
                                          autoconvert=True)
 
@@ -66,8 +66,8 @@ class Team(models.Model):
     leader_email = models.EmailField(blank=True, null=True)
     leader_phone = models.CharField(max_length=64, blank=True, null=True)
     leader_image = models.ImageField(null=True, blank=True)
-    leader_image_medium = ImageSpecField(source='image',
-                                processors=[ResizeToFit(width=200, height=200, upscale=True)],
+    leader_image_medium = ImageSpecField(source='leader_image',
+                                processors=[ResizeToFit(width=160, height=160, upscale=True)],
                                 options={'quality': 80},
                                 autoconvert=True)
 
