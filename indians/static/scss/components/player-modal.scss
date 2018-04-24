@@ -14,10 +14,6 @@
     min-height: 108vh;
   }
 
-  p {
-    font-family: $titillium-web;
-  }
-
   div.player-modal-container {
     display: flex;
     height: 500px;
@@ -179,7 +175,7 @@
           p {
             color: white;
             margin: 3px 0;
-            font-size: 16px;
+            font-size: 14px;
             @media screen and (max-width : 420px) {
               font-size: 12px;
               line-height: 14px;
