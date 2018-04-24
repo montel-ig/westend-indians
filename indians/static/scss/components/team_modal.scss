@@ -97,19 +97,22 @@
         }
       }
     }
-    .middle {
-      justify-content: center;
-      flex-direction: column;
-      border-bottom: solid 1px $indians-not-so-black;
-      h2 {
-        text-align: center;
-        font-size: 25px;
-        margin: 20px;
-        @media screen and (max-width: 420px) {
-          font-size: 16px;
-          margin: 10px;
-        }
+
+    h2 {
+      text-align: center;
+      font-size: 25px;
+      margin: 20px;
+      @media screen and (max-width: 420px) {
+        font-size: 16px;
+        margin: 10px;
       }
+      &.hidden {
+        display: none;
+      }
+    }
+
+    .player-count,
+    .description {
       p {
         margin: 0;
         padding: 0 10px 10px 10px;
@@ -121,7 +124,12 @@
         }
       }
     }
-    div.lower,
+
+    .player-count {
+      margin: $base_padding / 3;
+      color: $indians-dark-grey;
+    }
+
     .keypeople {
       border-bottom: solid 1px #1f1f1f;
       p {
@@ -239,6 +247,7 @@
       display: flex;
       justify-content: space-evenly;
       padding: 5px 0;
+      margin: $base_padding / 2;
       a {
         padding: 0 10px;
         svg {
@@ -261,6 +270,7 @@
       display: flex;
       justify-content: space-evenly;
       align-items: center;
+      margin: $base_padding / 2;
       div {
         width: 75px;
         padding: 0 10px;

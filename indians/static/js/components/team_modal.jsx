@@ -67,12 +67,12 @@ class TeamModal extends React.Component {
             </div>
           </div>
 
-          <div className="middle">
-            { show_name_in_modal && <h2 className="team-title">{name}</h2> }
+          <div className="description">
+            <h2 className={show_name_in_modal ? '' : 'hidden'}>{name}</h2>
             { short_description && <p className="desc-short">{short_description}</p> }
           </div>
 
-          <div className="lower">
+          <div className="player-count">
             <div>
               { current_player_count && max_player_count &&
                 <p>Pelaajamäärä: {current_player_count}/{max_player_count}</p>
