@@ -48,12 +48,15 @@ class TeamModal extends React.Component {
   }
 
   render() {
-    const { name, slug, description, contact_name, contact_email, contact_phone,
-      leader_name, leader_email, leader_phone,image, some_instagram, some_twitter,
-      some_facebook, some_snapchat, current_player_count, max_player_count,gender,
-      path, sport, age_level, brochure, registration_link, short_description,
-      sponsors
+    const {
+      name, slug, description,
+      contact_name, contact_email, contact_phone, contact_image,
+      leader_name, leader_email, leader_phone, leader_image,
+      image, some_instagram, some_twitter, some_facebook, some_snapchat,
+      current_player_count, max_player_count, gender, path, sport, age_level, brochure, registration_link,
+      short_description, sponsors, show_name_in_modal
     } = this.props.selectedTeam;
+
     return (
       <div className={`modal-backdrop ${this.state.visibilityClass}`} >
         <div className="team-modal-container">
@@ -63,40 +66,57 @@ class TeamModal extends React.Component {
               <img className={`upper-team-img ${!image && "default-image"}`} src={image||this.props.default_image} />
             </div>
           </div>
-          <div className="middle">
-            <h2 className="team-title">{name}</h2>
+
+          <div className="description">
+            <h2 className={show_name_in_modal ? '' : 'hidden'}>{name}</h2>
             { short_description && <p className="desc-short">{short_description}</p> }
           </div>
-          <div className="lower">
-            <div className="lower-left">
-              <div className="lower-left-upper">
-                <div>
-                  { current_player_count && max_player_count &&
-                    <p>Pelaajamäärä: {current_player_count}/{max_player_count}</p>
-                  }
-                </div>
-                <div className="team-leader">
-                  { contact_name && <p className="title">Seuran urheiluvastaava:</p> }
-                  { contact_name && <p>{contact_name}</p> }
+
+          <div className="player-count">
+            <div>
+              { current_player_count && max_player_count &&
+                <p>Pelaajamäärä: {current_player_count}/{max_player_count}</p>
+              }
+            </div>
+          </div>
+
+          <div className="keypeople">
+            { contact_name &&
+              <div>
+                { contact_image ?
+                  <img src={contact_image} /> :
+                  <img src={this.props.default_image} />
+                }
+                <div className="text">
+                  <p className="title">Seuran urheiluvastaava:</p>
+                  <p>{contact_name}</p>
                   { contact_email && <p>{contact_email}</p> }
                   { contact_phone && <p>{contact_phone}</p> }
                 </div>
               </div>
-              <div className="lower-left-lower">
-                <div className="team-contact">
-                  { leader_name && <p className="title">Joukkueenjohtaja:</p> }
-                  { leader_name && <p>{leader_name}</p> }
+            }
+            { leader_name &&
+              <div>
+                { leader_image ?
+                  <img src={leader_image} /> :
+                  <img src={this.props.default_image} />
+                }
+                <div className="text">
+                  <p className="title">Joukkueenjohtaja:</p>
+                  <p>{leader_name}</p>
                   { leader_email && <p>{leader_email}</p> }
                   { leader_phone && <p>{leader_phone}</p> }
                 </div>
               </div>
-            </div>
-            <div className="lower-right">
-              { registration_link && <button onClick={()=>this.openPage(registration_link)}>Liity mukaan</button> }
-              <button onClick={()=>this.openPage(`/joukkueet/${slug}`)}>Joukkueen sivulle</button>
-              {brochure && <button onClick={()=>window.location.href=brochure}>Lataa esite</button> }
-            </div>
+            }
           </div>
+
+          <div className="cta">
+            { registration_link && <button onClick={()=>this.openPage(registration_link)}>Liity mukaan</button> }
+            <button onClick={()=>this.openPage(`/joukkueet/${slug}`)}>Joukkueen sivulle</button>
+            {brochure && <button onClick={()=>window.location.href=brochure}>Lataa esite</button> }
+          </div>
+
           <div className="some">
             {some_instagram &&
             <a href={`https://www.instagram.com/${some_instagram}`} target="_blank"><svg width="45" height="45" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1152 896q0-106-75-181t-181-75-181 75-75 181 75 181 181 75 181-75 75-181zm138 0q0 164-115 279t-279 115-279-115-115-279 115-279 279-115 279 115 115 279zm108-410q0 38-27 65t-65 27-65-27-27-65 27-65 65-27 65 27 27 65zm-502-220q-7 0-76.5-.5t-105.5 0-96.5 3-103 10-71.5 18.5q-50 20-88 58t-58 88q-11 29-18.5 71.5t-10 103-3 96.5 0 105.5.5 76.5-.5 76.5 0 105.5 3 96.5 10 103 18.5 71.5q20 50 58 88t88 58q29 11 71.5 18.5t103 10 96.5 3 105.5 0 76.5-.5 76.5.5 105.5 0 96.5-3 103-10 71.5-18.5q50-20 88-58t58-88q11-29 18.5-71.5t10-103 3-96.5 0-105.5-.5-76.5.5-76.5 0-105.5-3-96.5-10-103-18.5-71.5q-20-50-58-88t-88-58q-29-11-71.5-18.5t-103-10-96.5-3-105.5 0-76.5.5zm768 630q0 229-5 317-10 208-124 322t-322 124q-88 5-317 5t-317-5q-208-10-322-124t-124-322q-5-88-5-317t5-317q10-208 124-322t322-124q88-5 317-5t317 5q208 10 322 124t124 322q5 88 5 317z" fill="#fff"/></svg></a>}
@@ -109,6 +129,7 @@ class TeamModal extends React.Component {
             <a href={`https://www.facebook.com/${some_facebook}`} target="_blank"><svg width="45" height="45" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1376 128q119 0 203.5 84.5t84.5 203.5v960q0 119-84.5 203.5t-203.5 84.5h-188v-595h199l30-232h-229v-148q0-56 23.5-84t91.5-28l122-1v-207q-63-9-178-9-136 0-217.5 80t-81.5 226v171h-200v232h200v595h-532q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960z" fill="#fff"/></svg>
             </a>}
           </div>
+
           <div className="sponsors">
             {this.mapSponsors(sponsors)}
           </div>
