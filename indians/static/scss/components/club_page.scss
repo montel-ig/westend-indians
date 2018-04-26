@@ -11,35 +11,48 @@
       @media screen and (min-width: 1020px) {
         grid-column-end: 10;
       }
-      p, li, h2, h3 {
+      h2, h3, h4,h5 {
         width: $paragraph_width;
         margin: 2em auto;
       }
-      h2, a {
-        color: $indians-yellow;
+      > a {
+        margin: 0;
+        position: relative;
+        top: -45px;
       }
-
+      h2, h3 {
+        width: $paragraph_width;
+        @media screen and (max-width : 700px) {
+          width: initial;
+        }
+      }
       h2 {
         font-family: $black-ops;
-        letter-spacing: $letter-spacing-large;
-        text-transform: uppercase;
         background-color: black;
-        padding: 12px 20px;
-
+        color: $indians-yellow;
+        padding: 12px;
+        margin-bottom: 50px;
       }
-
-      img {
-        max-width: 100%
-      }
-
-      p, li {
+      p, ul li {
+        margin: auto;
         font-size: $text-small;
         line-height: 21px;
+        width: $paragraph_width;
+        @media screen and (max-width : 700px) {
+          width: initial;
+        }
+        @media screen and (max-width : 420px) {
+          font-size: $text-mobile;
+        }
       }
-
-      @media screen and (max-width: 680px) {
-        grid-column-start: 1;
-        grid-column-end: 13;
+      .rich-text {
+        .richtext-image {
+          width: 25%;
+          height: 25%;
+        }
+      }
+      @media screen and (min-width: 1020px) {
+        grid-column-end: 10;
       }
     }
   }
