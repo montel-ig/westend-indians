@@ -27,6 +27,10 @@ class HomePage(Parent):
     shop_description = models.CharField(max_length=255, blank=True)
     shop_cta = models.CharField(max_length=255, blank=True)
 
+    pinnalla_link = models.CharField(max_length=255, blank=True)
+    pinnalla2_link = models.CharField(max_length=255, blank=True)
+    pinnalla3_link = models.CharField(max_length=255, blank=True)
+
     pinnalla = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -70,8 +74,11 @@ class HomePage(Parent):
 
         FieldPanel('lift_bgcolor', classname="full"),
         ImageChooserPanel('pinnalla'),
+        FieldPanel('pinnalla_link'),
         ImageChooserPanel('pinnalla2'),
+        FieldPanel('pinnalla2_link'),
         ImageChooserPanel('pinnalla3'),
+        FieldPanel('pinnalla3_link'),
     ]
 
 

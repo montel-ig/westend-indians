@@ -15,6 +15,9 @@ class RepresentativeTeamPage(Parent):
     body = RichTextField(blank=True)
     main_lift = RichTextField(blank=True)
     partners = RichTextField(blank=True)
+    pinnalla_link = models.CharField(max_length=255, blank=True)
+    pinnalla2_link = models.CharField(max_length=255, blank=True)
+    pinnalla3_link = models.CharField(max_length=255, blank=True)
 
     team_photo = models.ForeignKey(
         'wagtailimages.Image',
@@ -54,7 +57,10 @@ class RepresentativeTeamPage(Parent):
             FieldPanel('partners', classname="full"),
             FieldPanel('lift_bgcolor', classname="full"),
             ImageChooserPanel('pinnalla'),
+            FieldPanel('pinnalla_link'),
             ImageChooserPanel('pinnalla2'),
+            FieldPanel('pinnalla2_link'),
             ImageChooserPanel('pinnalla3'),
+            FieldPanel('pinnalla3_link'),
         ]
 
