@@ -1,6 +1,7 @@
 .news_page {
 
   h1,
+  .pages,
   .news-item {
     grid-column-start: 2;
     grid-column-end: 12;
@@ -25,6 +26,17 @@
 
   img {
     max-width: 100%;
+  }
+
+  .pages {
+    text-align: center;
+    > span,
+    > a {
+      margin: 10px;
+    }
+    > a {
+      border: 1px solid $indians-yellow;
+    }
   }
 
   section.news-description {
@@ -70,7 +82,7 @@
           }
         }
         h2 {
-          margin: 4em auto;
+          margin: 0 auto;
           font-family: $black-ops;
           background-color: black;
           color: $indians-yellow;
@@ -120,6 +132,29 @@
       .button {
         display: block;
         margin: 20px auto;
+      }
+    }
+  }
+
+  .news-item.old-news {
+    display: flex;
+    .image {
+      flex: 2;
+      margin-top: 20px;
+      img {
+        max-width: 100%;
+      }
+    }
+    .text {
+      flex: 4;
+      h2,
+      p {
+        width: 100%;
+        margin-top: 0;
+      }
+      > a {
+        float: right;
+        margin-right: 40px;
       }
     }
   }
