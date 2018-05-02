@@ -2,47 +2,51 @@
   nav.submenu {
     padding: $base_padding 0;
   }
-  .content {
-    .rich-text {
-      grid-column-start: 2;
-      grid-column-end: 12;
-      box-sizing: border-box;
-      max-width: 100%;
-      @media screen and (min-width: 1020px) {
-        grid-column-end: 10;
+  section {
+    > div {
+      @media screen and (max-width : 420px) {
+        padding: 0;
       }
-      h2, h3, h4,h5 {
-        width: $paragraph_width;
-        margin: 2em auto;
-      }
-      > a {
-        margin: 0;
-        position: relative;
-        top: -45px;
-      }
-      h2, h3 {
-        width: $paragraph_width;
-        @media screen and (max-width : 700px) {
-          width: initial;
+      > div {
+        grid-column-start: 2;
+        grid-column-end: 12;
+        margin-bottom: 100px;
+        > a {
+          margin: 0;
+          position: relative;
+          top: -45px;
         }
-      }
-      h2 {
-        font-family: $black-ops;
-        background-color: black;
-        color: $indians-yellow;
-        padding: 12px;
-        margin-bottom: 50px;
-      }
-      p, ul li {
-        margin: auto;
-        font-size: $text-small;
-        line-height: 21px;
-        width: $paragraph_width;
-        @media screen and (max-width : 700px) {
-          width: initial;
+        h2, h3, h4, h5 {
+          width: $paragraph_width;
+          margin: 2em auto;
+          @media screen and (max-width : 700px) {
+            width: initial;
+          }
         }
-        @media screen and (max-width : 420px) {
-          font-size: $text-mobile;
+        h2 {
+          font-family: $black-ops;
+          background-color: black;
+          color: $indians-yellow;
+          padding: 12px;
+          margin-bottom: 50px;
+        }
+        p, ul li {
+          margin: auto;
+          font-size: $text-small;
+          line-height: 21px;
+          width: $paragraph_width;
+          @media screen and (max-width : 700px) {
+            width: initial;
+          }
+          @media screen and (max-width : 420px) {
+            font-size: $text-mobile;
+          }
+        }
+        .rich-text {
+          .richtext-image {
+            width: 25%;
+            height: 25%;
+          }
         }
       }
       .rich-text {
@@ -51,16 +55,12 @@
           height: 25%;
         }
       }
-      @media screen and (min-width: 1020px) {
-        grid-column-end: 10;
+    }
+    &.black {
+      h2 {
+        padding: 12px 0;
       }
     }
-  }
-
-  .values,
-  .contact {
-    background-color: black;
-    color: white;
   }
 
   .personnel {
