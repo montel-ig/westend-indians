@@ -7,16 +7,19 @@
 {% block title %} {{news_item.title}} {% endblock %}
 
 {% block main %}
-<section class="news-items">
-  <div class="news-item-container">
-    <div class="news-item">
+<section class="single-news-item">
+  <div>
+    <div>
       <img src="{{news_item.image_wide.url}}" />
+
       <h1 id="{{ news_item.id }}">
         {{ news_item.title }}
       </h1>
-      <p id="lead-paragraph">
+
+      <p class="lead-paragraph">
         {{ news_item.ingress }}
       </p>
+
       {{ news_item.body|safe }}
     </div>
 
