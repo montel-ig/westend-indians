@@ -6,49 +6,67 @@
 {% if page.lift_count == 3 %}
   {% if page.pinnalla %}
     <div class="lift-img">
-      {% image page.pinnalla width-350 height='auto' width='auto' %}
+      <a href="{{ page.pinnalla_link }}" target="_blank">
+        {% image page.pinnalla width-350 height='auto' width='auto' %}
+      </a>
     </div>
   {% endif %}
   {% if page.pinnalla2 %}
     <div class="lift-img">
-      {% image page.pinnalla2 width-350 height='auto' width='auto' %}
+      <a href="{{ page.pinnalla2_link }}" target="_blank">
+        {% image page.pinnalla2 width-350 height='auto' width='auto' %}
+      </a>
     </div>
   {% endif %}
   {% if page.pinnalla3 %}
     <div class="lift-img">
-      {% image page.pinnalla3 width-350 height='auto' width='auto' %}
+      <a href="{{ page.pinnalla3_link }}" target="_blank">
+        {% image page.pinnalla3 width-350 height='auto' width='auto' %}
+      </a>
     </div>
   {% endif %}
 {% elif page.lift_count == 2 %}
   {% if page.pinnalla %}
     <div class="lift-img">
-      {% image page.pinnalla width-750 height='auto' width='auto' %}
+      <a href="{{ page.pinnalla_link }}" target="_blank">
+        {% image page.pinnalla width-750 height='auto' width='auto' %}
+      </a>
     </div>
   {% endif %}
   {% if page.pinnalla2 %}
     <div class="lift-img">
-      {% image page.pinnalla2 width-750 height='auto' width='auto' %}
+      <a href="{{ page.pinnalla2_link }}" target="_blank">
+        {% image page.pinnalla2 width-750 height='auto' width='auto' %}
+      </a>
     </div>
   {% endif %}
   {% if page.pinnalla3 %}
     <div class="lift-img">
-      {% image page.pinnalla3 width-750 height='auto' width='auto' %}
+      <a href="{{ page.pinnalla3_link }}" target="_blank">
+        {% image page.pinnalla3 width-750 height='auto' width='auto' %}
+      </a>
     </div>
   {% endif %}
 {% elif page.lift_count == 1 %}
   {% if page.pinnalla %}
   <div class="lift-img">
-    {% image page.pinnalla width-1280 height='auto' width='auto' %}
+    <a href="{{ page.pinnalla_link }}" target="_blank">
+      {% image page.pinnalla width-1280 height='auto' width='auto' %}
+    </a>
   </div>
   {% endif %}
   {% if page.pinnalla2 %}
   <div class="lift-img">
-    {% image page.pinnalla2 width-1280 height='auto' width='auto' %}
+    <a href="{{ page.pinnalla2_link }}" target="_blank">
+      {% image page.pinnalla2 width-1280 height='auto' width='auto' %}
+    </a>
   </div>
   {% endif %}
   {% if page.pinnalla3 %}
   <div class="lift-img">
-    {% image page.pinnalla3 width-1280 height='auto' width='auto' %}
+    <a href="{{ page.pinnalla3_link }}" target="_blank">
+      {% image page.pinnalla3 width-1280 height='auto' width='auto' %}
+    </a>
   </div>
   {% endif %}
 {% endif %}
