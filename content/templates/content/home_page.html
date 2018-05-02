@@ -15,7 +15,11 @@
       <img class="triangle justify-top" src="{% static "images/tilted-bg-white-bottom.svg" %}">
     </section>
   <section class="team">
-    <img class="team-img" src="{% static "images/high_fives_clean_1200x.jpg" %}">
+    <a onclick="showVideoModal('https://www.youtube.com/embed/2MJ1Eiuh4fQ');"
+        class="video-link team-img">
+      <img class="photo" src="{% static "images/high_fives_clean_1200x.jpg" %}">
+      <img class="play-button" src="{% static "images/play.png" %}">
+    </a>
     <div class="team-container"}>
       <div class="content">
         <h1>{{ page.team_title}}</h1>
@@ -30,7 +34,11 @@
     </div>
   </section>
   <section class="tribe">
-    <img class="tribe-img" src="{% static "images/tribe_clean_1200x.jpg" %}">
+    <a onclick="showVideoModal('https://www.youtube.com/embed/u4O6wecQjX0');"
+        class="video-link tribe-img">
+      <img class="photo" src="{% static "images/tribe_clean_1200x.jpg" %}">
+      <img class="play-button" src="{% static "images/play.png" %}">
+    </a>
     <div class="tribe-container">
       <div class="content">
         <h1>{{ page.tribe_title }}</h1>
@@ -65,6 +73,7 @@
       </div>
     </div>
   </section>
+  <div id="video-modal-root"></div>
 {% endblock %}
 
 {% block footer %}

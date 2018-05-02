@@ -346,6 +346,17 @@
     }
   }
 
+  .play-button {
+    display: block;
+    width: 50px;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+    transition: all 340ms;
+  }
 
   .tribe-img,
   .team-img {
@@ -354,6 +365,15 @@
     opacity: 0;
     transition: $scroll-transition;
     margin: 0;
+    cursor: pointer;
+    .photo {
+      max-width: 100%;
+    }
+    &:hover {
+      .play-button {
+        opacity: 1.0;
+      }
+    }
   }
 
   .team-img {
