@@ -12,11 +12,13 @@
   <img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
   {% submenu page %}
 
-  <section class="body">
+  <section class="body black">
+    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
     <a id="body"></a>
     <div class="content ignore-height">
       {{ page.body|richtext }}
     </div>
+    <img class="triangle justify-top" src="{% static "images/tilted-bg-white-bottom.svg" %}">
   </section>
 
   <section class="introduction" id="esittely"}>

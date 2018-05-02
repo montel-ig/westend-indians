@@ -21,16 +21,17 @@
   <section class="team-info">
     {% submenu page %}
   </section>
-  <section>
+  <section class="black">
+    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
     {% if page.body|striptags|length > 0 %}
     <a id="body"></a>
     <div class="info-body">
       {{ page.body|richtext }}
     </div>
     {% endif %}
+    <img class="triangle justify-top" src="{% static "images/tilted-bg-white-bottom.svg" %}">
   </section>
-  <section class="black">
-    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
+  <section>
     {% if page.tickets|striptags|length > 0 %}
     <a id="tickets"></a>
     <div class="info-lift">
@@ -38,8 +39,8 @@
     </div>
     {% endif %}
   </section>
-  <img class="triangle justify-bottom" src="{% static "images/tilted-bg-black-top.svg" %}">
-  <section>
+  <section class="black">
+    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
     {% if page.information|striptags|length > 0 %}
     <a id="information"></a>
     <div class="info-information">
@@ -47,7 +48,7 @@
     </div>
     {% endif %}
   </section>
-  <section class="black">
+  <section>
     {% if page.contact|striptags|length > 0 %}
     <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
     <a id="contact"></a>
@@ -55,7 +56,7 @@
       {{ page.contact|richtext }}
     </div>
     {% endif %}
-    <img class="triangle" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+    <img class="triangle black-bg" src="{% static "images/tilted-line-almost-black.svg" %}">
   </section>
 {% endblock %}
 
