@@ -15,20 +15,46 @@
     <h1>Vanhemmat uutiset</h1>
 
     {% for news_item in rest_of_news %}
-    <div class="news-item">
-      <h2 id="{{ news_item.id }}">
-        {{ news_item.title }}
-      </h2>
-      <p id="lead-paragraph">
-        {{ news_item.ingress }}
-      </p>
-      <a href="{% url 'news_item' news_item.slug %}" class="button">Lue koko juttu</a>
-    </div>
+      <div class="news-item old-news">
+        <div class="image">
+          {% if news_item.image %}
+            <img src="{{news_item.image_medium.url}}" />
+          {% else %}
+            <img src="{% static "images/g12.max-165x165.png" %}" />
+          {% endif %}
+        </div>
+
+        <div class="text">
+          <h2 id="{{ news_item.id }}">
+            {{ news_item.title }}
+          </h2>
+
+          <p class="lead-paragraph">
+            {{ news_item.ingress }}
+          </p>
+
+          <a href="{% url 'news_item' news_item.slug %}" class="button">Lue koko juttu</a>
+        </div>
+      </div>
     {% endfor %}
+
+    <div class="pages">
+      {% if rest_of_news.has_previous %}
+        <a class="button" href="?page=1">&laquo;</a>
+        <a class="button" href="?page={{ rest_of_news.previous_page_number }}">edellinen</a>
+      {% endif %}
+
+      <span class="current">
+        Sivu {{ rest_of_news.number }} / {{ rest_of_news.paginator.num_pages }}
+      </span>
+
+      {% if rest_of_news.has_next %}
+        <a class="button" href="?page={{ rest_of_news.next_page_number }}">seuraava</a>
+        <a class="button" href="?page={{ rest_of_news.paginator.num_pages }}">&raquo;</a>
+      {% endif %}
+    </div>
   </div>
 </section>
-
-<img class="triangle flip-x justify-bottom" src="{% static "images/tilted-bg-black-bottom.svg" %}">
 
 <script type="application/javascript">
   var news = {{ news_for_carousel_json|safe }};
