@@ -10,68 +10,6 @@
 
   section.tribe {
 
-    .tribe-container {
-      padding: $base_padding * 2 $base_padding;
-
-      grid-column-start: 1;
-      grid-column-end: 12;
-      min-height: 0;
-      @media screen and  (max-width : 420px) {
-        padding: $base_padding;
-        display: block;
-      }
-      h1 {
-        margin: 0
-      }
-      img {
-        grid-column-start: 1;
-        grid-column-end: 8;
-        max-width: 100%;
-        object-fit: contain;
-        @media screen and  (max-width : 880px) {
-          grid-column-end: 13;
-        }
-      }
-      .content {
-        grid-column-start: 2;
-        grid-column-end: 12;
-        @media screen and  (max-width : 880px) {
-          padding-top: $base_padding;
-          grid-column-start: 1;
-        }
-      }
-
-      .rich-text {
-        > p > img {
-          opacity: .4;
-        }
-        > p:empty {
-          display: none;
-        }
-      }
-      .info-links {
-        grid-column-start: 1;
-        grid-column-end: 6;
-        padding: 0;
-
-        a {
-          font-family: $titillium-web;
-          display: inline;
-          color: black;
-          text-transform: uppercase;
-          font-weight: bold;
-          font-size: 16px;
-          letter-spacing: $letter-spacing-medium;
-        }
-        a::after {
-          content: " | ";
-          padding: 5px;
-        }
-        a:last-child:after {
-          content: "";
-        }
-      }
-    }
   }
   .tribe-body, #lift {
     display: flex;
