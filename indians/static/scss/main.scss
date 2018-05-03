@@ -21,6 +21,7 @@
 @import "components/teams_page";
 @import "components/team_modal";
 @import "components/video_modal";
+@import "components/lift";
 @import "submenu";
 
 
@@ -204,30 +205,6 @@ html {
 
       &:empty {
         display: none;
-      }
-    }
-    // lift sections
-    .lift {
-      margin: 0;
-      .lift-container {
-        opacity:0;
-        transition: $scroll-transition;
-        display: flex;
-        min-height: 0;
-        padding: $base_padding;
-        justify-content: center;
-
-        .lift-img {
-          width: 100%;
-          flex: 1;
-          text-align: center;
-          padding: 0;
-
-          > img {
-            margin: 0 auto;
-            max-width: 100%;
-          }
-        }
       }
     }
   }
