@@ -19,6 +19,9 @@
     <div class="news-item-container">
       {% for news_item in page.news %}
         <div class="news-item">
+          <p class="publication-date">
+            {{ news_item.publication_date|date:"D d.m.o, klo H:i" }}
+          </p>
           <h1 id="{{ news_item.id }}">
             {{ news_item.title }}
           </h1>

@@ -111,6 +111,9 @@
             }
           }
         }
+        .publication-date {
+
+        }
         .lead-paragraph {
           line-height: inherit;
           font-size: $text-larger;
@@ -165,7 +168,8 @@
 
 
     .lead-paragraph {
-      font-size: 150%;
+      font-size: $text-large;
+      line-height: 1.5em;
     }
 
     > div {
