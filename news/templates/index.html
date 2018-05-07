@@ -25,6 +25,11 @@
         </div>
 
         <div class="text">
+          <p class="publication-date">
+            {{ news_item.publication_date|date:"D d.m.o" }}
+{#            {{ news_item.publication_date|date:"D d.m.o, H:i" }}#}
+          </p>
+
           <h2 id="{{ news_item.id }}">
             {{ news_item.title }}
           </h2>

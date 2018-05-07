@@ -64,6 +64,7 @@ class NewsCarousel extends React.Component {
               <div className="image" style={{'backgroundImage': `url(${hilight.image})`}}>
               </div>
               <div className="description">
+                <p>{hilight.publication_date}</p>
                 <h1><a href={`/uutiset/${hilight.slug}`}>{hilight.title}</a></h1>
                 <p>{hilight.ingress}</p>
                 <a href={`/uutiset/${hilight.slug}`} className="button">Lue koko juttu</a>

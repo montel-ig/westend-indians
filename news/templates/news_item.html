@@ -12,6 +12,10 @@
     <div>
       <img src="{{news_item.image_wide.url}}" />
 
+      <p class="publication-date">
+        {{ news_item.publication_date|date:"D d.m.o" }}
+      </p>
+
       <h1 id="{{ news_item.id }}">
         {{ news_item.title }}
       </h1>
