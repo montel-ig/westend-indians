@@ -273,9 +273,9 @@ section.news {
 
 /** Basic text box for full width textual content */
 .text-box-container {
-  padding: $base_padding * 2 $base_padding;
+  padding: $base_padding * 1.5 $base_padding;
   grid-column-start: 1;
-  grid-column-end: 12;
+  grid-column-end: 13;
   min-height: 0;
 
   @media screen and  (max-width : 420px) {
@@ -284,7 +284,7 @@ section.news {
 
   .content {
     grid-column-start: 2;
-    grid-column-end: 12;
+    grid-column-end: 11;
 
     h1 {
       margin: 0
@@ -325,6 +325,7 @@ section.news {
     @media screen and  (max-width : 880px) {
       padding-top: $base_padding;
       grid-column-start: 1;
+      grid-column-end: 13;
     }
   }
 
