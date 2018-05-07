@@ -79,5 +79,16 @@ function scrollTo(element, to, duration) {
   hamburger.addEventListener('click', openMenu, supportsPassive ? {passive: true} : false)
   closeButton.addEventListener('click', closeMenu, supportsPassive ? {passive: true} : false)
 
+  const menu1992 = document.querySelector('#menu-1992')
+  const menuButton1992 = document.querySelector('#menu-button-1992')
+  const toggle1992Menu = () => {
+    if(menu1992.classList.contains('open')) {
+      menu1992.classList.remove('open')
+    } else {
+      menu1992.classList.add('open')
+    }
+  }
+  menuButton1992.addEventListener('click', toggle1992Menu, supportsPassive ? {passive: true} : false)
+
 
 })()
