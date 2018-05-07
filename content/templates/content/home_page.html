@@ -57,19 +57,19 @@
     <div class="shop-container">
       <div class="shop-products">
         {% for product in page.front_page_product_images %}
-          <div>
-            <a href="#"><img src={{ product.image.url}}></a>
+          <a href="{{ product.product.url }}">
+            <img src={{ product.image.url}}>
             <div class="shop-item-description">
               <p>{{ product.product.name }}</p>
               <p id="product-price"}>{{ product.product.price }}</p>
             </div>
-          </div>
+          </a>
         {% endfor %}
       </div>
         <div class="content shop">
         <h1>{{ page.shop_title}}</h1>
         <p class="cta-text">{{ page.shop_description }}</p>
-        <a class="cta-link" href="{% slugurl 'shop' %}">{{ page.shop_cta }}<span>»</span></a>
+        <a class="cta-link" href="http://vilkasstore.westendindians.com/">{{ page.shop_cta }}<span>»</span></a>
       </div>
     </div>
   </section>

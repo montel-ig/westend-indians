@@ -10,6 +10,7 @@ class Product(models.Model):
     description = RichTextField()
     price = models.DecimalField(max_digits=9, decimal_places=2)
     visible = models.BooleanField(default=False)
+    url = models.URLField(max_length=255, blank=True, null=True)
 
     categories = models.ManyToManyField('ProductCategory', related_name='products')
 
