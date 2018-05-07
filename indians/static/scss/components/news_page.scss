@@ -113,7 +113,7 @@
         }
         .lead-paragraph {
           line-height: inherit;
-          font-size: 18px;
+          font-size: $text-larger;
           @media screen and (max-width: 750px) {
             font-size: initial;
           }

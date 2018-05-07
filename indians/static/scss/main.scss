@@ -43,7 +43,7 @@ html {
       text-transform: uppercase;
 
       @media screen and (max-width : 480px) {
-        font-size: 18px;
+        font-size: $text-larger;
       }
     }
 
@@ -60,7 +60,7 @@ html {
     }
     h3 {
       font-family: $titillium-web;
-      font-size: 18px;
+      font-size: $text-larger;
     }
 
     a {
@@ -72,7 +72,7 @@ html {
 
     p {
       font-family: $encode-sans;
-      font-size: 18px;
+      font-size: $text-small;
       letter-spacing: $letter-spacing-medium;
       line-height: 21px;
 
@@ -191,7 +191,7 @@ html {
 
       p, ul li, ol li {
         font-family: $encode-sans;
-        font-size: 18px;
+        font-size: $text-small;
         letter-spacing: $letter-spacing-medium;
 
         > * { text-align: center; }
