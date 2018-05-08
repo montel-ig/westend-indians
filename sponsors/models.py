@@ -20,6 +20,7 @@ class Sponsor(models.Model):
         ('bottom', 'Bottom level logo'),
     ), blank=True, null=True, max_length=12)
 
+    boost = models.SmallIntegerField(default=0)
     visible_for_team = models.BooleanField(default=True)
     visible_for_tribe = models.BooleanField(default=True)
     visible_for_frontpage = models.BooleanField(default=True)

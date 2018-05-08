@@ -33,8 +33,7 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
 
 COPY deployment/docker/nginx.conf /etc/nginx/nginx.conf
 
-ENV DJANGO_SETTINGS indians.settings.prod
-ENV SECRET_KEY "not-so-secret"
+ENV DJANGO_SETTINGS indians.settings.compress
 
 ADD . ${WORK_DIR}
 
