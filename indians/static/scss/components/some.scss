@@ -35,6 +35,9 @@ section.some {
         transition: $scroll-transition;
         max-height: 820px;
         overflow: hidden;
+        @media screen and (max-width: 420px) {
+          max-width: 280px;
+        }
       }
       @media screen and (max-width: 740px) {
         flex-direction: column;
