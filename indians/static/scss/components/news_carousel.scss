@@ -12,6 +12,9 @@
       height: 460px;
       background-size: cover;
       background-position: center center;
+      @media screen and (max-width: 420px) {
+        height: 230px;
+      }
     }
 
     .description {
@@ -33,6 +36,9 @@
         p {
           font-size: 0.8rem;
         }
+      }
+      @media screen and (max-width: 420px) {
+        display: none;
       }
     }
   }
