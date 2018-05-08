@@ -19,19 +19,19 @@ class IndiansBasePage(Page):
 
     @property
     def all_sponsors(self):
-        return Sponsor.objects.all()
+        return Sponsor.objects.all().order_by('-boost')
 
     @property
     def team_sponsors(self):
-        return Sponsor.objects.filter(visible_for_team=True)
+        return Sponsor.objects.filter(visible_for_team=True).order_by('-boost')
 
     @property
     def tribe_sponsors(self):
-        return Sponsor.objects.filter(visible_for_tribe=True)
+        return Sponsor.objects.filter(visible_for_tribe=True).order_by('-boost')
 
     @property
     def front_page_sponsors(self):
-        return Sponsor.objects.filter(visible_for_frontpage=True)
+        return Sponsor.objects.filter(visible_for_frontpage=True).order_by('-boost')
 
     # News
 
