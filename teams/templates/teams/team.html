@@ -14,53 +14,65 @@
   <img class="triangle justify-bottom" src="{% static "images/tilted-bg-black-top.svg" %}">
 
   <section class="team" style="background-color: white;">
-    <div class="teams-team-container"}>
+    <div class="team-container"}>
       <h1>{{ properties.name }}</h1>
-      {% if properties.image %}
-        <img class="teams-team-img" src="{{ properties.image }}">
-      {% else %}
-        <img id="default" src="{% static 'images/logo.png' %}" />
-      {% endif %}
-      <div class="content team">
-        <div class="team-contact">
-          {% if properties.contact_name %}
-            <h2>Urheiluvastaava</h2>
-            <p>{{ properties.contact_name }}</p>
-          {% endif %}
-          {% if properties.contact_email %}
-            <p>{{ properties.contact_email }}</p>
-          {% endif %}
-          {% if properties.contact_phone %}
-            <p>{{ properties.contact_phone }}</p>
-          {% endif %}
-        </div>
-        <div class="team-leader">
-          {% if properties.leader_name %}
-            <h2>Joukkueenjohtaja</h2>
-            <p>{{ properties.leader_name }}</p>
-          {% endif %}
-          {% if properties.leader_email %}
-            <p>{{ properties.leader_email }}</p>
-          {% endif %}
-          {% if properties.leader_phone %}
-            <p>{{ properties.leader_phone }}</p>
-          {% endif %}
-        </div>
-        {% if properties.registration_link %}
-          <div class="signup">
-            <a href="{{ properties.registration_link }}" target="_blank">
-              <button>Liity mukaan</button>
-            </a>
-          </div>
+      <div class="content">
+        {% if properties.image %}
+          <img class="team-img" src="{{ properties.image }}">
+        {% else %}
+          <img id="default" src="{% static 'images/logo.png' %}" />
         {% endif %}
-        <div class="team-info">
-          {% if properties.current_player_count and properties.max_player_count %}
-            <p>Nykyinen pelaajamäärä: {{ properties.current_player_count }}/{{ properties.max_player_count }}</p>
-          {% endif %}
+        <div>
+          <div class="contact">
+            <div>
+            {% if properties.contact_name %}
+              <h2>Urheiluvastaava</h2>
+              <p>{{ properties.contact_name }}</p>
+            {% endif %}
+            {% if properties.contact_email %}
+              <p>{{ properties.contact_email }}</p>
+            {% endif %}
+            {% if properties.contact_phone %}
+              <p>{{ properties.contact_phone }}</p>
+            {% endif %}
+            </div>
+            {% if properties.contact_image %}
+              <img src="{{ properties.contact_image }}"/>
+            {% endif %}
+          </div>
+          <div class="leader">
+            <div>
+              {% if properties.leader_name %}
+                <h2>Joukkueenjohtaja</h2>
+                <p>{{ properties.leader_name }}</p>
+              {% endif %}
+              {% if properties.leader_email %}
+                <p>{{ properties.leader_email }}</p>
+              {% endif %}
+              {% if properties.leader_phone %}
+                <p>{{ properties.leader_phone }}</p>
+              {% endif %}
+            </div>
+            {% if properties.leader_image %}
+              <img src="{{ properties.leader_image }}"/>
+            {% endif %}
+          </div>
         </div>
       </div>
-      <div class="team-description">
+      <div class="description">
         <p>{{ properties.description|safe }}</p>
+      </div>
+      <div class="info">
+        <div class="signup">
+          {% if properties.current_player_count and properties.max_player_count %}
+          <p>Nykyinen pelaajamäärä: {{ properties.current_player_count }}/{{ properties.max_player_count }}</p>
+          {% endif %}
+          {% if properties.registration_link %}
+          <a href="{{ properties.registration_link }}" target="_blank" class="button">
+            Liity mukaan
+          </a>
+          {% endif %}
+        </div>
       </div>
     </div>
   </section>

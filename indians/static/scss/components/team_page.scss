@@ -23,6 +23,70 @@
       background-image: none;
       max-width: 1280px;
       margin: 0 auto;
+
+      .team-container {
+        display: block;
+
+
+        .content {
+          display: flex;
+          justify-content: flex-start;
+          padding: 40px 0;
+          @media screen and (max-width : 1280px) {
+            flex-direction: column;
+            padding: 0;
+          }
+          @media screen and (max-width : 420px) {
+            padding: 0;
+          }
+
+          .team-img {
+            max-height: 440px;
+            max-width: 100%;
+
+          }
+
+          .contact, .leader {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px;
+            @media screen and (max-width : 1280px) {
+              max-width: 50%;
+              margin: 40px 0;
+            }
+            @media screen and (max-width : 680px) {
+              max-width: 100%;
+              margin: 40px 0;
+            }
+            @media screen and (max-width : 420px) {
+              justify-content: flex-start;
+              max-width: 100%;
+              margin: 20px 0;
+            }
+            div {
+              h2 {
+              }
+            }
+            img {
+              padding-left: 40px;
+              max-width: 175px;
+              @media screen and (max-width : 420px) {
+                display: none;
+              }
+            }
+          }
+          .signup {
+          }
+        }
+        .description {
+          p {
+            max-width: 55rem;
+          }
+        }
+        .info {
+          padding-bottom: $base_padding;
+        }
+      }
     }
 
     section.players {
