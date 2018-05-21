@@ -92,9 +92,9 @@ class PlayerModal extends React.Component {
 
   render() {
     const { first_name, last_name, origin, number, position, handedness, born, height, weight, school, role, video_url,
-            description, sponsors, game_years_junior, game_years_pro_tribe, game_years_pro_other }
+            description, sponsors, game_years_junior, game_years_pro_tribe, game_years_combined, year_joined }
             = this.props.selectedPlayer;
-    const yearsCombined = this.parseYears([game_years_junior,game_years_pro_tribe,game_years_pro_other]);
+    //const yearsCombined = this.parseYears([game_years_junior,game_years_pro_tribe, game_years_pro_other]);
     this.state.visibilityClass === 'visible' && this.disableScrolling();
     return (
       <div className={`player-modal-backdrop ${this.state.visibilityClass}`} >
@@ -128,10 +128,10 @@ class PlayerModal extends React.Component {
               { handedness && <p>Pelaa {t('player_modal',handedness)}</p> }
               { height && <p>Pituus: {height} cm</p> }
               { weight && <p className="add-margin">Paino: {weight} kg</p> }
+              { game_years_pro_tribe && <p>Kaudet Heimon edustusjoukkueessa: {game_years_pro_tribe}</p> }
               { game_years_junior && <p>Pelivuodet Heimon Junioreissa: {game_years_junior}</p> }
-              { game_years_pro_tribe && <p>Pelivuodet Miesten joukkueessa: {game_years_pro_tribe}</p> }
-              { game_years_pro_other && <p>Pelivuodet muut: {game_years_pro_other}</p> }
-              { yearsCombined > 0 && <p>Pelivuodet yhteensä: {yearsCombined}</p> }
+              { game_years_combined && <p>Kaudet Salibandyliigassa yhteensä: {game_years_combined}</p> }
+              { year_joined && <p>Osa Heimoa vuodesta: {year_joined}</p> }
             </div>
             <div className={`bottom ${video_url ? 'fixed-width' : ''}`}>
               <div className="some">
