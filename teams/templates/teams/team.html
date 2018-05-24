@@ -23,40 +23,40 @@
           <img id="default" src="{% static 'images/logo.png' %}" />
         {% endif %}
         <div>
-          <div class="contact">
-            <div>
-            {% if properties.contact_name %}
-              <h2>Urheiluvastaava</h2>
-              <p>{{ properties.contact_name }}</p>
-            {% endif %}
-            {% if properties.contact_email %}
-              <p>{{ properties.contact_email }}</p>
-            {% endif %}
-            {% if properties.contact_phone %}
-              <p>{{ properties.contact_phone }}</p>
-            {% endif %}
+          {% if properties.contact_name %}
+            <div class="contact">
+              <div>
+                <h2>Urheiluvastaava</h2>
+                <p>{{ properties.contact_name }}</p>
+              {% if properties.contact_email %}
+                <p>{{ properties.contact_email }}</p>
+              {% endif %}
+              {% if properties.contact_phone %}
+                <p>{{ properties.contact_phone }}</p>
+              {% endif %}
+              </div>
+              {% if properties.contact_image %}
+                <img src="{{ properties.contact_image }}"/>
+              {% endif %}
             </div>
-            {% if properties.contact_image %}
-              <img src="{{ properties.contact_image }}"/>
-            {% endif %}
-          </div>
-          <div class="leader">
-            <div>
-              {% if properties.leader_name %}
+          {% endif %}
+          {% if properties.leader_name %}
+            <div class="leader">
+              <div>
                 <h2>Joukkueenjohtaja</h2>
                 <p>{{ properties.leader_name }}</p>
-              {% endif %}
-              {% if properties.leader_email %}
-                <p>{{ properties.leader_email }}</p>
-              {% endif %}
-              {% if properties.leader_phone %}
-                <p>{{ properties.leader_phone }}</p>
+                {% if properties.leader_email %}
+                  <p>{{ properties.leader_email }}</p>
+                {% endif %}
+                {% if properties.leader_phone %}
+                  <p>{{ properties.leader_phone }}</p>
+                {% endif %}
+              </div>
+              {% if properties.leader_image %}
+                <img src="{{ properties.leader_image }}"/>
               {% endif %}
             </div>
-            {% if properties.leader_image %}
-              <img src="{{ properties.leader_image }}"/>
-            {% endif %}
-          </div>
+          {% endif %}
         </div>
       </div>
       <div class="description">
