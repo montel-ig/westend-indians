@@ -1,3 +1,5 @@
+@import "../variables";
+
 .info_page {
   section {
     > div {
@@ -54,5 +56,21 @@
   }
   section.team-info {
     padding: $base_padding 0;
+  }
+
+  table {
+    width: 100%;
+    th {
+      font-weight: bold;
+    }
+    td, th {
+      padding: 4px 8px;
+    }
+    tr {
+      background: white;
+      &:nth-child(odd) {
+        background: $indians-light-grey;
+      }
+    }
   }
 }
