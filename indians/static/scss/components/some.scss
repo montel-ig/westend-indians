@@ -22,7 +22,8 @@ section.some {
         padding: $base_padding * 2 60px $base_padding 0;
         width: 100px;
         @media screen and (max-width: 780px) {
-          width: 80px;
+          width: 60px;
+          padding: 40px 0 0 0;
         }
       }
     .some-row {
@@ -35,6 +36,9 @@ section.some {
         transition: $scroll-transition;
         max-height: 820px;
         overflow: hidden;
+        @media screen and (max-width: 420px) {
+          max-width: 280px;
+        }
       }
       @media screen and (max-width: 740px) {
         flex-direction: column;

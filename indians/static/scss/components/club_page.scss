@@ -10,7 +10,8 @@
       > div {
         grid-column-start: 2;
         grid-column-end: 12;
-        margin-bottom: 100px;
+        margin: auto;
+        padding-bottom: 100px;
         > a {
           margin: 0;
           position: relative;
@@ -42,18 +43,6 @@
             font-size: $text-mobile;
           }
         }
-        .rich-text {
-          .richtext-image {
-            width: 25%;
-            height: 25%;
-          }
-        }
-      }
-      .rich-text {
-        .richtext-image {
-          width: 25%;
-          height: 25%;
-        }
       }
     }
     &.black {
@@ -62,7 +51,6 @@
       }
     }
   }
-
   .personnel {
     .content .rich-text img {
       max-width: 200px;

@@ -31,7 +31,7 @@ def members_to_json(team: Team) -> str:
     members_dict = {}
     take_from_member = ('first_name', 'last_name', 'slug', 'origin', 'weight', 'height', 'handedness',
                         'description', 'some_instagram', 'some_twitter', 'some_facebook', 'some_snapchat',
-                        'game_years_junior', 'game_years_pro_tribe', 'game_years_pro_other', 'video_url',)
+                        'game_years_junior', 'game_years_pro_tribe', 'game_years_combined', 'year_joined', 'video_url',)
     take_from_membership = ('number', 'position', 'role')
     for ms in team.memberships.all():
         m = ms.member

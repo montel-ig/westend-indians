@@ -7,7 +7,8 @@
       > div {
         grid-column-start: 2;
         grid-column-end: 12;
-        margin-bottom: 100px;
+        margin: auto;
+        padding-bottom: 100px;
         > a {
           margin: 0;
           position: relative;
@@ -41,11 +42,8 @@
         }
         .rich-text {
           .richtext-image {
-            width: 25%;
-            height: 25%;
           }
         }
-
       }
     }
     &.black {
@@ -57,7 +55,4 @@
   section.team-info {
     padding: $base_padding 0;
   }
-
-
-
 }

@@ -44,8 +44,8 @@ class Member(models.Model):
                                          blank=True, null=True)
     game_years_pro_tribe = models.CharField(max_length=24, help_text="Given in the format YYYY-YYYY, e.g. 1983-1987",
                                             blank=True, null=True)
-    game_years_pro_other = models.CharField(max_length=24, help_text="Given in the format YYYY-YYYY, e.g. 1983-1987",
-                                            blank=True, null=True)
+    game_years_combined = models.IntegerField(blank=True, null=True)
+    year_joined = models.IntegerField(blank=True, null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
