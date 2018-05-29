@@ -15,12 +15,12 @@
 
   <section class="team" style="background-color: white;">
     <div class="team-container"}>
-      <h1>{{ properties.name }}</h1>
+      {% if properties.name %}
+        <h1>{{ properties.name }}</h1>
+      {% endif %}
       <div class="content">
         {% if properties.image %}
           <img class="team-img" src="{{ properties.image }}">
-        {% else %}
-          <img id="default" src="{% static 'images/logo.png' %}" />
         {% endif %}
         <div>
           {% if properties.contact_name %}
@@ -92,6 +92,8 @@
       }
     </script>
   {% endif %}
+
+<img class="triangle" src="{% static "images/tilted-bg-black-bottom.svg" %}">
 
 {% endblock %}
 
