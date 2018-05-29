@@ -41,7 +41,7 @@
           @media screen and (max-width : 420px) {
             padding: 0;
           }
-          img.team-img, img#default {
+          img {
             max-height: 440px;
             max-width: 100%;
             object-fit: contain;
@@ -73,6 +73,11 @@
             }
           }
           .signup {
+          }
+          &#representative {
+            img {
+              max-height: initial;
+            }
           }
         }
         .description {

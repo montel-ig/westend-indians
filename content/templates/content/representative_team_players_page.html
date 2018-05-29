@@ -17,50 +17,67 @@
 
   <img class="triangle" src="{% static "images/tilted-bg-black-top-right.svg" %}">
 
-  <section class="team" style="background-color: white;">
-    <div class="teams-team-container">
-
+<section class="team" style="background-color: white;">
+  <div class="team-container"}>
+    <h1>{{ properties.name }}</h1>
+    <div class="content" id="representative">
       {% if page.team_photo %}
         {% image page.team_photo width-1280 width=auto height=auto %}
       {% endif %}
-
-      <div class="content team">
-        <div class="team-contact">
-          {% if page.properties.contact_name %}
-          <h2>Urheiluvastaava</h2>
-          <p>{{ page.properties.contact_name }}</p>
-          {% endif %}
-          {% if page.properties.contact_email %}
-          <p>{{ page.properties.contact_email }}</p>
-          {% endif %}
-          {% if page.properties.contact_phone %}
-          <p>{{ page.properties.contact_phone }}</p>
-          {% endif %}
-        </div>
-        <div class="team-leader">
-          {% if page.properties.leader_name %}
-          <h2>Joukkueenjohtaja</h2>
-          <p>{{ page.properties.leader_name }}</p>
-          {% endif %}
-          {% if page.properties.leader_email %}
-          <p>{{ page.properties.leader_email }}</p>
-          {% endif %}
-          {% if page.properties.leader_phone %}
-          <p>{{ page.properties.leader_phone }}</p>
+      <div>
+        {% if properties.contact_name %}
+        <div class="contact">
+          <div>
+            <h2>Urheiluvastaava</h2>
+            <p>{{ properties.contact_name }}</p>
+            {% if properties.contact_email %}
+            <p>{{ properties.contact_email }}</p>
+            {% endif %}
+            {% if properties.contact_phone %}
+            <p>{{ properties.contact_phone }}</p>
+            {% endif %}
+          </div>
+          {% if properties.contact_image %}
+          <img src="{{ properties.contact_image }}"/>
           {% endif %}
         </div>
-
-        <div class="team-info">
-          {% if page.properties.current_player_count and page.properties.max_player_count %}
-          <p>Nykyinen pelaajamäärä: {{ page.properties.current_player_count }}/{{ page.properties.max_player_count }}</p>
+        {% endif %}
+        {% if properties.leader_name %}
+        <div class="leader">
+          <div>
+            <h2>Joukkueenjohtaja</h2>
+            <p>{{ properties.leader_name }}</p>
+            {% if properties.leader_email %}
+            <p>{{ properties.leader_email }}</p>
+            {% endif %}
+            {% if properties.leader_phone %}
+            <p>{{ properties.leader_phone }}</p>
+            {% endif %}
+          </div>
+          {% if properties.leader_image %}
+          <img src="{{ properties.leader_image }}"/>
           {% endif %}
         </div>
-      </div>
-      <div class="team-description">
-        <p>{{ page.properties.description|safe }}</p>
+        {% endif %}
       </div>
     </div>
-  </section>
+    <div class="description">
+      <p>{{ properties.description|safe }}</p>
+    </div>
+    <div class="info">
+      <div class="signup">
+        {% if properties.current_player_count and properties.max_player_count %}
+        <p>Nykyinen pelaajamäärä: {{ properties.current_player_count }}/{{ properties.max_player_count }}</p>
+        {% endif %}
+        {% if properties.registration_link %}
+        <a href="{{ properties.registration_link }}" target="_blank" class="button">
+          Liity mukaan
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
 
   <img class="triangle" src="{% static "images/tilted-bg-black-bottom.svg" %}">
   <section class="players" id="players">
