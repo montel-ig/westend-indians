@@ -2,6 +2,8 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.db.models import TextField
+
 from content.models.indians_base_page import IndiansBasePage as Parent
 
 from wagtail.wagtailcore.models import Page
@@ -15,6 +17,7 @@ class InfoPage(Parent):
     information = RichTextField(blank=True)
     contact = RichTextField(blank=True)
     partners = RichTextField(blank=True)
+    tables = TextField(blank=True)
 
     content_panels = Page.content_panels + [
         FieldPanel('body', classname="full"),
@@ -22,4 +25,5 @@ class InfoPage(Parent):
         FieldPanel('information', classname="full"),
         FieldPanel('contact', classname="full"),
         FieldPanel('partners', classname="full"),
+        FieldPanel('tables', classname="full"),
     ]
