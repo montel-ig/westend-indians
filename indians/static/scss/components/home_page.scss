@@ -5,18 +5,8 @@
     position: relative;
     overflow: hidden;
     width: 100%;
-    padding: 60px 0;
+    padding: 20px 0 100px;
     margin: 0;
-
-    //grid-column-start: 2;
-    //grid-column-end: 6;
-    //display: grid;
-    //grid-template-columns: repeat(12, 1fr);
-
-    // the images
-    > a {
-
-    }
 
     $bp: 1024px;
 
@@ -90,19 +80,24 @@
       top: 0%;
       transform: translate(-105%, 0%);
 
-      @media screen and (max-width: 1520px) {
+      @media screen and (max-width: 1560px) {
         transform: translate(-100%, 0%);
+        top: 10%;
         .photo {
           max-width: 900px;
         }
+      }
+      @media screen and (max-width: $bp) {
+        top: 0;
       }
     }
 
     .tribe-img {
       top: 45%;
       transform: translate(5%, 0%);
-      @media screen and (max-width: 1520px) {
+      @media screen and (max-width: 1560px) {
         transform: translate(0%, 0%);
+        top: 50%;
         .photo {
           max-width: 900px;
         }
@@ -120,6 +115,13 @@
           max-width: none;
         }
       }
+    }
+    @media screen and (max-width: 1560px) {
+      top: -100px;
+    }
+
+    @media screen and (max-width: $bp) {
+      top: 0;
     }
   }
 
