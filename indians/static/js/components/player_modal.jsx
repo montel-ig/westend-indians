@@ -96,6 +96,7 @@ class PlayerModal extends React.Component {
             = this.props.selectedPlayer;
     //const yearsCombined = this.parseYears([game_years_junior,game_years_pro_tribe, game_years_pro_other]);
     this.state.visibilityClass === 'visible' && this.disableScrolling();
+    const getAge = born => new Date().getFullYear() - born;
     return (
       <div className={`player-modal-backdrop ${this.state.visibilityClass}`} >
         <div className="player-modal-container">
@@ -127,7 +128,8 @@ class PlayerModal extends React.Component {
               { school && <p>{school}</p> }
               { handedness && <p>Pelaa {t('player_modal',handedness)}</p> }
               { height && <p>Pituus: {height} cm</p> }
-              { weight && <p className="add-margin">Paino: {weight} kg</p> }
+              { weight && <p>Paino: {weight} kg</p> }
+              { born && <p className="add-margin">Ikä: {getAge(born)}</p> }
               { game_years_pro_tribe && <p>Kaudet Heimon edustusjoukkueessa: {game_years_pro_tribe}</p> }
               { game_years_junior && <p>Pelivuodet Heimon Junioreissa: {game_years_junior}</p> }
               { game_years_combined && <p>Kaudet Salibandyliigassa yhteensä: {game_years_combined}</p> }
