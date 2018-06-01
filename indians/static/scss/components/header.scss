@@ -368,7 +368,20 @@
     margin-left: 12px;
   }
 
-  #menu-button-1992, #english {
+  #sign-in {
+    width: 27px;
+    height: 27px;
+    background: url('/static/images/sign-in-27x.png') no-repeat center center;
+    background-size: contain;
+    cursor: pointer;
+    float: right;
+    display: inline-block;
+    margin-left: 12px;
+  }
+
+  #menu-button-1992,
+  #sign-in,
+  #english {
     opacity: 0.5;
     &:hover {
       opacity: 1;

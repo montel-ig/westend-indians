@@ -53,13 +53,30 @@
         padding: 12px 0;
       }
     }
+    &.tables {
+      h2 {
+        margin-left: 0;
+        margin-right: 0;
+        width: auto;
+      }
+    }
   }
   section.team-info {
     padding: $base_padding 0;
   }
 
+  .text-box-container {
+    .content {
+      //max-width: 100%;
+      > div {
+        overflow: auto;
+      }
+    }
+  }
   table {
-    width: 100%;
+    //width: 100%;
+    max-width: 100%;
+    overflow: auto;
     th {
       font-weight: bold;
     }

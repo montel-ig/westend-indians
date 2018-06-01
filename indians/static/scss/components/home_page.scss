@@ -1,7 +1,131 @@
 .home_page {
 
-  .tribe-container,
-  .team-container,
+  .floating-images {
+
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 20px 0 100px;
+    margin: 0;
+
+    $bp: 1024px;
+
+    .team,
+    .tribe {
+      height: 600px;
+      @media screen and (max-width: $bp) {
+        grid-column-start: 2;
+        grid-column-end: 12;
+        position: relative;
+        background: rgba(255, 255, 255, 1);
+        height: auto;
+        margin-top: 50vw;
+        padding: 40px 0;
+      }
+      @media screen and (max-width: 400px) {
+        margin-top: 45vw;
+      }
+    }
+
+    .team-container {
+      grid-column-start: 8;
+      grid-column-end: 12;
+      @media screen and (max-width: $bp) {
+        grid-column-start: 2;
+        grid-column-end: 12;
+      }
+    }
+
+    .tribe-container {
+      grid-column-start: 2;
+      grid-column-end: 6;
+      @media screen and (max-width: $bp) {
+        grid-column-start: 2;
+        grid-column-end: 12;
+      }
+    }
+
+
+    .play-button {
+      display: block;
+      width: 50px;
+      height: auto;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.5;
+      transition: all 340ms;
+    }
+
+    .tribe-img,
+    .team-img {
+      position: absolute;
+      display: block;
+      opacity: 0;
+      transition: $scroll-transition;
+      margin: 0;
+      cursor: pointer;
+      .photo {
+        max-width: none;
+      }
+      &:hover {
+        .play-button {
+          opacity: 1.0;
+        }
+      }
+    }
+
+    .team-img {
+      top: 0%;
+      transform: translate(-105%, 0%);
+
+      @media screen and (max-width: 1560px) {
+        transform: translate(-100%, 0%);
+        top: 10%;
+        .photo {
+          max-width: 900px;
+        }
+      }
+      @media screen and (max-width: $bp) {
+        top: 0;
+      }
+    }
+
+    .tribe-img {
+      top: 45%;
+      transform: translate(5%, 0%);
+      @media screen and (max-width: 1560px) {
+        transform: translate(0%, 0%);
+        top: 50%;
+        .photo {
+          max-width: 900px;
+        }
+      }
+    }
+
+    .team-img,
+    .tribe-img {
+      left: 50%;
+      @media screen and (max-width: $bp) {
+        left: 0;
+        transform: translate(0, 0);
+        .photo {
+          width: 100%;
+          max-width: none;
+        }
+      }
+    }
+    @media screen and (max-width: 1560px) {
+      top: -100px;
+    }
+
+    @media screen and (max-width: $bp) {
+      top: 0;
+    }
+  }
+
+  .floating-images,
   .lift-container,
   .shop-container,
   .games-container,
@@ -29,7 +153,6 @@
       }
 
       .info-links {
-        position: absolute;
         padding: 0;
 
         a {
@@ -303,135 +426,6 @@
       margin-top: 0;
       background-color: black;
       background-image: none;
-    }
-  }
-
-  .team {
-    @media screen and (max-width: 620px) {
-      position: relative;
-      top: -50px;
-    }
-    .content {
-      grid-column-start: 8;
-      grid-column-end: 12;
-    }
-  }
-
-  .tribe {
-    .content {
-      grid-column-start: 2;
-      grid-column-end: 6;
-      @media screen and (max-width: 620px) {
-        margin-bottom: 50px;
-      }
-    }
-  }
-
-  section.team,
-  section.tribe {
-    height: 600px;
-    position: relative;
-    overflow: hidden;
-    @media screen and (max-width: 1024px) {
-      padding: $base_padding 0;
-      grid-column-start: 2;
-      grid-column-end: 12;
-      .content {
-        position: relative;
-        background: rgba(255, 255, 255, 0.8);
-        top: 100px;
-        padding: 80px 40px 100px;
-      }
-    }
-  }
-
-  .play-button {
-    display: block;
-    width: 50px;
-    height: auto;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.5;
-    transition: all 340ms;
-  }
-
-  .tribe-img,
-  .team-img {
-    position: absolute;
-    display: block;
-    opacity: 0;
-    transition: $scroll-transition;
-    margin: 0;
-    cursor: pointer;
-    .photo {
-      max-width: 100%;
-    }
-    &:hover {
-      .play-button {
-        opacity: 1.0;
-      }
-    }
-  }
-
-  .team-img {
-    left: 0;
-    transform: translate(-20%, -13%);
-    @media screen and (max-width: 1980px) {
-      transform: translate(-30%, -13%);
-    }
-    @media screen and (max-width: 1700px) {
-      transform: translate(-40%, -13%);
-    }
-    @media screen and (max-width: 1520px) {
-      transform: translate(-10%, 0%);
-      max-width: 800px;
-    }
-    @media screen and (max-width: 1360px) {
-      transform: none;
-      left: 0;
-      top: 40px;
-      max-width: 50%;
-    }
-    @media screen and (max-width: 1024px) {
-      max-width: none;
-      top: 0;
-      width: 100%;
-    }
-    @media screen and (max-width: 800px) {
-      width: auto;
-      transform: translateX(-20%);
-    }
-  }
-
-  .tribe-img {
-    right: 0;
-    transform: translate(20%, -10%);
-    @media screen and (max-width: 1980px) {
-      transform: translate(30%, -10%);
-    }
-    @media screen and (max-width: 1700px) {
-      transform: translate(40%, -10%);
-    }
-    @media screen and (max-width: 1520px) {
-      transform: translate(10%, 10%);
-      max-width: 800px;
-    }
-    @media screen and (max-width: 1360px) {
-      transform: none;
-      right: 0;
-      top: 140px;
-      max-width: 50%;
-    }
-    @media screen and (max-width: 1024px) {
-      max-width: none;
-      width: 100%;
-      top: 0;
-    }
-    @media screen and (max-width: 800px) {
-      width: auto;
-      transform: translateX(20%);
     }
   }
 

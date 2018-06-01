@@ -20,7 +20,7 @@
   </div></a>
 
   {% if request.path|startswith:'/miehet-edustus' %}
-    <a href="/"><img class="main-img representative-team" src="{% static "images/faces_1200x.jpg" %}"></a>
+    <a href="/"><img class="main-img representative-team" src="{% static "images/faces_2_1200x.jpg" %}"></a>
   {% else %}
     <a href="/"><img class="main-img" src="{% static "images/faces_indians_1200x.jpg" %}"></a>
   {% endif %}
@@ -92,7 +92,8 @@
 
   <div id="menu-1992">
     <div id="menu-button-1992">1992</div>
-    <a id="english" href="/briefly-in-english">In english</a>
+    <a id="sign-in" title="Kirjaudu sisään pelaajarekisteriin" href="https://rekkari.westendindians.fi">Rekkariin</a>
+    <a id="english" title="Briefly in English" href="/briefly-in-english">In English</a>
     <ul>
       <li><a href="/1992/historiikki">Historiikki</a></li>
       <li><a href="/1992/westend">Westend</a></li>
@@ -101,8 +102,8 @@
       <li><a href="/1992/legendat">Legendat</a></li>
       <li><a href="/1992/tilastot">Tilastot</a></li>
       <li><a href="/1992/palkitut">Palkitut</a></li>
-      <li><a href="/1992/galleria">Galleria</a></li>
-      <li><a href="/1992/jaa-muistosi">Jaa muistosi</a></li>
+{#      <li><a href="/1992/galleria">Galleria</a></li>#}
+{#      <li><a href="/1992/jaa-muistosi">Jaa muistosi</a></li>#}
     </ul>
   </div>
 

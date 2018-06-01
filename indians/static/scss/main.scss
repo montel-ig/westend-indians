@@ -262,6 +262,8 @@ section.news {
   .content {
     grid-column-start: 2;
     grid-column-end: 11;
+    max-width: 100%;
+    //overflow: auto;
 
     h1 {
       margin: 0

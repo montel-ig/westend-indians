@@ -8,20 +8,28 @@
 {% block main %}
 
   <img class="triangle justify-bottom" src="{% static "images/tilted-bg-black-top-right.svg" %}">
-    <section class="lift raise-up" style="background-color:{{ page.lift_bgcolor }};">
-      <div class="lift-container">
-        {% include "lift.html" with page=page %}
-      </div>
-      <img class="triangle justify-top" src="{% static "images/tilted-bg-white-bottom.svg" %}">
-    </section>
-  <section class="team">
+  <section class="lift raise-up" style="background-color:{{ page.lift_bgcolor }};">
+    <div class="lift-container">
+      {% include "lift.html" with page=page %}
+    </div>
+    <img class="triangle justify-top" src="{% static "images/tilted-bg-white-bottom.svg" %}">
+  </section>
+
+  <section class="floating-images">
     <a onclick="showVideoModal('https://www.youtube.com/embed/2MJ1Eiuh4fQ');"
         class="video-link team-img">
-      <img class="photo" src="{% static "images/high_fives_clean_1200x.jpg" %}">
+      <img class="photo" src="{% static "images/captain_1200x.jpg" %}">
       <img class="play-button" src="{% static "images/play.png" %}">
     </a>
-    <div class="team-container"}>
-      <div class="content">
+
+    <a onclick="showVideoModal('https://www.youtube.com/embed/aWGRSjV4ZSE');"
+        class="video-link tribe-img">
+      <img class="photo" src="{% static "images/tribe_1200x.jpg" %}">
+      <img class="play-button" src="{% static "images/play.png" %}">
+    </a>
+
+    <div class="team">
+      <div class="team-container content">
         <h1>{{ page.team_title}}</h1>
         <p class="description">{{ page.team_description }}</p>
         <a class="cta-link" href="{% slugurl 'miehet-edustus'%}">{{page.team_cta}} <span>»</span></a>
@@ -32,15 +40,9 @@
         </ul>
       </div>
     </div>
-  </section>
-  <section class="tribe">
-    <a onclick="showVideoModal('https://www.youtube.com/embed/aWGRSjV4ZSE');"
-        class="video-link tribe-img">
-      <img class="photo" src="{% static "images/tribe_clean_1200x.jpg" %}">
-      <img class="play-button" src="{% static "images/play.png" %}">
-    </a>
-    <div class="tribe-container">
-      <div class="content">
+
+    <div class="tribe">
+      <div class="tribe-container content">
         <h1>{{ page.tribe_title }}</h1>
         <p class="description">{{ page.tribe_description }}</p>
         <a class="cta-link" href="{% slugurl 'heimo' %}">{{ page.tribe_cta }} <span>»</span></a>
@@ -52,6 +54,7 @@
       </div>
     </div>
   </section>
+
   <img class="triangle flip-x justify-top" src="{% static "images/tilted-bg-black-top.svg" %}">
   <section class="shop">
     <div class="shop-container">

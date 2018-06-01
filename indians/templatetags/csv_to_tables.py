@@ -31,12 +31,12 @@ def csv_to_tables(string):
 def _convert_to_html_table(csv_buffer):
     reader = csv.reader(csv_buffer, delimiter=';')
     converted = ""
-    converted += "<table>\n"
+    converted += "<div><table>\n"
     for i, row in enumerate(reader):
         if i == 0:
             converted += f"<tr>{' '.join(map(lambda x: '<th>'+x+'</th>', row))}</tr>"
         else:
             converted += f"<tr>{' '.join(map(lambda x: '<td>'+x+'</td>', row))}</tr>"
-    converted += "</table>\n"
+    converted += "</table></div>\n"
     return converted
 
