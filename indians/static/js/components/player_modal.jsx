@@ -112,7 +112,7 @@ class PlayerModal extends React.Component {
               </div>
               }
               <div className="name">
-                <div className={video_url ? "line" : ""}>
+                <div>
                   <p>{first_name}</p>
                   <p> {last_name}</p>
                 </div>
