@@ -9,9 +9,9 @@
       {% block sponsors %}
 
       {% if sponsor_items|has_sponsor_level:'top' %}
-        <div class="top-level row">
+        <div class="top-level row {% if request.path == '/' %}even{% endif %}">
             <h2>Head partners of the Tribe</h2>
-          <div class="{% if request.path == '/' %}even{% endif %}">
+          <div>
             {% for sponsor in sponsor_items %}
             {% if sponsor.level == 'top' %}
             <div>
@@ -24,7 +24,7 @@
       {% endif %}
 
       {% if sponsor_items|has_sponsor_level:'second' %}
-        <div class="second-level row">
+        <div class="second-level row {% if request.path == '/' %}even{% endif %}">
           <h2>Partners of the Tribe</h2>
           <div>
             {% for sponsor in sponsor_items %}
@@ -39,7 +39,7 @@
       {% endif %}
 
       {% if sponsor_items|has_sponsor_level:'third' %}
-        <div class="third-level row">
+        <div class="third-level row {% if request.path == '/' %}even{% endif %}">
           <h2>Part of the Tribe</h2>
           <div>
             {% for sponsor in sponsor_items %}
