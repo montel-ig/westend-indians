@@ -11,7 +11,7 @@
       {% if sponsor_items|has_sponsor_level:'top' %}
         <div class="top-level row">
             <h2>Head partners of the Tribe</h2>
-          <div>
+          <div class="{% if request.path == '/' %}even{% endif %}">
             {% for sponsor in sponsor_items %}
             {% if sponsor.level == 'top' %}
             <div>

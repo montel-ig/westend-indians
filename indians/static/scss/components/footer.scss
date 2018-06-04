@@ -255,6 +255,13 @@ section.footer {
 
           &.top-level {
             > div {
+              justify-content: flex-start;
+              > div {
+                padding: 0 20px;
+              }
+              &.even {
+                justify-content: space-evenly;
+              }
               @media screen and (max-width: 840px) {
                 flex-wrap: wrap;
                 justify-content: flex-start;
