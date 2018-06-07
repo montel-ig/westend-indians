@@ -15,7 +15,7 @@
    version="1.1"
    id="svg18596"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
-   sodipodi:docname="tilted-bg-yellow-top.svg">
+   sodipodi:docname="tilted-bg-black-yellow.svg">
   <metadata
      id="metadata1693">
     <rdf:RDF>
@@ -65,9 +65,14 @@
      transform="matrix(1,0,0,0.97440945,0,-274.1652)"
      style="stroke-width:1.01304626">
     <path
-       style="fill:#fbef36;fill-opacity:1;stroke:none;stroke-width:0.26803514px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26803514px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 330,296.99997 0,281.12497 h 330 z"
        id="path19143"
        inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path2371"
+       d="m 0,281.12497 330,15.875 H 0 Z"
+       style="fill:#fbef36;fill-opacity:1;stroke:none;stroke-width:0.26803514px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
   </g>
 </svg>

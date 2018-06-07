@@ -438,10 +438,11 @@
   }
 
   section.lift {
+    background: $indians-yellow;
     &.raise-up {
-      padding-top: 100px;
+      padding-top: 60px;
       position: relative;
-      top: -100px;
+      top: -60px;
     }
   }
 

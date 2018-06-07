@@ -15,7 +15,7 @@
    version="1.1"
    id="svg18596"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
-   sodipodi:docname="tilted-bg-yellow-top.svg">
+   sodipodi:docname="tilted-bg-yellow-bottom.svg">
   <metadata
      id="metadata1693">
     <rdf:RDF>
@@ -46,8 +46,8 @@
      fit-margin-right="0"
      fit-margin-bottom="0"
      inkscape:zoom="4.28125"
-     inkscape:cx="307.61963"
-     inkscape:cy="-43.136357"
+     inkscape:cx="223.53203"
+     inkscape:cy="-15.10716"
      inkscape:window-x="0"
      inkscape:window-y="55"
      inkscape:window-maximized="1"
@@ -66,7 +66,7 @@
      style="stroke-width:1.01304626">
     <path
        style="fill:#fbef36;fill-opacity:1;stroke:none;stroke-width:0.26803514px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 330,296.99997 0,281.12497 h 330 z"
+       d="m 0,281.12497 330,15.875 H 0 Z"
        id="path19143"
        inkscape:connector-curvature="0" />
   </g>
