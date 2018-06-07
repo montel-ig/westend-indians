@@ -227,6 +227,11 @@ section.footer {
       }
 
       .row {
+        &.even {
+          h2 {
+            text-align: center;
+          }
+        }
         > div {
           display: flex;
           justify-content: space-evenly;
@@ -255,6 +260,10 @@ section.footer {
 
           &.top-level {
             > div {
+              justify-content: space-evenly;
+              > div {
+                padding: 0 20px;
+              }
               @media screen and (max-width: 840px) {
                 flex-wrap: wrap;
                 justify-content: flex-start;
