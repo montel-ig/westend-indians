@@ -69,17 +69,12 @@
           </a>
         {% endfor %}
       </div>
-        <div class="content shop">
-        <h1>{{ page.shop_title}}</h1>
-        <p class="cta-text">{{ page.shop_description }}</p>
-        <a class="cta-link" href="http://westendindians.vilkasstore.com/">{{ page.shop_cta }}<span>»</span></a>
-      </div>
     </div>
   </section>
   <div id="video-modal-root"></div>
 {% endblock %}
 
 {% block footer %}
-  {% include "footer.html" with sponsor_items=page.front_page_sponsors %}
+  {% include "footer.html" with sponsor_items=page.front_page_sponsors even=True %}
 {% endblock %}
 
