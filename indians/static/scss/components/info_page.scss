@@ -54,10 +54,14 @@
       }
     }
     &.tables {
-      h2 {
+      h2,
+      p {
         margin-left: 0;
         margin-right: 0;
         width: auto;
+      }
+      p {
+        margin: $base_padding / 2 0;
       }
     }
   }
