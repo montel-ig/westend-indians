@@ -16,8 +16,10 @@ def csv_to_tables(string):
         if line:
             if line.startswith('#'):
                 converted += f"<h2>{line[1:]}</h2>\n"
-            else:
+            elif ';' in line:
                 csv_buffer.append(line)
+            else:
+                converted += f"<p>{line}</p>"
         else:
             if len(csv_buffer) > 0:
                 converted += _convert_to_html_table(csv_buffer)
