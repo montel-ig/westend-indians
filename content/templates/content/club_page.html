@@ -18,9 +18,10 @@
     <div class="content ignore-height">
       {{ page.body|richtext }}
     </div>
-    <img class="triangle justify-top" src="{% static "images/tilted-bg-white-bottom.svg" %}">
   </section>
 
+  {% if page.introduction|striptags|length > 0 %}
+  <img class="triangle justify-top" src="{% static "images/tilted-bg-white-bottom.svg" %}">
   <section class="introduction" id="esittely"}>
     <a id="introduction"></a>
     <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
@@ -28,16 +29,19 @@
       {{ page.introduction|richtext }}
     </div>
   </section>
+  {% endif %}
 
+  {% if page.values|striptags|length > 0 %}
   <section class="values black" id="arvot">
-    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
     <a id="values"></a>
     <div class="content ignore-height">
       {{ page.values|richtext }}
     </div>
     <img class="triangle justify-top" src="{% static "images/tilted-bg-white-bottom.svg" %}">
   </section>
+  {% endif %}
 
+  {% if page.contact|striptags|length > 0 %}
   <section class="contact">
     <a id="contact"></a>
     <div class="content ignore-height">
@@ -45,7 +49,9 @@
     </div>
     <img class="triangle justify-top" src="{% static "images/tilted-bg-white-bottom.svg" %}">
   </section>
+  {% endif %}
 
+  {% if page.personnel|striptags|length > 0 %}
   <section class="personnel black">
     <a id="personnel"></a>
     <img class="triangle flip-y justify-bottom" src="{% static "images/tilted-bg-white-bottom.svg" %}">
@@ -53,7 +59,7 @@
       {{ page.personnel|richtext }}
     </div>
   </section>
-
+  {% endif %}
   <img class="triangle black-bg" src="{% static "images/tilted-line-almost-black.svg" %}">
 
 

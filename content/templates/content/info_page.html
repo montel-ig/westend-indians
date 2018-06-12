@@ -23,16 +23,15 @@
     {% submenu page %}
   </section>
 
+  {% if page.body|striptags|length > 0 %}
   <section class="black">
     <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
-    {% if page.body|striptags|length > 0 %}
     <a id="body"></a>
     <div class="info-body">
       {{ page.body|richtext }}
     </div>
-    {% endif %}
-    <img class="triangle justify-top" src="{% static "images/tilted-bg-white-bottom.svg" %}">
   </section>
+  {% endif %}
 
   {% if page.tickets|striptags|length > 0 %}
   <section>
@@ -55,12 +54,12 @@
 
   {% if page.contact|striptags|length > 0 %}
   <section>
-    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
+    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-black-top.svg" %}">
     <a id="contact"></a>
     <div class="info-contact">
       {{ page.contact|richtext }}
     </div>
-    <img class="triangle black-bg" src="{% static "images/tilted-line-almost-black.svg" %}">
+    <img class="triangle justify-top" src="{% static "images/tilted-bg-black-bottom.svg" %}">
   </section>
   {% endif %}
 
@@ -86,7 +85,11 @@
   {% elif page.get_parent.title == 'Miehet edustus' %}
     {% include "footer.html" with sponsor_items=page.team_sponsors %}
   {% else %}
-    {% include "footer.html" with sponsor_items=page.front_page_sponsors %}
+    {% if page.get_parent.title == '1992' %}
+      {% include "footer.html" with sponsor_items=page.front_page_sponsors even=True %}
+    {% else %}
+      {% include "footer.html" with sponsor_items=page.front_page_sponsors %}
+    {% endif %}
   {% endif %}
 
 {% endblock %}
