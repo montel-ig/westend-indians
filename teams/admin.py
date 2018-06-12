@@ -45,6 +45,9 @@ class MemberAdmin(admin.ModelAdmin):
 
 class TeamAdmin(admin.ModelAdmin):
     model = Team
+    list_display = ('name', 'path', 'sport')
+    list_filter = ('path', 'sport')
+    ordering = ('path', 'name')
     inlines = (MembershipInline,)
 
 
