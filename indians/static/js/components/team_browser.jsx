@@ -198,6 +198,7 @@ class TeamBrowser extends React.Component {
   teamInRange(team) {
     // exclude team from results if all the conditions in hashList have not met
     let teamInSelectedRange = true;
+    if (team.visible === false) teamInSelectedRange = false;
     let hashList = this.hashList();
     if (hashList) {
       hashList.map((value) => {
