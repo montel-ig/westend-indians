@@ -95,7 +95,7 @@ const Path = (props) => (
         { value: 'urheilijan', label: '3+ (Urheilijan polku)', property: "path" },
         { value: 'kilpailijan', label: '3-2 (Kilpailijan polku)', property: "path" },
         { value: 'harrastajan', label: '2-1 (Harrastajan polku)', property: "path" },
-        { value: 'Kaupunginosajoukkueet', label: 'Kaupunginosajoukkueet (F-G-juniorit)', property: "path" },
+        { value: 'kaupunginosajoukkueet', label: 'Kaupunginosajoukkueet (F-G-juniorit)', property: "path" },
         { value: 'salibandy_koulut', label: 'Salibandykoulut (H-juniorit)', property: "path" },
         { value: 'koulujen_iltapaivatoiminta', label: 'Koulujen iltapäivätoiminta (6lk-Esikoulu)', property: "path" },
         { value: 'erityisryhmat', label: 'Erityisryhmät', property: "path" }
