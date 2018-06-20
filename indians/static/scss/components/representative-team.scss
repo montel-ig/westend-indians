@@ -97,6 +97,11 @@
       }
     }
   }
+  section.news {
+    > div > div {
+      padding-top: $base_padding;
+    }
+  }
 
   section.footer > img:first-child {
     background-color: white;
