@@ -65,7 +65,7 @@ def team_properties(team: Team) -> str:
                       'leader_name', 'leader_email', 'leader_phone', 'registration_link',
                       'some_instagram', 'some_twitter', 'some_facebook', 'some_snapchat', 'current_player_count',
                       'max_player_count', 'gender', 'path', 'sport', 'age_level', 'short_description',
-                      'show_name_in_modal'
+                      'show_name_in_modal', 'visible'
                       )
     take_from_area = ('name', 'address', 'lat', 'lng')
 

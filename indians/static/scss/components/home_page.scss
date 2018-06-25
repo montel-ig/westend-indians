@@ -88,7 +88,7 @@
         }
       }
       @media screen and (max-width: $bp) {
-        top: 0;
+        top: $base_padding;
       }
     }
 
@@ -97,10 +97,12 @@
       transform: translate(5%, 0%);
       @media screen and (max-width: 1560px) {
         transform: translate(0%, 0%);
-        top: 50%;
         .photo {
           max-width: 900px;
         }
+      }
+      @media screen and (min-width: 620px) and (max-width: 1560px) {
+        top: 50%;
       }
     }
 
@@ -182,11 +184,10 @@
       margin: 50px;
       display: grid;
       grid-gap: 50px;
-      grid-template-columns: 200px 200px;
-      grid-template-rows: 250px 250px;
+      grid-template-columns: 300px 300px;
+      grid-template-rows: 350px 300px;
 
       > a {
-        background-color: white;
         position: relative;
         display: flex;
         flex-direction: column;
@@ -202,27 +203,36 @@
 
           > p {
             margin: 0;
-            font-size: 16px;
             letter-spacing: $letter-spacing-large;
             font-weight: bold;
+            color:white;
             padding: 10px 10px 0 10px;
 
             &#product-price {
               text-align: center;
-              font-size: 120%;
-              color: black;
+              font-size: 110%;
+              color:$indians-yellow;
+              @media screen and (max-width: 420px) {
+                text-align: left;
+              }
             }
+            @media screen and (max-width: 420px) {
+              padding: 10px 10px 0 0;
+            }
+          }
+          @media screen and (max-width: 420px) {
+            position: relative;
           }
         }
 
         > img {
-          margin: 0 auto;
-          width: 90%;
-          height: 60%;
-          padding-top: 10px;
-          width: 100%;
+          margin: auto;
+          max-width: 100%;
           max-height: 100%;
-          object-fit: scale-down;
+          object-fit: contain;
+          @media screen and (max-width: 420px) {
+            max-height: 70%
+          }
         }
       }
     }
@@ -453,8 +463,8 @@
   .shop-container {
     padding: 120px 0;
     div.shop {
-      grid-column-start: 8;
-      grid-column-end: 12;
+      grid-column-start: 9;
+      grid-column-end: 13;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -526,23 +536,29 @@
               flex-direction: column;
               margin-right: 0;
               > a {
-                width: 220px;
-                height: 180px;
+                height: 200px;
                 margin-bottom: 20px;
                 display: block;
               }
 
               @media screen and (max-width: 500px) {
-                display: none;
+                //display: none;
               }
             }
             .shop {
               padding: 100px 30px;
-
+              @media screen and (max-width: 420px) {
+                padding: 40px;
+              }
               .cta-text {
               }
             }
           }
+        }
+        @media screen and (max-width: 500px) {
+         .shop-container {
+           flex-direction: column-reverse;
+         }
         }
       }
 

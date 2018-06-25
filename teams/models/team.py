@@ -93,6 +93,7 @@ class Team(models.Model):
 
     registration_link = models.CharField(blank=True, null=True, max_length=255)
     show_name_in_modal = models.BooleanField(default=True)
+    visible = models.BooleanField(default=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
