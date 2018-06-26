@@ -7,7 +7,7 @@ Certbot role, cron flavour
 Description
 ----
 
-Runs `certbot renew` with cron. Every week.
+Runs `certbot renew` with cron. Every week. Adds mailto variable, so working sendmail setup is good to have
 
 
 Usage
