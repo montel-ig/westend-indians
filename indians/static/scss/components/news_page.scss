@@ -188,11 +188,19 @@
           display: block;
           margin-bottom: $base_padding;
         }
+        h1,h2,h3 {
+          color: $indians-yellow;
+        }
 
         .lead-paragraph,
         h1 {
           margin-bottom: $base_padding;
         }
+
+        ul > li {
+          list-style: initial;
+        }
+
         > * {
           margin: $base_padding / 2 auto;
         }
