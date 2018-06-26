@@ -3,7 +3,7 @@
   h1,
   .pages,
   .news-item {
-    grid-column-start: 2;
+    grid-column-start: 1;
     grid-column-end: 12;
     @media screen and (max-width: 480px) {
       grid-column-start: 1;
@@ -138,9 +138,12 @@
     display: flex;
     .image {
       flex: 2;
-      margin-top: 20px;
+      margin: 20px 20px 0 0;
       img {
         max-width: 100%;
+      }
+      @media screen and (max-width: 480px) {
+        margin: 0;
       }
     }
     .text {
@@ -153,7 +156,13 @@
       > a {
         float: right;
         margin-right: 40px;
+        @media screen and (max-width: 480px) {
+          margin: 0;
+        }
       }
+    }
+    @media screen and (max-width: 480px) {
+      display: block;
     }
   }
 
