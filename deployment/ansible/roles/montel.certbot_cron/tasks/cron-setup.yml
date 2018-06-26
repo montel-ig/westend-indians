@@ -1,0 +1,14 @@
+---
+
+- name: setup cron for certbot renew
+  cron:
+    name: Certbot renew
+    job: certbot renew --deploy-hook "service nginx reload"
+    minute: 21
+    hour: 4
+    weekday: 6
+
+- name: mailto for cron
+  cronvar:
+    name: MAILTO
+    value: "{{cron_mailto}}"

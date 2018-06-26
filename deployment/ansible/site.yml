@@ -1,33 +1,54 @@
 ---
 
-#hosts:
-#  - webserver:
-#    ansible_host: "80.69.173.67"
-
-
 - hosts: all
 
   vars:
-    server_name: westendindians.fi
-    upstream_server: http://127.0.0.1:8001
     webhooker_user: chief
     webhooker_group: chief
     webhooker_working_dir: /home/chief/
     webhooker_config_file: files/webhooker.indians.config
+    docker_compose_yml_path: /home/chief/
+    dhparam_size: 2048
+    dhparam_file: /etc/ssl/dhparam.pem
 
   roles:
+    - hashbangcode.sendmail
+    - {role: gronke.dhparam, become: True}
     - montel.nginx-front
     - montel.docker
     - montel.webhooker
+    - {role: montel.certbot_cron, become: True, cron_mailto: lauri@montel.fi}
 
   tasks:
     - name: Create nginx configuration for production
       become: yes
       template:
-        src: files/nginx.conf.j2
+        src: files/nginx.production.conf
         dest: /etc/nginx/conf.d/production.conf
       notify:
         - restart nginx
 
+    - name: Create nginx configuration for staging
+      become: yes
+      template:
+        src: files/nginx.staging.conf
+        dest: /etc/nginx/conf.d/staging.conf
+      notify:
+        - restart nginx
+
+    - name: indians_ssl.conf
+      become: yes
+      copy: src=files/indians_ssl.conf dest=/etc/nginx/indians_ssl.conf
+      notify:
+        - restart nginx
+
     - name: Copy site update script
-      copy: src=files/update.sh dest=/home/chief/update.sh
+      copy: src=files/update_production.sh dest=/home/chief/update_production.sh mode=755
+
+    - name: Copy stg site update script
+      copy: src=files/update_staging.sh dest=/home/chief/update_staging.sh mode=755
+
+    - name: Copy docker compose to the location
+      copy: src=files/docker-compose.yml dest=/home/chief/docker-compose.yml
+      notify:
+        - restart docker-compose
