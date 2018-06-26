@@ -1,0 +1,27 @@
+# Run this to install the certbot and to get the certificate
+
+- hosts: all
+
+  become: True
+
+  tasks:
+    - name: check dependencies
+      apt: name={{ item }} state=present
+      with_items:
+        software-properties-common
+
+    - name: add certbot repository
+      apt_repository:
+        repo: ppa:certbot/certbot
+        state: present
+
+    - name: install certbot
+      apt:
+        name: python-certbot-nginx
+        update_cache: yes
+
+    - name: create staging certificate
+      shell: "certbot --nginx certonly --non-interactive --agree-tos -m lauri@montel.fi -d staging.westendindians.fi"
+
+#    - name: create production certificate
+#      shell: "certbot --nginx certonly --non-interactive --agree-tos -m lauri@montel.fi -d westendindians.fi"

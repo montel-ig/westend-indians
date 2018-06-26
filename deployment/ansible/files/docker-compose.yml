@@ -1,0 +1,61 @@
+version: "3.1"
+
+services:
+
+  indians_site:
+    image: montel/westend-indians:latest
+    restart: always
+    links:
+      - postgres:db
+      - redis
+    volumes:
+      - ./site/media:/app/media
+    environment:
+      DB: main_site
+      DBUSER: indian_chief
+      DBPASS: ASDFfheifuhasdfh383287f2hiuashf82
+      DBPORT: 5432
+      DBHOST: db
+      DEBUG: 0
+      DJANGO_SETTINGS: indians.settings.prod
+      SECRET_KEY: "c=7kn+r5=81d@&e1a1o#&@y)zunvdsg8txz#x!2oa-p^xyuj3g"
+    ports:
+      - "8080:80"
+
+  stg_indians_site:
+    image: montel/westend-indians:develop
+    restart: always
+    links:
+      - postgres:db
+      - redis
+    volumes:
+      - ./site/media:/app/media
+    environment:
+      DB: main_site
+      DBUSER: indian_chief
+      DBPASS: ASDFfheifuhasdfh383287f2hiuashf82
+      DBPORT: 5432
+      DBHOST: db
+      DEBUG: 0
+      DJANGO_SETTINGS: indians.settings.stg
+      SECRET_KEY: "c=7kn+r5=81d@&asd1o#&@y)zunvdsg8txz#x!6oa-Q^xyuj3g"
+    ports:
+      - "8081:80"
+
+  postgres:
+    image: postgres:9.6
+    environment:
+      POSTGRES_USER: indian_chief
+      POSTGRES_PASSWORD: ASDFfheifuhasdfh383287f2hiuashf82
+      POSTGRES_DB: main_site
+    ports:
+      - 5432:5432
+    volumes:
+       - ./postgres/data:/var/lib/postgresql/data
+
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+    volumes:
+      - ./redis/data:/data

@@ -1,0 +1,25 @@
+---
+# tasks file for montel.certbot_cron
+
+# Install certbot with nginx support
+# https://certbot.eff.org/lets-encrypt/ubuntuxenial-nginx
+
+
+- name: check dependencies
+  apt: name={{ item }} state=present
+  with_items:
+    software-properties-common
+
+- name: add certbot repository
+  apt_repository:
+    repo: ppa:certbot/certbot
+    state: present
+
+- name: install certbot
+  apt:
+    name: python-certbot-nginx
+    update_cache: yes
+
+- include_tasks: cron-setup.yml
+  tags: cron
+
