@@ -9,3 +9,5 @@ CACHES = {
         }
     }
 }
+
+GOOGLE_ANALYTICS = None

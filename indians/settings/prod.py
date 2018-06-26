@@ -40,3 +40,5 @@ CACHES = {
         }
     }
 }
+
+GOOGLE_ANALYTICS = "UA-94082641-1"
