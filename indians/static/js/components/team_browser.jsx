@@ -79,7 +79,8 @@ class TeamBrowser extends React.Component {
       'hashList',
       'updateHashUrl',
       'setInitialDropDownValues',
-      'setTeamFromHash'
+      'setTeamFromHash',
+      'teamIsAmateur'
     ].forEach((fn) => this[fn] = this[fn].bind(this));
   }
 
@@ -195,6 +196,15 @@ class TeamBrowser extends React.Component {
     this.setState({ hashUrl })
   }
 
+  teamIsAmateur(team) {
+    // gum fix to include team in query if the condition is "harrastajan" and team is not "kilpailijan" or "Urheilijan
+    // Todo: Fix properly in V2!
+
+    const exceptions = ['urheilijan', 'kilpailijan'];
+    const teamPath = team.path;
+    return !exceptions.includes(teamPath);
+  }
+
   teamInRange(team) {
     // exclude team from results if all the conditions in hashList have not met
     let teamInSelectedRange = true;
@@ -202,11 +212,13 @@ class TeamBrowser extends React.Component {
     let hashList = this.hashList();
     if (hashList) {
       hashList.map((value) => {
-        if (value && value !== 'all' && Object.values(team)
-          .map((p) => (replaceUmlauts(p)))
-          .indexOf(value[1]) < 0) {
-            teamInSelectedRange = false;
-          }
+        if (value[1] === 'harrastajan' && this.teamIsAmateur(team)) {
+          return true;
+        } else if (value && value !== 'all' && Object.values(team)
+            .map((p) => (replaceUmlauts(p)))
+            .indexOf(value[1]) < 0) {
+          teamInSelectedRange = false;
+        }
       });
     }
     return teamInSelectedRange;
