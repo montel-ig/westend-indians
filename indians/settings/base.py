@@ -98,6 +98,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'indians.inject_settings.inject',
             ],
         },
     },
@@ -192,3 +193,5 @@ COMPRESS_PRECOMPILERS = (
 )
 COMPRESS_OFFLINE = True
 COMPRESS_OFFLINE_CONTEXT = {}
+
+GOOGLE_ANALYTICS = None
