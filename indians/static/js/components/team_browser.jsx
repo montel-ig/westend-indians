@@ -186,14 +186,25 @@ class TeamBrowser extends React.Component {
 
   updateHashUrl() {
     // compose hash from selected properties
-    const hashUrl = Object.entries(this.state.selectedProperties)
+    const hash = Object.entries(this.state.selectedProperties)
                     .filter((p) => (p[1]))
                     .map((p) => (`${p[0]}=${p[1]}`));
-    if (hashUrl.length === 0) {
-      hashUrl.push('all');
+    if (hash.length === 0) {
+      hash.push('all');
     }
-    window.location.hash = hashUrl
-    this.setState({ hashUrl })
+    let uri = window.location.href.split("#")[0];
+
+    // set uri without trailing slash, because Safari
+    if (window.location.href.split("#")[0][uri.length -1] === '/') {
+      uri = window.location.href.split("#")[0].slice(0, -1);
+    }
+    const url = `${uri}#${hash}`;
+    if (history.pushState) {
+      history.pushState(null, null, url);
+    } else {
+      window.location.hash = hash;
+    }
+    this.setState({ hashUrl:hash })
   }
 
   teamIsAmateur(team) {
