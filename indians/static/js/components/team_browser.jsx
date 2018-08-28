@@ -1,4 +1,4 @@
-const registryInquiryUrl = 'http://www.westendindians.fi/tiedustelu?no_layout=true'
+const registryInquiryUrl = 'https://rekisteri.westendindians.fi/tiedustelu/?no_layout=true'
 
 const replaceUmlauts = (string) => {
   let value;
