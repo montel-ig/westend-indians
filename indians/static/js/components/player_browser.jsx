@@ -1,10 +1,21 @@
-const positions = {
-  forward: 'fwd',
-  defense: 'def',
-  goal: 'goal',
-  coach: 'coach',
-  support: 'support',
-  player: 'player'
+const POSITIONS = {
+  positions: {
+    forward: 'fwd',
+    defense: 'def',
+    goal: 'goal',
+    coach: 'coach',
+    support: 'support',
+    player: 'player'
+  },
+  types: {
+    fwd: 'forwards',
+    def: 'defenses',
+    goal: 'goalies',
+    coach: 'coaches',
+    support: 'support',
+  }
+
+
 };
 
 class PlayerBrowser extends React.Component {
@@ -16,7 +27,8 @@ class PlayerBrowser extends React.Component {
      'handlePlayerChange',
       'onEscPress',
       'filterByPosition',
-      'findOrphanedIndians'
+      'findOrphanedIndians',
+      'getPlayerType'
     ].forEach((fn) => this[fn] = this[fn].bind(this));
 
     this.state = {
@@ -46,9 +58,13 @@ class PlayerBrowser extends React.Component {
   }
 
   filterByPosition(players,predicate) {
-    if (Object.values(positions).indexOf(predicate) > -1) {
+    if (Object.values(POSITIONS.positions).indexOf(predicate) > -1) {
       return players.filter((p) => (p.position === predicate));
     }
+  }
+
+  getPlayerType(pos) {
+    return POSITIONS.types[pos];
   }
 
   findOrphanedIndians(players) {
@@ -118,7 +134,9 @@ class PlayerBrowser extends React.Component {
   }
 
   handlePlayerChange(person, isEmployee) {
-    const indians = this.state.team;
+    const playerType = this.getPlayerType(this.state.selectedPlayer.position);
+    const indians = this.state[playerType];
+
     if (person) {
       this.setState(function(prevState) {
         if (indians.indexOf(this.state.selectedPlayer)+1 === indians.length) {
@@ -153,48 +171,50 @@ class PlayerBrowser extends React.Component {
   }
 
   render() {
+    const { selectedPlayer, players, employees, forwards, defenses, goalies, coaches, support, other } = this.state;
+
     return (
       <div className="player-wrapper" onClick={this.handleModalClose}>
-        {this.state.selectedPlayer && <PlayerModal
-          players={this.state.players}
-          employees={this.state.employees}
-          selectedPlayer={this.state.selectedPlayer}
+        {selectedPlayer && <PlayerModal
+          players={players}
+          employees={employees}
+          selectedPlayer={selectedPlayer}
           handlePlayerChange={this.handlePlayerChange}
         />}
-        <div className={this.state.selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
-          {this.state.forwards.length > 0 && <h1>Hyökkääjät</h1>}
+        <div className={selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
+          {forwards.length > 0 && <h1>Hyökkääjät</h1>}
           <div>
-            { this.mapPlayers(this.state.forwards) }
+            { this.mapPlayers(forwards) }
           </div>
         </div>
-        <div className={this.state.selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
-          {this.state.defenses.length > 0 && <h1>Puolustajat</h1>}
+        <div className={selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
+          {defenses.length > 0 && <h1>Puolustajat</h1>}
           <div>
-            { this.mapPlayers(this.state.defenses) }
+            { this.mapPlayers(defenses) }
           </div>
         </div>
-        <div className={this.state.selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
-          {this.state.goalies.length > 0 && <h1>Maalivahdit</h1>}
+        <div className={selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
+          {goalies.length > 0 && <h1>Maalivahdit</h1>}
           <div>
-            {this.mapPlayers(this.state.goalies)}
+            {this.mapPlayers(goalies)}
           </div>
         </div>
-        <div className={this.state.selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
-          {this.state.coaches.length > 0 && <h1>Valmentajat</h1>}
+        <div className={selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
+          {coaches.length > 0 && <h1>Valmentajat</h1>}
           <div>
-            {this.mapEmployees(this.state.coaches)}
+            {this.mapEmployees(coaches)}
           </div>
         </div>
-        <div className={this.state.selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
-          {this.state.support.length > 0 && <h1>Toimihenkilöt</h1>}
+        <div className={selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
+          {support.length > 0 && <h1>Toimihenkilöt</h1>}
           <div>
-            {this.mapEmployees(this.state.support)}
+            {this.mapEmployees(support)}
           </div>
         </div>
-        <div className={this.state.selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
-          {this.state.other.length > 0 && <h1>Muut</h1>}
+        <div className={selectedPlayer ? "player-browser-root blurred" : "player-browser-root"}>
+          {other.length > 0 && <h1>Muut</h1>}
           <div>
-            {this.mapEmployees(this.state.other)}
+            {this.mapEmployees(other)}
           </div>
         </div>
       </div>
