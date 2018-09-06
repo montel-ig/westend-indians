@@ -17,7 +17,7 @@ services:
       DBPORT: 5432
       DBHOST: db
       DEBUG: 0
-      DJANGO_SETTINGS: indians.settings.prod
+      DJANGO_SETTINGS_MODULE: indians.settings.prod
       SECRET_KEY: "c=7kn+r5=81d@&e1a1o#&@y)zunvdsg8txz#x!2oa-p^xyuj3g"
     ports:
       - "8080:80"

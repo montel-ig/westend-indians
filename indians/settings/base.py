@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -29,7 +28,7 @@ if env_debug and env_debug in ('False', 'false', '0', 'no'):
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'staging.westendindians.fi']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'staging.westendindians.fi', 'westendindians.fi']
 
 
 # Application definition
