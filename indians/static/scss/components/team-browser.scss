@@ -67,6 +67,10 @@
     left: 50%;
     transform: translate(-50%, 10%);
     box-sizing: border-box;
+    @media screen and (max-width: 420px) {
+      width: inherit;
+      max-width: 100%;
+    }
     h2 {
       margin: 0 0 20px;
     }
