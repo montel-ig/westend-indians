@@ -29,16 +29,16 @@ services:
       - postgres:db
       - redis
     volumes:
-      - ./site/media:/app/media
+      - ./site/stg_media:/app/media
     environment:
-      DB: main_site
+      DB: stg_site
       DBUSER: indian_chief
       DBPASS: ASDFfheifuhasdfh383287f2hiuashf82
       DBPORT: 5432
       DBHOST: db
       DEBUG: 0
-      DJANGO_SETTINGS: indians.settings.stg
-      SECRET_KEY: "c=7kn+r5=81d@&asd1o#&@y)zunvdsg8txz#x!6oa-Q^xyuj3g"
+      DJANGO_SETTINGS_MODULE: indians.settings.stg
+      SECRET_KEY: "c=7kn+r5=81d@&asd1o#&@y)asdfasdfasdf#x!6oa-Q^xyuj3g"
     ports:
       - "8081:80"
 
