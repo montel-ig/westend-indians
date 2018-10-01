@@ -19,11 +19,11 @@
     </p>
   </div></a>
 
-{#  {% if request.path|startswith:'/miehet-edustus' %}#}
-    <a href="/"><img class="main-img representative-team" src="{% static "images/faces_2_1200x.jpg" %}"></a>
-{#  {% else %}#}
-{#    <a href="/"><img class="main-img" src="{% static "images/faces_indians_1200x.jpg" %}"></a>#}
-{#  {% endif %}#}
+  {% if request.path|startswith:'/miehet-edustus' %}
+    <a href="/" class="main-img representative-team"></a>
+  {% else %}
+    <a href="/" class="main-img"></a>
+  {% endif %}
 
   <nav id="mobile-nav" class="">
     <div class="hamburger">
