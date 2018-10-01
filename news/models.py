@@ -20,6 +20,7 @@ class NewsItem(models.Model):
     ingress = models.TextField()
     body = RichTextField()
     thumbnail_image = models.ImageField(null=True, blank=True)
+    video_url = models.CharField(max_length=255, null=True, blank=True)
 
     image = models.ImageField(null=True, blank=True)
     image_wide = ImageSpecField(source='image',

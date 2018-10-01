@@ -19,6 +19,10 @@ class NewsCarousel extends React.Component {
     }
   }
 
+  showVideo(videoUrl) {
+    showVideoModal(videoUrl);
+  }
+
   render() {
 
     const hilight = this.props.news.length > 0 ? this.props.news.find((n) => n.id === this.state.currentHighlight) : null
@@ -61,8 +65,17 @@ class NewsCarousel extends React.Component {
         {
           hilight ?
             <article className={`highlight`} style={{'opacity': this.state.highlightOpacity}}>
-              <div className="image" style={{'backgroundImage': `url(${hilight.image})`}}>
-              </div>
+              {
+                hilight.video_url && hilight.video_url.length > 10 ?
+                <div className="image" onClick={() => this.showVideo(hilight.video_url)}
+                     style={{'backgroundImage': `url(${hilight.image})`}}>
+                  <img className="play-button" src="/static/images/play.png" />
+                </div>
+              :
+                  <div className="image"
+                       style={{'backgroundImage': `url(${hilight.image})`}}>
+                  </div>
+              }
               <div className="description">
                 <p>{hilight.publication_date}</p>
                 <h1><a href={`/uutiset/${hilight.slug}`}>{hilight.title}</a></h1>

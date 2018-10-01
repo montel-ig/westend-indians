@@ -175,7 +175,6 @@
     padding-top: 60px;
     color: white;
 
-
     .lead-paragraph {
       font-size: $text-large;
       line-height: 1.5em;
@@ -186,17 +185,32 @@
         grid-column-start: 2;
         grid-column-end: 12;
 
+        .image {
+          position: relative;
+          img {
+            width: 100%;
+            margin: 0 auto;
+            display: block;
+            margin-bottom: $base_padding;
+          }
+          .play-button {
+            display: block;
+            width: 85px;
+            height: auto;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.75;
+            transition: all 340ms;
+          }
+        }
+
         @media screen and (max-width: 480px) {
           grid-column-start: 1;
           grid-column-end: 13;
         }
 
-        > img {
-          width: 100%;
-          margin: 0 auto;
-          display: block;
-          margin-bottom: $base_padding;
-        }
         h1,h2,h3 {
           color: $indians-yellow;
         }
