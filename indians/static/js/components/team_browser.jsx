@@ -218,21 +218,37 @@ class TeamBrowser extends React.Component {
 
   teamInRange(team) {
     // exclude team from results if all the conditions in hashList have not met
-    let teamInSelectedRange = true;
-    if (team.visible === false) teamInSelectedRange = false;
+    if (team.visible === false) {
+      return false
+    }
     let hashList = this.hashList();
     if (hashList) {
-      hashList.map((value) => {
+      for (var i in hashList) {
+        const value = hashList[i]
         if (value[1] === 'harrastajan' && this.teamIsAmateur(team)) {
-          return true;
-        } else if (value && value !== 'all' && Object.values(team)
-            .map((p) => (replaceUmlauts(p)))
-            .indexOf(value[1]) < 0) {
-          teamInSelectedRange = false;
+          continue
         }
-      });
+        // handle age levels separately
+        else if (value[0] === 'age_level') {
+          if (team.age_levels.indexOf(decodeURIComponent(value[1])) === -1) {
+            return false
+          }
+        }
+        // genders always match if team is 'mixed'
+        else if (value[0] === 'gender') {
+          if (team.gender !== 'mixed' && team.gender !== value[1]) {
+            return false
+          }
+        }
+        else if (value && value !== 'all' &&
+          Object.values(team)
+            .map((p) => (replaceUmlauts(p)))
+            .indexOf(value[1]) === -1) {
+          return false
+        }
+      }
     }
-    return teamInSelectedRange;
+    return true
   }
 
   handleSelectedTeam(team) {

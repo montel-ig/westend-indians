@@ -88,6 +88,7 @@ class Team(models.Model):
     path = models.CharField(max_length=32, null=True, blank=True, choices=PATH_TYPES)
     sport = models.CharField(blank=True, null=True, max_length=12, choices=SPORT_TYPES)
     age_level = models.CharField(blank=True, null=True, max_length=12, choices=AGE_LEVEL_TYPES)
+    age_levels = models.ManyToManyField('AgeLevel', related_name='teams')
     area = models.ForeignKey(Area, null=True, blank=True)
     sponsors = models.ManyToManyField(to=Sponsor, blank=True, related_name='sponsored_teams')
 
@@ -114,3 +115,11 @@ class Team(models.Model):
             unique_slug = '{}-{}'.format(slug, num)
             num += 1
         return unique_slug
+
+
+class AgeLevel(models.Model):
+    name = models.CharField(max_length=255)
+    order = models.SmallIntegerField()
+
+    def __str__(self):
+        return f"{self.name}"
