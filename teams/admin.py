@@ -54,6 +54,7 @@ class TeamAdmin(admin.ModelAdmin):
     list_filter = ('path', 'sport')
     ordering = ('path', 'name')
     inlines = (MembershipInline,)
+    exclude = ('age_level',)
 
 
 class AgeLevelAdmin(admin.ModelAdmin):

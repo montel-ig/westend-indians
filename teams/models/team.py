@@ -88,7 +88,7 @@ class Team(models.Model):
     path = models.CharField(max_length=32, null=True, blank=True, choices=PATH_TYPES)
     sport = models.CharField(blank=True, null=True, max_length=12, choices=SPORT_TYPES)
     age_level = models.CharField(blank=True, null=True, max_length=12, choices=AGE_LEVEL_TYPES)
-    age_levels = models.ManyToManyField('AgeLevel', related_name='teams')
+    age_levels = models.ManyToManyField('AgeLevel', related_name='teams', blank=True)
     area = models.ForeignKey(Area, null=True, blank=True)
     sponsors = models.ManyToManyField(to=Sponsor, blank=True, related_name='sponsored_teams')
 
