@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'products',
     'sponsors',
     'signups',
+    'stats',
 
     'django.contrib.admin',
     'django.contrib.auth',
