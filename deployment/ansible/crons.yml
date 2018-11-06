@@ -1,0 +1,24 @@
+---
+
+- name: mailto for cron
+  cronvar:
+    name: MAILTO
+    value: "lauri@montel.fi"
+
+- name: update statistics on stg (standings)
+  cron:
+    name: stats-standings-stg
+    job: docker-compose run --rm stg_indians_site python manage.py fetch_standings
+    minute: 35
+
+- name: update statistics on stg (upcoming)
+  cron:
+    name: stats-upcoming-stg
+    job: docker-compose run --rm stg_indians_site python manage.py fetch_upcoming_games
+    minute: 32
+
+- name: update statistics on stg (played)
+  cron:
+    name: stats-played-stg
+    job: docker-compose run --rm stg_indians_site python manage.py fetch_played_games
+    minute: 30
