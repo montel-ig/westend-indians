@@ -10,15 +10,37 @@
     name: stats-standings-stg
     job: docker-compose run --rm stg_indians_site python manage.py fetch_standings
     minute: 35
+    hour: 04
 
 - name: update statistics on stg (upcoming)
   cron:
     name: stats-upcoming-stg
     job: docker-compose run --rm stg_indians_site python manage.py fetch_upcoming_games
     minute: 32
+    hour: 04
 
 - name: update statistics on stg (played)
   cron:
     name: stats-played-stg
     job: docker-compose run --rm stg_indians_site python manage.py fetch_played_games
     minute: 30
+    hour: 04
+
+
+- name: update statistics (standings)
+  cron:
+    name: stats-standings
+    job: docker-compose run --rm indians_site python manage.py fetch_standings
+    minute: 41
+
+- name: update statistics (upcoming)
+  cron:
+    name: stats-upcoming
+    job: docker-compose run --rm indians_site python manage.py fetch_upcoming_games
+    minute: 43
+
+- name: update statistics (played)
+  cron:
+    name: stats-played
+    job: docker-compose run --rm indians_site python manage.py fetch_played_games
+    minute: 47
