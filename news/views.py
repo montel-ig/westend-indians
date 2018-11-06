@@ -18,10 +18,10 @@ def index(request):
     paginator = Paginator(rest_of_news, 5)
     rest_of_news = paginator.page(page)
     sponsors = Sponsor.objects.filter(visible_for_frontpage=True)
-    return render(request, 'index.html', locals())
+    return render(request, 'news/index.html', locals())
 
 
 def news_item(request, slug):
     news_item = NewsItem.objects.get(slug=slug, publication_date__lt=datetime.now(), visible=True)
     sponsors = Sponsor.objects.filter(visible_for_frontpage=True)
-    return render(request, 'news_item.html', locals())
+    return render(request, 'news/news_item.html', locals())
