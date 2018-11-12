@@ -1,9 +1,10 @@
-import datetime
 import pprint
+from datetime import timedelta
 from html.parser import HTMLParser
 
 import requests
 from django.core.management import BaseCommand
+from django.utils.datetime_safe import datetime
 
 from stats.models import StandingsSet, StandingsRow, StatsTeam
 
@@ -70,7 +71,7 @@ class Command(BaseCommand):
                 parser.feed(r.content.decode('UTF-8'))
                 pprint.pprint(parser.team_data)
                 if not dryrun:
-                    recent_rows = StandingsSet.objects.filter(created_at__gte=(datetime.datetime.now() - datetime.timedelta(hours=6)))
+                    recent_rows = StandingsSet.objects.filter(created_at__gte=(datetime.datetime.now() - timedelta(hours=6)))
                     for recent in recent_rows:
                         self.stdout.write(self.style.WARNING(f"Deleting recent set {recent} to create an update"))
                         recent.delete()

@@ -8,21 +8,21 @@
 - name: update statistics on stg (standings)
   cron:
     name: stats-standings-stg
-    job: docker-compose run --rm stg_indians_site python manage.py fetch_standings
+    job: /usr/local/bin/docker-compose run --rm stg_indians_site python manage.py fetch_standings > /dev/null
     minute: 35
     hour: 04
 
 - name: update statistics on stg (upcoming)
   cron:
     name: stats-upcoming-stg
-    job: docker-compose run --rm stg_indians_site python manage.py fetch_upcoming_games
+    job: /usr/local/bin/docker-compose run --rm stg_indians_site python manage.py fetch_upcoming_games > /dev/null
     minute: 32
     hour: 04
 
 - name: update statistics on stg (played)
   cron:
     name: stats-played-stg
-    job: docker-compose run --rm stg_indians_site python manage.py fetch_played_games
+    job: /usr/local/bin/docker-compose run --rm stg_indians_site python manage.py fetch_played_games > /dev/null
     minute: 30
     hour: 04
 
@@ -30,17 +30,20 @@
 - name: update statistics (standings)
   cron:
     name: stats-standings
-    job: docker-compose run --rm indians_site python manage.py fetch_standings
+    job: /usr/local/bin/docker-compose run --rm indians_site python manage.py fetch_standings > /dev/null
     minute: 41
+    hour: "*/6"
 
 - name: update statistics (upcoming)
   cron:
     name: stats-upcoming
-    job: docker-compose run --rm indians_site python manage.py fetch_upcoming_games
+    job: /usr/local/bin/docker-compose run --rm indians_site python manage.py fetch_upcoming_games > /dev/null
     minute: 43
+    hour: "*/6"
 
 - name: update statistics (played)
   cron:
     name: stats-played
-    job: docker-compose run --rm indians_site python manage.py fetch_played_games
+    job: /usr/local/bin/docker-compose run --rm indians_site python manage.py fetch_played_games > /dev/null
     minute: 47
+    hour: "*/6"
