@@ -10,4 +10,4 @@ def event(request, slug):
     now = datetime.now()
     event = Event.objects.get(slug=slug, visible=True, publication_date__lte=now)
     sponsors = Sponsor.objects.filter(visible_for_frontpage=True)
-    return render(request, 'event.html', locals())
+    return render(request, 'events/event.html', locals())

@@ -1,8 +1,8 @@
 from .base import *
+import sys
 
 DJANGO_COLORS="light"
 
-import sys
 
 LOGGING = {
     'version': 1,

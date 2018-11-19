@@ -1,3 +1,5 @@
 # westend-indians
-The home of the Indians, vol 2
+
+The home of the Indians from Espoo, vol 2
+
 

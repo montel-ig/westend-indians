@@ -13,7 +13,7 @@ def teams(request):
 
 
 def teams_json(request):
-    teams = json.dumps([team_properties(t) for t in Team.objects.all()])
+    teams = json.dumps([team_properties(t) for t in Team.objects.all().prefetch_related('age_levels', 'sponsors')])
     return HttpResponse(teams)
 
 
@@ -64,13 +64,15 @@ def team_properties(team: Team) -> str:
     take_from_team = ('name', 'slug', 'description', 'contact_name', 'contact_email', 'contact_phone',
                       'leader_name', 'leader_email', 'leader_phone', 'registration_link',
                       'some_instagram', 'some_twitter', 'some_facebook', 'some_snapchat', 'current_player_count',
-                      'max_player_count', 'gender', 'path', 'sport', 'age_level', 'short_description',
+                      'max_player_count', 'gender', 'path', 'sport', 'short_description',
                       'show_name_in_modal', 'visible'
                       )
     take_from_area = ('name', 'address', 'lat', 'lng')
 
     for attr in take_from_team:
         team_dict[attr] = getattr(team, attr)
+
+    team_dict['age_levels'] = [l.name for l in team.age_levels.all()]
     sponsors_serialized = [r for r in team.sponsors.all() if r]
     sponsors_dict = {}
     for s in sponsors_serialized:

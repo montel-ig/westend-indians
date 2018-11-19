@@ -17,7 +17,7 @@
     - montel.nginx-front
     - montel.docker
     - montel.webhooker
-    - {role: montel.certbot_cron, become: True, cron_mailto: lauri@montel.fi}
+    - {role: montel.certbot_cron, become: True, tags: [cron], cron_mailto: lauri@montel.fi}
 
   tasks:
     - name: Create nginx configuration for production
@@ -52,3 +52,7 @@
       copy: src=files/docker-compose.yml dest=/home/chief/docker-compose.yml
       notify:
         - restart docker-compose
+
+    - include_tasks: crons.yml
+      tags:
+        - cron

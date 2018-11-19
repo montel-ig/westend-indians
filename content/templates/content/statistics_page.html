@@ -1,39 +1,106 @@
 {% extends "base_layout.html" %}
-{% load static %}
 {% load wagtailcore_tags %}
+{% load staticfiles %}
+{% load wagtailimages_tags %}
 
-{% block body_css_class %}statistics_page{% endblock %}
+{% block body_css_class %}stats_page{% endblock %}
 
-{% block title %} {{page.title}} {% endblock %}
+{% block title %} {{ page.title }} {% endblock %}
 
 {% block main %}
-  <img class="triangle" src="{% static "images/tilted-bg-black-top.svg" %}">
+  <section class="stats">
+    <div class="standings">
+      <h1>Sarjatilanne</h1>
+      <div class="table-container">
+        <table>
+          <thead>
+          <tr>
+            <th>Sijoitus</th>
+            <th>Joukkue</th>
+            <th>Voittoja</th>
+            {#          <th>Voittoja jatkoajalla</th>#}
+            <th>Tappioita</th>
+            <th>Tappioita jatkoajalla</th>
+            <th>Tehtyjä maaleja</th>
+            <th>Päästettyjä maaleja</th>
+            <th>Maaliero</th>
+            <th>Kokonaispisteet</th>
+          </tr>
+          </thead>
+          <tbody>
+          {% for row in page.standings.rows.all %}
+            <tr>
+              <td>{{ row.position }}</td>
+              <td>{{ row.team.name }}</td>
+              <td>{{ row.wins }}</td>
+              {#            <td>{{ row.wins_contd_period }}</td>#}
+              <td>{{ row.losses }}</td>
+              <td>{{ row.losses_contd_period }}</td>
+              <td>{{ row.goals_scored }}</td>
+              <td>{{ row.goals_suffered }}</td>
+              <td>{{ row.goal_difference }}</td>
+              <td>{{ row.points }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-  <section class="team-statistics">
-    <div class="team-statistics-container">
-      <div class="team-statistics-content">
-        <h1>
-          {{ page.title }}
-        </h1>
-        <div class="stat-body">
-          {{ page.body|richtext }}
-        </div>
-        <div class="stat-matches">
-          {{ page.matches|richtext }}
-        </div>
-        <div class="stat-status">
-          {{ page.series_status|richtext }}
-        </div>
-        <div class="stat-points">
-          {{ page.points|richtext }}
-        </div>
-        <div class="stat-partners">
-          {{ page.partners|richtext }}
-        </div>
+    <div class="upcoming-games">
+      <h1>Tulevat pelit</h1>
+      <div class="table-container">
+        <table>
+          <thead>
+          <tr>
+            <th>PVM</th>
+            <th>Paikka</th>
+            <th>Koti</th>
+            <th>Vieras</th>
+          </tr>
+          </thead>
+          <tbody>
+          {% for row in page.upcoming_games %}
+            <tr>
+              <td>{{ row.date|date:"D d.m H.i" }}</td>
+              <td>{{ row.location }}</td>
+              <td>{{ row.home_team.name }}</td>
+              <td>{{ row.away_team.name }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="played-games">
+      <h1>Pelatut pelit</h1>
+      <div class="table-container">
+        <table>
+          <thead>
+          <tr>
+            <th>PVM</th>
+            <th>Paikka</th>
+            <th>Koti</th>
+            <th>Vieras</th>
+            <th>Tulos</th>
+          </tr>
+          </thead>
+          <tbody>
+          {% for row in page.played_games %}
+            <tr>
+              <td>{{ row.date|date:"D d.m H.i" }}</td>
+              <td>{{ row.location }}</td>
+              <td>{{ row.home_team.name }}</td>
+              <td>{{ row.away_team.name }}</td>
+              <td>{{ row.home_score }} - {{ row.away_score }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
       </div>
     </div>
   </section>
-  <img class="triangle" src="{% static "images/tilted-bg-black-bottom.svg" %}">
 {% endblock %}
 
 {% block footer %}

@@ -1,6 +1,6 @@
 from django.contrib import admin, messages
 
-from teams.models import Team, Member, School, TeamMembership, Area, Match
+from teams.models import Team, Member, School, TeamMembership, Area, Match, AgeLevel
 
 
 # def add_all_to_new_team(_modeladmin, request, queryset):
@@ -28,6 +28,11 @@ class MembershipInline(admin.TabularInline):
     extra = 1
 
 
+# class AgeLevelInline(admin.TabularInline):
+#     model = AgeLevel
+#     extra = 1
+
+
 class MemberAdmin(admin.ModelAdmin):
     model = Member
     inlines = (MembershipInline,)
@@ -49,10 +54,16 @@ class TeamAdmin(admin.ModelAdmin):
     list_filter = ('path', 'sport')
     ordering = ('path', 'name')
     inlines = (MembershipInline,)
+    exclude = ('age_level',)
+
+
+class AgeLevelAdmin(admin.ModelAdmin):
+    list_display = ('name', 'order')
 
 
 admin.site.register(Team, TeamAdmin)
 admin.site.register(Member, MemberAdmin)
+admin.site.register(AgeLevel, AgeLevelAdmin)
 admin.site.register(School)
 admin.site.register(Area)
 admin.site.register(Match)

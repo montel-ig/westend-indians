@@ -2,9 +2,8 @@ from .base import *
 
 import sys
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
-
 COMPRESS_ENABLED = True
+DEBUG = False
 
 LOGGING = {
     'version': 1,
