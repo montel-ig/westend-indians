@@ -209,6 +209,19 @@ html {
         display: none;
       }
     }
+    .main-grid-body > .messages {
+      margin: 0;
+      background: black;
+      li {
+        color: $indians-yellow;
+        font-size: 16px;
+        border: 1px solid $indians-yellow;
+        text-transform: uppercase;
+        text-align: center;
+        font-family: $encode-sans;
+        padding: 20px;
+      }
+    }
   }
 }
 
