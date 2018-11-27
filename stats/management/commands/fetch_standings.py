@@ -71,7 +71,7 @@ class Command(BaseCommand):
                 parser.feed(r.content.decode('UTF-8'))
                 pprint.pprint(parser.team_data)
                 if not dryrun:
-                    recent_rows = StandingsSet.objects.filter(created_at__gte=(datetime.datetime.now() - timedelta(hours=6)))
+                    recent_rows = StandingsSet.objects.filter(created_at__gte=(datetime.now() - timedelta(hours=6)))
                     for recent in recent_rows:
                         self.stdout.write(self.style.WARNING(f"Deleting recent set {recent} to create an update"))
                         recent.delete()
