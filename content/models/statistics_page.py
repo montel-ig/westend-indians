@@ -7,6 +7,7 @@ from wagtail.wagtailcore.fields import RichTextField
 from wagtail.wagtailadmin.edit_handlers import FieldPanel
 
 from stats.models import StandingsSet, PlayedGame, UpcomingGame
+from stats import utils
 
 
 class StatisticsPage(Parent):
@@ -37,3 +38,8 @@ class StatisticsPage(Parent):
     def upcoming_games(self):
         now = datetime.now()
         return UpcomingGame.objects.filter(date__gte=now)
+
+    @property
+    def standings_json(self):
+        standings = self.standings
+        return utils.standings_to_json(standings)
