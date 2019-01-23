@@ -16,7 +16,7 @@ import events.views
 urlpatterns = [
                   url(r'tapahtumat/(?P<slug>[\w-]+)', events.views.event, name='event'),
                   url(r'uutiset/(?P<slug>[\w-]+)', news.views.news_item, name='news_item'),
-                  url(r'uutiset/', news.views.index),
+                  url(r'uutiset/', news.views.index, name='news_index'),
 
                   url(r'^admin/', admin.site.urls),
                   url(r'^cms/', include(wagtailadmin_urls)),

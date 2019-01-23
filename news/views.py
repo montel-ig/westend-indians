@@ -1,5 +1,7 @@
+from django.contrib import messages
 from django.core.paginator import Paginator
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.utils.datetime_safe import datetime
 
 from news.models import NewsItem
@@ -22,6 +24,10 @@ def index(request):
 
 
 def news_item(request, slug):
-    news_item = NewsItem.objects.get(slug=slug, publication_date__lt=datetime.now(), visible=True)
+    try:
+        news_item = NewsItem.objects.get(slug=slug, publication_date__lt=datetime.now(), visible=True)
+    except NewsItem.DoesNotExist:
+        messages.error(request, "Uutista ei löytynyt")
+        return redirect(reverse('news_index'))
     sponsors = Sponsor.objects.filter(visible_for_frontpage=True)
     return render(request, 'news/news_item.html', locals())
