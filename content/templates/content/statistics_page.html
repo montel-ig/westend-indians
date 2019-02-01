@@ -11,40 +11,7 @@
   <section class="stats">
     <div class="standings">
       <h1>Sarjatilanne</h1>
-      <div class="table-container">
-        <table>
-          <thead>
-          <tr>
-            <th>Sijoitus</th>
-            <th>Joukkue</th>
-            <th>Voittoja</th>
-            {#          <th>Voittoja jatkoajalla</th>#}
-            <th>Tappioita</th>
-            <th>Tappioita jatkoajalla</th>
-            <th>Tehtyjä maaleja</th>
-            <th>Päästettyjä maaleja</th>
-            <th>Maaliero</th>
-            <th>Kokonaispisteet</th>
-          </tr>
-          </thead>
-          <tbody>
-          {% for row in page.standings.rows.all %}
-            <tr>
-              <td>{{ row.position }}</td>
-              <td>{{ row.team.name }}</td>
-              <td>{{ row.wins }}</td>
-              {#            <td>{{ row.wins_contd_period }}</td>#}
-              <td>{{ row.losses }}</td>
-              <td>{{ row.losses_contd_period }}</td>
-              <td>{{ row.goals_scored }}</td>
-              <td>{{ row.goals_suffered }}</td>
-              <td>{{ row.goal_difference }}</td>
-              <td>{{ row.points }}</td>
-            </tr>
-          {% endfor %}
-          </tbody>
-        </table>
-      </div>
+      <div id="stats" class="table-container"></div>
     </div>
 
     <div class="upcoming-games">
@@ -101,6 +68,15 @@
       </div>
     </div>
   </section>
+
+<script type="application/javascript">
+  var stats = {{ page.standings_json|safe }}
+  window.onload = function() {
+    if(document.getElementById("stats")!=null && stats){
+      createStats("stats");
+    }
+  }
+</script>
 {% endblock %}
 
 {% block footer %}
