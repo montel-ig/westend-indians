@@ -4,6 +4,11 @@
     background-color: black;
     padding: 30px 0 60px;
   }
+  div.standings {
+    table thead tr th:not(:first-child):hover {
+      cursor: pointer;
+    }
+  }
 
   h1,
   .table-container {
@@ -35,7 +40,15 @@
     tr {
       background: #383838;
       &:nth-child(even) {
-        background: #1A1A1A
+        background: #1A1A1A;
+        .selected {
+          background: #D3C930;
+        }
+      }
+      &:nth-child(odd) {
+        .selected {
+          background: #D8CE35;
+        }
       }
       &:hover {
         td:not(.selected) {
@@ -50,14 +63,16 @@
       letter-spacing: $letter-spacing-x-large;
       font-weight: 700;
       background: black;
+      &.selected {
+        background: #CFC52C !important;
+        color: black;
+        font-weight: bold;
+      }
       /*
       &:nth-of-type(2) {
         color: white;
       }
       */
-      &:not(:first-child):hover {
-        cursor: pointer;
-      }
     }
     td {
       color: white;
@@ -80,7 +95,6 @@
       text-align: right;
       text-transform: uppercase;
       &.selected {
-        background: $indians-yellow;
         color: black;
         font-weight: bold;
       }
