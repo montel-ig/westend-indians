@@ -15,8 +15,12 @@ class Stats extends React.Component {
   constructor(props) {
     super()
     this.state = {
-      selectedColumn: 'points'
+      selectedColumn: null
     }
+  }
+
+  componentDidMount() {
+    this.selectColumn('points')
   }
 
   renderHeadings() {
