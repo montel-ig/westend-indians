@@ -25,7 +25,8 @@
   }
 
   .table-container {
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 740px) {
+      width: 700px;
       overflow-x: scroll;
     }
   }
