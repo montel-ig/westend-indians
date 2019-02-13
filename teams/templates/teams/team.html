@@ -76,12 +76,29 @@
       </div>
     </div>
   </section>
-
+  {% if properties.sponsors|length > 0 %}
+  <img class="triangle justify-top" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+    <section class="team-sponsors">
+      <div class="container">
+    {% for key, value in properties.sponsors.items %}
+      <div>
+        <a href="{{ value.url }}"target="_blank"><img src="{{ value.sponsor_thumbnail }}"></a>
+      </div>
+    {% endfor %}
+      </div>
+    </section>
+    {% if members|length < 10  %}
+      <img class="triangle black-bg" src="{% static "images/tilted-line-almost-black.svg" %}">
+    {% endif %}
+  {% endif %}
   {% if members|length >= 10  %}
-    <img class="triangle justify-top" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+    {% if properties.sponsors|length == 0 %}
+      <img class="triangle justify-top" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+    {% else %}
+      <img class="triangle black-bg" src="{% static "images/tilted-line-almost-black.svg" %}">
+    {% endif %}
     <section class="players" id="players">
     </section>
-
 
     <script type="application/javascript">
       var team_members = {{ members|safe }} ;
@@ -91,7 +108,7 @@
         }
       }
     </script>
-  {% else %}
+  {% elif properties.sponsors|length == 0%}
     <img class="triangle justify-top" src="{% static "images/tilted-bg-black-bottom.svg" %}">
   {% endif %}
 
