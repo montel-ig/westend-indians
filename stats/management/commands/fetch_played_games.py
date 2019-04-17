@@ -12,6 +12,7 @@ SERIES_ID = 2923
 INDIANS_ID = 3587
 TZ = pytz.timezone('Europe/Helsinki')
 
+
 class PlayedGamesHTMLParser(HTMLParser):
     data = []
     __cur_elem = None
