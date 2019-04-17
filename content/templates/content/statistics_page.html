@@ -64,7 +64,7 @@
               <td>{{ row.home_score }} - {{ row.away_score }}</td>
               {% if row.game_report %}
                 <td class="link" onclick="location.href='/uutiset/{{ row.game_report.slug }}'">
-                  <a href="/uutiset/{{ row.game_report }}"></a>{{ row.game_report.slug }}
+                  <a href="/uutiset/{{ row.game_report }}"></a>{{ row.game_report }}
                 </td>
               {% else %}
                 <td></td>
