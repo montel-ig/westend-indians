@@ -51,6 +51,7 @@
             <th>Koti</th>
             <th>Vieras</th>
             <th>Tulos</th>
+            <th>Otteluraportti</th>
           </tr>
           </thead>
           <tbody>
@@ -61,6 +62,13 @@
               <td>{{ row.home_team.name }}</td>
               <td>{{ row.away_team.name }}</td>
               <td>{{ row.home_score }} - {{ row.away_score }}</td>
+              {% if row.game_report %}
+                <td class="link" onclick="location.href='/uutiset/{{ row.game_report.slug }}'">
+                  <a href="/uutiset/{{ row.game_report }}"></a>{{ row.game_report.slug }}
+                </td>
+              {% else %}
+                <td></td>
+              {% endif %}
             </tr>
           {% endfor %}
           </tbody>

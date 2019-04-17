@@ -133,6 +133,12 @@
       text-align: left;
     }
   }
+  .played-games {
+    td.link {
+      cursor:pointer;
+      color: $indians-yellow;
+    }
+  }
 
   img {
     max-width: 100%;
