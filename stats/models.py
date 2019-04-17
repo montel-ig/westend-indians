@@ -1,4 +1,7 @@
 from django.db import models
+from django.utils.text import slugify
+
+from news.models import NewsItem
 
 
 class StatsTeam(models.Model):
@@ -9,6 +12,9 @@ class StatsTeam(models.Model):
         if StatsTeam.objects.filter(name=name).exists():
             return StatsTeam.objects.get(name=name)
         return StatsTeam.objects.create(name=name)
+
+    def __str__(self):
+        return f"{self.name}"
 
 
 class StandingsSet(models.Model):
@@ -41,6 +47,11 @@ class PlayedGame(models.Model):
     location = models.CharField(max_length=255, null=True, blank=True)
     home_score = models.SmallIntegerField(default=0)
     away_score = models.SmallIntegerField(default=0)
+    game_report = models.ForeignKey(NewsItem, on_delete=models.SET_NULL, null=True, blank=True,
+                                    related_name='as_game_report')
+
+    def __str__(self):
+        return f"{self.home_team} - {self.away_team}"
 
 
 class UpcomingGame(models.Model):

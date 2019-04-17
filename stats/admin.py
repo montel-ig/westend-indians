@@ -1,3 +1,12 @@
 from django.contrib import admin
 
-# Register your models here.
+from stats.models import *
+
+class PlayedGameAdmin(admin.ModelAdmin):
+    list_display = ('home_team', 'away_team', 'date', 'location', 'home_score', 'away_score', 'game_report')
+    raw_id_fields = ('game_report',)
+    ordering = ('-date',)
+    model = PlayedGame
+
+
+admin.site.register(PlayedGame, PlayedGameAdmin)
