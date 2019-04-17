@@ -8,6 +8,26 @@
 
 {% block body_css_class %}info_page{% endblock %}
 
+{% if page.title|slugify == 'miehet-edustus-info' %}
+  {% block extrahead %}
+    <link href="https://floud.com/plugin/main.css" rel="stylesheet">
+  {% endblock %}
+  {% block extrabody %}
+    <script type="text/javascript" src="https://floud.com/plugin/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        window.FloudPlugin.setOptions({language: 'fi', colors: {
+          activeBackground: '#333333',
+            buttonBackground: '#0b0b0b',
+            textColor: '#FBEF36',
+            textColorButton: '#FFFFFF'
+        }})
+        window.FloudPlugin.initializeComponent(window.FloudPlugin.getOptions())
+      })
+    </script>
+  {% endblock %}
+{% endif %}
+
 {% block title %}
   {% if page.depth == 4 %}
     {{ page.get_parent.title }} /
@@ -18,50 +38,53 @@
 {% endblock %}
 
 {% block main %}
+
   <img class="triangle justify-bottom" src="{% static "images/tilted-bg-black-top.svg" %}">
   <section class="team-info">
     {% submenu page %}
   </section>
 
   {% if page.body|striptags|length > 0 %}
-  <section class="black">
-    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
-    <a id="body"></a>
-    <div class="info-body">
-      {{ page.body|richtext }}
-    </div>
-  </section>
-  <img class="triangle justify-bottom" src="{% static "images/tilted-bg-black-top.svg" %}">
+    <section class="black">
+      <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
+      <a id="body"></a>
+      <div class="info-body">
+        {{ page.body|richtext }}
+      </div>
+    </section>
+    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-black-top.svg" %}">
   {% endif %}
 
   {% if page.tickets|striptags|length > 0 %}
-  <section>
-    <a id="tickets"></a>
-    <div class="info-lift">
-      {{ page.tickets|richtext }}
-    </div>
-  </section>
+    <section>
+      <a id="tickets"></a>
+      <div class="info-lift">
+        {{ page.tickets|richtext }}
+      </div>
+    </section>
+
+{#    <div id="floud-plugin"></div>#}
   {% endif %}
 
   {% if page.information|striptags|length > 0 %}
-  <section class="black">
-    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
-    <a id="information"></a>
-    <div class="info-information">
-      {{ page.information|richtext }}
-    </div>
-  </section>
+    <section class="black">
+      <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
+      <a id="information"></a>
+      <div class="info-information">
+        {{ page.information|richtext }}
+      </div>
+    </section>
   {% endif %}
 
   {% if page.contact|striptags|length > 0 %}
-  <section>
-    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-black-top.svg" %}">
-    <a id="contact"></a>
-    <div class="info-contact">
-      {{ page.contact|richtext }}
-    </div>
-    <img class="triangle justify-top" src="{% static "images/tilted-bg-black-bottom.svg" %}">
-  </section>
+    <section>
+      <img class="triangle justify-bottom" src="{% static "images/tilted-bg-black-top.svg" %}">
+      <a id="contact"></a>
+      <div class="info-contact">
+        {{ page.contact|richtext }}
+      </div>
+      <img class="triangle justify-top" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+    </section>
   {% endif %}
 
   <section class="tables">
@@ -73,7 +96,7 @@
           {{ page.tables|csv_to_tables }}
         </div>
       </div>
-    <img class="triangle justify-top" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+      <img class="triangle justify-top" src="{% static "images/tilted-bg-black-bottom.svg" %}">
     {% endif %}
   </section>
 

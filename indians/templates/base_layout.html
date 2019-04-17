@@ -24,6 +24,7 @@
     {% endcompress %}
 
     <link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Encode+Sans|Titillium+Web" rel="stylesheet">
+    {% block extrahead %}{% endblock %}
   </head>
 
   <body class="{% block body_css_class %}{% endblock %}">
@@ -44,6 +45,7 @@
         {% block main %}
           you forgot the main block!
         {% endblock %}
+        {% block extrabody %}{% endblock %}
       </div>
       <div class="main-grid-footer">
         {% block footer %}
@@ -77,6 +79,7 @@
       <script type="text/jsx" src="{% static 'js/components/video_modal.jsx' %}"></script>
       <script type="text/jsx" src="{% static 'js/components/stats.jsx' %}"></script>
     {% endcompress %}
+
 
 
 {#    <!-- Facebook chat, currently tied to montel page id -->#}
