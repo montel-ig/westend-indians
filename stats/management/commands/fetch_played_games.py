@@ -30,6 +30,11 @@ class PlayedGamesHTMLParser(HTMLParser):
         if tag == 'div':
             if ('class', 'date') in attrs:
                 self.__cur_elem = 'date'
+                title = next(filter(lambda x: x[0] == 'title', attrs))[1]
+                date, location = title.split(',', 1)
+                time = datetime.strptime(date.strip(), '%d.%m.%Y %H.%M')
+                self.__cur_date = TZ.localize(time)
+                self.__cur_location = location.strip()
             elif ('class', 'home-team') in attrs:
                 self.__cur_elem = 'home-team'
             elif ('class', 'away-team') in attrs:
@@ -48,11 +53,12 @@ class PlayedGamesHTMLParser(HTMLParser):
     def handle_data(self, data):
         # print("Encountered some data  :", data)
         if self.__cur_elem == 'date':
-            date, location = data.split(',', 1)
-            time = datetime.strptime(date.strip(), '%d.%m %H.%M')
-            time = time.replace(year=self.__current_year)
-            self.__cur_date = TZ.localize(time)
-            self.__cur_location = location.strip()
+            # date, location = data.split(',', 1)
+            # time = datetime.strptime(date.strip(), '%d.%m %H.%M')
+            # time = time.replace(year=self.__current_year)
+            # self.__cur_date = TZ.localize(time)
+            # self.__cur_location = location.strip()
+            pass
         elif self.__cur_elem == 'home-team':
             self.__cur_home_team = data.strip()
         elif self.__cur_elem == 'home-score':
