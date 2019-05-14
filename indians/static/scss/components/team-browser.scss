@@ -13,6 +13,10 @@
     position: relative;
     background-color:black;
     height: 275px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    &:hover {
+      transform: scale3d(1.008, 1.008, 1);
+    }
 
     .img-container {
       height: 200px;
@@ -47,11 +51,14 @@
 
     h3 {
       font-family: $titillium-web;
-      font-size: $text-larger;
+      font-size: $text-small;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
       color: white;
       text-align: center;
       margin: 0;
       padding: 10px;
+
     }
     &:hover {
       cursor: pointer;

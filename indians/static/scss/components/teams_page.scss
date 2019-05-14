@@ -30,6 +30,34 @@
         color: white;
         grid-column-start: 1;
         grid-column-end: 13;
+        input[type='radio'] {
+          -webkit-appearance:none;
+          width:20px;
+          height:20px;
+          border:1px solid darkgray;
+          border-radius:50%;
+          outline:none;
+          box-shadow:0 0 5px 0px gray inset;
+          margin-top: -1px;
+          vertical-align: middle;
+
+        }
+
+        input[type='radio']:hover {
+          box-shadow:0 0 5px 0px $indians-yellow inset;
+        }
+
+        input[type='radio']:before {
+          content:'';
+          display:block;
+          width:60%;
+          height:60%;
+          margin: 20% auto;
+          border-radius:50%;
+        }
+        input[type='radio']:checked:before {
+          background:$indians-yellow;
+        }
         h2 {
           font-family: $black-ops;
           color: $indians-yellow;
