@@ -69,16 +69,24 @@
     width: 480px;
     background-color: black;
     color: white;
-    position: absolute;
+    position: relative;
+    text-align: center;
     left: 50%;
     transform: translate(-50%, 10%);
     box-sizing: border-box;
     @media screen and (max-width: 420px) {
       width: inherit;
+      padding: 20px;
       max-width: 100%;
     }
-    h2 {
-      margin: 0 0 20px;
+    p {
+      margin: 20px 0;
+    }
+    button {
+      max-width: 100%;
+      @media screen and (max-width: 420px) {
+        font-size: 10px;
+      }
     }
   }
 }
