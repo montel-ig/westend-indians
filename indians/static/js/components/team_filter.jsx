@@ -67,7 +67,16 @@ const Age = (props) => (
       options={props.types
         .map(t => ({value: encodeURIComponent(t.name), label: t.name, property: 'age_level'}))
         .concat([{value: 'all', label: 'Kaikki', property: "age_level"}])
-        .sort((a, b) => b - a)
+        .sort((a, b) => {
+          if(a.value == b.value) return 0;
+          if (a.value == 'all') return -1;
+          if (b.value == 'all') return 1;
+          if (a.value < b.value)
+            return -1;
+          if (a.value > b.value)
+            return 1;
+          return 0;
+        })
       }
     />
   </div>
