@@ -24,6 +24,7 @@ urlpatterns = [
                   url(r'^documents/', include(wagtaildocs_urls)),
                   url(r'joukkueet/(?P<slug>[\w-]+)', team.by_slug),
                   url(r'^api/v1/teams.json', team.teams_json),
+                  url(r'^api/v1/types.json', team.types_json),
                   url('^sitemap\.xml$', sitemap),
                   url(r'', include(wagtail_urls)),
 

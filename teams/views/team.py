@@ -3,7 +3,7 @@ import json
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.http import HttpResponse
 
-from teams.models import Team
+from teams.models import Team, AgeLevel
 from sponsors.models import Sponsor
 
 
@@ -15,6 +15,11 @@ def teams(request):
 def teams_json(request):
     teams = json.dumps([team_properties(t) for t in Team.objects.all().prefetch_related('age_levels', 'sponsors')])
     return HttpResponse(teams)
+
+
+def types_json(request):
+    types = json.dumps([t for t in AgeLevel.objects.all().values()])
+    return HttpResponse(types)
 
 
 def by_slug(request, slug):

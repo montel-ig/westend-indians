@@ -32,7 +32,8 @@ class StatisticsPage(Parent):
     @property
     def played_games(self):
         this_year = datetime.now().year
-        return PlayedGame.objects.filter(date__year=this_year).order_by('-date')
+        season_start = f"{this_year-1}-09-01"
+        return PlayedGame.objects.filter(date__gte=season_start).order_by('-date')
 
     @property
     def upcoming_games(self):

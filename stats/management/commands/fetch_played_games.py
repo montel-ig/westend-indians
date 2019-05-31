@@ -8,7 +8,8 @@ from django.utils.datetime_safe import datetime
 
 from stats.models import StandingsSet, StandingsRow, StatsTeam, PlayedGame
 
-SERIES_ID = 2923
+SEASON_ID = 2923
+PLAYOFFS_ID = 5257
 INDIANS_ID = 3587
 TZ = pytz.timezone('Europe/Helsinki')
 
@@ -82,10 +83,14 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser):
         parser.add_argument('-d', '--dry-run', dest='dryrun', default=False, action='store_true')
+        parser.add_argument('-p', '--playoffs', dest='playoffs', default=False, action='store_true')
 
     def handle(self, *args, **kwargs):
         dryrun = kwargs['dryrun']
-        url = f"https://api.floorball.fi/embed/{SERIES_ID}/games/played/{INDIANS_ID}"
+        playoffs = kwargs['playoffs']
+        series_id = PLAYOFFS_ID if playoffs else SEASON_ID
+
+        url = f"https://api.floorball.fi/embed/{series_id}/games/played/{INDIANS_ID}"
         if url.startswith('http'):
             print('Fetching from URL %s' % url)
             print('Dryrun? %s' % dryrun)

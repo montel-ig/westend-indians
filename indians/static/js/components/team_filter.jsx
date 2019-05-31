@@ -64,18 +64,20 @@ const Age = (props) => (
       clearable={false}
       resetValue=""
       noResultsText="Ei tuloksia"
-      options={[
-        { value: 'all', label: 'Kaikki', property: "age_level"},
-        { value: encodeURIComponent('1997 => (Aikuiset)'), label: '1997 => (Aikuiset)', property: "age_level"},
-        { value: encodeURIComponent('1998-2000 (A-juniorit)'), label: '1998-2000 (A-juniorit)', property: "age_level"},
-        { value: encodeURIComponent('2001-2002 (B-juniorit)'), label: '2001-2002 (B-juniorit)', property: "age_level"},
-        { value: encodeURIComponent('2003-2004 (C-juniorit)'), label: '2003-2004 (C-juniorit)', property: "age_level"},
-        { value: encodeURIComponent('2005-2006 (D-juniorit)'), label: '2005-2006 (D-juniorit)', property: "age_level"},
-        { value: encodeURIComponent('2007-2008 (E-juniorit)'), label: '2007-2008 (E-juniorit)', property: "age_level"},
-        { value: encodeURIComponent('2009-2010 (F-juniorit)'), label: '2009-2010 (F-juniorit)', property: "age_level"},
-        { value: encodeURIComponent('2011-2012 (G-juniorit)'), label: '2011-2012 (G-juniorit)', property: "age_level"},
-        { value: encodeURIComponent('2013-2017 (H-juniorit)'), label: '2013-2017 (H-juniorit)', property: "age_level"},
-      ]}
+      options={props.types
+        .map(t => ({value: encodeURIComponent(t.name), label: t.name, property: 'age_level'}))
+        .concat([{value: 'all', label: 'Kaikki', property: "age_level"}])
+        .sort((a, b) => {
+          if(a.value == b.value) return 0;
+          if (a.value == 'all') return -1;
+          if (b.value == 'all') return 1;
+          if (a.value < b.value)
+            return -1;
+          if (a.value > b.value)
+            return 1;
+          return 0;
+        })
+      }
     />
   </div>
 );
@@ -163,6 +165,7 @@ const TeamFilter = (props) => {
         <div className="column">
           <Age
             age={props.selectedProperties.age_level}
+            types={props.types}
             handleSelectChange={props.handleSelectChange}
           />
           <Path

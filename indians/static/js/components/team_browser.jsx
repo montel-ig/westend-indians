@@ -61,6 +61,7 @@ class TeamBrowser extends React.Component {
     super(props);
     this.state = {
       teams: [],
+      types: [],
       selectedProperties: {
         gender: null,
         age_level: null,
@@ -86,23 +87,23 @@ class TeamBrowser extends React.Component {
 
   componentDidMount() {
     let that = this;
-    let url = '/api/v1/teams.json';
+    const apiUrl = '/api/v1/';
+    const teamsUri = 'teams.json';
+    const typesUri = 'types.json';
     let opts = {
       method: "GET",
       credentials: 'same-origin'
     };
-    fetch(url,opts).then((response) => {
-      if (response.status >= 200 && response.status < 300) {
-        return response.json();
-      }
-      else {
-        return response.statusText;
-      }
-    }).then(function(teams) {
-      that.setState({teams});
-      that.setInitialDropDownValues();
-      that.setTeamFromHash()
-    });
+
+    Promise.all([
+      fetch(apiUrl+teamsUri).then(res => res.json()),
+      fetch(apiUrl+typesUri).then(res => res.json())
+      ]).then(data => {
+        this.setState({teams: data[0], types: data[1]});
+        this.setInitialDropDownValues();
+        this.setTeamFromHash()
+      });
+
     document.addEventListener("keydown", this.onEscPress, false);
   }
 

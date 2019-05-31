@@ -3,8 +3,7 @@
   grid-column-start: 1;
   grid-column-end: 13;
   grid-template-columns: repeat(auto-fit, 220px);
-  grid-template-rows: repeat(auto-fill,300px);
-  grid-gap: 10px;
+  grid-gap: 20px;
   justify-content: space-evenly;
   margin-bottom: 40px;
 
@@ -13,6 +12,10 @@
     position: relative;
     background-color:black;
     height: 275px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    &:hover {
+      transform: scale3d(1.008, 1.008, 1);
+    }
 
     .img-container {
       height: 200px;
@@ -46,12 +49,15 @@
     }
 
     h3 {
-      font-family: $titillium-web;
-      font-size: $text-larger;
+      font-family: $encode-sans;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
       color: white;
       text-align: center;
       margin: 0;
       padding: 10px;
+
     }
     &:hover {
       cursor: pointer;
@@ -63,16 +69,24 @@
     width: 480px;
     background-color: black;
     color: white;
-    position: absolute;
+    position: relative;
+    text-align: center;
     left: 50%;
     transform: translate(-50%, 10%);
     box-sizing: border-box;
     @media screen and (max-width: 420px) {
       width: inherit;
+      padding: 20px;
       max-width: 100%;
     }
-    h2 {
-      margin: 0 0 20px;
+    p {
+      margin: 20px 0;
+    }
+    button {
+      max-width: 100%;
+      @media screen and (max-width: 420px) {
+        font-size: 10px;
+      }
     }
   }
 }
