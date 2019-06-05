@@ -5,8 +5,14 @@ from django.utils.text import slugify
 from imagekit.models import ImageSpecField
 from pilkit.processors import ResizeToFit
 
+SUBJECT_TYPES = (
+    ('heimo', 'Heimo'),
+    ('miehet-edustus', 'Miehet-edustus'),
+)
+
 
 class Event(models.Model):
+    subject = models.CharField(choices=SUBJECT_TYPES, null=True, max_length=20, default=SUBJECT_TYPES[0][0])
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, blank=True, editable=False, null=True)
     ingress = models.TextField(blank=True, null=True)
