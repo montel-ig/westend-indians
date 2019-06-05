@@ -94,7 +94,7 @@ class Command(BaseCommand):
         if url.startswith('http'):
             print('Fetching from URL %s' % url)
             print('Dryrun? %s' % dryrun)
-            with requests.get(url) as r:
+            with requests.get(url, verify=False) as r:
                 parser = PlayedGamesHTMLParser()
                 parser.feed(r.content.decode('UTF-8'))
                 pprint.pprint(parser.data)

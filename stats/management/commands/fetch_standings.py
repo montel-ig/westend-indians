@@ -66,7 +66,7 @@ class Command(BaseCommand):
         url = f"https://api.floorball.fi/embed/{SERIES_ID}/standings"
         if url.startswith('http'):
             print('Fetching from URL %s' % url)
-            with requests.get(url) as r:
+            with requests.get(url, verify=False) as r:
                 parser = StandingsHTMLParser()
                 parser.feed(r.content.decode('UTF-8'))
                 pprint.pprint(parser.team_data)
