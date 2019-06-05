@@ -33,7 +33,7 @@ class Event(models.Model):
     end_time = models.DateTimeField(blank=True, null=True)
 
     street_address = models.CharField(max_length=255)
-    city = models.CharField(max_length=255)
+    city = models.CharField(max_length=255, blank=True, null=True)
     lat = models.DecimalField(max_digits=19, decimal_places=16, null=True, default=None, blank=True)
     lng = models.DecimalField(max_digits=19, decimal_places=16, null=True, default=None, blank=True)
 
