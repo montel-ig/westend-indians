@@ -85,6 +85,13 @@ class IndiansBasePage(Page):
         count = len([i for i in images if i])
         return count
 
+    @property
+    def home_banners(self):
+        home = Page.objects.get(title="Westend Indians").homepage
+        images = [home.pinnalla,home.pinnalla2,home.pinnalla3]
+        count = len([i for i in images if i])
+        return dict(count=count, page=home)
+
     class Meta:
         abstract = True
 

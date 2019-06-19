@@ -10,3 +10,4 @@ from .info_page import *
 from .club_page import *
 from .tribe_page import *
 from .representative_team_players_page import *
+from .video_page import *

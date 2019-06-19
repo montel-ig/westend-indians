@@ -23,6 +23,7 @@
 @import "components/team_modal";
 @import "components/video_modal";
 @import "components/lift";
+@import "components/video_page";
 @import "submenu";
 
 
@@ -120,6 +121,13 @@ html {
         }
         &.ignore-height {
           min-height: 0;
+        }
+
+        > div {
+          &.full-width {
+            grid-column-start: 1;
+            grid-column-end: 13;
+          }
         }
       }
 

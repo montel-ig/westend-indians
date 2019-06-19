@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.db import models
 from django.db.models import TextField
 
+from events.models import Event
 from content.models.indians_base_page import IndiansBasePage as Parent
 
 from wagtail.wagtailcore.models import Page
@@ -27,3 +28,7 @@ class InfoPage(Parent):
         FieldPanel('partners', classname="full"),
         FieldPanel('tables', classname="full"),
     ]
+
+    @property
+    def events(self):
+        return Event.objects.filter(subject="miehet-edustus")

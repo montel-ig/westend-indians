@@ -15,6 +15,7 @@
   {% block extrabody %}
     <script type="text/javascript" src="https://floud.com/plugin/main.js"></script>
     <script>
+       /*
       document.addEventListener("DOMContentLoaded", function() {
         window.FloudPlugin.setOptions({language: 'fi', colors: {
           activeBackground: '#333333',
@@ -24,6 +25,7 @@
         }})
         window.FloudPlugin.initializeComponent(window.FloudPlugin.getOptions())
       })
+      */
     </script>
   {% endblock %}
 {% endif %}
@@ -55,13 +57,26 @@
     <img class="triangle justify-bottom" src="{% static "images/tilted-bg-black-top.svg" %}">
   {% endif %}
 
-  {% if page.tickets|striptags|length > 0 %}
     <section>
-      <a id="tickets"></a>
       <div class="info-lift">
-        {{ page.tickets|richtext }}
+      	<div>
+					<h2>Kotiottelut</h2>
+					<ul>
+					 {% for e in page.events %}
+							 <li>{{ e.name }}</li>
+					 {% endfor %}
+					</ul>
+				</div>
       </div>
     </section>
+
+	{% if page.tickets|striptags|length > 0 %}
+		<section>
+			<a id="tickets"></a>
+			<div class="info-lift">
+				{{ page.tickets|richtext }}
+			</div>
+		</section>
 
 {#    <div id="floud-plugin"></div>#}
   {% endif %}
