@@ -4,10 +4,7 @@ import requests
 import pprint
 from datetime import datetime
 
-from django.conf import settings
 from django.core.management import BaseCommand
-from django.core.files import File
-from django.core.files.temp import NamedTemporaryFile
 from events.models import Event
 
 TZ = 'Europe/Helsinki'
@@ -26,30 +23,34 @@ class Command(BaseCommand):
     host = 'api.floud.com'
     api_url = 'https://api.floud.com/api/v1/'
     list_events_url = '/external/events/'
+    my_events_url = '/Events/GetMyEvents'
 
     def add_arguments(self, parser):
         parser.add_argument('-d', '--dry-run', dest='dryrun', default=False, action='store_true')
 
     def handle(self, *args, **kwargs):
         dryrun = kwargs['dryrun']
-        print('Dryrun? %s' % dryrun)
-        data = self.get_events_list()
+        # print('Dryrun? %s' % dryrun)
+        self.refresh_access_code()
+        data = self.get_my_events()
         if data.status_code == 401:
-            # Access token is valid for 30 mins,
-            # so practically we do this every time
             self.stdout.write(self.style.WARNING('We need to reauthenticate...'))
             self.refresh_access_code()
-            data = self.get_events_list()
+            data = self.get_my_events()
 
         if data.ok:
-            events = data.json()['Events']
+            events = data.json()
             if not dryrun:
                 new_events = 0
                 old_events = 0
+                skipped_events = 0
                 for e in events:
+                    if e['MinPrice'] <= 0.0:
+                        skipped_events += 1
+                        continue
                     start = datetime.strptime(e['Start'], '%Y-%m-%dT%H:%M:%S')
                     end = datetime.strptime(e['End'], '%Y-%m-%dT%H:%M:%S')
-                    vars = dict(street_address=e['Address'],
+                    vars = dict(street_address=e['VenueName'],
                                 name=e['Name'],
                                 start_time=pytz.timezone(TZ).localize(start),
                                 end_time=pytz.timezone(TZ).localize(end),
@@ -59,16 +60,20 @@ class Command(BaseCommand):
                         new_events += 1
                     else:
                         old_events += 1
-
-                self.stdout.write(self.style.SUCCESS(f"Updated events. {new_events} new events found"))
+                if new_events == 0:
+                    self.stdout.write(self.style.WARNING(f"no new events found"))
+                else:
+                    self.stdout.write(self.style.SUCCESS(f"Updated events. {new_events} new events found"))
                 if old_events > 0:
-                    self.stdout.write(self.style.WARNING(f'{old_events} old events found'))
+                    self.stdout.write(self.style.WARNING(f'Skipped {old_events} (old) events'))
+                if skipped_events > 0:
+                    self.stdout.write(self.style.WARNING(f'Skipped {skipped_events} (private) events'))
             else:
                 pprint.pprint(data.json())
 
         else:
             self.stdout.write(self.style.ERROR('Something went wrong'))
-            print(data)
+            print(data.json())
 
     def refresh_access_code(self):
         headers = {
@@ -88,16 +93,30 @@ class Command(BaseCommand):
             self.stdout.write(self.style.ERROR(content['error']))
         else:
             self.floud_access_token = content['access_token']
-            self.stdout.write(self.style.SUCCESS('Success'))
+            self.stdout.write(self.style.SUCCESS('Logged in'))
         return content
 
     def get_events_list(self):
         url = self.api_url + self.list_events_url
+        #print('fetching with token', self.floud_access_token)
         headers = {
             'host': self.host,
+            'Accept': 'application/json',
             'Authorization': f"bearer {self.floud_access_token}"
         }
         print('Fetching from URL %s' % url)
+        response = requests.get(url, headers=headers)
+        return response
+
+    def get_my_events(self):
+        url = self.api_url + self.my_events_url
+        # print('fetching our events with token', self.floud_access_token)
+        headers = {
+            # 'host': self.host,
+            'Accept': 'application/json',
+            'Authorization': f"bearer {self.floud_access_token}"
+        }
+        print(f"Fetching events from {url}")
         response = requests.get(url, headers=headers)
         return response
 
