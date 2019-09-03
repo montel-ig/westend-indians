@@ -8,7 +8,7 @@ from django.utils.datetime_safe import datetime
 
 from stats.models import StatsTeam, UpcomingGame
 
-SERIES_ID = 2923
+SERIES_ID = 5635
 INDIANS_ID = 3587
 TZ = pytz.timezone('Europe/Helsinki')
 

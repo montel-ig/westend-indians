@@ -8,7 +8,7 @@ from django.utils.datetime_safe import datetime
 
 from stats.models import StandingsSet, StandingsRow, StatsTeam
 
-SERIES_ID = 2923
+SERIES_ID = 5635
 
 
 class StandingsHTMLParser(HTMLParser):
