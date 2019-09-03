@@ -44,8 +44,7 @@ class UpcomingGamesHTMLParser(HTMLParser):
         # print("Encountered some data  :", data)
         if self.__cur_elem == 'date':
             date, location = data.split(',', 1)
-            time = datetime.strptime(date.strip(), '%d.%m %H.%M')
-            time = time.replace(year=self.__current_year)
+            time = self.format_time(date)
             self.__cur_date = TZ.localize(time)
             self.__cur_location = location.strip()
         elif self.__cur_elem == 'home-team':
@@ -57,6 +56,16 @@ class UpcomingGamesHTMLParser(HTMLParser):
             self.__cur_date = None
             self.__cur_location = None
             self.__cur_home_team = None
+
+    def format_time(self, time):
+        day, month = time.split('.',1)
+        month, time = month.split()
+        hour, minutes = time.split('.')
+        try:
+            formatted_time = datetime(self.__current_year, int(month), int(day), int(hour), int(minutes))
+        except ValueError:
+            formatted_time = datetime(self.__current_year+1, int(month), int(day), int(hour), int(minutes))
+        return formatted_time
 
 
 class Command(BaseCommand):
