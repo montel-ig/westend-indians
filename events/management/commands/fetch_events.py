@@ -2,8 +2,10 @@ import os
 import pytz
 import requests
 import pprint
+import urllib.request
 from datetime import datetime
 
+from django.core.files import File
 from django.core.management import BaseCommand
 from events.models import Event
 
@@ -40,6 +42,7 @@ class Command(BaseCommand):
 
         if data.ok:
             events = data.json()
+            self.stdout.write(self.style.SUCCESS(f"total: {len(events)}"))
             if not dryrun:
                 new_events = 0
                 old_events = 0
@@ -55,8 +58,11 @@ class Command(BaseCommand):
                                 start_time=pytz.timezone(TZ).localize(start),
                                 end_time=pytz.timezone(TZ).localize(end),
                                 subject='miehet-edustus')
+                    event = Event(**vars)
+                    if e['ImageThumbUrl']:
+                        event = self.set_image(event, e['ImageThumbUrl'])
                     if not Event.objects.filter(start_time=vars['start_time'], end_time=vars['end_time']).exists():
-                        Event.objects.create(**vars)
+                        event.save()
                         new_events += 1
                     else:
                         old_events += 1
@@ -119,4 +125,13 @@ class Command(BaseCommand):
         print(f"Fetching events from {url}")
         response = requests.get(url, headers=headers)
         return response
+
+    def set_image(self, event, image_url):
+        result = urllib.request.urlretrieve(image_url)
+        event.image.save(
+            os.path.basename(image_url),
+            File(open(result[0], 'rb')),
+            save=False
+        )
+        return event
 
