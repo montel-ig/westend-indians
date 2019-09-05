@@ -1,5 +1,5 @@
 FROM python:3.6
-MAINTAINER lauri@montel.fi
+MAINTAINER oskari@montel.fi
 
 ENV PYTHONUNBUFFERED 1
 ENV WORK_DIR /app
