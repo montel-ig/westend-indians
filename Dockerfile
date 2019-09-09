@@ -1,5 +1,5 @@
 FROM python:3.6
-MAINTAINER lauri@montel.fi
+MAINTAINER oskari@montel.fi
 
 ENV PYTHONUNBUFFERED 1
 ENV WORK_DIR /app
@@ -8,7 +8,7 @@ WORKDIR ${WORK_DIR}
 EXPOSE 80
 
 # install nginx, circus, chausetta, a more recent nodejs and build deps
-RUN curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh && \
+RUN curl -sL https://deb.nodesource.com/setup_10.x -o nodesource_setup.sh && \
     bash nodesource_setup.sh && \
     apt-get install -y --no-install-recommends nginx vim-tiny nodejs libpq-dev build-essential libjpeg-dev && \
     pip install "tornado<5" circus chaussette && \
