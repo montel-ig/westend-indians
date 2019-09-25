@@ -60,12 +60,15 @@ class UpcomingGamesHTMLParser(HTMLParser):
     def format_time(self, time):
         day, month = time.split('.',1)
         month, time = month.split()
+        year = self.guess_year_from_month(month)
         hour, minutes = time.split('.')
-        try:
-            formatted_time = datetime(self.__current_year, int(month), int(day), int(hour), int(minutes))
-        except ValueError:
-            formatted_time = datetime(self.__current_year+1, int(month), int(day), int(hour), int(minutes))
+        formatted_time = datetime(year, int(month), int(day), int(hour), int(minutes))
         return formatted_time
+
+    def guess_year_from_month(self, month):
+        """Seasons start in August so let's guess that if game's month is before that it's in next year"""
+        month_in_next_year = int(month) < 8
+        return self.__current_year +1 if month_in_next_year else self.__current_year
 
 
 class Command(BaseCommand):
