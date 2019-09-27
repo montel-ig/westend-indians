@@ -68,9 +68,7 @@ html {
 
     a {
       text-decoration: none;
-      //display: block;
-      //width: fit-content;
-      color: $indians-yellow;
+      color: $indians-link-orange;
     }
 
     p {
@@ -94,6 +92,11 @@ html {
       border-style: solid;
       border-color: $indians-yellow;
       margin: 0;
+    }
+
+    th, td {
+      font-family: $encode-sans;
+      letter-spacing: $letter-spacing-medium;
     }
 
     section {
