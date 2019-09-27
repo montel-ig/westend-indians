@@ -69,7 +69,15 @@
   section.team-info {
     padding: $base_padding 0;
   }
-
+  section.homegames {
+    table {
+      tr {
+        td:nth-child(2) {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
   .text-box-container {
     .content {
       //max-width: 100%;
@@ -84,14 +92,30 @@
     overflow: auto;
     th {
       font-weight: bold;
+      text-transform: uppercase;
+      font-size: 14px;
+      padding: 10px;
+      &:empty {
+        display: none;
+      }
     }
-    td, th {
+    td {
       padding: 4px 8px;
     }
     tr {
-      background: white;
+      text-align: left;
       &:nth-child(odd) {
-        background: $indians-light-grey;
+        background: #e8e8e8;
+      }
+      &:nth-child(even) {
+        background: $indians-grey;
+      }
+      &:nth-child(1) {
+        background: black;
+        th {
+          color: white;
+          font-weight: bold;
+        }
       }
     }
   }
