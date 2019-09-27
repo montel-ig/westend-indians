@@ -8,28 +8,6 @@
 
 {% block body_css_class %}info_page{% endblock %}
 
-{% if page.title|slugify == 'miehet-edustus-info' %}
-  {% block extrahead %}
-    <link href="https://floud.com/plugin/main.css" rel="stylesheet">
-  {% endblock %}
-  {% block extrabody %}
-    <script type="text/javascript" src="https://floud.com/plugin/main.js"></script>
-    <script>
-       /*
-      document.addEventListener("DOMContentLoaded", function() {
-        window.FloudPlugin.setOptions({language: 'fi', colors: {
-          activeBackground: '#333333',
-            buttonBackground: '#0b0b0b',
-            textColor: '#FBEF36',
-            textColorButton: '#FFFFFF'
-        }})
-        window.FloudPlugin.initializeComponent(window.FloudPlugin.getOptions())
-      })
-      */
-    </script>
-  {% endblock %}
-{% endif %}
-
 {% block title %}
   {% if page.depth == 4 %}
     {{ page.get_parent.title }} /
@@ -56,19 +34,30 @@
     </section>
     <img class="triangle justify-bottom" src="{% static "images/tilted-bg-black-top.svg" %}">
   {% endif %}
-
-    <section>
+	{% if page.get_parent.slug == 'miehet-edustus' %}
+    <section class="homegames">
+			<a id="info-lift"></a>
       <div class="info-lift">
       	<div>
 					<h2>Kotiottelut</h2>
-					<ul>
-					 {% for e in page.events %}
-							 <li>{{ e.name }}</li>
+					<table class="games" style="width: 100%;">
+						<tr>
+							<th>Ajankohta</th>
+							<th>Vastassa</th>
+							<th>Pelipaikka</th>
+						</tr>
+					 {% for e in page.upcoming_home_games %}
+					 	<tr>
+             	<td>{{ e.date|date:"d.m.Y G.i" }}</td>
+             	<td>{{ e.away_team.name }}</td>
+							<td>{{ e.location }}</td>
+             </tr>
 					 {% endfor %}
-					</ul>
+					</table>
 				</div>
       </div>
     </section>
+  {% endif %}
 
 	{% if page.tickets|striptags|length > 0 %}
 		<section>

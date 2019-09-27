@@ -10,7 +10,8 @@ from sponsors.models import Sponsor
 from news.models import NewsItem
 from events.models import Event
 from products.models import ProductImage
-from teams.models import Match, Team
+from teams.models import Match
+from stats.models import UpcomingGame
 
 
 class IndiansBasePage(Page):
@@ -63,20 +64,6 @@ class IndiansBasePage(Page):
     def front_page_product_images(self):
         return ProductImage.objects.order_by('-id')[:4]
 
-    # Matches
-
-    @property
-    def representative_team_page_matches(self):
-        teamId = 2
-        now = datetime.datetime.now()
-        return Match.objects.filter(date__gt=now, team__id=teamId).order_by('date')[:6]
-
-    @property
-    def upcoming_homegame(self):
-        teamId = 2
-        now = datetime.datetime.now()
-        return Match.objects.filter(homegame=True, date__gt=now, team__id=teamId).order_by('-date').last()
-
     # Lift images
 
     @property
@@ -94,4 +81,12 @@ class IndiansBasePage(Page):
 
     class Meta:
         abstract = True
+
+    # Games
+
+    @property
+    def upcoming_home_games(self):
+        team = "Indians"
+        now = datetime.datetime.now()
+        return UpcomingGame.objects.filter(date__gte=now, home_team__name=team).order_by('date')
 
