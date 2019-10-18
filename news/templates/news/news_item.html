@@ -1,6 +1,7 @@
 {% extends "base_layout.html" %}
 
 {% load staticfiles %}
+{% load wagtailcore_tags %}
 
 {% block body_css_class %}news_page{% endblock %}
 
@@ -34,7 +35,7 @@
       </div>
 
       <div class="cta">
-        <a class="button" href="..">Katso muut uutiset</a>
+        <a class="button" href="{% slugurl 'uutiset' %}">Katso muut uutiset</a>
       </div>
     </div>
   </section>
