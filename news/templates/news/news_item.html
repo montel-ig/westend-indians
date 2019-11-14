@@ -40,6 +40,14 @@
     </div>
   </section>
 
+  <section class="lift">
+    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-black-yellow.svg" %}">
+    <div class="lift-container">
+      {% include "lift.html" with page=page %}
+    </div>
+    <img class="triangle justify-top" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+  </section>
+
   <div id="video-modal-root"></div>
 {% endblock %}
 
