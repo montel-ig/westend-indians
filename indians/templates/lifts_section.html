@@ -1,0 +1,53 @@
+{% load wagtailcore_tags %}
+{% load staticfiles %}
+{% load wagtailimages_tags %}
+
+<section class="lift" {% if lift_bgcolor %}style="background-color: {{ lift_bgcolor }}"{% endif %}>
+
+  {% if top == 'black' %}
+    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-black-yellow.svg" %}">
+  {% elif top == 'white' %}
+    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
+  {% endif %}
+
+  <div class="lift-container">
+    {% for lift in lifts %}
+      <div class="lift-img" data-analytics-label="{{ lift.image }}">
+        <a href="{{ lift.link }}">
+          {% if lift_count == 3 %}
+            {% image lift.image width-350 height='auto' width='auto' %}
+          {% elif lift_count == 2 %}
+            {% image lift.image width-750 height='auto' width='auto' %}
+          {% elif lift_count == 1 %}
+            {% image lift.image width-1280 height='auto' width='auto' %}
+          {% else %}
+          {% endif %}
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+
+  {% if bottom == 'white' %}
+    <img class="triangle justify-top" src="{% static "images/tilted-bg-white-bottom.svg" %}">
+  {% elif bottom == 'black' %}
+    <img class="triangle justify-top" src="{% static "images/tilted-bg-black-bottom.svg" %}">
+  {% endif %}
+</section>
+
+{% if lift_count > 1 %}
+  <script type="text/javascript">
+    var lifts = document.querySelectorAll('.lift-img')
+    for(var i = 0; i < lifts.length; i++) {
+      var lift = lifts[i]
+      lift.onclick = function(e) {
+        // find the actual data container
+        var elem = e.target
+        while(elem.nodeName !== 'DIV') {
+          elem = elem.parentNode
+        }
+        var label = elem.dataset['analyticsLabel']
+        ga('send', 'event', 'Pinnalla', 'click', label)
+      }
+    }
+  </script>
+{% endif %}

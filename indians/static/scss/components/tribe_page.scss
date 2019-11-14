@@ -1,16 +1,5 @@
 .tribe_page {
 
-  section.in-focus {
-    .lift-container,
-    .news-container .row-news .news-item,
-    .some-container .some-row div {
-      opacity: 1;
-    }
-  }
-
-  section.tribe {
-
-  }
   .tribe-body, #lift {
     display: flex;
     justify-content: center;

@@ -150,6 +150,17 @@ html {
       &.footer {
         background-color: black;
       }
+
+      &.in-focus {
+        .team-img,
+        .tribe-img,
+        .news-container .row-news .news-item,
+        .some-container .some-row div,
+        .lift-container {
+          opacity: 1;
+        }
+      }
+
     }
 
     // SVG

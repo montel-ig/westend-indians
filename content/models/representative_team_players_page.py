@@ -25,37 +25,9 @@ class RepresentativeTeamPlayersPage(Parent):
         related_name='+'
     )
 
-    pinnalla = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+'
-    )
-    pinnalla2 = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+'
-    )
-    pinnalla3 = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+'
-    )
-
-    lift_bgcolor = RGBColorField(max_length=120,blank=True)
-
     content_panels = Page.content_panels + [
             FieldPanel('body', classname="full"),
             ImageChooserPanel('team_photo'),
-            ImageChooserPanel('pinnalla'),
-            ImageChooserPanel('pinnalla2'),
-            ImageChooserPanel('pinnalla3'),
-            FieldPanel('lift_bgcolor', classname="full"),
         ]
 
     # Representative team object.. relies on db slug

@@ -2,18 +2,13 @@
 {% load wagtailcore_tags %}
 {% load staticfiles %}
 {% load wagtailimages_tags %}
+{% load lifts_section %}
 
 {% block body_css_class %}home_page{% endblock %}
 
 {% block main %}
 
-  <section class="lift">
-    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-black-yellow.svg" %}">
-    <div class="lift-container">
-      {% include "lift.html" with page=page %}
-    </div>
-    <img class="triangle justify-top" src="{% static "images/tilted-bg-white-bottom.svg" %}">
-  </section>
+  {% lifts_section page top="black" bottom="white" %}
 
   <section class="floating-images">
     <a onclick="showVideoModal('https://www.youtube.com/embed/gs_KGph1bGI');"
