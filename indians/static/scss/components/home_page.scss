@@ -438,14 +438,6 @@
     }
   }
 
-  section.in-focus {
-    .team-img,
-    .tribe-img,
-    .lift-container {
-      opacity: 1;
-    }
-  }
-
   section.lift {
     background: $indians-yellow;
     &.raise-up {

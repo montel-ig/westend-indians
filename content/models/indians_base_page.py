@@ -43,13 +43,15 @@ class IndiansBasePage(Page):
     @property
     def representative_team_page_news_json(self):
         now = datetime.datetime.now()
-        news = NewsItem.objects.filter(subject='miehet-edustus', publication_date__lt=now, visible=True).order_by("-publication_date")[:5]
+        news = NewsItem.objects.filter(subject='miehet-edustus', publication_date__lt=now, visible=True).order_by(
+            "-publication_date")[:5]
         return _serialize_news(news)
 
     @property
     def tribe_page_news_json(self):
         now = datetime.datetime.now()
-        news = NewsItem.objects.filter(subject='heimo', publication_date__lt=now, visible=True).order_by("-publication_date")[:5]
+        news = NewsItem.objects.filter(subject='heimo', publication_date__lt=now, visible=True).order_by(
+            "-publication_date")[:5]
         return _serialize_news(news)
 
     # Events
@@ -68,14 +70,14 @@ class IndiansBasePage(Page):
 
     @property
     def lift_count(self):
-        images = [self.pinnalla,self.pinnalla2,self.pinnalla3]
+        images = [self.pinnalla, self.pinnalla2, self.pinnalla3]
         count = len([i for i in images if i])
         return count
 
     @property
     def home_banners(self):
         home = Page.objects.get(title="Westend Indians").homepage
-        images = [home.pinnalla,home.pinnalla2,home.pinnalla3]
+        images = [home.pinnalla, home.pinnalla2, home.pinnalla3]
         count = len([i for i in images if i])
         return dict(count=count, page=home)
 
@@ -89,4 +91,3 @@ class IndiansBasePage(Page):
         team = "Indians"
         now = datetime.datetime.now()
         return UpcomingGame.objects.filter(date__gte=now, home_team__name=team).order_by('date')
-

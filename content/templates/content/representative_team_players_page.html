@@ -92,15 +92,6 @@
     }
   </script>
 
-  {% if page.pinnalla or page.pinnalla2 or page.pinnalla3%}
-  <section class="lift" style="background-color:{{ page.lift_bgcolor }};">
-    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-white-top.svg" %}">
-    <div class="lift-container">
-      {% include "lift.html" with page=page %}
-    </div>
-  </section>
-  {% endif %}
-
   <img class="triangle black-bg" src="{% static "images/tilted-line-almost-black.svg" %}">
 
 {% endblock %}

@@ -2,6 +2,7 @@
 
 {% load staticfiles %}
 {% load wagtailcore_tags %}
+{% load lifts_section %}
 
 {% block body_css_class %}news_page{% endblock %}
 
@@ -40,13 +41,7 @@
     </div>
   </section>
 
-  <section class="lift">
-    <img class="triangle justify-bottom" src="{% static "images/tilted-bg-black-yellow.svg" %}">
-    <div class="lift-container">
-      {% include "lift.html" with page=page %}
-    </div>
-    <img class="triangle justify-top" src="{% static "images/tilted-bg-black-bottom.svg" %}">
-  </section>
+  {% lifts_section page_for_lifts top=None bottom=None bg_color="black" %}
 
   <div id="video-modal-root"></div>
 {% endblock %}

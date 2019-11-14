@@ -3,6 +3,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.utils.datetime_safe import datetime
+from wagtail.wagtailcore.models import Page
 
 from news.models import NewsItem
 from news.utils import _serialize_news
@@ -29,5 +30,6 @@ def news_item(request, slug):
     except NewsItem.DoesNotExist:
         messages.error(request, "Uutista ei löytynyt")
         return redirect(reverse('news_index'))
+    page_for_lifts = Page.objects.get(title="Westend Indians").homepage
     sponsors = Sponsor.objects.filter(visible_for_frontpage=True)
     return render(request, 'news/news_item.html', locals())
