@@ -91,6 +91,6 @@ spec:
             imagePullPolicy: IfNotPresent
           restartPolicy: Never
           terminationGracePeriodSeconds: 30
-  schedule: 35 4 * * *
+  schedule: 32 4 * * *
   successfulJobsHistoryLimit: 10
 
