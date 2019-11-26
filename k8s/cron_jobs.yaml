@@ -1,0 +1,65 @@
+#apiVersion: batch/v1beta1
+#kind: CronJob
+#metadata:
+#  name: stats-standings-stg
+#  namespace: westend-indians
+#spec:
+#  concurrencyPolicy: Allow
+#  failedJobsHistoryLimit: 10
+#  jobTemplate:
+#    metadata:
+#      creationTimestamp: null
+#    spec:
+#      template:
+#        spec:
+#          containers:
+#          - name: stats-standings-stg
+#            image: "${IMAGE}"
+#            command: ["python"]
+#            args: ["manage.py", "fetch_standings"]
+#            envFrom:
+#            - secretRef:
+#                name: westend-indians-secret
+#                optional: false
+#            - configMapRef:
+#                name: westend-indians-config
+#                optional: false
+#            imagePullPolicy: IfNotPresent
+#          restartPolicy: Never
+#          terminationGracePeriodSeconds: 30
+#  schedule: 10 4 * * 2
+#  successfulJobsHistoryLimit: 10
+#---
+#apiVersion: batch/v1beta1
+#kind: CronJob
+#metadata:
+#  name: fetch-standings
+#  namespace: westend-indians
+#spec:
+#  concurrencyPolicy: Allow
+#  failedJobsHistoryLimit: 10
+#  jobTemplate:
+#    metadata:
+#      creationTimestamp: null
+#    spec:
+#      template:
+#        spec:
+#          containers:
+#          - name: fetch-standings
+#            image: "${IMAGE}"
+#            command: ["python"]
+#            args: ["manage.py", "fetch_standings"]
+#            envFrom:
+#            - secretRef:
+#                name: westend-indians-secret
+#                optional: false
+#            - configMapRef:
+#                name: westend-indians-config
+#                optional: false
+#            imagePullPolicy: IfNotPresent
+#          restartPolicy: Never
+#          terminationGracePeriodSeconds: 30
+#  schedule: 10 4 * * 2
+#  successfulJobsHistoryLimit: 10
+#---
+#
