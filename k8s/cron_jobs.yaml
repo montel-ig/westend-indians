@@ -1,65 +1,96 @@
-#apiVersion: batch/v1beta1
-#kind: CronJob
-#metadata:
-#  name: stats-standings-stg
-#  namespace: westend-indians
-#spec:
-#  concurrencyPolicy: Allow
-#  failedJobsHistoryLimit: 10
-#  jobTemplate:
-#    metadata:
-#      creationTimestamp: null
-#    spec:
-#      template:
-#        spec:
-#          containers:
-#          - name: stats-standings-stg
-#            image: "${IMAGE}"
-#            command: ["python"]
-#            args: ["manage.py", "fetch_standings"]
-#            envFrom:
-#            - secretRef:
-#                name: westend-indians-secret
-#                optional: false
-#            - configMapRef:
-#                name: westend-indians-config
-#                optional: false
-#            imagePullPolicy: IfNotPresent
-#          restartPolicy: Never
-#          terminationGracePeriodSeconds: 30
-#  schedule: 10 4 * * 2
-#  successfulJobsHistoryLimit: 10
-#---
-#apiVersion: batch/v1beta1
-#kind: CronJob
-#metadata:
-#  name: fetch-standings
-#  namespace: westend-indians
-#spec:
-#  concurrencyPolicy: Allow
-#  failedJobsHistoryLimit: 10
-#  jobTemplate:
-#    metadata:
-#      creationTimestamp: null
-#    spec:
-#      template:
-#        spec:
-#          containers:
-#          - name: fetch-standings
-#            image: "${IMAGE}"
-#            command: ["python"]
-#            args: ["manage.py", "fetch_standings"]
-#            envFrom:
-#            - secretRef:
-#                name: westend-indians-secret
-#                optional: false
-#            - configMapRef:
-#                name: westend-indians-config
-#                optional: false
-#            imagePullPolicy: IfNotPresent
-#          restartPolicy: Never
-#          terminationGracePeriodSeconds: 30
-#  schedule: 10 4 * * 2
-#  successfulJobsHistoryLimit: 10
-#---
-#
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: stats-standings
+  namespace: ${NAMESPACE}
+spec:
+  concurrencyPolicy: Allow
+  failedJobsHistoryLimit: 10
+  jobTemplate:
+    metadata:
+      creationTimestamp: null
+    spec:
+      template:
+        spec:
+          containers:
+          - name: stats-standings
+            image: "${IMAGE}"
+            command: ["python"]
+            args: ["manage.py", "fetch_standings"]
+            envFrom:
+            - secretRef:
+                name: westend-indians-secret
+                optional: false
+            - configMapRef:
+                name: westend-indians-config
+                optional: false
+            imagePullPolicy: IfNotPresent
+          restartPolicy: Never
+          terminationGracePeriodSeconds: 30
+  schedule: 10 4 * * 2
+  successfulJobsHistoryLimit: 10
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: stats-upcoming
+  namespace: ${NAMESPACE}
+spec:
+  concurrencyPolicy: Allow
+  failedJobsHistoryLimit: 10
+  jobTemplate:
+    metadata:
+      creationTimestamp: null
+    spec:
+      template:
+        spec:
+          containers:
+          - name: stats-upcoming
+            image: "${IMAGE}"
+            command: ["python"]
+            args: ["manage.py", "fetch_upcoming_games"]
+            envFrom:
+            - secretRef:
+                name: westend-indians-secret
+                optional: false
+            - configMapRef:
+                name: westend-indians-config
+                optional: false
+            imagePullPolicy: IfNotPresent
+          restartPolicy: Never
+          terminationGracePeriodSeconds: 30
+  schedule: 35 4 * * *
+  successfulJobsHistoryLimit: 10
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: stats-played
+  namespace: ${NAMESPACE}
+spec:
+  concurrencyPolicy: Allow
+  failedJobsHistoryLimit: 10
+  jobTemplate:
+    metadata:
+      creationTimestamp: null
+    spec:
+      template:
+        spec:
+          containers:
+          - name: stats-played
+            image: "${IMAGE}"
+            command: ["python"]
+            args: ["manage.py", "fetch_played_games"]
+            envFrom:
+            - secretRef:
+                name: westend-indians-secret
+                optional: false
+            - configMapRef:
+                name: westend-indians-config
+                optional: false
+            imagePullPolicy: IfNotPresent
+          restartPolicy: Never
+          terminationGracePeriodSeconds: 30
+  schedule: 35 4 * * *
+  successfulJobsHistoryLimit: 10
+
