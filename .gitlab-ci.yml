@@ -67,11 +67,11 @@ deploy-prod:
   variables:
     TAG: $CI_COMMIT_REF_SLUG-$CI_COMMIT_SHORT_SHA
     REPLICAS: 3
-    NAMESPACE: westend-indians-prod
+    NAMESPACE: westend-indians-production
   script:
     - export TAG
     - export REPLICAS
-    - rancher-deploy.sh -n westend-indians -r montel/westend-indians -y apply ./k8s/deployment.yaml
-    - rancher-deploy.sh -n westend-indians -r montel/westend-indians -y apply ./k8s/cron_jobs.yaml
+    - rancher-deploy.sh -n westend-indians-production -r montel/westend-indians -y apply ./k8s/deployment.yaml
+    - rancher-deploy.sh -n westend-indians-production -r montel/westend-indians -y apply ./k8s/cron_jobs.yaml
 #  only:
 #    - master
