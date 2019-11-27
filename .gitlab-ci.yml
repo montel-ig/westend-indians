@@ -73,4 +73,4 @@ deploy-stage:
 #    - rancher-deploy.sh -n westend-indians -r montel/westend-indians -y apply ./k8s/deployment.yaml
 #    - rancher-deploy.sh -n westend-indians -r montel/westend-indians -y apply ./k8s/cron_jobs.yaml
 #  only:
-#    - develop
+#    - master
