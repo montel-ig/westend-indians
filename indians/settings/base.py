@@ -13,7 +13,7 @@ else:
     DEBUG = True
 
 # ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'staging.westendindians.fi', 'westendindians.fi']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']  # FIXME
 
 
 # Application definition
