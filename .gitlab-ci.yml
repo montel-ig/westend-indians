@@ -13,7 +13,7 @@ variables:
   DOCKER_HOST: tcp://localhost:2375
   TEST_IMAGE: montel/westend-indians:test-$CI_COMMIT_REF_SLUG-$CI_COMMIT_SHORT_SHA
   RELEASE_IMAGE: montel/westend-indians:$CI_COMMIT_REF_SLUG-$CI_COMMIT_SHORT_SHA
-  CACHE_IMAGE: montel/westend-indians:develop
+  CACHE_IMAGE: montel/westend-indians:cached
 
 build-image:
   stage: build
@@ -32,6 +32,7 @@ release-image:
     - montel
 #  only:
 #    - develop
+#    - master
   before_script:
     - docker login -u "$CI_DOCKERHUB_USER" -p "$CI_DOCKERHUB_PASSWORD"
   script:
@@ -66,7 +67,7 @@ deploy-prod:
   variables:
     TAG: $CI_COMMIT_REF_SLUG-$CI_COMMIT_SHORT_SHA
     REPLICAS: 3
-    NAMESPACE: westend-indians
+    NAMESPACE: westend-indians-prod
   script:
     - export TAG
     - export REPLICAS
