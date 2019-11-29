@@ -4,12 +4,15 @@ metadata:
   name: stats-standings
   namespace: ${NAMESPACE}
 spec:
-  concurrencyPolicy: Allow
+  concurrencyPolicy: Forbid
   failedJobsHistoryLimit: 10
+  startingDeadlineSeconds: 10
   jobTemplate:
     metadata:
       creationTimestamp: null
     spec:
+      backoffLimit: 0
+      activeDeadlineSeconds: 55
       template:
         spec:
           containers:
@@ -36,12 +39,15 @@ metadata:
   name: stats-upcoming
   namespace: ${NAMESPACE}
 spec:
-  concurrencyPolicy: Allow
+  concurrencyPolicy: Forbid
   failedJobsHistoryLimit: 10
+  startingDeadlineSeconds: 10
   jobTemplate:
     metadata:
       creationTimestamp: null
     spec:
+      backoffLimit: 0
+      activeDeadlineSeconds: 55
       template:
         spec:
           containers:
@@ -68,12 +74,15 @@ metadata:
   name: stats-played
   namespace: ${NAMESPACE}
 spec:
-  concurrencyPolicy: Allow
+  concurrencyPolicy: Forbid
   failedJobsHistoryLimit: 10
+  startingDeadlineSeconds: 10
   jobTemplate:
     metadata:
       creationTimestamp: null
     spec:
+      backoffLimit: 0
+      activeDeadlineSeconds: 55
       template:
         spec:
           containers:
@@ -91,6 +100,6 @@ spec:
             imagePullPolicy: IfNotPresent
           restartPolicy: Never
           terminationGracePeriodSeconds: 30
-  schedule: 32 4 * * *
+  schedule: 30 4 * * *
   successfulJobsHistoryLimit: 10
 
