@@ -30,9 +30,9 @@ release-image:
   stage: release
   tags:
     - montel
-#  only:
-#    - develop
-#    - master
+  only:
+    - develop
+    - master
   before_script:
     - docker login -u "$CI_DOCKERHUB_USER" -p "$CI_DOCKERHUB_PASSWORD"
   script:
@@ -56,13 +56,13 @@ deploy-stage:
     - export REPLICAS
     - rancher-deploy.sh -n $NAMESPACE -r montel/westend-indians -y apply ./k8s/deployment.yaml
     - rancher-deploy.sh -n $NAMESPACE -r montel/westend-indians -y apply ./k8s/cron_jobs.yaml
-#  only:
-#    - develop
+  only:
+    - develop
 
 deploy-prod:
   extends: deploy-stage
   variables:
     RELICAS: 3
     NAMESPACE: westend-indians-production
-#  only:
-#    - master
+  only:
+    - master
