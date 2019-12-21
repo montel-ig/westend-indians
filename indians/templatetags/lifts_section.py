@@ -11,7 +11,7 @@ def lifts_section(page_or_lifts, top=None, bottom=None, bg_color=None):
     lift_bgcolor = bg_color
     if isinstance(page_or_lifts, IndiansBasePage):
         for attr_prefix in ("pinnalla", "pinnalla2", "pinnalla3"):
-            img = getattr(page_or_lifts, attr_prefix, "").strip()
+            img = getattr(page_or_lifts, attr_prefix, None)
             link = getattr(page_or_lifts, attr_prefix+'_link', "").strip()
             if img and link:
                 lifts.append(dict(
