@@ -1,0 +1,30 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  labels:
+    app: westend-indians
+  name: westend-indians
+spec:
+  replicas: ${REPLICAS}
+  selector:
+    matchLabels:
+      app: westend-indians
+  template:
+    metadata:
+      labels:
+        app: westend-indians
+    spec:
+      containers:
+      - envFrom:
+        - configMapRef:
+            name: westend-indians-config
+            optional: false
+        - secretRef:
+            name: westend-indians-secret
+            optional: false
+        image: "${IMAGE}"
+        imagePullPolicy: Always
+        name: westend-indians
+      imagePullSecrets:
+      - name: dockerhub-credentians
+      restartPolicy: Always
