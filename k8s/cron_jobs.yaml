@@ -30,7 +30,7 @@ spec:
             imagePullPolicy: IfNotPresent
           restartPolicy: Never
           terminationGracePeriodSeconds: 30
-  schedule: 10 4 * * 2
+  schedule: 10 4,17,22 * * *
   successfulJobsHistoryLimit: 10
 ---
 apiVersion: batch/v1beta1
