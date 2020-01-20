@@ -62,8 +62,7 @@ class Command(BaseCommand):
     help = 'Import the upcoming games'
 
     def add_arguments(self, parser):
-        pars
-        er.add_argument('-d', '--dry-run', dest='dryrun', default=False, action='store_true')
+        parser.add_argument('-d', '--dry-run', dest='dryrun', default=False, action='store_true')
 
     def handle(self, *args, **kwargs):
         dryrun = kwargs['dryrun']
