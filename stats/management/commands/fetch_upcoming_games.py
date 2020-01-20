@@ -29,6 +29,12 @@ class UpcomingGamesHTMLParser(HTMLParser):
         if tag == 'div':
             if ('class', 'date') in attrs:
                 self.__cur_elem = 'date'
+                # Get complete time from title of the div
+                # eg. [('class', 'date'), ('title', '29.01.2020 18.30, Energia Areena Vantaa')]
+                time, location, = attrs[1][1].split(',')
+                self.__cur_date = TZ.localize(datetime.strptime(time, '%d.%m.%Y %H.%M'))
+                self.__cur_location = location.strip()
+
             elif ('class', 'hometeam') in attrs:
                 self.__cur_elem = 'home-team'
             elif ('class', 'awayteam') in attrs:
@@ -41,13 +47,7 @@ class UpcomingGamesHTMLParser(HTMLParser):
         #     self.data.append(self.__cur_data)
 
     def handle_data(self, data):
-        # print("Encountered some data  :", data)
-        if self.__cur_elem == 'date':
-            date, location = data.split(',', 1)
-            time = self.format_time(date)
-            self.__cur_date = TZ.localize(time)
-            self.__cur_location = location.strip()
-        elif self.__cur_elem == 'home-team':
+        if self.__cur_elem == 'home-team':
             self.__cur_home_team = data.strip()
         elif self.__cur_elem == 'away-team':
             self.data.append(dict(date=self.__cur_date,
@@ -57,25 +57,13 @@ class UpcomingGamesHTMLParser(HTMLParser):
             self.__cur_location = None
             self.__cur_home_team = None
 
-    def format_time(self, time):
-        day, month = time.split('.',1)
-        month, time = month.split()
-        year = self.guess_year_from_month(month)
-        hour, minutes = time.split('.')
-        formatted_time = datetime(year, int(month), int(day), int(hour), int(minutes))
-        return formatted_time
-
-    def guess_year_from_month(self, month):
-        """Seasons start in August so let's guess that if game's month is before that it's in next year"""
-        month_in_next_year = int(month) < 8
-        return self.__current_year +1 if month_in_next_year else self.__current_year
-
 
 class Command(BaseCommand):
     help = 'Import the upcoming games'
 
     def add_arguments(self, parser):
-        parser.add_argument('-d', '--dry-run', dest='dryrun', default=False, action='store_true')
+        pars
+        er.add_argument('-d', '--dry-run', dest='dryrun', default=False, action='store_true')
 
     def handle(self, *args, **kwargs):
         dryrun = kwargs['dryrun']
@@ -98,4 +86,3 @@ class Command(BaseCommand):
                             new_games += 1
 
                     self.stdout.write(self.style.SUCCESS(f"Updated upcoming games. {new_games} new games found"))
-
